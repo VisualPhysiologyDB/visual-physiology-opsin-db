@@ -1,0 +1,143 @@
+
+
+. Command line: /data/http/www/binaries/phyml/phyml -i /data/http/www/exec/20230907-010127_Cy21/vert_tree_aln_phylip -d aa -b -4 -m WAG -v 0 -c 4 -f m -a e --leave_duplicates -o tlr --no_memory_check 
+
+
+
+
+
+  ////////////////////////////////////.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.//////////////////////////////////////////
+
+        . Sequence filename:				 vert_tree_aln_phylip
+        . Data type:					 aa
+        . Alphabet size:				 20
+        . Sequence format:				 interleaved
+        . Number of data sets:				 1
+        . Nb of bootstrapped data sets:			 0
+        . Compute approximate likelihood ratio test:	 yes (SH-like branch supports)
+        . Model name:					 WAG
+        . Proportion of invariable sites:		 0.000000
+        . RAS model:					 discrete Gamma
+        . Number of subst. rate catgs:			 4
+        . Gamma distribution parameter:			 estimated
+        . 'Middle' of each rate class:			 mean
+        . Amino-acid equilibrium frequencies:		 model-defined
+        . Optimise tree topology:			 yes
+        . Starting tree:				 BioNJ
+        . Add random input tree:			 no
+        . Optimise branch lengths:			 yes
+        . Minimum length of an edge:			 1e-08
+        . Optimise substitution model parameters:	 yes
+        . Run ID:					 none
+        . Random seed:					 1694041288
+        . Subtree patterns aliasing:			 no
+        . Version:					 3.3.20220408
+        . Byte alignment:				 32
+        . AVX enabled:					 yes
+        . SSE enabled:					 yes
+
+  ////////////////////////////////////.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.//////////////////////////////////////////
+
+
+
+. 202 patterns found (out of a total of 205 sites). 
+
+. 11 sites without polymorphism (5.37%).
+
+
+. Computing pairwise distances...
+
+. Building BioNJ tree...
+
+. WARNING: this analysis requires at least 417 MB of memory space.
+
+
+. Score of initial tree: -22666.11
+
+. Starting first round of SPRs...
+
+	     999s |   1 | lnL=    -21121.0 | depth=   15/  190 | improvements= 257 | delta_lnL=  107.0/ 1000.0   +
+	    1952s |   2 | lnL=    -20940.3 | depth=    9/  114 | improvements=  92 | delta_lnL=   20.4/ 1000.0   +
+	    2913s |   3 | lnL=    -20921.5 | depth=    9/   68 | improvements=  80 | delta_lnL=   66.5/ 1000.0   +
+	    3822s |   4 | lnL=    -20911.3 | depth=    8/   40 | improvements=  69 | delta_lnL=   50.1/ 1000.0   +
+	    4342s |   5 | lnL=    -20892.5 | depth=    8/   24 | improvements=  72 | delta_lnL=   13.2/ 1000.0   +
+	    4491s |   6 | lnL=    -20884.3 | depth=   13/   14 | improvements=  81 | delta_lnL=   17.4/  214.0   +
+	    4668s |   7 | lnL=    -20860.4 | depth=   11/   19 | improvements=  69 | delta_lnL=   40.6/  214.0   +
+	    4833s |   8 | lnL=    -20855.3 | depth=   13/   17 | improvements=  59 | delta_lnL=   17.0/  214.0   +
+	    5007s |   9 | lnL=    -20853.2 | depth=    6/   19 | improvements=  58 | delta_lnL=   31.5/  214.0   +
+	    5093s |  10 | lnL=    -20856.1 | depth=    7/   12 | improvements=  52 | delta_lnL=   67.4/   81.2  
+	    5184s |  11 | lnL=    -20851.1 | depth=    3/   13 | improvements=  40 | delta_lnL=   12.8/   81.2   +
+	    5229s |  12 | lnL=    -20852.5 | depth=    2/    9 | improvements=  37 | delta_lnL=    2.2/   81.2  
+	    5275s |  13 | lnL=    -20856.5 | depth=    3/    8 | improvements=  49 | delta_lnL=    8.7/   81.2  
+	    5329s |  14 | lnL=    -20866.5 | depth=    7/    9 | improvements=  41 | delta_lnL=   11.3/  134.8  
+	    5401s |  15 | lnL=    -20864.7 | depth=    6/   13 | improvements=  38 | delta_lnL=   18.9/  134.8  
+	    5465s |  16 | lnL=    -20854.8 | depth=    6/   12 | improvements=  35 | delta_lnL=   36.5/  134.8  
+	    5532s |  17 | lnL=    -20872.4 | depth=    6/   12 | improvements=  37 | delta_lnL=   14.2/  134.8  
+	    5580s |  18 | lnL=    -20846.6 | depth=    6/   12 | improvements=  37 | delta_lnL=   23.2/   73.1   +
+	    5628s |  19 | lnL=    -20842.4 | depth=    6/   12 | improvements=  35 | delta_lnL=    8.0/   73.1   +
+	    5678s |  20 | lnL=    -20866.6 | depth=   12/   12 | improvements=  37 | delta_lnL=   13.7/   73.1  
+	    5740s |  21 | lnL=    -20851.6 | depth=    7/   18 | improvements=  40 | delta_lnL=   31.5/   73.1  
+	    5787s |  22 | lnL=    -20875.5 | depth=    6/   13 | improvements=  55 | delta_lnL=   36.0/   50.0  
+	    5829s |  23 | lnL=    -20835.0 | depth=    4/   12 | improvements=  37 | delta_lnL=   12.5/   50.0   +
+	    5866s |  24 | lnL=    -20836.2 | depth=    8/   10 | improvements=  30 | delta_lnL=   29.6/   50.0  
+	    5909s |  25 | lnL=    -20852.2 | depth=   12/   14 | improvements=  36 | delta_lnL=   21.3/   50.0  
+	    5969s |  26 | lnL=    -20867.1 | depth=   11/   18 | improvements=  51 | delta_lnL=    4.9/   72.0  
+	    6025s |  27 | lnL=    -20852.9 | depth=    8/   17 | improvements=  38 | delta_lnL=   30.0/   72.0  
+	    6074s |  28 | lnL=    -20864.2 | depth=   10/   14 | improvements=  27 | delta_lnL=   13.7/   72.0  
+	    6129s |  29 | lnL=    -20861.8 | depth=    7/   16 | improvements=  43 | delta_lnL=   16.2/   72.0  
+	    6175s |  30 | lnL=    -20831.5 | depth=   11/   13 | improvements=  30 | delta_lnL=   10.3/   60.1   +
+	    6231s |  31 | lnL=    -20817.9 | depth=   10/   17 | improvements=  40 | delta_lnL=   10.6/   60.1   +
+	    6281s |  32 | lnL=    -20855.0 | depth=    8/   16 | improvements=  29 | delta_lnL=   11.1/   60.1  
+	    6329s |  33 | lnL=    -20853.0 | depth=    6/   14 | improvements=  36 | delta_lnL=   14.2/   60.1  
+	    6371s |  34 | lnL=    -20863.9 | depth=    5/   12 | improvements=  35 | delta_lnL=   21.1/   50.0  
+	    6410s |  35 | lnL=    -20829.8 | depth=    3/   11 | improvements=  26 | delta_lnL=   10.9/   50.0  
+	    6451s |  36 | lnL=    -20837.3 | depth=    9/    9 | improvements=  42 | delta_lnL=   25.9/   50.0  
+	    6496s |  37 | lnL=    -20823.9 | depth=    3/   15 | improvements=  30 | delta_lnL=   13.1/   50.0  
+	    6532s |  38 | lnL=    -20828.9 | depth=    1/    9 | improvements=  20 | delta_lnL=    0.0/   51.7  
+	    6566s |  39 | lnL=    -20836.9 | depth=    4/    7 | improvements=  30 | delta_lnL=    3.6/   51.7  
+	    6606s |  40 | lnL=    -20867.5 | depth=   10/   10 | improvements=  37 | delta_lnL=   24.7/   51.7  
+
+. Second round of optimization...
+
+	    6678s |  41 | lnL=    -20830.0 | depth=   15/   24 | improvements=  71 | delta_lnL=   20.6/   51.7  
+	    6713s |  42 | lnL=    -20838.7 | depth=   10/   19 | improvements=  49 | delta_lnL=   13.6/   20.0  
+	    6748s |  43 | lnL=    -20850.6 | depth=    6/   15 | improvements=  50 | delta_lnL=   21.6/   20.0  
+	    6782s |  44 | lnL=    -20833.3 | depth=    7/   12 | improvements=  50 | delta_lnL=   10.2/   20.0  
+	    6816s |  45 | lnL=    -20833.2 | depth=    6/   11 | improvements=  51 | delta_lnL=   11.3/   20.0  
+	    6856s |  46 | lnL=    -20815.7 | depth=    6/   10 | improvements=  47 | delta_lnL=    5.7/   43.2   +
+	    6896s |  47 | lnL=    -20822.7 | depth=    4/   10 | improvements=  49 | delta_lnL=    6.0/   43.2  
+	    6936s |  48 | lnL=    -20825.9 | depth=    3/    8 | improvements=  53 | delta_lnL=    8.0/   43.2  
+	    6975s |  49 | lnL=    -20814.3 | depth=    6/    7 | improvements=  54 | delta_lnL=   13.0/   43.2   +
+	    7008s |  50 | lnL=    -20823.4 | depth=    6/   10 | improvements=  52 | delta_lnL=    8.5/   20.0  
+	    7060s |  51 | lnL=    -20806.2 | depth=    6/   10 | improvements=  65 | delta_lnL=   17.9/   20.0   +
+	    7089s |  52 | lnL=    -20821.3 | depth=   10/   10 | improvements=  31 | delta_lnL=   12.5/   20.0  
+	    7126s |  53 | lnL=    -20822.0 | depth=    4/   14 | improvements=  62 | delta_lnL=   22.6/   20.0  
+	    7164s |  54 | lnL=    -20814.4 | depth=    8/   11 | improvements=  44 | delta_lnL=   11.5/   35.9  
+	    7206s |  55 | lnL=    -20822.5 | depth=    8/   12 | improvements=  58 | delta_lnL=    6.6/   35.9  
+	    7248s |  56 | lnL=    -20814.5 | depth=    5/   12 | improvements=  55 | delta_lnL=   11.8/   35.9  
+	    7285s |  57 | lnL=    -20820.0 | depth=    6/    9 | improvements=  43 | delta_lnL=   11.3/   35.9  
+	    7322s |  58 | lnL=    -20812.3 | depth=    9/   10 | improvements=  59 | delta_lnL=   12.7/   23.7  
+	    7355s |  59 | lnL=    -20814.3 | depth=    6/   13 | improvements=  40 | delta_lnL=   13.6/   23.7  
+	    7387s |  60 | lnL=    -20814.3 | depth=    4/   10 | improvements=  38 | delta_lnL=    2.8/   23.7  
+
+. Third round of optimization...
+
+	    7576s |  61 | lnL=    -20786.9 | depth=    7/   10 | improvements=  41 | delta_lnL=    9.6/  100.0 | triple moves=   5   +
+	    7771s |  62 | lnL=    -20786.1 | depth=   14/   14 | improvements=   5 | delta_lnL=    3.7/  100.0 | triple moves=   8   +
+	    7986s |  63 | lnL=    -20786.1 | depth=    0/   28 | improvements=   1 | delta_lnL=    0.0/  100.0 | triple moves=   5   +
+	    8218s |  64 | lnL=    -20786.1 | depth=    0/   22 | improvements=   0 | delta_lnL=    0.0/  100.0 | triple moves=   5   +
+
+. Final optimisation steps...
+
+
+. Log likelihood of the current tree: -20786.064260977917001582682.
+
+. Calculating fast branch supports (using 'SH').
+
+. Printing the most likely tree in file 'vert_tree_aln_phylip_phyml_tree.txt'.
+
+. Time used 2h19m49s
+
+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo

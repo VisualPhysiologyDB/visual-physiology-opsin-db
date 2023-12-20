@@ -1,0 +1,1035 @@
+IQ-TREE multicore version 1.6.12 for Linux 64-bit built Aug 15 2019
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    meselson (SSE3, 15 GB RAM)
+Command: ../../iqtree -s verts_tree_aln.fasta -st AA -m WAG+G4+F -bb 1000 -alrt 1000
+Seed:    356551 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Wed Sep  6 02:55:36 2023
+Kernel:  SSE2 - 1 threads (8 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 8 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading alignment file verts_tree_aln.fasta ... Fasta format detected
+Alignment most likely contains protein sequences
+Alignment has 756 sequences with 205 columns, 202 distinct patterns
+192 parsimony-informative, 2 singleton sites, 11 constant sites
+        Gap/Ambiguity  Composition  p-value
+   1  S463      0.00%    passed     99.08%
+   2  S466      0.00%    passed     99.71%
+   3  S166      0.00%    passed    100.00%
+   4  S486      0.00%    passed     99.08%
+   5  S410      0.00%    passed     97.84%
+   6  S10       0.00%    passed     99.83%
+   7  S377      0.00%    passed     88.17%
+   8  S379      0.00%    passed     99.97%
+   9  S714      0.00%    passed     83.19%
+  10  S49       0.00%    passed     99.57%
+  11  S101      0.00%    passed    100.00%
+  12  S37       0.00%    passed     99.92%
+  13  S487      0.00%    passed     98.76%
+  14  S559      0.00%    passed     99.55%
+  15  S457      0.00%    passed     99.08%
+  16  S581      0.00%    passed     99.97%
+  17  S203      0.00%    passed     99.14%
+  18  S749      0.00%    passed     98.02%
+  19  S629      0.00%    passed     98.26%
+  20  S528      0.00%    passed     99.97%
+  21  S53       0.00%    passed     99.08%
+  22  S428      0.00%    passed     99.09%
+  23  S285      0.00%    passed     98.26%
+  24  S355      0.00%    passed     99.82%
+  25  S402      0.00%    passed     91.87%
+  26  S345      0.00%    passed     97.98%
+  27  S628      0.00%    passed     98.26%
+  28  S208      0.00%    passed     99.44%
+  29  S407      0.00%    passed     99.26%
+  30  S716      0.00%    passed     76.33%
+  31  S238      0.00%    passed     99.65%
+  32  S695      0.00%    passed     98.95%
+  33  S361      0.00%    passed     99.95%
+  34  S313      0.00%    passed    100.00%
+  35  S303      0.00%    passed     77.07%
+  36  S132      0.00%    passed     99.29%
+  37  Bovine    0.00%    passed     99.44%
+  38  S570      0.00%    passed     99.89%
+  39  S549      0.00%    passed     99.44%
+  40  S707      0.00%    passed     99.87%
+  41  S728      0.00%    passed     69.46%
+  42  S710      0.00%    passed     83.18%
+  43  S633      0.00%    passed     98.24%
+  44  S54       0.00%    passed     99.47%
+  45  S426      0.00%    passed     98.67%
+  46  S269      0.00%    passed     98.62%
+  47  S320      0.00%    passed     99.99%
+  48  S315      0.00%    passed    100.00%
+  49  S42       0.00%    passed     95.78%
+  50  S86       0.00%    passed    100.00%
+  51  S68       0.00%    passed     99.86%
+  52  S17       0.00%    passed     99.92%
+  53  S488      0.00%    passed     99.08%
+  54  S523      0.00%    passed     99.77%
+  55  S603      0.00%    passed     98.62%
+  56  S156      0.00%    passed     99.94%
+  57  S98       0.00%    passed     99.59%
+  58  S692      0.00%    passed     99.85%
+  59  S105      0.00%    passed     99.98%
+  60  S580      0.00%    passed     99.98%
+  61  S275      0.00%    passed     99.98%
+  62  S573      0.00%    passed     99.98%
+  63  S142      0.00%    passed     99.44%
+  64  S284      0.00%    passed     99.95%
+  65  S753      0.00%    passed     78.47%
+  66  S69       0.00%    passed     99.49%
+  67  S475      0.00%    passed     92.64%
+  68  S605      0.00%    passed     99.27%
+  69  S378      0.00%    passed     99.89%
+  70  S589      0.00%    passed     99.99%
+  71  S675      0.00%    passed     98.47%
+  72  S172      0.00%    passed     99.43%
+  73  S57       0.00%    passed     99.44%
+  74  S244      0.00%    passed     99.82%
+  75  S176      0.00%    passed     99.99%
+  76  S399      0.00%    passed     88.84%
+  77  S201      0.00%    passed     67.51%
+  78  S299      0.00%    passed     69.67%
+  79  S115      0.00%    passed    100.00%
+  80  S544      0.00%    passed     99.46%
+  81  S353      0.00%    passed    100.00%
+  82  S312      0.00%    passed    100.00%
+  83  S350      0.00%    passed     99.19%
+  84  S73       0.00%    passed     99.89%
+  85  S33       0.00%    passed     99.95%
+  86  S267      0.00%    passed     99.44%
+  87  S600      0.00%    passed     99.94%
+  88  S512      0.00%    passed     99.79%
+  89  S385      0.00%    passed     98.35%
+  90  S259      0.00%    passed     99.23%
+  91  S308      0.00%    passed     56.53%
+  92  S536      0.00%    passed     99.90%
+  93  S519      0.00%    passed     99.87%
+  94  S243      0.00%    passed     99.95%
+  95  S693      0.00%    passed     99.91%
+  96  S609      0.00%    passed     99.27%
+  97  S306      0.00%    passed     70.04%
+  98  S196      0.00%    passed     95.08%
+  99  S62       0.00%    passed     97.91%
+ 100  S185      0.00%    passed     96.69%
+ 101  S277      0.00%    passed     99.98%
+ 102  S124      0.00%    passed     99.80%
+ 103  S575      0.00%    passed     99.98%
+ 104  S454      0.00%    passed     97.31%
+ 105  S723      0.00%    passed     81.94%
+ 106  S440      0.00%    passed     94.98%
+ 107  S200      0.00%    passed     70.41%
+ 108  S359      0.00%    passed     99.98%
+ 109  S336      0.00%    passed     99.75%
+ 110  S421      0.00%    passed     99.17%
+ 111  S429      0.00%    passed     99.18%
+ 112  S125      0.00%    passed     99.82%
+ 113  S41       0.00%    passed     97.18%
+ 114  S465      0.00%    passed     99.08%
+ 115  S478      0.00%    passed     98.16%
+ 116  S422      0.00%    passed     98.28%
+ 117  S604      0.00%    passed     98.41%
+ 118  S229      0.00%    passed     97.98%
+ 119  S258      0.00%    passed     99.55%
+ 120  S622      0.00%    passed     98.26%
+ 121  S530      0.00%    passed     99.94%
+ 122  S324      0.00%    passed     35.20%
+ 123  S295      0.00%    passed     90.99%
+ 124  S687      0.00%    passed     99.44%
+ 125  S180      0.00%    passed    100.00%
+ 126  S97       0.00%    passed     99.59%
+ 127  S408      0.00%    passed     95.70%
+ 128  S173      0.00%    passed    100.00%
+ 129  S577      0.00%    passed     99.98%
+ 130  S193      0.00%    passed     98.61%
+ 131  S638      0.00%    passed     95.93%
+ 132  S698      0.00%    passed     95.93%
+ 133  S437      0.00%    passed     91.93%
+ 134  S425      0.00%    passed     98.73%
+ 135  S107      0.00%    passed     99.94%
+ 136  S138      0.00%    passed     99.97%
+ 137  S444      0.00%    passed     97.73%
+ 138  S548      0.00%    passed     99.75%
+ 139  S75       0.00%    passed     99.68%
+ 140  S158      0.00%    passed     99.79%
+ 141  S515      0.00%    passed     99.69%
+ 142  S403      0.00%    passed     99.51%
+ 143  S168      0.00%    passed     99.91%
+ 144  S703      0.00%    passed     99.70%
+ 145  S182      0.00%    passed     97.31%
+ 146  S745      0.00%    passed     98.54%
+ 147  S245      0.00%    passed     99.32%
+ 148  S541      0.00%    passed     99.75%
+ 149  S130      0.00%    passed     99.27%
+ 150  S192      0.00%    passed     95.42%
+ 151  S141      0.00%    passed     99.70%
+ 152  S234      0.00%    passed    100.00%
+ 153  S271      0.00%    passed     98.71%
+ 154  S694      0.00%    passed     99.85%
+ 155  S672      0.00%    passed     96.54%
+ 156  S404      0.00%    passed     99.35%
+ 157  S586      0.00%    passed     99.98%
+ 158  S617      0.00%    passed     98.26%
+ 159  S585      0.00%    passed     99.91%
+ 160  S263      0.00%    passed     99.43%
+ 161  S322      0.00%    passed    100.00%
+ 162  S372      0.00%    failed      1.92%
+ 163  S386      0.00%    passed     86.55%
+ 164  S497      0.00%    passed     99.98%
+ 165  S517      0.00%    passed     99.94%
+ 166  S700      0.00%    passed     99.77%
+ 167  S464      0.00%    passed     98.37%
+ 168  S165      0.00%    passed    100.00%
+ 169  S458      0.00%    passed     98.44%
+ 170  S500      0.00%    passed     98.93%
+ 171  S543      0.00%    passed     99.75%
+ 172  S568      0.00%    passed     99.95%
+ 173  S542      0.00%    passed     99.63%
+ 174  S474      0.00%    passed     96.69%
+ 175  S729      0.00%    passed     69.36%
+ 176  S319      0.00%    passed     99.25%
+ 177  S279      0.00%    passed     99.50%
+ 178  S669      0.00%    passed     99.44%
+ 179  S511      0.00%    passed     99.46%
+ 180  S163      0.00%    passed    100.00%
+ 181  S149      0.00%    passed     99.93%
+ 182  S433      0.00%    passed     97.84%
+ 183  S448      0.00%    passed     96.22%
+ 184  S136      0.00%    passed     99.31%
+ 185  S451      0.00%    passed     97.73%
+ 186  S76       0.00%    passed     99.95%
+ 187  S649      0.00%    passed     50.62%
+ 188  S642      0.00%    passed     99.93%
+ 189  S298      0.00%    passed     81.41%
+ 190  S435      0.00%    passed     99.80%
+ 191  S621      0.00%    passed     98.26%
+ 192  S471      0.00%    passed     97.31%
+ 193  S250      0.00%    passed     99.05%
+ 194  S659      0.00%    passed     76.49%
+ 195  S653      0.00%    passed     70.28%
+ 196  S207      0.00%    passed     99.44%
+ 197  S558      0.00%    passed    100.00%
+ 198  S260      0.00%    passed     99.59%
+ 199  S44       0.00%    passed     99.52%
+ 200  S712      0.00%    passed     82.46%
+ 201  S79       0.00%    passed     99.98%
+ 202  S618      0.00%    passed     98.04%
+ 203  S12       0.00%    passed     99.15%
+ 204  S450      0.00%    passed     97.73%
+ 205  S446      0.00%    passed     97.80%
+ 206  S251      0.00%    passed     99.14%
+ 207  S139      0.00%    passed     77.07%
+ 208  S394      0.00%    passed     98.15%
+ 209  S7        0.00%    passed     99.99%
+ 210  S539      0.00%    passed     99.59%
+ 211  S503      0.00%    passed     99.02%
+ 212  S161      0.00%    passed    100.00%
+ 213  S491      0.00%    passed     99.98%
+ 214  S460      0.00%    passed     98.91%
+ 215  S737      0.00%    passed     71.57%
+ 216  S415      0.00%    passed     97.86%
+ 217  S21       0.00%    passed     99.72%
+ 218  S479      0.00%    passed     97.25%
+ 219  S727      0.00%    passed     69.80%
+ 220  S246      0.00%    passed     98.78%
+ 221  S668      0.00%    passed     99.45%
+ 222  S363      0.00%    passed     25.16%
+ 223  S365      0.00%    passed     25.16%
+ 224  S190      0.00%    passed     97.31%
+ 225  S674      0.00%    passed     98.47%
+ 226  S696      0.00%    passed     98.26%
+ 227  S393      0.00%    passed     98.27%
+ 228  S231      0.00%    passed     99.99%
+ 229  S398      0.00%    passed     97.13%
+ 230  S184      0.00%    passed     99.81%
+ 231  S236      0.00%    passed     98.26%
+ 232  S325      0.00%    failed      2.54%
+ 233  S77       0.00%    passed     99.98%
+ 234  S323      0.00%    passed      5.26%
+ 235  S540      0.00%    passed     99.46%
+ 236  S92       0.00%    passed     99.38%
+ 237  S340      0.00%    passed     95.49%
+ 238  S253      0.00%    passed     99.70%
+ 239  S123      0.00%    passed    100.00%
+ 240  S89       0.00%    passed     99.45%
+ 241  S646      0.00%    passed     99.87%
+ 242  S14       0.00%    passed     99.15%
+ 243  S65       0.00%    passed     99.62%
+ 244  S524      0.00%    passed     99.29%
+ 245  S71       0.00%    passed     99.88%
+ 246  S217      0.00%    passed     99.44%
+ 247  S630      0.00%    passed     98.26%
+ 248  S131      0.00%    passed    100.00%
+ 249  S555      0.00%    passed     99.84%
+ 250  S442      0.00%    passed     97.73%
+ 251  S738      0.00%    passed     96.37%
+ 252  S481      0.00%    passed     95.97%
+ 253  S635      0.00%    passed     98.35%
+ 254  S134      0.00%    passed     99.83%
+ 255  S551      0.00%    passed     99.79%
+ 256  S607      0.00%    passed     99.92%
+ 257  S699      0.00%    passed     99.76%
+ 258  S562      0.00%    passed     99.90%
+ 259  S211      0.00%    passed     99.44%
+ 260  S666      0.00%    passed     65.89%
+ 261  S135      0.00%    passed    100.00%
+ 262  S526      0.00%    passed     99.62%
+ 263  S167      0.00%    passed    100.00%
+ 264  S513      0.00%    passed     99.98%
+ 265  S538      0.00%    passed     99.25%
+ 266  S388      0.00%    passed     90.38%
+ 267  S436      0.00%    passed     89.98%
+ 268  S671      0.00%    passed     95.33%
+ 269  S227      0.00%    passed     99.50%
+ 270  S680      0.00%    passed     99.48%
+ 271  S186      0.00%    passed     97.31%
+ 272  S304      0.00%    passed     57.45%
+ 273  S58       0.00%    passed     99.44%
+ 274  S294      0.00%    passed     83.43%
+ 275  S216      0.00%    passed     99.44%
+ 276  S697      0.00%    passed     98.95%
+ 277  S681      0.00%    passed    100.00%
+ 278  S39       0.00%    passed     99.74%
+ 279  S641      0.00%    passed     99.93%
+ 280  S150      0.00%    passed     99.50%
+ 281  S220      0.00%    passed     99.44%
+ 282  S146      0.00%    passed     99.50%
+ 283  S369      0.00%    passed     25.16%
+ 284  S95       0.00%    passed     99.90%
+ 285  S28       0.00%    passed     99.88%
+ 286  S317      0.00%    passed     98.95%
+ 287  S171      0.00%    passed     99.45%
+ 288  S730      0.00%    passed     72.64%
+ 289  S419      0.00%    passed     99.01%
+ 290  S120      0.00%    passed     99.99%
+ 291  S616      0.00%    passed     98.63%
+ 292  S722      0.00%    passed     85.01%
+ 293  S521      0.00%    passed     99.92%
+ 294  S459      0.00%    passed     98.91%
+ 295  S91       0.00%    passed     99.67%
+ 296  S502      0.00%    passed     99.26%
+ 297  S640      0.00%    passed     99.58%
+ 298  S602      0.00%    passed     99.35%
+ 299  S590      0.00%    passed     99.93%
+ 300  S78       0.00%    passed     99.99%
+ 301  S547      0.00%    passed     99.82%
+ 302  S121      0.00%    passed     99.98%
+ 303  S145      0.00%    passed     99.93%
+ 304  S23       0.00%    passed     99.94%
+ 305  S438      0.00%    passed     91.14%
+ 306  S518      0.00%    passed     99.95%
+ 307  S280      0.00%    passed     97.98%
+ 308  S576      0.00%    passed     99.98%
+ 309  S367      0.00%    passed     25.16%
+ 310  S563      0.00%    passed     99.32%
+ 311  S447      0.00%    passed     98.07%
+ 312  S103      0.00%    passed     99.66%
+ 313  S126      0.00%    passed     99.95%
+ 314  S155      0.00%    passed     99.31%
+ 315  S148      0.00%    passed     99.29%
+ 316  S374      0.00%    failed      1.92%
+ 317  S535      0.00%    passed     99.71%
+ 318  S496      0.00%    passed     99.99%
+ 319  S256      0.00%    passed     99.30%
+ 320  S368      0.00%    passed     25.16%
+ 321  S9        0.00%    passed    100.00%
+ 322  S395      0.00%    passed     95.89%
+ 323  S81       0.00%    passed    100.00%
+ 324  S282      0.00%    passed     98.95%
+ 325  S663      0.00%    passed     76.49%
+ 326  S741      0.00%    passed     98.03%
+ 327  S153      0.00%    passed     99.69%
+ 328  S273      0.00%    passed    100.00%
+ 329  S560      0.00%    passed     99.96%
+ 330  S382      0.00%    passed     99.91%
+ 331  S731      0.00%    passed     68.25%
+ 332  S709      0.00%    passed     99.99%
+ 333  S366      0.00%    passed     25.16%
+ 334  S152      0.00%    passed     99.29%
+ 335  S505      0.00%    passed     84.52%
+ 336  S133      0.00%    passed     98.82%
+ 337  S27       0.00%    passed     99.55%
+ 338  S288      0.00%    passed     96.58%
+ 339  S520      0.00%    passed     99.97%
+ 340  S80       0.00%    passed     99.92%
+ 341  S688      0.00%    passed     99.78%
+ 342  S736      0.00%    passed     70.28%
+ 343  S751      0.00%    passed     98.57%
+ 344  S174      0.00%    passed     99.98%
+ 345  S572      0.00%    passed     99.98%
+ 346  S588      0.00%    passed     99.96%
+ 347  S612      0.00%    passed     98.95%
+ 348  S413      0.00%    passed     98.57%
+ 349  S181      0.00%    passed     99.92%
+ 350  S117      0.00%    passed     99.98%
+ 351  S178      0.00%    passed    100.00%
+ 352  S357      0.00%    passed     99.97%
+ 353  S550      0.00%    passed     99.75%
+ 354  S108      0.00%    passed     99.92%
+ 355  S557      0.00%    passed     99.90%
+ 356  S291      0.00%    passed     90.47%
+ 357  S364      0.00%    passed     25.16%
+ 358  S261      0.00%    passed     99.77%
+ 359  S52       0.00%    passed     99.47%
+ 360  S411      0.00%    passed     97.84%
+ 361  S36       0.00%    passed     99.21%
+ 362  S686      0.00%    passed     99.44%
+ 363  S578      0.00%    passed     99.98%
+ 364  S720      0.00%    passed     86.50%
+ 365  S639      0.00%    passed     96.09%
+ 366  S643      0.00%    passed     99.87%
+ 367  S128      0.00%    passed     99.59%
+ 368  S691      0.00%    passed     99.91%
+ 369  S619      0.00%    passed     98.24%
+ 370  S170      0.00%    passed     99.04%
+ 371  S461      0.00%    passed     99.16%
+ 372  S30       0.00%    passed     99.71%
+ 373  S623      0.00%    passed     98.69%
+ 374  S724      0.00%    passed     69.36%
+ 375  S63       0.00%    passed     98.97%
+ 376  S45       0.00%    passed     99.46%
+ 377  S445      0.00%    passed     97.80%
+ 378  S274      0.00%    passed     99.79%
+ 379  S159      0.00%    passed    100.00%
+ 380  S290      0.00%    passed     85.75%
+ 381  S705      0.00%    passed     98.75%
+ 382  S537      0.00%    passed     99.54%
+ 383  S453      0.00%    passed     97.98%
+ 384  S354      0.00%    passed     98.68%
+ 385  S278      0.00%    passed     90.47%
+ 386  S740      0.00%    passed     97.16%
+ 387  S352      0.00%    passed    100.00%
+ 388  S725      0.00%    passed     70.28%
+ 389  S346      0.00%    passed     87.28%
+ 390  S222      0.00%    passed     99.44%
+ 391  S676      0.00%    passed     98.10%
+ 392  S651      0.00%    passed     71.17%
+ 393  S755      0.00%    passed     84.12%
+ 394  S371      0.00%    failed      1.62%
+ 395  S405      0.00%    passed     98.20%
+ 396  S328      0.00%    passed     42.78%
+ 397  S122      0.00%    passed     99.99%
+ 398  S232      0.00%    passed    100.00%
+ 399  S305      0.00%    passed     62.90%
+ 400  S567      0.00%    passed     99.63%
+ 401  S241      0.00%    passed     99.74%
+ 402  S13       0.00%    passed     99.59%
+ 403  S719      0.00%    passed     81.54%
+ 404  S18       0.00%    passed     99.84%
+ 405  S495      0.00%    passed     99.99%
+ 406  S99       0.00%    passed     99.99%
+ 407  S509      0.00%    passed     99.99%
+ 408  S127      0.00%    passed     99.79%
+ 409  S381      0.00%    passed     97.15%
+ 410  S494      0.00%    passed     99.99%
+ 411  S732      0.00%    passed     70.28%
+ 412  S311      0.00%    passed    100.00%
+ 413  S183      0.00%    passed     94.32%
+ 414  S389      0.00%    passed     99.65%
+ 415  S599      0.00%    passed     99.95%
+ 416  S262      0.00%    passed     99.82%
+ 417  S401      0.00%    passed     99.35%
+ 418  S598      0.00%    passed     99.92%
+ 419  S414      0.00%    passed     97.78%
+ 420  S209      0.00%    passed     99.44%
+ 421  S677      0.00%    passed     95.93%
+ 422  S264      0.00%    passed     99.27%
+ 423  S25       0.00%    passed     99.80%
+ 424  S51       0.00%    passed     98.63%
+ 425  S660      0.00%    passed     54.70%
+ 426  S112      0.00%    passed    100.00%
+ 427  S102      0.00%    passed     99.95%
+ 428  S704      0.00%    passed     99.71%
+ 429  S66       0.00%    passed     99.92%
+ 430  S424      0.00%    passed     98.45%
+ 431  S100      0.00%    passed     99.99%
+ 432  S219      0.00%    passed     99.44%
+ 433  S683      0.00%    passed     99.99%
+ 434  S358      0.00%    passed     99.95%
+ 435  S620      0.00%    passed     98.26%
+ 436  S545      0.00%    passed     99.73%
+ 437  S2        0.00%    passed    100.00%
+ 438  S344      0.00%    passed    100.00%
+ 439  S439      0.00%    passed     95.31%
+ 440  S645      0.00%    passed     99.87%
+ 441  S230      0.00%    passed     99.97%
+ 442  S281      0.00%    passed     99.99%
+ 443  S467      0.00%    passed     99.45%
+ 444  S434      0.00%    passed     98.04%
+ 445  S16       0.00%    passed     99.88%
+ 446  S396      0.00%    passed     98.56%
+ 447  S343      0.00%    passed     98.95%
+ 448  S189      0.00%    passed     97.31%
+ 449  S733      0.00%    passed     69.80%
+ 450  S195      0.00%    passed     97.38%
+ 451  S534      0.00%    passed     99.95%
+ 452  S493      0.00%    passed     99.99%
+ 453  S349      0.00%    passed     99.99%
+ 454  S655      0.00%    passed     75.30%
+ 455  S574      0.00%    passed     99.97%
+ 456  S684      0.00%    passed     99.99%
+ 457  S648      0.00%    passed     48.44%
+ 458  S473      0.00%    passed     99.81%
+ 459  S553      0.00%    passed     99.84%
+ 460  S330      0.00%    passed     81.57%
+ 461  S147      0.00%    passed     99.44%
+ 462  S96       0.00%    passed    100.00%
+ 463  S223      0.00%    passed     99.35%
+ 464  S664      0.00%    passed     76.49%
+ 465  S746      0.00%    passed     95.50%
+ 466  S360      0.00%    passed     99.94%
+ 467  S594      0.00%    passed     99.94%
+ 468  S748      0.00%    passed     97.27%
+ 469  S334      0.00%    passed     99.50%
+ 470  S362      0.00%    passed     25.16%
+ 471  S113      0.00%    passed    100.00%
+ 472  S715      0.00%    passed     85.65%
+ 473  S387      0.00%    passed     91.10%
+ 474  S508      0.00%    passed     99.83%
+ 475  S293      0.00%    passed     72.73%
+ 476  S507      0.00%    passed     90.92%
+ 477  S595      0.00%    passed     99.96%
+ 478  S272      0.00%    passed     95.97%
+ 479  S644      0.00%    passed     99.93%
+ 480  S332      0.00%    passed     89.98%
+ 481  S35       0.00%    passed    100.00%
+ 482  S682      0.00%    passed    100.00%
+ 483  S661      0.00%    passed     64.71%
+ 484  S412      0.00%    passed     97.03%
+ 485  S587      0.00%    passed     99.99%
+ 486  S249      0.00%    passed     99.14%
+ 487  S198      0.00%    passed     99.19%
+ 488  S338      0.00%    passed     99.98%
+ 489  S22       0.00%    passed     99.90%
+ 490  S418      0.00%    passed     99.01%
+ 491  S6        0.00%    passed    100.00%
+ 492  S583      0.00%    passed     99.97%
+ 493  S32       0.00%    passed     99.70%
+ 494  S239      0.00%    passed     95.49%
+ 495  S160      0.00%    passed    100.00%
+ 496  S83       0.00%    passed    100.00%
+ 497  S634      0.00%    passed     98.57%
+ 498  S579      0.00%    passed     99.97%
+ 499  S310      0.00%    passed     24.39%
+ 500  S624      0.00%    passed     97.48%
+ 501  S375      0.00%    failed      1.62%
+ 502  S85       0.00%    passed     99.96%
+ 503  S226      0.00%    passed     87.69%
+ 504  S750      0.00%    passed     98.44%
+ 505  S287      0.00%    passed     98.91%
+ 506  S718      0.00%    passed     78.18%
+ 507  S213      0.00%    passed     99.44%
+ 508  S754      0.00%    passed     81.50%
+ 509  S514      0.00%    passed     99.73%
+ 510  S470      0.00%    passed     99.31%
+ 511  S430      0.00%    passed     85.37%
+ 512  S506      0.00%    passed     93.05%
+ 513  S169      0.00%    passed     99.69%
+ 514  S480      0.00%    passed     98.71%
+ 515  S314      0.00%    passed    100.00%
+ 516  S662      0.00%    passed     73.79%
+ 517  S654      0.00%    passed     76.27%
+ 518  S679      0.00%    passed     99.70%
+ 519  S19       0.00%    passed     97.91%
+ 520  S739      0.00%    passed     97.52%
+ 521  S391      0.00%    passed     98.15%
+ 522  S631      0.00%    passed     98.59%
+ 523  S370      0.00%    passed     25.16%
+ 524  S175      0.00%    passed    100.00%
+ 525  S72       0.00%    passed     99.82%
+ 526  S47       0.00%    passed     99.35%
+ 527  S329      0.00%    passed     63.60%
+ 528  S233      0.00%    passed     98.95%
+ 529  S665      0.00%    passed     54.88%
+ 530  S143      0.00%    passed     99.72%
+ 531  S289      0.00%    passed     83.34%
+ 532  S337      0.00%    passed     94.12%
+ 533  S432      0.00%    passed     98.04%
+ 534  S571      0.00%    passed     99.35%
+ 535  S93       0.00%    passed     99.17%
+ 536  S302      0.00%    passed     62.60%
+ 537  S74       0.00%    passed     99.90%
+ 538  S652      0.00%    passed     81.48%
+ 539  S615      0.00%    passed     96.75%
+ 540  S744      0.00%    passed     97.97%
+ 541  S743      0.00%    passed     96.98%
+ 542  S316      0.00%    passed    100.00%
+ 543  S179      0.00%    passed    100.00%
+ 544  S717      0.00%    passed     79.80%
+ 545  S706      0.00%    passed     99.95%
+ 546  S556      0.00%    passed     99.80%
+ 547  S248      0.00%    passed     98.65%
+ 548  S34       0.00%    passed     99.75%
+ 549  S593      0.00%    passed     99.97%
+ 550  S657      0.00%    passed     67.74%
+ 551  S157      0.00%    passed     99.69%
+ 552  S38       0.00%    passed     99.92%
+ 553  S140      0.00%    passed     77.07%
+ 554  S647      0.00%    passed     99.87%
+ 555  S673      0.00%    passed     95.19%
+ 556  S383      0.00%    passed     85.12%
+ 557  S318      0.00%    passed     99.25%
+ 558  S296      0.00%    passed     89.24%
+ 559  S321      0.00%    passed    100.00%
+ 560  S613      0.00%    passed     98.24%
+ 561  S341      0.00%    passed     90.47%
+ 562  S55       0.00%    passed     99.62%
+ 563  S501      0.00%    passed     98.88%
+ 564  S15       0.00%    passed     99.55%
+ 565  S484      0.00%    passed     98.76%
+ 566  S721      0.00%    passed     83.59%
+ 567  S554      0.00%    passed     99.64%
+ 568  S516      0.00%    passed     99.55%
+ 569  S252      0.00%    passed     98.52%
+ 570  S608      0.00%    passed     98.26%
+ 571  S632      0.00%    passed     98.59%
+ 572  S670      0.00%    passed     94.27%
+ 573  S532      0.00%    passed     99.97%
+ 574  S307      0.00%    passed     52.35%
+ 575  S658      0.00%    passed     63.13%
+ 576  S40       0.00%    passed     94.51%
+ 577  S64       0.00%    passed     99.69%
+ 578  S342      0.00%    passed     99.99%
+ 579  S194      0.00%    passed     97.38%
+ 580  S498      0.00%    passed     95.52%
+ 581  S636      0.00%    passed     99.86%
+ 582  S191      0.00%    passed     94.64%
+ 583  S483      0.00%    passed     98.91%
+ 584  S215      0.00%    passed     99.44%
+ 585  S162      0.00%    passed    100.00%
+ 586  S449      0.00%    passed     97.73%
+ 587  S529      0.00%    passed     99.98%
+ 588  S87       0.00%    passed    100.00%
+ 589  S118      0.00%    passed     99.98%
+ 590  S301      0.00%    passed     62.60%
+ 591  S485      0.00%    passed     98.76%
+ 592  S24       0.00%    passed     98.02%
+ 593  S606      0.00%    passed     99.78%
+ 594  S292      0.00%    passed     70.41%
+ 595  S331      0.00%    passed     99.98%
+ 596  S591      0.00%    passed     99.96%
+ 597  S348      0.00%    passed     99.97%
+ 598  S240      0.00%    passed     99.93%
+ 599  S265      0.00%    passed     99.51%
+ 600  S390      0.00%    passed     99.04%
+ 601  S400      0.00%    passed     97.71%
+ 602  S221      0.00%    passed     99.44%
+ 603  S26       0.00%    passed     99.92%
+ 604  S650      0.00%    passed     66.08%
+ 605  S60       0.00%    passed     98.92%
+ 606  S420      0.00%    passed     98.45%
+ 607  S144      0.00%    passed     99.46%
+ 608  S3        0.00%    passed    100.00%
+ 609  S566      0.00%    passed     99.99%
+ 610  S504      0.00%    passed     94.71%
+ 611  S297      0.00%    passed     86.23%
+ 612  S678      0.00%    passed     99.70%
+ 613  S726      0.00%    passed     73.53%
+ 614  S601      0.00%    passed     99.68%
+ 615  S20       0.00%    passed     99.92%
+ 616  S469      0.00%    passed     99.70%
+ 617  S564      0.00%    passed     99.95%
+ 618  S627      0.00%    passed     98.90%
+ 619  S276      0.00%    passed     99.99%
+ 620  S409      0.00%    passed     98.58%
+ 621  S489      0.00%    passed     98.93%
+ 622  S510      0.00%    passed     99.99%
+ 623  S584      0.00%    passed     99.99%
+ 624  S109      0.00%    passed     99.93%
+ 625  S235      0.00%    passed     99.95%
+ 626  S309      0.00%    passed     59.93%
+ 627  S569      0.00%    passed     99.05%
+ 628  S110      0.00%    passed     99.99%
+ 629  S242      0.00%    passed     99.97%
+ 630  S582      0.00%    passed     99.90%
+ 631  S702      0.00%    passed     99.52%
+ 632  S268      0.00%    passed     99.62%
+ 633  S11       0.00%    passed     99.97%
+ 634  S212      0.00%    passed     99.44%
+ 635  S392      0.00%    passed     97.04%
+ 636  S533      0.00%    passed     99.91%
+ 637  S270      0.00%    passed     99.97%
+ 638  S752      0.00%    passed     99.06%
+ 639  S456      0.00%    passed     99.06%
+ 640  S351      0.00%    passed     98.96%
+ 641  S199      0.00%    passed     59.70%
+ 642  S48       0.00%    passed     99.39%
+ 643  S482      0.00%    passed     99.23%
+ 644  S416      0.00%    passed     98.72%
+ 645  S214      0.00%    passed     99.44%
+ 646  S499      0.00%    passed     99.46%
+ 647  S610      0.00%    passed     99.27%
+ 648  S5        0.00%    passed    100.00%
+ 649  S477      0.00%    passed     99.83%
+ 650  S106      0.00%    passed     99.98%
+ 651  S237      0.00%    passed     87.50%
+ 652  S597      0.00%    passed     99.89%
+ 653  S205      0.00%    passed     98.65%
+ 654  S441      0.00%    passed     98.64%
+ 655  S206      0.00%    passed     99.14%
+ 656  S417      0.00%    passed     97.04%
+ 657  S656      0.00%    passed     85.18%
+ 658  S84       0.00%    passed     99.99%
+ 659  S114      0.00%    passed    100.00%
+ 660  S151      0.00%    passed     99.94%
+ 661  S592      0.00%    passed     99.99%
+ 662  S46       0.00%    passed     99.52%
+ 663  S525      0.00%    passed     99.90%
+ 664  S406      0.00%    passed     98.33%
+ 665  S742      0.00%    passed     96.71%
+ 666  S43       0.00%    passed     95.26%
+ 667  S202      0.00%    passed     98.52%
+ 668  S347      0.00%    passed     99.99%
+ 669  S188      0.00%    passed     96.73%
+ 670  S50       0.00%    passed     99.35%
+ 671  S4        0.00%    passed    100.00%
+ 672  S490      0.00%    passed     97.55%
+ 673  S427      0.00%    passed     97.45%
+ 674  S611      0.00%    passed     99.03%
+ 675  S685      0.00%    passed    100.00%
+ 676  S247      0.00%    passed     99.48%
+ 677  S154      0.00%    passed     99.70%
+ 678  S326      0.00%    passed     52.97%
+ 679  S531      0.00%    passed     99.96%
+ 680  S462      0.00%    passed     98.37%
+ 681  S637      0.00%    passed     99.93%
+ 682  S254      0.00%    passed     99.47%
+ 683  S455      0.00%    passed     98.34%
+ 684  S452      0.00%    passed     97.90%
+ 685  S177      0.00%    passed    100.00%
+ 686  S31       0.00%    passed     99.88%
+ 687  S443      0.00%    passed     98.91%
+ 688  S88       0.00%    passed     99.82%
+ 689  S204      0.00%    passed     99.05%
+ 690  S283      0.00%    passed    100.00%
+ 691  S690      0.00%    passed     99.78%
+ 692  S625      0.00%    passed     99.09%
+ 693  S711      0.00%    passed     77.40%
+ 694  S708      0.00%    passed     99.99%
+ 695  S255      0.00%    passed     99.25%
+ 696  S713      0.00%    passed     84.97%
+ 697  S527      0.00%    passed     99.97%
+ 698  S111      0.00%    passed     99.99%
+ 699  S70       0.00%    passed     99.99%
+ 700  S735      0.00%    passed     73.07%
+ 701  S546      0.00%    passed     99.92%
+ 702  S94       0.00%    passed    100.00%
+ 703  S667      0.00%    passed     54.70%
+ 704  S376      0.00%    failed      1.92%
+ 705  S472      0.00%    passed     94.32%
+ 706  S82       0.00%    passed     99.99%
+ 707  S476      0.00%    passed     96.96%
+ 708  S335      0.00%    passed     99.86%
+ 709  S8        0.00%    passed    100.00%
+ 710  S431      0.00%    passed     89.95%
+ 711  S614      0.00%    passed     98.11%
+ 712  S734      0.00%    passed     69.46%
+ 713  S67       0.00%    passed     99.78%
+ 714  S59       0.00%    passed     99.78%
+ 715  S61       0.00%    passed     99.34%
+ 716  S356      0.00%    passed     99.85%
+ 717  S29       0.00%    passed     99.77%
+ 718  S522      0.00%    passed     99.97%
+ 719  S561      0.00%    passed     98.55%
+ 720  S228      0.00%    passed    100.00%
+ 721  S300      0.00%    passed     60.02%
+ 722  S626      0.00%    passed     98.11%
+ 723  S327      0.00%    passed     53.38%
+ 724  S257      0.00%    passed     99.72%
+ 725  S552      0.00%    passed     99.84%
+ 726  S1        0.00%    passed    100.00%
+ 727  S689      0.00%    passed     99.78%
+ 728  S373      0.00%    failed      1.92%
+ 729  S218      0.00%    passed     99.44%
+ 730  S129      0.00%    passed     99.91%
+ 731  S119      0.00%    passed     99.99%
+ 732  S225      0.00%    passed     90.47%
+ 733  S468      0.00%    passed     98.72%
+ 734  S565      0.00%    passed     99.90%
+ 735  S384      0.00%    passed     68.41%
+ 736  S397      0.00%    passed     98.17%
+ 737  S596      0.00%    passed     99.97%
+ 738  S197      0.00%    passed     63.96%
+ 739  S492      0.00%    passed     99.96%
+ 740  S90       0.00%    passed     99.31%
+ 741  S339      0.00%    passed     99.99%
+ 742  S116      0.00%    passed     99.99%
+ 743  S210      0.00%    passed     99.44%
+ 744  S747      0.00%    passed     98.47%
+ 745  S701      0.00%    passed     99.51%
+ 746  S56       0.00%    passed     98.84%
+ 747  S286      0.00%    passed     87.50%
+ 748  S224      0.00%    passed     99.35%
+ 749  S423      0.00%    passed     97.65%
+ 750  S380      0.00%    passed     99.99%
+ 751  S333      0.00%    passed     91.93%
+ 752  S104      0.00%    passed     99.97%
+ 753  S266      0.00%    passed     98.45%
+ 754  S187      0.00%    passed     95.43%
+ 755  S137      0.00%    passed     99.44%
+ 756  S164      0.00%    passed    100.00%
+****  TOTAL     0.00%  7 sequences failed composition chi2 test (p-value<5%; df=19)
+NOTE: S488 is identical to S486 but kept for subsequent analysis
+NOTE: S411 is identical to S410 but kept for subsequent analysis
+NOTE: S38 is identical to S37 but kept for subsequent analysis
+NOTE: S484 is identical to S487 but kept for subsequent analysis
+NOTE: S251 is identical to S203 but kept for subsequent analysis
+NOTE: S285 is identical to S629 but kept for subsequent analysis
+NOTE: S520 is identical to S528 but kept for subsequent analysis
+NOTE: S229 is identical to S345 but kept for subsequent analysis
+NOTE: Bovine is identical to S208 but kept for subsequent analysis
+NOTE: S389 is identical to S238 but kept for subsequent analysis
+NOTE: S697 is identical to S695 but kept for subsequent analysis
+NOTE: S314 is identical to S313 but kept for subsequent analysis
+NOTE: S139 is identical to S303 but kept for subsequent analysis
+NOTE: S148 is identical to S132 but kept for subsequent analysis
+NOTE: S734 is identical to S728 but kept for subsequent analysis
+NOTE: S231 is identical to S320 but kept for subsequent analysis
+NOTE: S316 is identical to S315 but kept for subsequent analysis
+NOTE: S151 is identical to S156 but kept for subsequent analysis
+NOTE: S260 is identical to S98 but kept for subsequent analysis
+NOTE: S694 is identical to S692 but kept for subsequent analysis
+NOTE: S578 is identical to S580 but kept for subsequent analysis
+NOTE: S358 is identical to S284 but kept for subsequent analysis
+NOTE: S674 is identical to S675 but kept for subsequent analysis
+NOTE: S232 is identical to S312 but kept for subsequent analysis
+NOTE: S482 is identical to S259 but kept for subsequent analysis
+NOTE: S525 is identical to S536 but kept for subsequent analysis
+NOTE: S691 is identical to S693 but kept for subsequent analysis
+NOTE: S19 is identical to S62 but kept for subsequent analysis
+NOTE: S474 is identical to S185 but kept for subsequent analysis
+NOTE: S491 is identical to S277 but kept for subsequent analysis
+NOTE: S292 is identical to S200 but kept for subsequent analysis
+NOTE: S163 is identical to S173 but kept for subsequent analysis
+NOTE: S698 is identical to S638 but kept for subsequent analysis
+NOTE: S333 is identical to S437 but kept for subsequent analysis
+NOTE: S270 is identical to S138 but kept for subsequent analysis
+NOTE: S451 is identical to S444 but kept for subsequent analysis
+NOTE: S543 is identical to S548 but kept for subsequent analysis
+NOTE: S274 is identical to S158 but kept for subsequent analysis
+NOTE: S471 is identical to S182 but kept for subsequent analysis
+NOTE: S154 is identical to S141 but kept for subsequent analysis
+NOTE: S344 is identical to S234 but kept for subsequent analysis
+NOTE: S480 is identical to S271 but kept for subsequent analysis
+NOTE: S401 is identical to S404 but kept for subsequent analysis
+NOTE: S321 is identical to S322 but kept for subsequent analysis
+NOTE: S724 is identical to S729 but kept for subsequent analysis
+NOTE: S318 is identical to S319 but kept for subsequent analysis
+NOTE: S227 is identical to S279 but kept for subsequent analysis
+NOTE: S45 is identical to S511 but kept for subsequent analysis
+NOTE: S145 is identical to S149 but kept for subsequent analysis
+NOTE: S155 is identical to S136 but kept for subsequent analysis
+NOTE: S240 is identical to S642 but kept for subsequent analysis
+NOTE: S204 is identical to S250 but kept for subsequent analysis
+NOTE: S663 is identical to S659 but kept for subsequent analysis
+NOTE: S725 is identical to S653 but kept for subsequent analysis
+NOTE: S121 is identical to S79 but kept for subsequent analysis
+NOTE: S14 is identical to S12 but kept for subsequent analysis
+NOTE: S391 is identical to S394 but kept for subsequent analysis
+NOTE: S459 is identical to S460 but kept for subsequent analysis
+NOTE: S733 is identical to S727 but kept for subsequent analysis
+NOTE: S365 is identical to S363 but kept for subsequent analysis
+NOTE: S473 is identical to S184 but kept for subsequent analysis
+NOTE: S239 is identical to S340 but kept for subsequent analysis
+NOTE: S83 is identical to S123 but kept for subsequent analysis
+NOTE: S643 is identical to S646 but kept for subsequent analysis
+NOTE: S608 is identical to S630 but kept for subsequent analysis
+NOTE: S272 is identical to S481 but kept for subsequent analysis
+NOTE: S332 is identical to S436 but kept for subsequent analysis
+NOTE: S644 is identical to S641 but kept for subsequent analysis
+NOTE: S146 is identical to S150 but kept for subsequent analysis
+NOTE: S282 is identical to S317 but kept for subsequent analysis
+NOTE: S418 is identical to S419 but kept for subsequent analysis
+NOTE: S122 is identical to S120 but kept for subsequent analysis
+NOTE: S157 is identical to S153 but kept for subsequent analysis
+NOTE: S690 is identical to S688 but kept for subsequent analysis
+NOTE: S732 is identical to S736 but kept for subsequent analysis
+NOTE: S390 is identical to S170 but kept for subsequent analysis
+NOTE: S341 is identical to S278 but kept for subsequent analysis
+NOTE: S375 is identical to S371 but kept for subsequent analysis
+NOTE: S510 is identical to S509 but kept for subsequent analysis
+NOTE: S472 is identical to S183 but kept for subsequent analysis
+NOTE: S88 is identical to S262 but kept for subsequent analysis
+NOTE: S667 is identical to S660 but kept for subsequent analysis
+NOTE: S420 is identical to S424 but kept for subsequent analysis
+NOTE: S647 is identical to S645 but kept for subsequent analysis
+NOTE: S432 is identical to S434 but kept for subsequent analysis
+NOTE: S194 is identical to S195 but kept for subsequent analysis
+NOTE: S224 is identical to S223 but kept for subsequent analysis
+NOTE: S206 is identical to S249 but kept for subsequent analysis
+NOTE: S522 is identical to S579 but kept for subsequent analysis
+NOTE: S678 is identical to S679 but kept for subsequent analysis
+NOTE: S205 is identical to S248 but kept for subsequent analysis
+NOTE: S596 is identical to S593 but kept for subsequent analysis
+NOTE: S202 is identical to S252 but kept for subsequent analysis
+NOTE: S417 is identical to S392 but kept for subsequent analysis
+NOTE: S286 is identical to S237 but kept for subsequent analysis
+NOTE: 67 identical sequences (see below) will be ignored for subsequent analysis
+NOTE: S485 (identical to S487) is ignored but added at the end
+NOTE: S628 (identical to S629) is ignored but added at the end
+NOTE: S622 (identical to S629) is ignored but added at the end
+NOTE: S617 (identical to S629) is ignored but added at the end
+NOTE: S621 (identical to S629) is ignored but added at the end
+NOTE: S696 (identical to S629) is ignored but added at the end
+NOTE: S236 (identical to S629) is ignored but added at the end
+NOTE: S620 (identical to S629) is ignored but added at the end
+NOTE: S532 (identical to S528) is ignored but added at the end
+NOTE: S527 (identical to S528) is ignored but added at the end
+NOTE: S280 (identical to S345) is ignored but added at the end
+NOTE: S142 (identical to S208) is ignored but added at the end
+NOTE: S687 (identical to S208) is ignored but added at the end
+NOTE: S669 (identical to S208) is ignored but added at the end
+NOTE: S207 (identical to S208) is ignored but added at the end
+NOTE: S217 (identical to S208) is ignored but added at the end
+NOTE: S211 (identical to S208) is ignored but added at the end
+NOTE: S58 (identical to S208) is ignored but added at the end
+NOTE: S216 (identical to S208) is ignored but added at the end
+NOTE: S220 (identical to S208) is ignored but added at the end
+NOTE: S686 (identical to S208) is ignored but added at the end
+NOTE: S222 (identical to S208) is ignored but added at the end
+NOTE: S209 (identical to S208) is ignored but added at the end
+NOTE: S219 (identical to S208) is ignored but added at the end
+NOTE: S147 (identical to S208) is ignored but added at the end
+NOTE: S213 (identical to S208) is ignored but added at the end
+NOTE: S215 (identical to S208) is ignored but added at the end
+NOTE: S221 (identical to S208) is ignored but added at the end
+NOTE: S212 (identical to S208) is ignored but added at the end
+NOTE: S214 (identical to S208) is ignored but added at the end
+NOTE: S218 (identical to S208) is ignored but added at the end
+NOTE: S210 (identical to S208) is ignored but added at the end
+NOTE: S137 (identical to S208) is ignored but added at the end
+NOTE: S140 (identical to S303) is ignored but added at the end
+NOTE: S152 (identical to S132) is ignored but added at the end
+NOTE: S281 (identical to S320) is ignored but added at the end
+NOTE: S342 (identical to S320) is ignored but added at the end
+NOTE: S235 (identical to S284) is ignored but added at the end
+NOTE: S311 (identical to S312) is ignored but added at the end
+NOTE: S273 (identical to S173) is ignored but added at the end
+NOTE: S677 (identical to S638) is ignored but added at the end
+NOTE: S450 (identical to S444) is ignored but added at the end
+NOTE: S442 (identical to S444) is ignored but added at the end
+NOTE: S449 (identical to S444) is ignored but added at the end
+NOTE: S190 (identical to S182) is ignored but added at the end
+NOTE: S186 (identical to S182) is ignored but added at the end
+NOTE: S189 (identical to S182) is ignored but added at the end
+NOTE: S283 (identical to S234) is ignored but added at the end
+NOTE: S144 (identical to S511) is ignored but added at the end
+NOTE: S90 (identical to S136) is ignored but added at the end
+NOTE: S664 (identical to S659) is ignored but added at the end
+NOTE: S287 (identical to S460) is ignored but added at the end
+NOTE: S483 (identical to S460) is ignored but added at the end
+NOTE: S443 (identical to S460) is ignored but added at the end
+NOTE: S369 (identical to S363) is ignored but added at the end
+NOTE: S367 (identical to S363) is ignored but added at the end
+NOTE: S368 (identical to S363) is ignored but added at the end
+NOTE: S366 (identical to S363) is ignored but added at the end
+NOTE: S364 (identical to S363) is ignored but added at the end
+NOTE: S362 (identical to S363) is ignored but added at the end
+NOTE: S370 (identical to S363) is ignored but added at the end
+NOTE: S343 (identical to S317) is ignored but added at the end
+NOTE: S233 (identical to S317) is ignored but added at the end
+NOTE: S100 (identical to S120) is ignored but added at the end
+NOTE: S119 (identical to S120) is ignored but added at the end
+NOTE: S689 (identical to S688) is ignored but added at the end
+NOTE: S225 (identical to S278) is ignored but added at the end
+
+For your convenience alignment with unique sequences printed to verts_tree_aln.fasta.uniqueseq.phy
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.789 seconds
+Generating 1000 samples for ultrafast bootstrap (seed: 356551)...
+
+NOTE: 95 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -21359.414
+2. Current log-likelihood: -20696.789
+3. Current log-likelihood: -20694.261
+4. Current log-likelihood: -20693.013
+5. Current log-likelihood: -20692.734
+Optimal log-likelihood: -20692.653
+Gamma shape alpha: 0.920
+Parameters optimization took 5 rounds (39.142 sec)
+Computing ML distances based on estimated model parameters... 240.877 sec
+Computing BIONJ tree...
+2.237 seconds
+Log-likelihood of BIONJ tree: -21631.840
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 76.897 second
+Computing log-likelihood of 98 initial trees ... 352.343 seconds
+Current best score: -20587.472
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -20500.073
+Iteration 10 / LogL: -20587.377 / Time: 0h:29m:26s
+Iteration 20 / LogL: -20588.112 / Time: 0h:46m:50s
+Finish initializing candidate tree set (20)
+Current best tree score: -20500.073 / CPU time: 2511.033
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 27: -20471.797
+Iteration 30 / LogL: -20551.152 / Time: 1h:7m:46s (3h:46m:39s left)
+Iteration 40 / LogL: -20632.885 / Time: 1h:28m:13s (3h:16m:45s left)
+Iteration 50 / LogL: -20504.319 / Time: 1h:48m:19s (2h:50m:11s left)
+Log-likelihood cutoff on original alignment: -20619.664
+Iteration 60 / LogL: -20544.751 / Time: 2h:6m:54s (2h:24m:6s left)
+Iteration 70 / LogL: -20519.247 / Time: 2h:25m:56s (2h:0m:32s left)
+Iteration 80 / LogL: -20598.784 / Time: 2h:45m:22s (1h:38m:22s left)
+Iteration 90 / LogL: -20757.199 / Time: 3h:4m:6s (1h:16m:32s left)
+Iteration 100 / LogL: -20607.828 / Time: 3h:24m:14s (0h:55m:41s left)
+Log-likelihood cutoff on original alignment: -20612.300
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.992
+Iteration 110 / LogL: -20506.918 / Time: 3h:44m:1s (3h:4m:58s left)
+Iteration 120 / LogL: -20486.631 / Time: 4h:2m:24s (2h:42m:56s left)
+TREE SEARCH COMPLETED AFTER 128 ITERATIONS / Time: 4h:16m:2s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -20471.797
+Optimal log-likelihood: -20471.792
+Gamma shape alpha: 0.933
+Parameters optimization took 1 rounds (5.530 sec)
+BEST SCORE FOUND : -20471.792
+
+Testing tree branches by SH-like aLRT with 1000 replicates...
+Alternative NNI shows better log-likelihood -20471.625 > -20471.792
+11.266 sec.
+Creating bootstrap support values...
+Split supports printed to NEXUS file verts_tree_aln.fasta.splits.nex
+Total tree length: 25.101
+
+Total number of iterations: 128
+CPU time used for tree search: 15041.029 sec (4h:10m:41s)
+Wall-clock time used for tree search: 15062.197 sec (4h:11m:2s)
+Total CPU time used: 15362.128 sec (4h:16m:2s)
+Total wall-clock time used: 15383.902 sec (4h:16m:23s)
+
+Computing bootstrap consensus tree...
+Reading input file verts_tree_aln.fasta.splits.nex...
+689 taxa and 10156 splits.
+Consensus tree written to verts_tree_aln.fasta.contree
+Reading input trees file verts_tree_aln.fasta.contree
+Log-likelihood of consensus tree: -20467.780
+
+Analysis results written to: 
+  IQ-TREE report:                verts_tree_aln.fasta.iqtree
+  Maximum-likelihood tree:       verts_tree_aln.fasta.treefile
+  Likelihood distances:          verts_tree_aln.fasta.mldist
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          verts_tree_aln.fasta.splits.nex
+  Consensus tree:                verts_tree_aln.fasta.contree
+  Screen log file:               verts_tree_aln.fasta.log
+
+Date and Time: Wed Sep  6 07:12:46 2023

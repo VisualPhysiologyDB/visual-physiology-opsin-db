@@ -1,0 +1,121 @@
+DATASET_LINECHART
+#In line charts, each ID is associated to multiple pairs of numeric values, which are displayed as a line chart
+#lines starting with a hash are comments and ignored during parsing
+#select the separator which is used to delimit the data below (TAB,SPACE or COMMA).This separator must be used throughout this file.
+
+#=================================================================#
+#      MANDATORY SETTINGS                                         #
+#=================================================================#
+#SEPARATOR TAB
+SEPARATOR SPACE
+#SEPARATOR COMMA
+
+#label is used in the legend table (can be changed later)
+DATASET_LABEL example line chart
+
+#dataset color (can be changed later)
+COLOR #0000ff
+
+
+#=================================================================#
+#      OPTIONAL SETTINGS                                          #
+#=================================================================#
+
+#line colors: define a set of value and color pairs separated by a vertical line
+#values correspond to Y axis in the chart
+#for each point, the first color whose value is above the point's Y value will be used to color the dot and line extending from it
+#if LINE_COLORS is not used, or the value does not match any definition, the default color will be taken from variable DEFAULT_LINE_COLOR and DEFAULT_DOT_COLOR
+#In the example below, Y value of -10 would correspond to red and Y value of 2 would be black
+
+#LINE_COLORS -15|#ff0000 15|#000000 100|#00ff00
+
+
+#Line charts can optionally have X and Y axis displayed. Individual values where axis lines are drawn can be defined 
+#separately for X and Y axis 
+#You can simply specify the values where lines should be drawn. 
+#entries under AXIS_X will draw horizontal lines (i.e. values correspond to Y values)
+#entries under AXIS_Y will draw vertical lines (i.e. values correspond to X values)
+
+#AXIS_X -10 0 10
+#AXIS_Y -20 0 20
+
+#or you can specify value, width and color for each scale line (separated with vertical lines, format: VALUE|WIDTH|COLOR) 
+
+#AXIS_X 0|1|#ff0000 500|0.5|#000000 1000|0.5|#00ff00
+#AXIS_Y 50|1|#ff0000 75|0.5|#000000 100|0.5|#00ff00
+
+
+
+#=================================================================#
+#  all other optional settings can be set or changed later        #
+#  in the web interface (under 'Datasets' tab)                    #
+#=================================================================#
+
+#maximum width
+WIDTH 1000
+
+#left margin, used to increase/decrease the spacing to the next dataset. Can be negative, causing datasets to overlap.
+MARGIN 0
+
+#vertical display; if set to 1, line charts will be prependicular to the tree
+#To increase the space available for vertical charts, use the tree scaling factors (on the Advanced controls tab in the UI) to increase the spacing between leaves 
+VERTICAL_CHART 0
+
+#always show internal charts; if set, charts associated to internal nodes will be displayed even if these nodes are not collapsed. It could cause overlapping in the dataset display.
+SHOW_INTERNAL 0
+
+#chart height factor; Default chart height will be slightly less than the available space between leaves, but you can set a multiplication factor here to increase/decrease it (values from 0 to 1 will decrease it, values above 1 will increase it)
+HEIGHT_FACTOR 1
+
+#Charts are aligned to the node lines by default. Using CHART_SHIFT, you can move them all up/down by the specified pixel value
+CHART_SHIFT 0
+
+#if set to 0, line will be not be drawn (can be used with SHOW_DOTS to only display the actual points)
+SHOW_LINE 1
+
+#width of the chart line
+LINE_WIDTH 0.5
+
+#defaults line/dot color, used when LINE_COLORS are not defined
+#DEFAULT_LINE_COLOR #0000ff
+
+
+#if set to 1, circles will be drawn to show the position of individual points
+SHOW_DOTS 1
+
+#if SHOW_DOTS is used, DOT_SIZE will define the radius (in pixels) of individual points
+DOT_SIZE 2
+
+#if SHOW_DOTS is used, DEFAULT_DOT_COLOR will define the default point color (when LINE_COLORS are not defined)
+#DEFAULT_DOT_COLOR #ff0000
+
+
+#if set to 1, dataset label will be displayed as the title of each chart
+SHOW_TITLE 1
+
+#font size for the chart title
+TITLE_SIZE 10
+
+#text color for the chart title
+TITLE_COLOR #0000ff
+
+#by default, title will be show in the top left corner
+#use the following parameters to move it (in pixels)
+TITLE_SHIFT_X 0
+TITLE_SHIFT_Y 0
+
+
+#Internal tree nodes can be specified using IDs directly, or using the 'last common ancestor' method described in iTOL help pages
+#=================================================================#
+#  Actual data follows after the "DATA" keyword                   #
+#=================================================================#
+#Each tree node should have at least 2 points associated with it
+#Separate individual points using SEPARATOR specified above
+#Separate X and Y values for each point with a vertical line 
+
+#DATA
+#Examples
+#ID1 X1|Y1 X2|Y2 X3|Y3
+#ID2 X4|Y4 X5|Y5
+#9606 -10|-15 0|0 5|3
+#LEAF1|LEAF2 0|0 10|5 20|10 30|15

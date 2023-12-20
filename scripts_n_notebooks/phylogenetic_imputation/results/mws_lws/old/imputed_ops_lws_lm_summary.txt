@@ -1,0 +1,19 @@
+
+Call:
+lm(formula = results$Imputed ~ results$Known, data = results)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-26.818  -7.683   2.579   6.361  23.047 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    11.6974    63.3227   0.185    0.856    
+results$Known   0.9789     0.1184   8.270 1.55e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 14.8 on 13 degrees of freedom
+Multiple R-squared:  0.8403,	Adjusted R-squared:  0.828 
+F-statistic: 68.39 on 1 and 13 DF,  p-value: 1.553e-06
+

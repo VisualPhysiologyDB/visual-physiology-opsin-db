@@ -1,0 +1,28 @@
+POPUP_INFO
+#use this template to define custom text/HTML which will be displayed in mouseover popups for nodes/leaves
+#lines starting with a hash are comments and ignored during parsing
+
+#=================================================================#
+#                    MANDATORY SETTINGS                           #
+#=================================================================#
+#select the separator which is used to delimit the data below (TAB,SPACE or COMMA).This separator must be used throughout this file.
+
+#SEPARATOR TAB
+#SEPARATOR SPACE
+SEPARATOR COMMA
+
+#For each node ID, you can define the popup title and the content. Content can be plain text or any valid HTML (including links to external web sites, or IMG tags pointing to external images).
+
+#Internal tree nodes can be specified using IDs directly, or using the 'last common ancestor' method described in iTOL help pages
+#=================================================================#
+#       Actual data follows after the "DATA" keyword              #
+#=================================================================#
+DATA
+#NODE_ID,POPUP_TITLE,POPUP_CONTENT
+
+#Examples
+#internal node with simple HTML in its popup
+#9031|9606,This is the popup title,<h1>Some header</h1><p>Information comes here</p><img src='http://website.com/images/image.jpg'/>
+
+#popup for leaf node 9606
+#9606,Homo sapiens info popup,<h1>Homo sapiens</h1><p style='color:blue'>More info at <a target='_blank' href='http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=9606'>NCBI</a></p>

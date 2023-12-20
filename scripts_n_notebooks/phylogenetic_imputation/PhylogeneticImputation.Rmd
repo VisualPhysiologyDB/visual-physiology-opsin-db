@@ -1,0 +1,204 @@
+---
+title: "Imputation"
+author: "RMV"
+date: '2023-05-11'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, root.dir = "C:/Users/safra/Documents/GitHub/vizphiz/phylo_imputation/trees")
+```
+
+## R Markdown
+
+## The purpose of this code is to take in a sub-set opsin phylogeny, and then perform phylogenetic imputation to predict states for the tips that we "don't know" states for. 
+Since we're working with complete datasets - we randomly sample and remove 50 of the opsin lmax values and compare the imputed lmax to the known lmax to test the performance of this method.
+
+```{r}
+#install.packages("ggplot2")
+#install.packages('readr')
+#install.packages('phytools')
+#install.packages('Metrics')
+
+library(ggplot2)
+library(readr)
+library(phytools)
+library(Metrics)
+```
+
+```{r}
+#I like to do these extra steps because it prints the list of taxa at the end and that's helpful for inevitable errors of "WAH THEY DON'T MATCH". Also, apparently the person who wrote this decided phylogenies can't have quotes. Like normal goddamn newick files have? Yeah, delete all those. Just do a control find for ' on your phylogeny because they all have to go. The fuck?
+n = 15
+ds = "inv"
+outgroup <- c("Squid ") # I choose this clade
+treefile="./trees/inv_tree.tre"
+opsintree<- ape::read.tree(treefile);phytools::read.newick(treefile)
+opsintree$tip.label
+#make tree a phylo object
+tr <- as.phylo(opsintree)
+
+#Read the state matrix of known states, where all taxa are listed but unknown states are filled in as NA. Note that you can have 0 as a state, but that's not the same as "we don't know". The first column is taxa in the exact format as the tiplabels of your tree. Down to the last space.
+full_meta <- read_tsv("./trees/inv_meta.tsv", col_names = TRUE)
+#make it a data frame
+fullmetanames <- data.frame(full_meta, row.names = 1)
+fullmetanames
+seqs <- row.names(fullmetanames)
+
+statesrownames <- data.frame(fullmetanames['Lambda_Max'], row.names = seqs)
+#make the data frame a matrix. Yes it's step by step and tedious but then you can check what went wrong.
+states <- as.matrix(statesrownames)
+size <- nrow(states)
+
+
+```
+
+```{r}
+states
+```
+
+
+
+```{r}
+#is.rooted(tr) #[1] FALSE
+rooted_tree <- root(tr, outgroup, resolve.root=TRUE)
+tr <- as.phylo(rooted_tree)
+```
+
+
+```{r}
+X.full<-states
+#X.full
+```
+
+```{r}
+X.missing<-X.full
+X.missing
+```
+
+```{r message=TRUE, warning=TRUE}
+X.missing[cbind(sample(2:size,n),
+    sample(1,5,replace=TRUE))]<-NA
+#X.missing
+```
+
+```{r}
+states <- as.matrix(X.missing)
+```
+
+
+```{r}
+#Alright here's the magic command!
+imputed<-phylo.impute(tr,states)
+imputed
+```
+
+```{r}
+
+missing<-which(is.na(X.missing),arr.ind=TRUE)
+missing
+```
+
+
+```{r}
+r <- cor(X.full[missing],imputed[missing])
+r
+```
+
+```{r}
+file <- sprintf("./results/ops_%s_corr_r2_%s_n%d.pdf", ds, r, n)
+
+pdf(file = file, width = 10, height = 8)
+
+plot(X.full[missing],imputed[missing],pch=21,bg="grey",cex=1.5,
+    xlab="Known Lambda Max",ylab="Imputed Lambda Max",asp=1)
+lines(x=c(min(par()$usr[c(1,3)]),max(par()$usr[c(2,4)])),
+    y=c(min(par()$usr[c(1,3)]),max(par()$usr[c(2,4)])),
+    col=make.transparent("blue",0.5),lwd=2)
+abline(h=0,lty="dotted")
+abline(v=0,lty="dotted")
+
+dev.off()
+
+```
+```{r}
+test_seqs <- row.names(missing)
+#test_seqs
+```
+
+```{r}
+rows <- row.names(missing)
+#rows
+```
+
+```{r}
+results <- data.frame(X.full[missing],imputed[missing],imputed[missing]-X.full[missing],fullmetanames[test_seqs,2:4], row.names = rows)
+colnames(results) <- c('Known', 'Imputed', 'Difference', 'Species', 'Opsin_Family', 'Accession')
+results
+name <- sprintf("./results/imputed_ops_%s_test.csv", ds)
+write.csv(results, name, row.names=TRUE)
+```
+```{r}
+#calculating the mae for the imputation predictions
+imp_mae <- mae(as.matrix(results['Known']),as.matrix(results['Imputed']))
+imp_mape <- mape(as.matrix(results['Known']),as.matrix(results['Imputed']))
+metric_print <- sprintf("\nMAE = %f\nMAPE = %f", imp_mae, imp_mape)
+```
+
+```{r}
+Model<-lm(results$Imputed~results$Known,data=results)
+summary.partial <- summary(Model)
+name <- sprintf("./results/imputed_ops_%s_lm_summary.txt", ds)
+sink(name)
+print(summary.partial)
+print(metric_print)
+sink()  
+```
+
+####################################
+
+```{r}
+full.rows <- row.names(X.full)
+full.results <- data.frame(X.full,imputed, row.names = full.rows)
+colnames(full.results) <- c('Known', 'Imputed')
+full.results
+name <- sprintf("./results/whole_imputed_ops_%s_test.csv", ds)
+write.csv(full.results, name, row.names=TRUE)
+
+```
+
+```{r}
+file <- sprintf("./results/ops_%s_phylomorphospace.pdf", ds)
+pdf(file = file, width = 10, height = 8)
+
+phylomorphospace(tr, full.results, A=NULL, label="off", node.size=c(0,1.5))
+
+dev.off()
+
+```
+
+```{r}
+Model<-lm(full.results$Imputed~full.results$Known,data=full.results)
+summary <- summary(Model)
+name <- sprintf("./results/imputed_ops_%s_whole_lm_summary.txt", ds)
+sink(name)
+print(summary)
+sink()  
+summary
+#write.csv(Model, "./results/imputed_ops_lws_test.csv")
+```
+
+results_file <- read_csv("./results/mws_lws/imputed_ops_mws_test.csv", col_names = TRUE)
+res_df <- data.frame(results_file, row.names = 1)
+res_df
+
+
+
+imp_mae <- mae(as.matrix(res_df['Known']),as.matrix(res_df['Imputed']))
+imp_mape <- mape(as.matrix(res_df['Known']),as.matrix(res_df['Imputed']))
+#imp_mae
+#imp_mape
+
+metric_print <- sprintf("MAE = %f   MAPE = %f", imp_mae, imp_mape)
+print(metric_print)
+
+

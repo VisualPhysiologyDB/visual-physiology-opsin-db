@@ -1,0 +1,86 @@
+DATASET_CONNECTION
+#Connections datasets allow the drawing of straight or curved lines between any two nodes in the tree. Width, color and opacity can be set for each line.
+#Optionally, arrowheads can be displayed on the lines.
+
+#lines starting with a hash are comments and ignored during parsing
+#=================================================================#
+#                    MANDATORY SETTINGS                           #
+#=================================================================#
+#select the separator which is used to delimit the data below (TAB,SPACE or COMMA).This separator must be used throughout this file.
+#SEPARATOR TAB
+#SEPARATOR SPACE
+SEPARATOR COMMA
+
+#label is used in the legend table (can be changed later)
+DATASET_LABEL,example connections
+
+#dataset color (can be changed later)
+COLOR,#ff0ff0
+
+
+#=================================================================#
+#                    OPTIONAL SETTINGS                            #
+#=================================================================#
+
+
+
+#=================================================================#
+#     all other optional settings can be set or changed later     #
+#           in the web interface (under 'Datasets' tab)           #
+#=================================================================#
+
+
+#Each dataset can have a legend, which is defined using LEGEND_XXX fields below
+#For each row in the legend, there should be one shape, color and label.
+#Optionally, you can define an exact legend position using LEGEND_POSITION_X and LEGEND_POSITION_Y. To use automatic legend positioning, do NOT define these values
+#Optionally, shape scaling can be present (LEGEND_SHAPE_SCALES). For each shape, you can define a scaling factor between 0 and 1.
+#To order legend entries horizontally instead of vertically, set LEGEND_HORIZONTAL to 1
+#Shape should be a number between 1 and 6, or any protein domain shape definition.
+#1: square
+#2: circle
+#3: star
+#4: right pointing triangle
+#5: left pointing triangle
+#6: checkmark
+
+#LEGEND_TITLE,Dataset legend
+#LEGEND_POSITION_X,100
+#LEGEND_POSITION_Y,100
+#LEGEND_HORIZONTAL,0
+#LEGEND_SHAPES,1,2,3
+#LEGEND_COLORS,#ff0000,#00ff00,#0000ff
+#LEGEND_LABELS,value1,value2,value3
+#LEGEND_SHAPE_SCALES,1,1,0.5
+
+#if set to 1, arrows will be drawn on the destination end of each connection line
+DRAW_ARROWS,1
+
+#when arrows are displayed, this option sets their size
+ARROW_SIZE,20
+
+#Size of the loops for connections within the same node (ie. when source and destination are the same)
+LOOP_SIZE,100
+
+#maximum width specified in the dataset will be drawn with this value. All other widths will be scaled down proportionally.
+MAXIMUM_LINE_WIDTH,10
+
+#Angle can be any value between -80 and 80. With angle set to 0 lines will be straight.
+CURVE_ANGLE,0
+
+#if CENTER_CURVES is set to 1, center of the tree (in circular display mode only) will be used as the control point for all curves, ignoring 'CURVE_ANGLE'
+CENTER_CURVES,1
+
+#if ALIGN_TO_LABELS is set to 1, connections from/to leaf nodes will start/end next to the leaf label, and not on the branch
+ALIGN_TO_LABELS,1
+
+#Internal tree nodes can be specified using IDs directly, or using the 'last common ancestor' method described in iTOL help pages
+#=================================================================#
+#       Actual data follows after the "DATA" keyword              #
+#=================================================================#
+DATA
+#Each line defines a single connection between 2 nodes and consists of the following fields:
+#NODE1,NODE2,WIDTH,COLOR,STYLE,LABEL
+#all connection widths will be normalized based on the MAXIMUM_LINE_WIDTH specified for the whole dataset
+#STYLE defines the connection line style, and can be one of 'normal' or 'dashed'.
+#color can be specified in hexadecimal, RGB or RGBA notation (if transparency is required). Note that you cannot use COMMA as the delimiter if RGB or RGBA color notation is used.
+

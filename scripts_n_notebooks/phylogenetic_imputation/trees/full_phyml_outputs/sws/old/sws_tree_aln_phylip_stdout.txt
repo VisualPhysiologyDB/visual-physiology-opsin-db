@@ -1,0 +1,112 @@
+
+
+. Command line: /data/http/www/binaries/phyml/phyml -i /data/http/www/exec/20230907-010104_Po52/sws_tree_aln_phylip -d aa -b -4 -m WAG -v 0 -c 4 -f m -a e --leave_duplicates -o tlr --no_memory_check 
+
+
+
+
+
+  ////////////////////////////////////.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.//////////////////////////////////////////
+
+        . Sequence filename:				 sws_tree_aln_phylip
+        . Data type:					 aa
+        . Alphabet size:				 20
+        . Sequence format:				 interleaved
+        . Number of data sets:				 1
+        . Nb of bootstrapped data sets:			 0
+        . Compute approximate likelihood ratio test:	 yes (SH-like branch supports)
+        . Model name:					 WAG
+        . Proportion of invariable sites:		 0.000000
+        . RAS model:					 discrete Gamma
+        . Number of subst. rate catgs:			 4
+        . Gamma distribution parameter:			 estimated
+        . 'Middle' of each rate class:			 mean
+        . Amino-acid equilibrium frequencies:		 model-defined
+        . Optimise tree topology:			 yes
+        . Starting tree:				 BioNJ
+        . Add random input tree:			 no
+        . Optimise branch lengths:			 yes
+        . Minimum length of an edge:			 1e-08
+        . Optimise substitution model parameters:	 yes
+        . Run ID:					 none
+        . Random seed:					 1694041265
+        . Subtree patterns aliasing:			 no
+        . Version:					 3.3.20220408
+        . Byte alignment:				 32
+        . AVX enabled:					 yes
+        . SSE enabled:					 yes
+
+  ////////////////////////////////////.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.//////////////////////////////////////////
+
+
+
+. 230 patterns found (out of a total of 274 sites). 
+
+. 63 sites without polymorphism (22.99%).
+
+
+. Computing pairwise distances...
+
+. Building BioNJ tree...
+
+. WARNING: this analysis will use at least 180 MB of memory space...
+
+
+. Score of initial tree: -10337.03
+
+. Starting first round of SPRs...
+
+	     192s |   1 | lnL=    -10010.2 | depth=   17/   74 | improvements=  44 | delta_lnL=   68.7/ 1000.0   +
+	     365s |   2 | lnL=    -10024.0 | depth=    4/   44 | improvements=  28 | delta_lnL=   39.7/ 1000.0  
+	     516s |   3 | lnL=    -10008.1 | depth=   19/   26 | improvements=  26 | delta_lnL=   40.2/ 1000.0   +
+	     666s |   4 | lnL=    -10014.2 | depth=    5/   25 | improvements=  22 | delta_lnL=   14.4/ 1000.0  
+	     747s |   5 | lnL=    -10015.5 | depth=    8/   15 | improvements=  24 | delta_lnL=   31.0/ 1000.0  
+	     781s |   6 | lnL=    -10003.0 | depth=    2/   14 | improvements=  14 | delta_lnL=    0.4/  137.4   +
+
+. Second round of optimization...
+
+	     801s |   7 | lnL=    -10003.6 | depth=    8/   12 | improvements=  38 | delta_lnL=   41.9/  137.4  
+	     821s |   8 | lnL=    -10005.3 | depth=    5/   12 | improvements=  29 | delta_lnL=   10.9/  137.4  
+	     837s |   9 | lnL=     -9995.2 | depth=    4/    9 | improvements=  31 | delta_lnL=   13.6/  137.4   +
+	     849s |  10 | lnL=    -10023.2 | depth=    3/    8 | improvements=  27 | delta_lnL=    4.7/   83.7  
+	     869s |  11 | lnL=     -9991.2 | depth=    2/    7 | improvements=  34 | delta_lnL=   11.3/   83.7   +
+	     881s |  12 | lnL=    -10014.5 | depth=    3/    6 | improvements=  43 | delta_lnL=    7.8/   83.7  
+	     893s |  13 | lnL=    -10000.7 | depth=    5/    7 | improvements=  38 | delta_lnL=   28.0/   83.7  
+	     902s |  14 | lnL=     -9978.8 | depth=    2/    9 | improvements=  25 | delta_lnL=    0.8/   22.5   +
+	     910s |  15 | lnL=     -9977.2 | depth=    3/    7 | improvements=  25 | delta_lnL=   10.3/   22.5   +
+	     919s |  16 | lnL=     -9985.8 | depth=    3/    7 | improvements=  32 | delta_lnL=    8.1/   22.5  
+	     928s |  17 | lnL=     -9997.2 | depth=    4/    7 | improvements=  34 | delta_lnL=   16.5/   22.5  
+	     938s |  18 | lnL=     -9994.6 | depth=    8/    8 | improvements=  35 | delta_lnL=   27.4/   20.6  
+	     948s |  19 | lnL=    -10007.2 | depth=    4/   12 | improvements=  30 | delta_lnL=   18.1/   20.6  
+	     957s |  20 | lnL=     -9975.9 | depth=    2/    9 | improvements=  26 | delta_lnL=    0.6/   20.6   +
+	     972s |  21 | lnL=     -9968.0 | depth=    3/    7 | improvements=  23 | delta_lnL=    4.0/   20.6   +
+	     982s |  22 | lnL=     -9974.4 | depth=    5/    7 | improvements=  21 | delta_lnL=   17.0/   54.8  
+	     995s |  23 | lnL=    -10029.4 | depth=    4/    9 | improvements=  41 | delta_lnL=   26.1/   54.8  
+	    1006s |  24 | lnL=    -10004.4 | depth=    7/    8 | improvements=  36 | delta_lnL=   10.5/   54.8  
+	    1020s |  25 | lnL=     -9996.2 | depth=    8/   11 | improvements=  32 | delta_lnL=   17.1/   54.8  
+	    1033s |  26 | lnL=    -10007.2 | depth=    6/   12 | improvements=  34 | delta_lnL=   17.8/   52.1  
+	    1045s |  27 | lnL=     -9971.0 | depth=    3/   10 | improvements=  29 | delta_lnL=    7.6/   52.1  
+	    1056s |  28 | lnL=     -9979.5 | depth=    4/    8 | improvements=  31 | delta_lnL=   20.3/   52.1  
+	    1067s |  29 | lnL=    -10001.6 | depth=    7/    8 | improvements=  30 | delta_lnL=   25.3/   52.1  
+	    1079s |  30 | lnL=     -9986.3 | depth=    3/   11 | improvements=  29 | delta_lnL=    8.3/   40.6  
+
+. Third round of optimization...
+
+	    1125s |  31 | lnL=     -9957.6 | depth=    4/   10 | improvements=  27 | delta_lnL=    8.7/  100.0 | triple moves=   5   +
+	    1162s |  32 | lnL=     -9957.4 | depth=    1/    8 | improvements=   1 | delta_lnL=    0.0/  100.0 | triple moves=   6   +
+	    1208s |  33 | lnL=     -9957.4 | depth=    0/    6 | improvements=   0 | delta_lnL=    0.0/  100.0 | triple moves=   5   +
+
+. Final optimisation steps...
+
+
+. Log likelihood of the current tree: -9957.348593066637477022596.
+
+. Calculating fast branch supports (using 'SH').
+
+. Printing the most likely tree in file 'sws_tree_aln_phylip_phyml_tree.txt'.
+
+. Time used 0h21m6s
+
+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo

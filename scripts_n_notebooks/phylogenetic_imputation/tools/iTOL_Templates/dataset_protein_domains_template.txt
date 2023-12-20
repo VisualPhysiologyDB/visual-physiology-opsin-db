@@ -1,0 +1,127 @@
+DATASET_DOMAINS
+#Protein domain datasets are visualized as schematic representations of proteins, with a protein backbone and various shapes depicting the locations of individual domains
+
+#lines starting with a hash are comments and ignored during parsing
+
+#=================================================================#
+#                    MANDATORY SETTINGS                           #
+#=================================================================#
+#select the separator which is used to delimit the data below (TAB,SPACE or COMMA).This separator must be used throughout this file.
+#SEPARATOR TAB
+#SEPARATOR SPACE
+SEPARATOR COMMA
+
+#label is used in the legend table (can be changed later)
+DATASET_LABEL,label1
+
+#dataset color (can be changed later)
+COLOR,#ff0000
+
+#=================================================================#
+#                    OPTIONAL SETTINGS                            #
+#=================================================================#
+
+#=================================================================#
+#     all other optional settings can be set or changed later     #
+#           in the web interface (under 'Datasets' tab)           #
+#=================================================================#
+
+#dataset scale: you can simply set the values where the scale will be drawn
+#DATASET_SCALE,100,200,1000
+#or you can specify value, label, color, width, style and label size factor for each scale line (dash separated, format: VALUE-LABEL-COLOR-WIDTH-DASHED-LABEL_SCALE_FACTOR))
+#DATASET_SCALE,100-amino acid 100-#0000ff-5-1-1,200-line at aa200-#ff0000-1-0-2,1000-3rd aa line-#00ff00-5-1-1
+
+#Each dataset can have a legend, which is defined using LEGEND_XXX fields below
+#For each row in the legend, there should be one shape, color and label.
+#Optionally, you can define an exact legend position using LEGEND_POSITION_X and LEGEND_POSITION_Y. To use automatic legend positioning, do NOT define these values
+#Optionally, shape scaling can be present (LEGEND_SHAPE_SCALES). For each shape, you can define a scaling factor between 0 and 1.
+#To order legend entries horizontally instead of vertically, set LEGEND_HORIZONTAL to 1
+#Shape should be a number between 1 and 6, or any protein domain shape definition (RE, HH, HV...).
+#1: square
+#2: circle
+#3: star
+#4: right pointing triangle
+#5: left pointing triangle
+#6: checkmark
+
+#LEGEND_TITLE,Dataset legend
+#LEGEND_POSITION_X,100
+#LEGEND_POSITION_Y,100
+#LEGEND_HORIZONTAL,0
+#LEGEND_SHAPES,1,2,3
+#LEGEND_COLORS,#ff0000,#00ff00,#0000ff
+#LEGEND_LABELS,value1,value2,value3
+#LEGEND_SHAPE_SCALES,1,1,0.5
+
+#maximum width
+#WIDTH,1000
+
+#always show internal values; if set, values associated to internal nodes will be displayed even if these nodes are not collapsed. It could cause overlapping in the dataset display.
+#SHOW_INTERNAL,0
+
+#show dashed lines between leaf labels and the dataset
+#DASHED_LINES,1
+
+#left margin, used to increase/decrease the spacing to the next dataset. Can be negative, causing datasets to overlap.
+#MARGIN,0
+
+#protein height factor; Default height of each domain will be slightly less than the available space between leaves, but you can set a multiplication factor here to increase/decrease it (values from 0 to 1 will decrease it, values above 1 will increase it)
+#HEIGHT_FACTOR,1
+
+#proteins are aligned to the node lines by default. Using BAR_SHIFT, you can move them all up/down by a fixed amount
+#BAR_SHIFT,0
+
+#display or hide the text labels for each domain
+#SHOW_DOMAIN_LABELS,1
+
+#set the size factor for the text labels
+#LABEL_SIZE_FACTOR,1
+
+#with LABELS_ON_TOP set to 0, label text which does not fit into the shape will be hidden
+#LABELS_ON_TOP,0
+
+#color of the background rectangle representing the protein amino acid backbone
+#BACKBONE_COLOR,#aaaaaa
+
+#height of the background rectangle representing the protein amino acid backbone (in pixels)
+#BACKBONE_HEIGHT,10
+
+#border width; if set above 0, a border of specified width (in pixels) will be drawn around the domain shapes
+#BORDER_WIDTH,0
+
+#border color; used when BORDER_WIDTH is above 0
+#BORDER_COLOR,#0000ff
+
+
+#domains can be filled with solid color, or a gradient
+#GRADIENT_FILL,1
+
+#=================================================================#
+#       Actual data follows after the "DATA" keyword              #
+#=================================================================#
+#Internal tree nodes can be specified using IDs directly, or using the 'last common ancestor' method described in iTOL help pages
+DATA
+#Each node can have one protein definition assigned, with total protein length defined in field 2, followed by an unlimited number of domain definitions
+#Each domain definition consists of 5 parts, separated with vertical lines:
+#SHAPE|START|END|COLOR|LABEL
+
+#there are 13 different possible shapes:
+#RE  rectangle
+#HH  horizontal hexagon
+#HV  vertical hexagon
+#EL  ellipse
+#DI  rhombus (diamond)
+#TR  right pointing triangle
+#TL  left pointing triangle
+#PL  left pointing pentagram
+#PR  right pointing pentagram
+#PU  up pointing pentagram
+#PD  down pointing pentagram
+#OC  octagon
+#GP  rectangle (gap; black filled rectangle with 1/3 normal height)
+
+#for example, a 1200 amino acid protein with 3 domains, displayed on node 9606:
+#red colored rectangle representing a SH2 domain at positions 100 - 150
+#blue colored ellipse representing a SH3 domain at positions 400 - 500
+#green colored octagon representing a PH domain at positions 700 - 900
+#9606,1200,RE|100|150|#ff0000|SH2,EL|400|500|#0000ff|SH3,OC|700|900|#00ff00|PH

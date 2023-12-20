@@ -1,0 +1,16 @@
+PRUNE
+#use this template to automatically prune the tree. All IDs listed below DATA line will be selected and included in the
+#pruned tree. Internal tree nodes can be specified using IDs directly, or using the 'last common ancestor' method 
+#described in iTOL help pages
+
+#lines starting with a hash are comments and ignored during parsing
+#=================================================================#
+#       Actual data follows after the "DATA" keyword              #
+#=================================================================#
+DATA
+#NODE_ID
+
+#Examples
+#9606|9031
+#117
+#I121

@@ -1,0 +1,109 @@
+
+
+. Command line: /data/http/www/binaries/phyml/phyml -i /data/http/www/exec/20231018-000713_Ye74/rod_txt -d aa -b -4 -m LG -v e -c 4 -f m -a e --leave_duplicates -o tlr --no_memory_check 
+
+
+
+
+
+  ////////////////////////////////////.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.//////////////////////////////////////////
+
+        . Sequence filename:				 rod_txt
+        . Data type:					 aa
+        . Alphabet size:				 20
+        . Sequence format:				 interleaved
+        . Number of data sets:				 1
+        . Nb of bootstrapped data sets:			 0
+        . Compute approximate likelihood ratio test:	 yes (SH-like branch supports)
+        . Model name:					 LG
+        . Proportion of invariable sites:		 estimated
+        . RAS model:					 discrete Gamma
+        . Number of subst. rate catgs:			 4
+        . Gamma distribution parameter:			 estimated
+        . 'Middle' of each rate class:			 mean
+        . Amino-acid equilibrium frequencies:		 model-defined
+        . Optimise tree topology:			 yes
+        . Starting tree:				 BioNJ
+        . Add random input tree:			 no
+        . Optimise branch lengths:			 yes
+        . Minimum length of an edge:			 1e-08
+        . Optimise substitution model parameters:	 yes
+        . Run ID:					 none
+        . Random seed:					 1697580434
+        . Subtree patterns aliasing:			 no
+        . Version:					 3.3.20220408
+        . Byte alignment:				 32
+        . AVX enabled:					 yes
+        . SSE enabled:					 yes
+
+  ////////////////////////////////////.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.//////////////////////////////////////////
+
+
+
+. 260 patterns found (out of a total of 297 sites). 
+
+. 51 sites without polymorphism (17.17%).
+
+
+. Computing pairwise distances...
+
+. Building BioNJ tree...
+
+. WARNING: this analysis will use at least 244 MB of memory space...
+
+
+. Score of initial tree: -14205.48
+
+. Starting first round of SPRs...
+
+	     310s |   1 | lnL=    -13369.7 | depth=   10/   89 | improvements= 143 | delta_lnL=   47.0/ 1000.0   +
+	     594s |   2 | lnL=    -13229.7 | depth=   10/   53 | improvements=  70 | delta_lnL=   38.9/ 1000.0   +
+	     821s |   3 | lnL=    -13184.3 | depth=   22/   31 | improvements=  52 | delta_lnL=   12.5/ 1000.0   +
+	    1035s |   4 | lnL=    -13166.0 | depth=   22/   28 | improvements=  46 | delta_lnL=   19.9/ 1000.0   +
+	    1243s |   5 | lnL=    -13148.5 | depth=   21/   28 | improvements=  36 | delta_lnL=   13.0/ 1000.0   +
+	    1283s |   6 | lnL=    -13154.1 | depth=   11/   27 | improvements=  23 | delta_lnL=    6.6/   94.0  
+	    1323s |   7 | lnL=    -13134.7 | depth=    2/   17 | improvements=  26 | delta_lnL=   10.2/   94.0   +
+	    1356s |   8 | lnL=    -13132.7 | depth=    4/   10 | improvements=  26 | delta_lnL=    8.0/   94.0   +
+	    1387s |   9 | lnL=    -13148.9 | depth=    1/   10 | improvements=  18 | delta_lnL=    0.0/   94.0  
+	    1408s |  10 | lnL=    -13140.1 | depth=    1/    7 | improvements=  23 | delta_lnL=    0.0/   50.0  
+	    1433s |  11 | lnL=    -13133.4 | depth=    3/    7 | improvements=  22 | delta_lnL=    6.8/   50.0  
+	    1447s |  12 | lnL=    -13130.5 | depth=    2/    9 | improvements=  14 | delta_lnL=    3.9/   50.0   +
+
+. Second round of optimization...
+
+	    1466s |  13 | lnL=    -13141.3 | depth=   11/   12 | improvements=  40 | delta_lnL=   13.7/   50.0  
+	    1481s |  14 | lnL=    -13134.7 | depth=   11/   15 | improvements=  41 | delta_lnL=   11.2/   20.0  
+	    1496s |  15 | lnL=    -13125.6 | depth=    4/   15 | improvements=  40 | delta_lnL=    3.3/   20.0   +
+	    1511s |  16 | lnL=    -13139.7 | depth=    3/   12 | improvements=  40 | delta_lnL=    6.7/   20.0  
+	    1523s |  17 | lnL=    -13132.8 | depth=    5/    9 | improvements=  35 | delta_lnL=   10.0/   20.0  
+	    1536s |  18 | lnL=    -13130.4 | depth=    3/    9 | improvements=  32 | delta_lnL=   12.7/   22.4  
+	    1549s |  19 | lnL=    -13140.6 | depth=    4/    7 | improvements=  34 | delta_lnL=    6.7/   22.4  
+	    1562s |  20 | lnL=    -13149.2 | depth=    4/    8 | improvements=  34 | delta_lnL=    8.2/   22.4  
+	    1631s |  21 | lnL=    -13147.2 | depth=    2/    8 | improvements=  24 | delta_lnL=   13.0/   22.4  
+	    1644s |  22 | lnL=    -13140.0 | depth=    4/    6 | improvements=  40 | delta_lnL=   15.0/   25.3  
+	    1658s |  23 | lnL=    -13158.6 | depth=    2/    8 | improvements=  35 | delta_lnL=    1.5/   25.3  
+	    1671s |  24 | lnL=    -13128.7 | depth=    4/    6 | improvements=  38 | delta_lnL=    8.3/   25.3  
+
+. Third round of optimization...
+
+	    1742s |  25 | lnL=    -13113.0 | depth=    6/   10 | improvements=  24 | delta_lnL=   13.0/  100.0 | triple moves=   5   +
+	    1816s |  26 | lnL=    -13112.7 | depth=    1/   12 | improvements=   1 | delta_lnL=    0.0/  100.0 | triple moves=   6   +
+	    1887s |  27 | lnL=    -13112.7 | depth=    0/    9 | improvements=   1 | delta_lnL=    0.0/  100.0 | triple moves=   5   +
+	    1951s |  28 | lnL=    -13112.5 | depth=    1/    7 | improvements=   1 | delta_lnL=    0.0/  100.0 | triple moves=   5   +
+	    2011s |  29 | lnL=    -13112.2 | depth=    5/    5 | improvements=   3 | delta_lnL=    2.3/  100.0 | triple moves=   5   +
+	    2098s |  30 | lnL=    -13112.2 | depth=    0/   10 | improvements=   0 | delta_lnL=    0.0/  100.0 | triple moves=   5   +
+
+. Final optimisation steps...
+
+
+. Log likelihood of the current tree: -13112.130925183852014015429.
+
+. Calculating fast branch supports (using 'SH').
+
+. Printing the most likely tree in file 'rod_txt_phyml_tree.txt'.
+
+. Time used 0h36m1s
+
+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo

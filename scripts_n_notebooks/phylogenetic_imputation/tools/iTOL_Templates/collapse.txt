@@ -1,0 +1,14 @@
+COLLAPSE
+#use this template to automatically collapse clades. All IDs listed below DATA line will be collapsed.
+#lines starting with a hash are comments and ignored during parsing
+
+#Internal tree nodes can be specified using IDs directly, or using the 'last common ancestor' method described in iTOL help pages
+#=================================================================#
+#       Actual data follows after the "DATA" keyword              #
+#=================================================================#
+DATA
+#NODE_ID
+#Examples
+
+#9606|9031
+#I121
