@@ -1,0 +1,1553 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="532.8pt" height="280.8pt" viewBox="0 0 532.8 280.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2024-01-22T18:20:39.657718</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.7.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 280.8 
+L 532.8 280.8 
+L 532.8 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 46.903125 243.7125 
+L 525.6 243.7125 
+L 525.6 7.2 
+L 46.903125 7.2 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="me94089aa2b" d="M 0 3 
+C 0.795609 3 1.55874 2.683901 2.12132 2.12132 
+C 2.683901 1.55874 3 0.795609 3 0 
+C 3 -0.795609 2.683901 -1.55874 2.12132 -2.12132 
+C 1.55874 -2.683901 0.795609 -3 0 -3 
+C -0.795609 -3 -1.55874 -2.683901 -2.12132 -2.12132 
+C -2.683901 -1.55874 -3 -0.795609 -3 0 
+C -3 0.795609 -2.683901 1.55874 -2.12132 2.12132 
+C -1.55874 2.683901 -0.795609 3 0 3 
+z
+" style="stroke: #808080"/>
+    </defs>
+    <g clip-path="url(#p9a86803ae7)">
+     <use xlink:href="#me94089aa2b" x="503.841051" y="43.09814" style="fill: #808080; stroke: #808080"/>
+     <use xlink:href="#me94089aa2b" x="470.365745" y="48.645398" style="fill: #808080; stroke: #808080"/>
+     <use xlink:href="#me94089aa2b" x="436.890439" y="48.645398" style="fill: #808080; stroke: #808080"/>
+     <use xlink:href="#me94089aa2b" x="403.415133" y="56.041743" style="fill: #808080; stroke: #808080"/>
+     <use xlink:href="#me94089aa2b" x="369.939827" y="57.890829" style="fill: #808080; stroke: #808080"/>
+     <use xlink:href="#me94089aa2b" x="336.464521" y="57.890829" style="fill: #808080; stroke: #808080"/>
+     <use xlink:href="#me94089aa2b" x="302.989215" y="57.890829" style="fill: #808080; stroke: #808080"/>
+     <use xlink:href="#me94089aa2b" x="269.51391" y="65.287173" style="fill: #808080; stroke: #808080"/>
+     <use xlink:href="#me94089aa2b" x="236.038604" y="65.287173" style="fill: #808080; stroke: #808080"/>
+     <use xlink:href="#me94089aa2b" x="202.563298" y="80.079863" style="fill: #808080; stroke: #808080"/>
+     <use xlink:href="#me94089aa2b" x="169.087992" y="96.721638" style="fill: #808080; stroke: #808080"/>
+     <use xlink:href="#me94089aa2b" x="135.612686" y="124.45793" style="fill: #808080; stroke: #808080"/>
+     <use xlink:href="#me94089aa2b" x="102.13738" y="157.741481" style="fill: #808080; stroke: #808080"/>
+     <use xlink:href="#me94089aa2b" x="68.662074" y="224.308582" style="fill: #808080; stroke: #808080"/>
+    </g>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="m568f7fcadc" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m568f7fcadc" x="88.077751" y="243.7125" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <!-- 100 -->
+      <g transform="translate(79.76447 258.076563) scale(0.1 -0.1)">
+       <defs>
+        <path id="CenturyGothic-31" d="M 1184 4597 
+L 2088 4597 
+L 2088 0 
+L 1631 0 
+L 1631 4147 
+L 909 4147 
+L 1184 4597 
+z
+" transform="scale(0.015625)"/>
+        <path id="CenturyGothic-30" d="M 203 2297 
+Q 203 3206 398 3703 
+Q 594 4200 950 4456 
+Q 1306 4713 1747 4713 
+Q 2194 4713 2556 4455 
+Q 2919 4197 3130 3681 
+Q 3341 3166 3341 2297 
+Q 3341 1431 3133 918 
+Q 2925 406 2559 145 
+Q 2194 -116 1747 -116 
+Q 1306 -116 953 137 
+Q 600 391 401 892 
+Q 203 1394 203 2297 
+z
+M 638 2288 
+Q 638 1509 777 1111 
+Q 916 713 1187 506 
+Q 1459 300 1763 300 
+Q 2069 300 2334 501 
+Q 2600 703 2738 1106 
+Q 2909 1597 2909 2288 
+Q 2909 2981 2756 3423 
+Q 2603 3866 2333 4070 
+Q 2063 4275 1763 4275 
+Q 1456 4275 1187 4070 
+Q 919 3866 778 3467 
+Q 638 3069 638 2288 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#CenturyGothic-31"/>
+       <use xlink:href="#CenturyGothic-30" x="55.419922"/>
+       <use xlink:href="#CenturyGothic-30" x="110.839844"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#m568f7fcadc" x="155.028363" y="243.7125" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <!-- 200 -->
+      <g transform="translate(146.715082 258.076563) scale(0.1 -0.1)">
+       <defs>
+        <path id="CenturyGothic-32" d="M 741 3156 
+L 300 3156 
+Q 319 3838 755 4275 
+Q 1191 4713 1831 4713 
+Q 2466 4713 2858 4303 
+Q 3250 3894 3250 3338 
+Q 3250 2947 3062 2605 
+Q 2875 2263 2334 1678 
+L 1191 444 
+L 3313 444 
+L 3313 0 
+L 191 0 
+L 1947 1897 
+Q 2481 2469 2642 2745 
+Q 2803 3022 2803 3328 
+Q 2803 3716 2514 3995 
+Q 2225 4275 1806 4275 
+Q 1366 4275 1073 3981 
+Q 781 3688 741 3156 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#CenturyGothic-32"/>
+       <use xlink:href="#CenturyGothic-30" x="55.419922"/>
+       <use xlink:href="#CenturyGothic-30" x="110.839844"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#m568f7fcadc" x="221.978975" y="243.7125" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <!-- 300 -->
+      <g transform="translate(213.665694 258.076563) scale(0.1 -0.1)">
+       <defs>
+        <path id="CenturyGothic-33" d="M 847 3531 
+L 378 3531 
+Q 506 4100 868 4406 
+Q 1231 4713 1725 4713 
+Q 2084 4713 2395 4548 
+Q 2706 4384 2876 4106 
+Q 3047 3828 3047 3525 
+Q 3047 2931 2456 2584 
+Q 2788 2450 3000 2191 
+Q 3300 1825 3300 1372 
+Q 3300 981 3094 626 
+Q 2888 272 2531 78 
+Q 2175 -116 1734 -116 
+Q 1141 -116 744 226 
+Q 347 569 225 1231 
+L 675 1231 
+Q 794 784 1016 584 
+Q 1300 331 1741 331 
+Q 2241 331 2544 631 
+Q 2847 931 2847 1334 
+Q 2847 1603 2695 1837 
+Q 2544 2072 2289 2190 
+Q 2034 2309 1500 2338 
+L 1500 2759 
+Q 1816 2759 2075 2870 
+Q 2334 2981 2451 3153 
+Q 2569 3325 2569 3528 
+Q 2569 3828 2330 4047 
+Q 2091 4266 1725 4266 
+Q 1428 4266 1212 4098 
+Q 997 3931 847 3531 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#CenturyGothic-33"/>
+       <use xlink:href="#CenturyGothic-30" x="55.419922"/>
+       <use xlink:href="#CenturyGothic-30" x="110.839844"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m568f7fcadc" x="288.929587" y="243.7125" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <!-- 400 -->
+      <g transform="translate(280.616306 258.076563) scale(0.1 -0.1)">
+       <defs>
+        <path id="CenturyGothic-34" d="M 2725 4713 
+L 2819 4713 
+L 2819 1509 
+L 3375 1509 
+L 3375 1069 
+L 2819 1069 
+L 2819 0 
+L 2359 0 
+L 2359 1069 
+L 163 1069 
+L 2725 4713 
+z
+M 2359 1509 
+L 2359 3425 
+L 1006 1509 
+L 2359 1509 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#CenturyGothic-34"/>
+       <use xlink:href="#CenturyGothic-30" x="55.419922"/>
+       <use xlink:href="#CenturyGothic-30" x="110.839844"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#m568f7fcadc" x="355.880199" y="243.7125" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <!-- 500 -->
+      <g transform="translate(347.566918 258.076563) scale(0.1 -0.1)">
+       <defs>
+        <path id="CenturyGothic-35" d="M 3147 4597 
+L 3147 4159 
+L 1509 4159 
+L 1281 2906 
+Q 1581 2994 1822 2994 
+Q 2450 2994 2858 2573 
+Q 3266 2153 3266 1497 
+Q 3266 1044 3056 666 
+Q 2847 288 2489 86 
+Q 2131 -116 1663 -116 
+Q 1103 -116 718 226 
+Q 334 569 259 1113 
+L 731 1113 
+Q 784 847 911 681 
+Q 1038 516 1248 414 
+Q 1459 313 1691 313 
+Q 2144 313 2469 656 
+Q 2794 1000 2794 1516 
+Q 2794 1981 2500 2272 
+Q 2206 2563 1716 2563 
+Q 1309 2563 731 2316 
+L 1156 4597 
+L 3147 4597 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#CenturyGothic-35"/>
+       <use xlink:href="#CenturyGothic-30" x="55.419922"/>
+       <use xlink:href="#CenturyGothic-30" x="110.839844"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m568f7fcadc" x="422.830811" y="243.7125" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <!-- 600 -->
+      <g transform="translate(414.51753 258.076563) scale(0.1 -0.1)">
+       <defs>
+        <path id="CenturyGothic-36" d="M 2347 4713 
+L 2725 4466 
+L 1484 2584 
+Q 1734 2669 1953 2669 
+Q 2500 2669 2881 2273 
+Q 3263 1878 3263 1300 
+Q 3263 903 3078 583 
+Q 2894 263 2555 73 
+Q 2216 -116 1825 -116 
+Q 1447 -116 1123 67 
+Q 800 250 615 581 
+Q 431 913 431 1291 
+Q 431 1572 545 1883 
+Q 659 2194 953 2631 
+L 2347 4713 
+z
+M 1844 2266 
+Q 1444 2266 1161 1983 
+Q 878 1700 878 1297 
+Q 878 897 1161 614 
+Q 1444 331 1844 331 
+Q 2244 331 2526 614 
+Q 2809 897 2809 1297 
+Q 2809 1700 2526 1983 
+Q 2244 2266 1844 2266 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#CenturyGothic-36"/>
+       <use xlink:href="#CenturyGothic-30" x="55.419922"/>
+       <use xlink:href="#CenturyGothic-30" x="110.839844"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#m568f7fcadc" x="489.781423" y="243.7125" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <!-- 700 -->
+      <g transform="translate(481.468141 258.076563) scale(0.1 -0.1)">
+       <defs>
+        <path id="CenturyGothic-37" d="M 459 4597 
+L 3375 4597 
+L 916 -116 
+L 538 78 
+L 2663 4163 
+L 459 4163 
+L 459 4597 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#CenturyGothic-37"/>
+       <use xlink:href="#CenturyGothic-30" x="55.419922"/>
+       <use xlink:href="#CenturyGothic-30" x="110.839844"/>
+      </g>
+     </g>
+    </g>
+    <g id="text_8">
+     <!-- Size of Training Data (n) -->
+     <g transform="translate(229.504687 271.520313) scale(0.1 -0.1)">
+      <defs>
+       <path id="CenturyGothic-53" d="M 84 856 
+L 475 1091 
+Q 888 331 1428 331 
+Q 1659 331 1862 439 
+Q 2066 547 2172 728 
+Q 2278 909 2278 1113 
+Q 2278 1344 2122 1566 
+Q 1906 1872 1334 2303 
+Q 759 2738 619 2931 
+Q 375 3256 375 3634 
+Q 375 3934 519 4181 
+Q 663 4428 923 4570 
+Q 1184 4713 1491 4713 
+Q 1816 4713 2098 4552 
+Q 2381 4391 2697 3959 
+L 2322 3675 
+Q 2063 4019 1880 4128 
+Q 1697 4238 1481 4238 
+Q 1203 4238 1026 4069 
+Q 850 3900 850 3653 
+Q 850 3503 912 3362 
+Q 975 3222 1141 3056 
+Q 1231 2969 1734 2597 
+Q 2331 2156 2553 1812 
+Q 2775 1469 2775 1122 
+Q 2775 622 2395 253 
+Q 2016 -116 1472 -116 
+Q 1053 -116 712 107 
+Q 372 331 84 856 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-69" d="M 641 4800 
+Q 791 4800 897 4694 
+Q 1003 4588 1003 4438 
+Q 1003 4291 897 4184 
+Q 791 4078 641 4078 
+Q 494 4078 387 4184 
+Q 281 4291 281 4438 
+Q 281 4588 387 4694 
+Q 494 4800 641 4800 
+z
+M 422 3400 
+L 863 3400 
+L 863 0 
+L 422 0 
+L 422 3400 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-7a" d="M 209 3400 
+L 2706 3400 
+L 781 388 
+L 2644 388 
+L 2644 0 
+L 28 0 
+L 1953 3016 
+L 209 3016 
+L 209 3400 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-65" d="M 3350 1128 
+L 3719 934 
+Q 3538 578 3300 359 
+Q 3063 141 2766 26 
+Q 2469 -88 2094 -88 
+Q 1263 -88 794 457 
+Q 325 1003 325 1691 
+Q 325 2338 722 2844 
+Q 1225 3488 2069 3488 
+Q 2938 3488 3456 2828 
+Q 3825 2363 3831 1666 
+L 775 1666 
+Q 788 1072 1153 692 
+Q 1519 313 2056 313 
+Q 2316 313 2561 403 
+Q 2806 494 2978 644 
+Q 3150 794 3350 1128 
+z
+M 3350 2044 
+Q 3263 2394 3095 2603 
+Q 2928 2813 2653 2941 
+Q 2378 3069 2075 3069 
+Q 1575 3069 1216 2747 
+Q 953 2513 819 2044 
+L 3350 2044 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-20" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-6f" d="M 2097 3488 
+Q 2881 3488 3397 2919 
+Q 3866 2400 3866 1691 
+Q 3866 978 3370 445 
+Q 2875 -88 2097 -88 
+Q 1316 -88 820 445 
+Q 325 978 325 1691 
+Q 325 2397 794 2916 
+Q 1309 3488 2097 3488 
+z
+M 2097 3059 
+Q 1553 3059 1162 2656 
+Q 772 2253 772 1681 
+Q 772 1313 950 994 
+Q 1128 675 1431 501 
+Q 1734 328 2097 328 
+Q 2459 328 2762 501 
+Q 3066 675 3244 994 
+Q 3422 1313 3422 1681 
+Q 3422 2253 3030 2656 
+Q 2638 3059 2097 3059 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-66" d="M 1888 4713 
+L 1888 4284 
+Q 1647 4388 1475 4388 
+Q 1347 4388 1262 4336 
+Q 1178 4284 1156 4217 
+Q 1134 4150 1134 3859 
+L 1134 3400 
+L 1844 3400 
+L 1844 3025 
+L 1131 3025 
+L 1131 0 
+L 694 0 
+L 694 3025 
+L 247 3025 
+L 247 3400 
+L 694 3400 
+L 694 3931 
+Q 694 4297 761 4453 
+Q 828 4609 989 4704 
+Q 1150 4800 1378 4800 
+Q 1591 4800 1888 4713 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-54" d="M 103 4150 
+L 103 4597 
+L 2625 4597 
+L 2625 4150 
+L 1600 4150 
+L 1600 0 
+L 1131 0 
+L 1131 4150 
+L 103 4150 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-72" d="M 322 3400 
+L 769 3400 
+L 769 2903 
+Q 969 3197 1191 3342 
+Q 1413 3488 1653 3488 
+Q 1834 3488 2041 3372 
+L 1813 3003 
+Q 1675 3063 1581 3063 
+Q 1363 3063 1159 2883 
+Q 956 2703 850 2325 
+Q 769 2034 769 1150 
+L 769 0 
+L 322 0 
+L 322 3400 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-61" d="M 3875 3400 
+L 3875 0 
+L 3444 0 
+L 3444 584 
+Q 3169 250 2826 81 
+Q 2484 -88 2078 -88 
+Q 1356 -88 845 435 
+Q 334 959 334 1709 
+Q 334 2444 850 2966 
+Q 1366 3488 2091 3488 
+Q 2509 3488 2848 3309 
+Q 3188 3131 3444 2775 
+L 3444 3400 
+L 3875 3400 
+z
+M 2125 3066 
+Q 1759 3066 1450 2886 
+Q 1141 2706 958 2381 
+Q 775 2056 775 1694 
+Q 775 1334 959 1006 
+Q 1144 678 1455 495 
+Q 1766 313 2122 313 
+Q 2481 313 2803 494 
+Q 3125 675 3298 984 
+Q 3472 1294 3472 1681 
+Q 3472 2272 3083 2669 
+Q 2694 3066 2125 3066 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-6e" d="M 488 3400 
+L 925 3400 
+L 925 2791 
+Q 1188 3141 1506 3314 
+Q 1825 3488 2200 3488 
+Q 2581 3488 2876 3294 
+Q 3172 3100 3312 2772 
+Q 3453 2444 3453 1750 
+L 3453 0 
+L 3019 0 
+L 3019 1622 
+Q 3019 2209 2969 2406 
+Q 2891 2744 2675 2914 
+Q 2459 3084 2113 3084 
+Q 1716 3084 1402 2821 
+Q 1088 2559 988 2172 
+Q 925 1919 925 1247 
+L 925 0 
+L 488 0 
+L 488 3400 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-67" d="M 3416 3400 
+L 3856 3400 
+L 3856 691 
+Q 3856 -25 3731 -356 
+Q 3559 -825 3134 -1078 
+Q 2709 -1331 2113 -1331 
+Q 1675 -1331 1326 -1207 
+Q 978 -1084 759 -876 
+Q 541 -669 356 -269 
+L 831 -269 
+Q 1025 -606 1331 -768 
+Q 1638 -931 2091 -931 
+Q 2538 -931 2845 -764 
+Q 3153 -597 3284 -344 
+Q 3416 -91 3416 472 
+L 3416 647 
+Q 3169 334 2812 167 
+Q 2456 0 2056 0 
+Q 1588 0 1175 233 
+Q 763 466 538 859 
+Q 313 1253 313 1725 
+Q 313 2197 547 2605 
+Q 781 3013 1195 3250 
+Q 1609 3488 2069 3488 
+Q 2450 3488 2779 3330 
+Q 3109 3172 3416 2809 
+L 3416 3400 
+z
+M 2125 3066 
+Q 1753 3066 1434 2886 
+Q 1116 2706 934 2389 
+Q 753 2072 753 1703 
+Q 753 1144 1128 778 
+Q 1503 413 2100 413 
+Q 2703 413 3070 775 
+Q 3438 1138 3438 1728 
+Q 3438 2113 3269 2414 
+Q 3100 2716 2790 2891 
+Q 2481 3066 2125 3066 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-44" d="M 559 0 
+L 559 4597 
+L 1513 4597 
+Q 2544 4597 3009 4431 
+Q 3678 4197 4054 3619 
+Q 4431 3041 4431 2241 
+Q 4431 1550 4132 1025 
+Q 3834 500 3357 250 
+Q 2881 0 2022 0 
+L 559 0 
+z
+M 1000 434 
+L 1531 434 
+Q 2484 434 2853 553 
+Q 3372 722 3669 1161 
+Q 3966 1600 3966 2234 
+Q 3966 2900 3644 3372 
+Q 3322 3844 2747 4019 
+Q 2316 4150 1325 4150 
+L 1000 4150 
+L 1000 434 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-74" d="M 869 4663 
+L 1309 4663 
+L 1309 3400 
+L 2003 3400 
+L 2003 3025 
+L 1309 3025 
+L 1309 0 
+L 869 0 
+L 869 3025 
+L 272 3025 
+L 272 3400 
+L 869 3400 
+L 869 4663 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-28" d="M 1469 4800 
+L 1975 4800 
+Q 1669 4172 1484 3334 
+Q 1300 2497 1300 1606 
+Q 1300 781 1439 15 
+Q 1578 -750 1822 -1331 
+L 1341 -1331 
+Q 1109 -775 971 -22 
+Q 834 731 834 1547 
+Q 834 2425 996 3258 
+Q 1159 4091 1469 4800 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-29" d="M 894 -1331 
+L 388 -1331 
+Q 697 -703 880 134 
+Q 1063 972 1063 1863 
+Q 1063 2688 923 3453 
+Q 784 4219 541 4800 
+L 1022 4800 
+Q 1256 4244 1392 3489 
+Q 1528 2734 1528 1919 
+Q 1528 1044 1365 211 
+Q 1203 -622 894 -1331 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#CenturyGothic-53"/>
+      <use xlink:href="#CenturyGothic-69" x="49.804688"/>
+      <use xlink:href="#CenturyGothic-7a" x="69.824219"/>
+      <use xlink:href="#CenturyGothic-65" x="112.304688"/>
+      <use xlink:href="#CenturyGothic-20" x="177.294922"/>
+      <use xlink:href="#CenturyGothic-6f" x="204.980469"/>
+      <use xlink:href="#CenturyGothic-66" x="270.458984"/>
+      <use xlink:href="#CenturyGothic-20" x="301.855469"/>
+      <use xlink:href="#CenturyGothic-54" x="329.541016"/>
+      <use xlink:href="#CenturyGothic-72" x="372.119141"/>
+      <use xlink:href="#CenturyGothic-61" x="402.197266"/>
+      <use xlink:href="#CenturyGothic-69" x="470.507812"/>
+      <use xlink:href="#CenturyGothic-6e" x="490.527344"/>
+      <use xlink:href="#CenturyGothic-69" x="551.513672"/>
+      <use xlink:href="#CenturyGothic-6e" x="571.533203"/>
+      <use xlink:href="#CenturyGothic-67" x="632.519531"/>
+      <use xlink:href="#CenturyGothic-20" x="699.804688"/>
+      <use xlink:href="#CenturyGothic-44" x="727.490234"/>
+      <use xlink:href="#CenturyGothic-61" x="801.904297"/>
+      <use xlink:href="#CenturyGothic-74" x="870.214844"/>
+      <use xlink:href="#CenturyGothic-61" x="904.101562"/>
+      <use xlink:href="#CenturyGothic-20" x="972.412109"/>
+      <use xlink:href="#CenturyGothic-28" x="1000.097656"/>
+      <use xlink:href="#CenturyGothic-6e" x="1037.011719"/>
+      <use xlink:href="#CenturyGothic-29" x="1097.998047"/>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_8">
+      <defs>
+       <path id="m446b28e84a" d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m446b28e84a" x="46.903125" y="242.799443" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <!-- 0.86 -->
+      <g transform="translate(20.507812 246.481474) scale(0.1 -0.1)">
+       <defs>
+        <path id="CenturyGothic-2e" d="M 969 688 
+Q 1128 688 1240 575 
+Q 1353 463 1353 300 
+Q 1353 141 1240 26 
+Q 1128 -88 969 -88 
+Q 809 -88 696 26 
+Q 584 141 584 300 
+Q 584 463 696 575 
+Q 809 688 969 688 
+z
+" transform="scale(0.015625)"/>
+        <path id="CenturyGothic-38" d="M 2459 2522 
+Q 2925 2291 3126 1994 
+Q 3328 1697 3328 1319 
+Q 3328 788 2981 381 
+Q 2556 -116 1766 -116 
+Q 1003 -116 609 320 
+Q 216 756 216 1281 
+Q 216 1666 422 1973 
+Q 628 2281 1109 2522 
+Q 772 2697 603 2956 
+Q 434 3216 434 3513 
+Q 434 3813 614 4098 
+Q 794 4384 1111 4548 
+Q 1428 4713 1797 4713 
+Q 2156 4713 2462 4547 
+Q 2769 4381 2942 4097 
+Q 3116 3813 3116 3500 
+Q 3116 3188 2952 2944 
+Q 2788 2700 2459 2522 
+z
+M 1775 4266 
+Q 1397 4266 1148 4042 
+Q 900 3819 900 3509 
+Q 900 3203 1167 2954 
+Q 1434 2706 1791 2706 
+Q 2019 2706 2222 2818 
+Q 2425 2931 2539 3126 
+Q 2653 3322 2653 3519 
+Q 2653 3797 2428 4031 
+Q 2203 4266 1775 4266 
+z
+M 1797 2291 
+Q 1322 2291 1000 1983 
+Q 678 1675 678 1266 
+Q 678 1013 815 788 
+Q 953 563 1200 441 
+Q 1447 319 1772 319 
+Q 2275 319 2572 616 
+Q 2869 913 2869 1309 
+Q 2869 1694 2555 1992 
+Q 2241 2291 1797 2291 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#CenturyGothic-30"/>
+       <use xlink:href="#CenturyGothic-2e" x="55.419922"/>
+       <use xlink:href="#CenturyGothic-38" x="83.105469"/>
+       <use xlink:href="#CenturyGothic-36" x="138.525391"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_9">
+      <g>
+       <use xlink:href="#m446b28e84a" x="46.903125" y="205.81772" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <!-- 0.88 -->
+      <g transform="translate(20.507812 209.499751) scale(0.1 -0.1)">
+       <use xlink:href="#CenturyGothic-30"/>
+       <use xlink:href="#CenturyGothic-2e" x="55.419922"/>
+       <use xlink:href="#CenturyGothic-38" x="83.105469"/>
+       <use xlink:href="#CenturyGothic-38" x="138.525391"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m446b28e84a" x="46.903125" y="168.835997" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <!-- 0.90 -->
+      <g transform="translate(20.507812 172.518029) scale(0.1 -0.1)">
+       <defs>
+        <path id="CenturyGothic-39" d="M 1228 -116 
+L 850 128 
+L 2091 2009 
+Q 1841 1928 1622 1928 
+Q 1075 1928 694 2323 
+Q 313 2719 313 3297 
+Q 313 3694 497 4012 
+Q 681 4331 1020 4522 
+Q 1359 4713 1747 4713 
+Q 2128 4713 2451 4528 
+Q 2775 4344 2959 4012 
+Q 3144 3681 3144 3306 
+Q 3144 3022 3030 2711 
+Q 2916 2400 2622 1963 
+L 1228 -116 
+z
+M 1728 2331 
+Q 2131 2331 2414 2614 
+Q 2697 2897 2697 3297 
+Q 2697 3697 2414 3980 
+Q 2131 4263 1728 4263 
+Q 1328 4263 1045 3980 
+Q 763 3697 763 3297 
+Q 763 2897 1045 2614 
+Q 1328 2331 1728 2331 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#CenturyGothic-30"/>
+       <use xlink:href="#CenturyGothic-2e" x="55.419922"/>
+       <use xlink:href="#CenturyGothic-39" x="83.105469"/>
+       <use xlink:href="#CenturyGothic-30" x="138.525391"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_11">
+      <g>
+       <use xlink:href="#m446b28e84a" x="46.903125" y="131.854275" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <!-- 0.92 -->
+      <g transform="translate(20.507812 135.536306) scale(0.1 -0.1)">
+       <use xlink:href="#CenturyGothic-30"/>
+       <use xlink:href="#CenturyGothic-2e" x="55.419922"/>
+       <use xlink:href="#CenturyGothic-39" x="83.105469"/>
+       <use xlink:href="#CenturyGothic-32" x="138.525391"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#m446b28e84a" x="46.903125" y="94.872552" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_13">
+      <!-- 0.94 -->
+      <g transform="translate(20.507812 98.554583) scale(0.1 -0.1)">
+       <use xlink:href="#CenturyGothic-30"/>
+       <use xlink:href="#CenturyGothic-2e" x="55.419922"/>
+       <use xlink:href="#CenturyGothic-39" x="83.105469"/>
+       <use xlink:href="#CenturyGothic-34" x="138.525391"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_13">
+      <g>
+       <use xlink:href="#m446b28e84a" x="46.903125" y="57.890829" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_14">
+      <!-- 0.96 -->
+      <g transform="translate(20.507812 61.57286) scale(0.1 -0.1)">
+       <use xlink:href="#CenturyGothic-30"/>
+       <use xlink:href="#CenturyGothic-2e" x="55.419922"/>
+       <use xlink:href="#CenturyGothic-39" x="83.105469"/>
+       <use xlink:href="#CenturyGothic-36" x="138.525391"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#m446b28e84a" x="46.903125" y="20.909106" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_15">
+      <!-- 0.98 -->
+      <g transform="translate(20.507812 24.591137) scale(0.1 -0.1)">
+       <use xlink:href="#CenturyGothic-30"/>
+       <use xlink:href="#CenturyGothic-2e" x="55.419922"/>
+       <use xlink:href="#CenturyGothic-39" x="83.105469"/>
+       <use xlink:href="#CenturyGothic-38" x="138.525391"/>
+      </g>
+     </g>
+    </g>
+    <g id="text_16">
+     <!-- $R^2$ Values -->
+     <g transform="translate(14.564062 149.20625) rotate(-90) scale(0.1 -0.1)">
+      <defs>
+       <path id="DejaVuSans-Oblique-52" d="M 1613 4147 
+L 1294 2491 
+L 2106 2491 
+Q 2584 2491 2879 2755 
+Q 3175 3019 3175 3444 
+Q 3175 3784 2976 3965 
+Q 2778 4147 2406 4147 
+L 1613 4147 
+z
+M 2772 2241 
+Q 2972 2194 3105 2009 
+Q 3238 1825 3413 1275 
+L 3809 0 
+L 3144 0 
+L 2778 1197 
+Q 2638 1659 2453 1815 
+Q 2269 1972 1888 1972 
+L 1191 1972 
+L 806 0 
+L 172 0 
+L 1081 4666 
+L 2503 4666 
+Q 3150 4666 3495 4373 
+Q 3841 4081 3841 3531 
+Q 3841 3044 3547 2687 
+Q 3253 2331 2772 2241 
+z
+" transform="scale(0.015625)"/>
+       <path id="DejaVuSans-32" d="M 1228 531 
+L 3431 531 
+L 3431 0 
+L 469 0 
+L 469 531 
+Q 828 903 1448 1529 
+Q 2069 2156 2228 2338 
+Q 2531 2678 2651 2914 
+Q 2772 3150 2772 3378 
+Q 2772 3750 2511 3984 
+Q 2250 4219 1831 4219 
+Q 1534 4219 1204 4116 
+Q 875 4013 500 3803 
+L 500 4441 
+Q 881 4594 1212 4672 
+Q 1544 4750 1819 4750 
+Q 2544 4750 2975 4387 
+Q 3406 4025 3406 3419 
+Q 3406 3131 3298 2873 
+Q 3191 2616 2906 2266 
+Q 2828 2175 2409 1742 
+Q 1991 1309 1228 531 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-56" d="M 209 4597 
+L 709 4597 
+L 2231 1044 
+L 3781 4597 
+L 4281 4597 
+L 2281 0 
+L 2181 0 
+L 209 4597 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-6c" d="M 422 4713 
+L 859 4713 
+L 859 0 
+L 422 0 
+L 422 4713 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-75" d="M 431 3400 
+L 872 3400 
+L 872 1813 
+Q 872 1231 934 1013 
+Q 1028 700 1292 519 
+Q 1556 338 1922 338 
+Q 2288 338 2542 514 
+Q 2797 691 2894 978 
+Q 2959 1175 2959 1813 
+L 2959 3400 
+L 3406 3400 
+L 3406 1731 
+Q 3406 1028 3242 672 
+Q 3078 316 2748 114 
+Q 2419 -88 1922 -88 
+Q 1425 -88 1092 114 
+Q 759 316 595 677 
+Q 431 1038 431 1763 
+L 431 3400 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-73" d="M 2197 3028 
+L 1916 2738 
+Q 1566 3078 1231 3078 
+Q 1019 3078 867 2937 
+Q 716 2797 716 2609 
+Q 716 2444 841 2294 
+Q 966 2141 1366 1934 
+Q 1853 1681 2028 1447 
+Q 2200 1209 2200 913 
+Q 2200 494 1906 203 
+Q 1613 -88 1172 -88 
+Q 878 -88 611 40 
+Q 344 169 169 394 
+L 444 706 
+Q 778 328 1153 328 
+Q 1416 328 1600 497 
+Q 1784 666 1784 894 
+Q 1784 1081 1663 1228 
+Q 1541 1372 1113 1591 
+Q 653 1828 488 2059 
+Q 322 2291 322 2588 
+Q 322 2975 586 3231 
+Q 850 3488 1253 3488 
+Q 1722 3488 2197 3028 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#DejaVuSans-Oblique-52" transform="translate(0 0.765625)"/>
+      <use xlink:href="#DejaVuSans-32" transform="translate(76.499193 39.046875) scale(0.7)"/>
+      <use xlink:href="#CenturyGothic-20" transform="translate(123.769701 0.765625)"/>
+      <use xlink:href="#CenturyGothic-56" transform="translate(151.455247 0.765625)"/>
+      <use xlink:href="#CenturyGothic-61" transform="translate(221.670091 0.765625)"/>
+      <use xlink:href="#CenturyGothic-6c" transform="translate(289.980638 0.765625)"/>
+      <use xlink:href="#CenturyGothic-75" transform="translate(310.000169 0.765625)"/>
+      <use xlink:href="#CenturyGothic-65" transform="translate(370.791185 0.765625)"/>
+      <use xlink:href="#CenturyGothic-73" transform="translate(435.781419 0.765625)"/>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_15">
+    <path d="M 503.841051 17.950568 
+L 470.365745 28.199789 
+L 436.890439 38.449009 
+L 403.415133 48.698229 
+L 369.939827 58.94745 
+L 336.464521 69.19667 
+L 302.989215 79.44589 
+L 269.51391 89.695111 
+L 236.038604 99.944331 
+L 202.563298 110.193551 
+L 169.087992 120.442772 
+L 135.612686 130.691992 
+L 102.13738 140.941212 
+L 68.662074 151.190433 
+" clip-path="url(#p9a86803ae7)" style="fill: none; stroke: #225ea8; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_16">
+    <path d="M 503.841051 47.591716 
+L 470.365745 49.100519 
+L 436.890439 50.852285 
+L 403.415133 52.91084 
+L 369.939827 55.364511 
+L 336.464521 58.339132 
+L 302.989215 62.020313 
+L 269.51391 66.693727 
+L 236.038604 72.823032 
+L 202.563298 81.214074 
+L 169.087992 93.401968 
+L 135.612686 112.717284 
+L 102.13738 147.995673 
+L 68.662074 232.961932 
+" clip-path="url(#p9a86803ae7)" style="fill: none; stroke: #a1dab4; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_17">
+    <path d="M 503.841051 28.857734 
+L 470.365745 33.991391 
+L 436.890439 39.522773 
+L 403.415133 45.518722 
+L 369.939827 52.064486 
+L 336.464521 59.271174 
+L 302.989215 67.287398 
+L 269.51391 76.318318 
+L 236.038604 86.658558 
+L 202.563298 98.75321 
+L 169.087992 113.321748 
+L 135.612686 131.643422 
+L 102.13738 156.34905 
+L 68.662074 194.42902 
+" clip-path="url(#p9a86803ae7)" style="fill: none; stroke: #41b6c4; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 46.903125 243.7125 
+L 46.903125 7.2 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 525.6 243.7125 
+L 525.6 7.2 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 46.903125 243.7125 
+L 525.6 243.7125 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 46.903125 7.2 
+L 525.6 7.2 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="legend_1">
+    <g id="patch_7">
+     <path d="M 275.1 238.7125 
+L 518.6 238.7125 
+Q 520.6 238.7125 520.6 236.7125 
+L 520.6 189.1125 
+Q 520.6 187.1125 518.6 187.1125 
+L 275.1 187.1125 
+Q 273.1 187.1125 273.1 189.1125 
+L 273.1 236.7125 
+Q 273.1 238.7125 275.1 238.7125 
+z
+" style="fill: #ffffff; opacity: 0.8; stroke: #cccccc; stroke-linejoin: miter"/>
+    </g>
+    <g id="line2d_18">
+     <path d="M 277.1 196.7125 
+L 287.1 196.7125 
+L 297.1 196.7125 
+" style="fill: none; stroke: #225ea8; stroke-width: 3; stroke-linecap: square"/>
+    </g>
+    <g id="text_17">
+     <!-- Linear Regression (AIC: -115.64, $R^2$: 0.69) -->
+     <g transform="translate(305.1 200.2125) scale(0.1 -0.1)">
+      <defs>
+       <path id="CenturyGothic-4c" d="M 559 4597 
+L 1022 4597 
+L 1022 444 
+L 2788 444 
+L 2788 0 
+L 559 0 
+L 559 4597 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-52" d="M 584 4597 
+L 1500 4597 
+Q 2266 4597 2538 4534 
+Q 2947 4441 3203 4133 
+Q 3459 3825 3459 3375 
+Q 3459 3000 3282 2715 
+Q 3106 2431 2778 2286 
+Q 2450 2141 1872 2138 
+L 3525 0 
+L 2956 0 
+L 1306 2138 
+L 1044 2138 
+L 1044 0 
+L 584 0 
+L 584 4597 
+z
+M 1044 4147 
+L 1044 2584 
+L 1834 2578 
+Q 2294 2578 2514 2665 
+Q 2734 2753 2857 2945 
+Q 2981 3138 2981 3375 
+Q 2981 3606 2856 3795 
+Q 2731 3984 2528 4065 
+Q 2325 4147 1853 4147 
+L 1044 4147 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-41" d="M 2438 4597 
+L 4581 0 
+L 4088 0 
+L 3366 1513 
+L 1384 1513 
+L 666 0 
+L 153 0 
+L 2325 4597 
+L 2438 4597 
+z
+M 2381 3622 
+L 1591 1956 
+L 3163 1956 
+L 2381 3622 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-49" d="M 494 4597 
+L 953 4597 
+L 953 0 
+L 494 0 
+L 494 4597 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-43" d="M 4841 3744 
+L 4478 3466 
+Q 4178 3856 3758 4057 
+Q 3338 4259 2834 4259 
+Q 2284 4259 1815 3995 
+Q 1347 3731 1089 3286 
+Q 831 2841 831 2284 
+Q 831 1444 1407 881 
+Q 1984 319 2863 319 
+Q 3828 319 4478 1075 
+L 4841 800 
+Q 4497 363 3983 123 
+Q 3469 -116 2834 -116 
+Q 1628 -116 931 688 
+Q 347 1366 347 2325 
+Q 347 3334 1055 4023 
+Q 1763 4713 2828 4713 
+Q 3472 4713 3990 4458 
+Q 4509 4203 4841 3744 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-3a" d="M 969 3488 
+Q 1128 3488 1240 3375 
+Q 1353 3263 1353 3100 
+Q 1353 2938 1240 2825 
+Q 1128 2713 969 2713 
+Q 809 2713 696 2825 
+Q 584 2938 584 3100 
+Q 584 3259 696 3373 
+Q 809 3488 969 3488 
+z
+M 969 688 
+Q 1128 688 1240 575 
+Q 1353 463 1353 300 
+Q 1353 141 1240 26 
+Q 1128 -88 969 -88 
+Q 809 -88 696 26 
+Q 584 141 584 300 
+Q 584 463 696 575 
+Q 809 688 969 688 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-2d" d="M 203 1919 
+L 1922 1919 
+L 1922 1538 
+L 203 1538 
+L 203 1919 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-2c" d="M 922 844 
+L 1344 644 
+L 709 -538 
+L 400 -406 
+L 922 844 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#CenturyGothic-4c" transform="translate(0 0.765625)"/>
+      <use xlink:href="#CenturyGothic-69" transform="translate(46.191406 0.765625)"/>
+      <use xlink:href="#CenturyGothic-6e" transform="translate(66.210938 0.765625)"/>
+      <use xlink:href="#CenturyGothic-65" transform="translate(127.197266 0.765625)"/>
+      <use xlink:href="#CenturyGothic-61" transform="translate(192.1875 0.765625)"/>
+      <use xlink:href="#CenturyGothic-72" transform="translate(260.498047 0.765625)"/>
+      <use xlink:href="#CenturyGothic-20" transform="translate(290.576172 0.765625)"/>
+      <use xlink:href="#CenturyGothic-52" transform="translate(318.261719 0.765625)"/>
+      <use xlink:href="#CenturyGothic-65" transform="translate(378.955078 0.765625)"/>
+      <use xlink:href="#CenturyGothic-67" transform="translate(443.945312 0.765625)"/>
+      <use xlink:href="#CenturyGothic-72" transform="translate(511.230469 0.765625)"/>
+      <use xlink:href="#CenturyGothic-65" transform="translate(541.308594 0.765625)"/>
+      <use xlink:href="#CenturyGothic-73" transform="translate(606.298828 0.765625)"/>
+      <use xlink:href="#CenturyGothic-73" transform="translate(645.117188 0.765625)"/>
+      <use xlink:href="#CenturyGothic-69" transform="translate(683.935547 0.765625)"/>
+      <use xlink:href="#CenturyGothic-6f" transform="translate(703.955078 0.765625)"/>
+      <use xlink:href="#CenturyGothic-6e" transform="translate(769.433594 0.765625)"/>
+      <use xlink:href="#CenturyGothic-20" transform="translate(830.419922 0.765625)"/>
+      <use xlink:href="#CenturyGothic-28" transform="translate(858.105469 0.765625)"/>
+      <use xlink:href="#CenturyGothic-41" transform="translate(895.019531 0.765625)"/>
+      <use xlink:href="#CenturyGothic-49" transform="translate(968.994141 0.765625)"/>
+      <use xlink:href="#CenturyGothic-43" transform="translate(991.601562 0.765625)"/>
+      <use xlink:href="#CenturyGothic-3a" transform="translate(1072.900391 0.765625)"/>
+      <use xlink:href="#CenturyGothic-20" transform="translate(1100.585938 0.765625)"/>
+      <use xlink:href="#CenturyGothic-2d" transform="translate(1128.271484 0.765625)"/>
+      <use xlink:href="#CenturyGothic-31" transform="translate(1161.474609 0.765625)"/>
+      <use xlink:href="#CenturyGothic-31" transform="translate(1216.894531 0.765625)"/>
+      <use xlink:href="#CenturyGothic-35" transform="translate(1272.314453 0.765625)"/>
+      <use xlink:href="#CenturyGothic-2e" transform="translate(1327.734375 0.765625)"/>
+      <use xlink:href="#CenturyGothic-36" transform="translate(1355.419922 0.765625)"/>
+      <use xlink:href="#CenturyGothic-34" transform="translate(1410.839844 0.765625)"/>
+      <use xlink:href="#CenturyGothic-2c" transform="translate(1466.259766 0.765625)"/>
+      <use xlink:href="#CenturyGothic-20" transform="translate(1493.945312 0.765625)"/>
+      <use xlink:href="#DejaVuSans-Oblique-52" transform="translate(1521.630859 0.765625)"/>
+      <use xlink:href="#DejaVuSans-32" transform="translate(1598.130052 39.046875) scale(0.7)"/>
+      <use xlink:href="#CenturyGothic-3a" transform="translate(1645.40056 0.765625)"/>
+      <use xlink:href="#CenturyGothic-20" transform="translate(1673.086107 0.765625)"/>
+      <use xlink:href="#CenturyGothic-30" transform="translate(1700.771654 0.765625)"/>
+      <use xlink:href="#CenturyGothic-2e" transform="translate(1756.191576 0.765625)"/>
+      <use xlink:href="#CenturyGothic-36" transform="translate(1783.877122 0.765625)"/>
+      <use xlink:href="#CenturyGothic-39" transform="translate(1839.297044 0.765625)"/>
+      <use xlink:href="#CenturyGothic-29" transform="translate(1894.716966 0.765625)"/>
+     </g>
+    </g>
+    <g id="line2d_19">
+     <path d="M 277.1 212.9125 
+L 287.1 212.9125 
+L 297.1 212.9125 
+" style="fill: none; stroke: #a1dab4; stroke-width: 3; stroke-linecap: square"/>
+    </g>
+    <g id="text_18">
+     <!-- Reciprocal Function (AIC: -160.44, $R^2$: 0.99) -->
+     <g transform="translate(305.1 216.4125) scale(0.1 -0.1)">
+      <defs>
+       <path id="CenturyGothic-63" d="M 3788 2694 
+L 3441 2478 
+Q 2991 3075 2213 3075 
+Q 1591 3075 1180 2675 
+Q 769 2275 769 1703 
+Q 769 1331 958 1003 
+Q 1147 675 1476 494 
+Q 1806 313 2216 313 
+Q 2966 313 3441 909 
+L 3788 681 
+Q 3544 316 3133 114 
+Q 2722 -88 2197 -88 
+Q 1391 -88 859 425 
+Q 328 938 328 1672 
+Q 328 2166 576 2589 
+Q 825 3013 1259 3250 
+Q 1694 3488 2231 3488 
+Q 2569 3488 2883 3384 
+Q 3197 3281 3415 3115 
+Q 3634 2950 3788 2694 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-70" d="M 494 3400 
+L 928 3400 
+L 928 2775 
+Q 1188 3131 1525 3309 
+Q 1863 3488 2278 3488 
+Q 3003 3488 3518 2966 
+Q 4034 2444 4034 1709 
+Q 4034 959 3523 435 
+Q 3013 -88 2291 -88 
+Q 1884 -88 1543 81 
+Q 1203 250 928 584 
+L 928 -1244 
+L 494 -1244 
+L 494 3400 
+z
+M 2244 3066 
+Q 1675 3066 1286 2669 
+Q 897 2272 897 1681 
+Q 897 1294 1070 984 
+Q 1244 675 1567 494 
+Q 1891 313 2250 313 
+Q 2603 313 2914 495 
+Q 3225 678 3409 1006 
+Q 3594 1334 3594 1694 
+Q 3594 2056 3411 2381 
+Q 3228 2706 2918 2886 
+Q 2609 3066 2244 3066 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-46" d="M 559 4597 
+L 2863 4597 
+L 2863 4144 
+L 1016 4144 
+L 1016 2706 
+L 2863 2706 
+L 2863 2253 
+L 1016 2253 
+L 1016 0 
+L 559 0 
+L 559 4597 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#CenturyGothic-52" transform="translate(0 0.765625)"/>
+      <use xlink:href="#CenturyGothic-65" transform="translate(60.693359 0.765625)"/>
+      <use xlink:href="#CenturyGothic-63" transform="translate(125.683594 0.765625)"/>
+      <use xlink:href="#CenturyGothic-69" transform="translate(190.380859 0.765625)"/>
+      <use xlink:href="#CenturyGothic-70" transform="translate(210.400391 0.765625)"/>
+      <use xlink:href="#CenturyGothic-72" transform="translate(278.613281 0.765625)"/>
+      <use xlink:href="#CenturyGothic-6f" transform="translate(308.691406 0.765625)"/>
+      <use xlink:href="#CenturyGothic-63" transform="translate(374.169922 0.765625)"/>
+      <use xlink:href="#CenturyGothic-61" transform="translate(438.867188 0.765625)"/>
+      <use xlink:href="#CenturyGothic-6c" transform="translate(507.177734 0.765625)"/>
+      <use xlink:href="#CenturyGothic-20" transform="translate(527.197266 0.765625)"/>
+      <use xlink:href="#CenturyGothic-46" transform="translate(554.882812 0.765625)"/>
+      <use xlink:href="#CenturyGothic-75" transform="translate(603.369141 0.765625)"/>
+      <use xlink:href="#CenturyGothic-6e" transform="translate(664.160156 0.765625)"/>
+      <use xlink:href="#CenturyGothic-63" transform="translate(725.146484 0.765625)"/>
+      <use xlink:href="#CenturyGothic-74" transform="translate(789.84375 0.765625)"/>
+      <use xlink:href="#CenturyGothic-69" transform="translate(823.730469 0.765625)"/>
+      <use xlink:href="#CenturyGothic-6f" transform="translate(843.75 0.765625)"/>
+      <use xlink:href="#CenturyGothic-6e" transform="translate(909.228516 0.765625)"/>
+      <use xlink:href="#CenturyGothic-20" transform="translate(970.214844 0.765625)"/>
+      <use xlink:href="#CenturyGothic-28" transform="translate(997.900391 0.765625)"/>
+      <use xlink:href="#CenturyGothic-41" transform="translate(1034.814453 0.765625)"/>
+      <use xlink:href="#CenturyGothic-49" transform="translate(1108.789062 0.765625)"/>
+      <use xlink:href="#CenturyGothic-43" transform="translate(1131.396484 0.765625)"/>
+      <use xlink:href="#CenturyGothic-3a" transform="translate(1212.695312 0.765625)"/>
+      <use xlink:href="#CenturyGothic-20" transform="translate(1240.380859 0.765625)"/>
+      <use xlink:href="#CenturyGothic-2d" transform="translate(1268.066406 0.765625)"/>
+      <use xlink:href="#CenturyGothic-31" transform="translate(1301.269531 0.765625)"/>
+      <use xlink:href="#CenturyGothic-36" transform="translate(1356.689453 0.765625)"/>
+      <use xlink:href="#CenturyGothic-30" transform="translate(1412.109375 0.765625)"/>
+      <use xlink:href="#CenturyGothic-2e" transform="translate(1467.529297 0.765625)"/>
+      <use xlink:href="#CenturyGothic-34" transform="translate(1495.214844 0.765625)"/>
+      <use xlink:href="#CenturyGothic-34" transform="translate(1550.634766 0.765625)"/>
+      <use xlink:href="#CenturyGothic-2c" transform="translate(1606.054688 0.765625)"/>
+      <use xlink:href="#CenturyGothic-20" transform="translate(1633.740234 0.765625)"/>
+      <use xlink:href="#DejaVuSans-Oblique-52" transform="translate(1661.425781 0.765625)"/>
+      <use xlink:href="#DejaVuSans-32" transform="translate(1737.924974 39.046875) scale(0.7)"/>
+      <use xlink:href="#CenturyGothic-3a" transform="translate(1785.195482 0.765625)"/>
+      <use xlink:href="#CenturyGothic-20" transform="translate(1812.881029 0.765625)"/>
+      <use xlink:href="#CenturyGothic-30" transform="translate(1840.566576 0.765625)"/>
+      <use xlink:href="#CenturyGothic-2e" transform="translate(1895.986497 0.765625)"/>
+      <use xlink:href="#CenturyGothic-39" transform="translate(1923.672044 0.765625)"/>
+      <use xlink:href="#CenturyGothic-39" transform="translate(1979.091966 0.765625)"/>
+      <use xlink:href="#CenturyGothic-29" transform="translate(2034.511888 0.765625)"/>
+     </g>
+    </g>
+    <g id="line2d_20">
+     <path d="M 277.1 229.1125 
+L 287.1 229.1125 
+L 297.1 229.1125 
+" style="fill: none; stroke: #41b6c4; stroke-width: 3; stroke-linecap: square"/>
+    </g>
+    <g id="text_19">
+     <!-- Logarithmic Function (AIC: -134.03, $R^2$: 0.92) -->
+     <g transform="translate(305.1 232.6125) scale(0.1 -0.1)">
+      <defs>
+       <path id="CenturyGothic-68" d="M 488 4713 
+L 925 4713 
+L 925 2791 
+Q 1191 3141 1509 3314 
+Q 1828 3488 2200 3488 
+Q 2581 3488 2876 3294 
+Q 3172 3100 3312 2773 
+Q 3453 2447 3453 1750 
+L 3453 0 
+L 3016 0 
+L 3016 1622 
+Q 3016 2209 2969 2406 
+Q 2888 2744 2673 2914 
+Q 2459 3084 2113 3084 
+Q 1716 3084 1402 2821 
+Q 1088 2559 988 2172 
+Q 925 1922 925 1247 
+L 925 0 
+L 488 0 
+L 488 4713 
+z
+" transform="scale(0.015625)"/>
+       <path id="CenturyGothic-6d" d="M 484 3400 
+L 919 3400 
+L 919 2813 
+Q 1147 3138 1388 3288 
+Q 1719 3488 2084 3488 
+Q 2331 3488 2553 3391 
+Q 2775 3294 2915 3133 
+Q 3056 2972 3159 2672 
+Q 3378 3072 3706 3280 
+Q 4034 3488 4413 3488 
+Q 4766 3488 5036 3309 
+Q 5306 3131 5437 2812 
+Q 5569 2494 5569 1856 
+L 5569 0 
+L 5122 0 
+L 5122 1856 
+Q 5122 2403 5044 2608 
+Q 4966 2813 4777 2938 
+Q 4588 3063 4325 3063 
+Q 4006 3063 3742 2875 
+Q 3478 2688 3356 2375 
+Q 3234 2063 3234 1331 
+L 3234 0 
+L 2800 0 
+L 2800 1741 
+Q 2800 2356 2723 2576 
+Q 2647 2797 2456 2930 
+Q 2266 3063 2003 3063 
+Q 1700 3063 1436 2880 
+Q 1172 2697 1045 2387 
+Q 919 2078 919 1441 
+L 919 0 
+L 484 0 
+L 484 3400 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#CenturyGothic-4c" transform="translate(0 0.765625)"/>
+      <use xlink:href="#CenturyGothic-6f" transform="translate(46.191406 0.765625)"/>
+      <use xlink:href="#CenturyGothic-67" transform="translate(111.669922 0.765625)"/>
+      <use xlink:href="#CenturyGothic-61" transform="translate(178.955078 0.765625)"/>
+      <use xlink:href="#CenturyGothic-72" transform="translate(247.265625 0.765625)"/>
+      <use xlink:href="#CenturyGothic-69" transform="translate(277.34375 0.765625)"/>
+      <use xlink:href="#CenturyGothic-74" transform="translate(297.363281 0.765625)"/>
+      <use xlink:href="#CenturyGothic-68" transform="translate(331.25 0.765625)"/>
+      <use xlink:href="#CenturyGothic-6d" transform="translate(392.236328 0.765625)"/>
+      <use xlink:href="#CenturyGothic-69" transform="translate(486.035156 0.765625)"/>
+      <use xlink:href="#CenturyGothic-63" transform="translate(506.054688 0.765625)"/>
+      <use xlink:href="#CenturyGothic-20" transform="translate(570.751953 0.765625)"/>
+      <use xlink:href="#CenturyGothic-46" transform="translate(598.4375 0.765625)"/>
+      <use xlink:href="#CenturyGothic-75" transform="translate(646.923828 0.765625)"/>
+      <use xlink:href="#CenturyGothic-6e" transform="translate(707.714844 0.765625)"/>
+      <use xlink:href="#CenturyGothic-63" transform="translate(768.701172 0.765625)"/>
+      <use xlink:href="#CenturyGothic-74" transform="translate(833.398438 0.765625)"/>
+      <use xlink:href="#CenturyGothic-69" transform="translate(867.285156 0.765625)"/>
+      <use xlink:href="#CenturyGothic-6f" transform="translate(887.304688 0.765625)"/>
+      <use xlink:href="#CenturyGothic-6e" transform="translate(952.783203 0.765625)"/>
+      <use xlink:href="#CenturyGothic-20" transform="translate(1013.769531 0.765625)"/>
+      <use xlink:href="#CenturyGothic-28" transform="translate(1041.455078 0.765625)"/>
+      <use xlink:href="#CenturyGothic-41" transform="translate(1078.369141 0.765625)"/>
+      <use xlink:href="#CenturyGothic-49" transform="translate(1152.34375 0.765625)"/>
+      <use xlink:href="#CenturyGothic-43" transform="translate(1174.951172 0.765625)"/>
+      <use xlink:href="#CenturyGothic-3a" transform="translate(1256.25 0.765625)"/>
+      <use xlink:href="#CenturyGothic-20" transform="translate(1283.935547 0.765625)"/>
+      <use xlink:href="#CenturyGothic-2d" transform="translate(1311.621094 0.765625)"/>
+      <use xlink:href="#CenturyGothic-31" transform="translate(1344.824219 0.765625)"/>
+      <use xlink:href="#CenturyGothic-33" transform="translate(1400.244141 0.765625)"/>
+      <use xlink:href="#CenturyGothic-34" transform="translate(1455.664062 0.765625)"/>
+      <use xlink:href="#CenturyGothic-2e" transform="translate(1511.083984 0.765625)"/>
+      <use xlink:href="#CenturyGothic-30" transform="translate(1538.769531 0.765625)"/>
+      <use xlink:href="#CenturyGothic-33" transform="translate(1594.189453 0.765625)"/>
+      <use xlink:href="#CenturyGothic-2c" transform="translate(1649.609375 0.765625)"/>
+      <use xlink:href="#CenturyGothic-20" transform="translate(1677.294922 0.765625)"/>
+      <use xlink:href="#DejaVuSans-Oblique-52" transform="translate(1704.980469 0.765625)"/>
+      <use xlink:href="#DejaVuSans-32" transform="translate(1781.479661 39.046875) scale(0.7)"/>
+      <use xlink:href="#CenturyGothic-3a" transform="translate(1828.750169 0.765625)"/>
+      <use xlink:href="#CenturyGothic-20" transform="translate(1856.435716 0.765625)"/>
+      <use xlink:href="#CenturyGothic-30" transform="translate(1884.121263 0.765625)"/>
+      <use xlink:href="#CenturyGothic-2e" transform="translate(1939.541185 0.765625)"/>
+      <use xlink:href="#CenturyGothic-39" transform="translate(1967.226732 0.765625)"/>
+      <use xlink:href="#CenturyGothic-32" transform="translate(2022.646654 0.765625)"/>
+      <use xlink:href="#CenturyGothic-29" transform="translate(2078.066576 0.765625)"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p9a86803ae7">
+   <rect x="46.903125" y="7.2" width="478.696875" height="236.5125"/>
+  </clipPath>
+ </defs>
+</svg>
