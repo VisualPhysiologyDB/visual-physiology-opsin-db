@@ -2,24 +2,27 @@
 
 # Visual Physiology Opsin Database (VPOD)
 _VPOD_, a database opsin data and machine-learning models to predict phenotype.
+**Summary**
+Here, we report a newly compiled database of all heterologously expressed opsin genes with λmax phenotypes called the Visual Physiology Opsin Database (VPOD). VPOD_1.0 contains 864 unique opsin genotypes and corresponding λmax phenotypes collected across all animals from 73 separate publications. 
+We use VPOD data and [deepBreaks ](https://github.com/omicsEye/deepbreaks)(an ML tool designed for exploring genotype-phenotype associations) to show regression-based machine learning (ML) models often reliably predict λmax, account for non-additive effects of mutations on function, and identify functionally critical amino acid sites. 
+
 
 # VPOD user guide #
 
 ## Table of Contents
 
-1. [Requirements](#Requirements)
+1. [Instructions](#Instructions)
 2. [Usage](#usage)
 3. [Data](#data)
 4. [Code Structure](#code-structure)
 5. [Results](#results)
 6. [License](#license)
 7. [Citation](#citation)
-8. [Contributing](#contributing)
-9. [Contact](#contact)
+8. [Contact](#contact)
 
-## Requirements
-
-Instructions for installing and setting up the project.
+## Instructions
+Instructions for using VPOD and training ML models with _deepBreaks_.
+  1. 
 
 ## Usage
 
@@ -45,10 +48,15 @@ Specify the license under which your code and data are released.
 
 Instructions for citing your work.
 
-## Contributing
-
-Guidelines for contributing to the project.
-
 ## Contact
-
 Contact information for questions or feedback.
+
+Todd H. Oakley
+oakley@ucsb.edu
+https://orcid.org/0000-0002-4478-915X
+
+Seth A. Frazer
+sethfrazer@ucsb.edu
+https://orcid.org/0000-0002-3800-212X
+
+
