@@ -4,8 +4,10 @@
 _VPOD_, a database opsin data and machine-learning models to predict phenotype.
 **Summary**
 Here, we report a newly compiled database of all heterologously expressed opsin genes with λmax phenotypes called the Visual Physiology Opsin Database (VPOD). VPOD_1.0 contains 864 unique opsin genotypes and corresponding λmax phenotypes collected across all animals from 73 separate publications. 
-We use VPOD data and [deepBreaks ](https://github.com/omicsEye/deepbreaks)(an ML tool designed for exploring genotype-phenotype associations) to show regression-based machine learning (ML) models often reliably predict λmax, account for non-additive effects of mutations on function, and identify functionally critical amino acid sites. 
 
+We use VPOD data and [deepBreaks](https://github.com/omicsEye/deepbreaks)(an ML tool designed for exploring genotype-phenotype associations) to show regression-based machine learning (ML) models often reliably predict λmax, account for non-additive effects of mutations on function, and identify functionally critical amino acid sites. 
+
+---
 
 # VPOD user guide #
 
@@ -22,7 +24,7 @@ We use VPOD data and [deepBreaks ](https://github.com/omicsEye/deepbreaks)(an ML
 
 ## Instructions
 Instructions for using VPOD and training ML models with _deepBreaks_.
-  1. 
+  1. Follow directions and install [deepBreaks](https://github.com/omicsEye/deepbreaks) using the guide provided on their gitHub.
 
 ## Usage
 
