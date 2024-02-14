@@ -7,7 +7,7 @@ _VPOD_, a database opsin data and machine-learning models to predict phenotype.
 
 ## Table of Contents
 
-1. [Installation](#installation)
+1. [Requirements](#Requirements)
 2. [Usage](#usage)
 3. [Data](#data)
 4. [Code Structure](#code-structure)
@@ -16,10 +16,8 @@ _VPOD_, a database opsin data and machine-learning models to predict phenotype.
 7. [Citation](#citation)
 8. [Contributing](#contributing)
 9. [Contact](#contact)
-10. [Acknowledgments](#acknowledgments)
-11. [References](#references)
 
-## Installation
+## Requirements
 
 Instructions for installing and setting up the project.
 
@@ -54,11 +52,3 @@ Guidelines for contributing to the project.
 ## Contact
 
 Contact information for questions or feedback.
-
-## Acknowledgments
-
-Acknowledgments for contributions or support.
-
-## References
-
-References to external resources, libraries, or tools.
