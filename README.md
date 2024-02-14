@@ -1,3 +1,5 @@
+**Code**: [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) **Data**: [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
+
 # Visual Physiology Opsin Database (VPOD)
 _VPOD_, a database opsin data and machine-learning models to predict phenotype.
 
