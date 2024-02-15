@@ -1,4 +1,5 @@
-**Code**: [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) **Data**: [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
+**Code**: [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) **Data**: [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) **DOI**: [![DOI](https://zenodo.org/badge/733656093.svg)](https://zenodo.org/doi/10.5281/zenodo.10667839)
+
 
 # Visual Physiology Opsin Database (VPOD)
 _VPOD_, a database opsin data and machine-learning models to predict phenotype.
@@ -66,7 +67,7 @@ All data and code is covered under a GNU General Public License (GPL)(Version 3)
 ## Citation
 IF citing this GitHub and its contents use the following DOI provided by Zenodo...
 
-    place-holder
+    10.5281/zenodo.10667840
     
 IF citing the paper _"Discovering genotype-phenotype relationships with machine learning and the Visual Physiology Opsin Database (VPOD)"_ use the following citation...
 
