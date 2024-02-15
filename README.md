@@ -23,7 +23,7 @@ We use VPOD data and _[deepBreaks](https://github.com/omicsEye/deepbreaks)_(an M
 
 ### Data and Code Structure
 Instructions for navigating data VPOD files, including raw and curated data used to train models, and for navigating scripts/notebooks used to enter sequence data, perform tests, or train models.
-  #### Data
+  ### Data
   * Navigate to _vpod_data/VPOD_1.0_
   * Select _formatted_data_subsets_ folder for subsets of the data which can be directly used to train models without the need for using mySQL or sequence alignment
       - _vpod_2023-10-16_12-13-11_ contains the all data subsets
@@ -33,12 +33,12 @@ Instructions for navigating data VPOD files, including raw and curated data used
 
   ### Scripts & Notebooks
   Instructions for... 
-    ### Scripts
+   ### Scripts
 
-    ### Notebooks
-    * Navigate to _scripts_n_notebooks_ and select 
-    * dsfsfsd
-    * sdfsd
+   ### Notebooks
+   * Navigate to _scripts_n_notebooks_ and select 
+   * dsfsfsd
+   * sdfsd
 
 ---
 
