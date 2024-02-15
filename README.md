@@ -38,7 +38,7 @@ Instructions for using our existing ML models to predict opsin λmax from amino 
 ### Training New ML Models With _deepBreaks_
 Instructions for using VPOD and training ML models with _deepBreaks_.
   1. Follow directions and install _[deepBreaks](https://github.com/omicsEye/deepbreaks)_ using the guide provided on their GitHub.
-  2. Refer to the _requirements.txt_ provided above and ensure all neccessary pakcages are downloaded on a dedicated enivronments (Conda is recommended)
+  2. Refer to the _requirements.txt_ provided above and ensure all neccessary pakcages are downloaded on a dedicated enivronment (using Conda is recommended)
   3. Navigate to the 
 
 ---
@@ -49,11 +49,11 @@ All data and code is covered under a GNU General Public License (GPL)(Version 3)
 ## Citation
 IF citing this GitHub and its contents use the following DOI provided by Zenodo...
 
-    * place-holder
+    place-holder
     
 IF citing the paper _"Discovering genotype-phenotype relationships with machine learning and the Visual Physiology Opsin Database (VPOD)"_ use the following citation...
 
-    * Seth A. Frazer, Mahdi Baghbanzadeh, Ali Rahnavard, Keith A. Crandall, & Todd H Oakley. (2024). Discovering genotype-phenotype relationships with machine learning and the Visual Physiology Opsin Database (VPOD). bioRxiv, 2024.02.12.579993. https://doi.org/10.1101/2024.02.12.579993 [pre-print]
+    Seth A. Frazer, Mahdi Baghbanzadeh, Ali Rahnavard, Keith A. Crandall, & Todd H Oakley. (2024). Discovering genotype-phenotype relationships with machine learning and the Visual Physiology Opsin Database (VPOD). bioRxiv, 2024.02.12.579993. https://doi.org/10.1101/2024.02.12.579993 [pre-print]
     
 ## Contact
 Contact information for author questions or feedback.
