@@ -31,10 +31,14 @@ Instructions for navigating data VPOD files, including raw and curated data used
       - Those files marked _xxx_meta_ (ex. _wds_meta.tsv_) are the corresponding metadata files for each subset
   * Select _raw_database_files_ folder for subsets of the data which will need to be loaded into mySQL and formatted using steps 0-2 of the _vpod_main_wf.ipynb_ jupyter notebook
 
-  ###Scripts & Notebooks
-  1. Navigate to _scripts_n_notebooks_ and sel
-  2. dsfsfsd
-  3. sdfsd
+  ### Scripts & Notebooks
+  Instructions for... 
+    ### Scripts
+
+    ### Notebooks
+    * Navigate to _scripts_n_notebooks_ and select 
+    * dsfsfsd
+    * sdfsd
 
 ---
 
