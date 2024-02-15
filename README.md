@@ -39,7 +39,8 @@ Instructions for using our existing ML models to predict opsin λmax from amino 
 Instructions for using VPOD and training ML models with _deepBreaks_.
   1. Follow directions and install _[deepBreaks](https://github.com/omicsEye/deepbreaks)_ using the guide provided on their GitHub.
   2. Refer to the _requirements.txt_ provided above and ensure all neccessary pakcages are downloaded on a dedicated enivronment (using Conda is recommended)
-  3. Navigate to the 
+  3. Navigate to _scripts_n_notebooks/vpod_ml_workflows_ and open _vpod_main_wf.ipynb_
+  4. hkhkjkh
 
 ---
 
