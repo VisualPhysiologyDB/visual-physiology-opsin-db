@@ -23,16 +23,19 @@ We use VPOD data and _[deepBreaks](https://github.com/omicsEye/deepbreaks)_(an M
 
 ### Data and Code Structure
 Instructions for navigating data VPOD files, including raw and curated data used to train models, and for navigating scripts/notebooks used to enter sequence data, perform tests, or train models.
-  1. vdfv d
-  2. dsfsfsd
-  3. sdfsd
----
+  #### Data
+  * Navigate to _vpod_data/VPOD_1.0_
+  * Select _formatted_data_subsets_ folder for subsets of the data which can be directly used to train models without the need for using mySQL or sequence alignment
+      - _vpod_2023-10-16_12-13-11_ contains the all data subsets
+      - Those files marked _VPOD_xxx_1.0_ (ex. _VPOD_vert_het_1.0.fasta_) are the fully aligned data subsets 
+      - Those files marked _xxx_meta_ (ex. _wds_meta.tsv_) are the corresponding metadata files for each subset
+  * Select _raw_database_files_ folder for subsets of the data which will need to be loaded into mySQL and formatted using steps 0-2 of the _vpod_main_wf.ipynb_ jupyter notebook
 
-### Predicting λmax
-Instructions for using our existing ML models to predict opsin λmax from amino acid sequence alone.
-  1. vdfv d
+  ###Scripts & Notebooks
+  1. Navigate to _scripts_n_notebooks_ and sel
   2. dsfsfsd
   3. sdfsd
+
 ---
 
 ### Training New ML Models With _deepBreaks_
@@ -40,7 +43,9 @@ Instructions for using VPOD and training ML models with _deepBreaks_.
   1. Follow directions and install _[deepBreaks](https://github.com/omicsEye/deepbreaks)_ using the guide provided on their GitHub.
   2. Refer to the _requirements.txt_ provided above and ensure all neccessary pakcages are downloaded on a dedicated enivronment (using Conda is recommended)
   3. Navigate to _scripts_n_notebooks/vpod_ml_workflows_ and open _vpod_main_wf.ipynb_
-  4. hkhkjkh
+     - IF you want to train models using _formatted_data_subsets_ Scroll down to **Step 3: deepBreaks** and follow the markdown notes from there
+     - IF you want to train models using _raw_database_files_ start from top of document and follow markdown notes
+     
 
 ---
 
