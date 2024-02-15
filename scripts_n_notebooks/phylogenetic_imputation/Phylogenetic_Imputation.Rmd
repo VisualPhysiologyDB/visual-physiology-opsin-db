@@ -186,19 +186,3 @@ sink()
 summary
 #write.csv(Model, "./results/imputed_ops_lws_test.csv")
 ```
-
-results_file <- read_csv("./results/mws_lws/imputed_ops_mws_test.csv", col_names = TRUE)
-res_df <- data.frame(results_file, row.names = 1)
-res_df
-
-
-
-imp_mae <- mae(as.matrix(res_df['Known']),as.matrix(res_df['Imputed']))
-imp_mape <- mape(as.matrix(res_df['Known']),as.matrix(res_df['Imputed']))
-#imp_mae
-#imp_mape
-
-metric_print <- sprintf("MAE = %f   MAPE = %f", imp_mae, imp_mape)
-print(metric_print)
-
-
