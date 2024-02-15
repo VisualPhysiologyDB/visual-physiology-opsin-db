@@ -2,11 +2,11 @@
 
 
 # Visual Physiology Opsin Database (VPOD)
-_VPOD_, a database opsin data and machine-learning models to predict phenotype.
+**_VPOD_, a database opsin data and machine-learning models to predict phenotype.**
 
 ![](https://github.com/VisualPhysiologyDB/visual-physiology-opsin-db/blob/main/scripts_n_notebooks/figure_making/figures/sep_histograms_with_scaled_kde_and_colorbar_1_23_24.png?raw=True) <!-- Alt text: Histogram distributions of Vertebrate and Invertebrate Opsin Light Sensitivity Data - λmax - from VPOD_het_1.0 with a scaled Kernel Density Estimate (KDE) curves overlaid to better visualize the general shape and characteristics of our λmax distributions. -->
 
-**_Histogram distributions of Vertebrate and Invertebrate Opsin Light Sensitivity Data - λmax - from VPOD_het_1.0 with a scaled Kernel Density Estimate (KDE) curves overlaid to better visualize the general shape and characteristics of our λmax distributions_**
+  _Histogram distributions of Vertebrate and Invertebrate Opsin Light Sensitivity Data - λmax - from VPOD_het_1.0 with a scaled Kernel Density Estimate (KDE) curves overlaid to better visualize the general shape and characteristics of our λmax distributions_
 
 --- 
 ## Summary
