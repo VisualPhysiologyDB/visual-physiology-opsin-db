@@ -1,0 +1,33 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label=<p74_SASA &le; 1.87<br/>friedman_mse = 3106.087<br/>samples = 317<br/>value = -0.0>, fillcolor="#f0b58b"] ;
+1 [label=<p184_P1 &le; 10.9<br/>friedman_mse = 769.177<br/>samples = 41<br/>value = -97.563>, fillcolor="#fcf2eb"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label=<p105_SASA &le; 1.45<br/>friedman_mse = 929.19<br/>samples = 20<br/>value = -84.175>, fillcolor="#fbeade"] ;
+1 -> 2 ;
+3 [label=<friedman_mse = 955.822<br/>samples = 15<br/>value = -92.408>, fillcolor="#fcefe6"] ;
+2 -> 3 ;
+4 [label=<friedman_mse = 35.84<br/>samples = 5<br/>value = -59.475>, fillcolor="#f7dac6"] ;
+2 -> 4 ;
+5 [label=<p114_H1 &le; 0.55<br/>friedman_mse = 283.515<br/>samples = 21<br/>value = -110.313>, fillcolor="#fefaf8"] ;
+1 -> 5 ;
+6 [label=<friedman_mse = 367.109<br/>samples = 8<br/>value = -98.2>, fillcolor="#fcf3ec"] ;
+5 -> 6 ;
+7 [label=<friedman_mse = 86.213<br/>samples = 13<br/>value = -117.767>, fillcolor="#ffffff"] ;
+5 -> 7 ;
+8 [label=<p126_H2 &le; -2.95<br/>friedman_mse = 1829.216<br/>samples = 276<br/>value = 14.493>, fillcolor="#eeac7d"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label=<p129_V &le; 82.85<br/>friedman_mse = 356.671<br/>samples = 46<br/>value = 66.464>, fillcolor="#e78b49"] ;
+8 -> 9 ;
+10 [label=<friedman_mse = 52.062<br/>samples = 16<br/>value = 82.975>, fillcolor="#e58139"] ;
+9 -> 10 ;
+11 [label=<friedman_mse = 296.196<br/>samples = 30<br/>value = 57.659>, fillcolor="#e89152"] ;
+9 -> 11 ;
+12 [label=<p238_P2 &le; 0.163<br/>friedman_mse = 1475.48<br/>samples = 230<br/>value = 4.099>, fillcolor="#efb387"] ;
+8 -> 12 ;
+13 [label=<friedman_mse = 2054.083<br/>samples = 48<br/>value = -43.221>, fillcolor="#f5d0b5"] ;
+12 -> 13 ;
+14 [label=<friedman_mse = 576.599<br/>samples = 182<br/>value = 16.579>, fillcolor="#eeab7a"] ;
+12 -> 14 ;
+}
