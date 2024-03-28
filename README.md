@@ -14,6 +14,7 @@ Here, we report a newly compiled database of all heterologously expressed opsin 
 
 We use VPOD data and _[deepBreaks](https://github.com/omicsEye/deepbreaks)_(an ML tool designed for exploring genotype-phenotype associations) to show regression-based machine learning (ML) models often reliably predict λmax, account for non-additive effects of mutations on function, and identify functionally critical amino acid sites. 
 
+
 ---
 
 # VPOD user guide #
@@ -90,4 +91,7 @@ Contact information for author questions or feedback.
   * sethfrazer@ucsb.edu
   * https://orcid.org/0000-0002-3800-212X
 
-
+## Additional Resources 
+  **[Here](https://tinyurl.com/nm7tt3k8)** is a link to a bibliography of the publications used to build VPOD_1.0
+  
+  If you know of publications for training opsin ML models not included in the VPOD_1.0 database, please send them to us through **[this form](https://tinyurl.com/29afaxyr)**
