@@ -92,7 +92,7 @@ Contact information for author questions or feedback.
   * sethfrazer@ucsb.edu
   * https://orcid.org/0000-0002-3800-212X
 
-## Additional Resources 
+## Additional_Resources 
   **[Here](https://tinyurl.com/nm7tt3k8)** is a link to a bibliography of the publications used to build VPOD_1.0
   
   If you know of publications for training opsin ML models not included in the VPOD_1.0 database, please send them to us through **[this form](https://tinyurl.com/29afaxyr)**
