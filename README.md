@@ -25,6 +25,7 @@ We use VPOD data and _[deepBreaks](https://github.com/omicsEye/deepbreaks)_(an M
 2. [License](#license)
 3. [Citation](#citation)
 4. [Contact](#contact)
+5. [Additional Resources](#additional_resources)
 
 ## Instructions
 
