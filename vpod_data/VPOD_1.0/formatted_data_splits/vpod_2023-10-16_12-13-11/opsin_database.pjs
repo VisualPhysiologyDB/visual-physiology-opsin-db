@@ -1,0 +1,24 @@
+{
+  "version": "1.2",
+  "dbname": "opsin_database",
+  "dbtype": "Protein",
+  "db-version": 5,
+  "description": "VPOD_wds_het_1.0.fasta",
+  "number-of-letters": 562464,
+  "number-of-sequences": 864,
+  "last-updated": "2024-03-21T15:12:00",
+  "number-of-volumes": 1,
+  "bytes-total": 1635861,
+  "bytes-to-cache": 570357,
+  "files": [
+    "opsin_database.pdb",
+    "opsin_database.phr",
+    "opsin_database.pin",
+    "opsin_database.pog",
+    "opsin_database.pos",
+    "opsin_database.pot",
+    "opsin_database.psq",
+    "opsin_database.ptf",
+    "opsin_database.pto"
+  ]
+}

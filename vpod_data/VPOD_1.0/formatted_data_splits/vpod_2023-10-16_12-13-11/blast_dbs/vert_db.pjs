@@ -1,0 +1,24 @@
+{
+  "version": "1.2",
+  "dbname": "vert_db",
+  "dbtype": "Protein",
+  "db-version": 5,
+  "description": "vert.txt",
+  "number-of-letters": 252083,
+  "number-of-sequences": 721,
+  "last-updated": "2024-03-25T15:57:00",
+  "number-of-volumes": 1,
+  "bytes-total": 1313301,
+  "bytes-to-cache": 258665,
+  "files": [
+    "vert_db.pdb",
+    "vert_db.phr",
+    "vert_db.pin",
+    "vert_db.pog",
+    "vert_db.pos",
+    "vert_db.pot",
+    "vert_db.psq",
+    "vert_db.ptf",
+    "vert_db.pto"
+  ]
+}

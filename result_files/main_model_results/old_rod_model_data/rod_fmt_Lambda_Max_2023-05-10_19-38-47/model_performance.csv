@@ -1,0 +1,38 @@
+,Model,R2,MAE,MSE,RMSE,MAPE
+BayesianRidge_with_default_parameters,Bayesian Ridge,0.301,14.8,2037.2212,35.1038,1.6525439722877548e+16
+HubR_with_default_parameters,Huber Regressor,0.2577,13.5978,2153.135,35.5992,1.696711467426156e+16
+Lasso_alpha=1,Lasso,0.2302,15.4432,2033.2851,35.8479,1.6305960323319684e+16
+LassoLars_with_default_parameters,Lasso Lars,0.2302,15.4431,2033.2903,35.8478,1.630600469260612e+16
+LassoLars_alpha=1,Lasso Lars,0.2302,15.4431,2033.2903,35.8478,1.630600469260612e+16
+Lasso_with_default_parameters,Lasso,0.2302,15.4432,2033.2851,35.8479,1.6305960323319684e+16
+LassoLars_alpha=0.5,Lasso Lars,0.1222,14.7451,2036.0188,36.5852,1.619947032689646e+16
+Lasso_alpha=0.5,Lasso,0.1222,14.7452,2036.0429,36.5852,1.6199646171405588e+16
+LassoLars_alpha=3,Lasso Lars,0.1206,17.631,2205.0059,38.0797,1.6557412116209906e+16
+Lasso_alpha=3,Lasso,0.1206,17.631,2205.0049,38.0797,1.655741086126775e+16
+lgbm_with_default_parameters,LGBMRegressor,-0.117,13.5439,2201.1467,39.3518,1.6406476285318634e+16
+rf_max_depth=4_n_estimators=1000,Random Forest Regressor,-0.845,13.9261,2271.2186,39.726,1.5155448214129558e+16
+rf_max_depth=4_n_estimators=500,Random Forest Regressor,-0.9029,13.9796,2303.5858,39.9545,1.51701330875861e+16
+rf_max_depth=8_n_estimators=1000,Random Forest Regressor,-0.9982,11.4574,2228.7586,38.5081,1.4518585694080148e+16
+rf_max_depth=6_n_estimators=1000,Random Forest Regressor,-1.0382,12.05,2264.3341,38.9922,1.4594961339084972e+16
+rf_max_depth=8_n_estimators=500,Random Forest Regressor,-1.0611,11.5299,2265.4476,38.8268,1.4545001705271552e+16
+rf_max_depth=6_n_estimators=500,Random Forest Regressor,-1.1036,12.094,2300.1586,39.2103,1.4611761626859312e+16
+rf_with_default_parameters,Random Forest Regressor,-1.2359,11.5578,2389.0845,40.4562,1.4929307888136386e+16
+gbc_with_default_parameters,Gradient Boosting Regressor,-1.7537,11.5849,2700.7424,42.8015,1.557146078377923e+16
+Adaboost_learning_rate=0.01_n_estimators=50,Ada Boost Regressor,-2.5131,16.9639,3371.5041,45.3851,1.6357652874399004e+16
+Adaboost_with_default_parameters,Ada Boost Regressor,-2.5922,17.7929,3467.3724,46.7569,1.6698786716181194e+16
+Adaboost_learning_rate=0.01_n_estimators=100,Ada Boost Regressor,-2.7225,17.6046,3437.4654,46.792,1.6160628125714406e+16
+xgb_with_default_parameters,XGBRegressor,-3.1631,12.0821,3348.7253,46.1864,1.5387801295289058e+16
+Adaboost_learning_rate=0.05_n_estimators=100,Ada Boost Regressor,-3.2277,18.0151,3644.9053,49.6152,1.6376517672609074e+16
+Adaboost_learning_rate=0.05_n_estimators=50,Ada Boost Regressor,-3.27,18.2738,3550.5521,49.1114,1.573479353161529e+16
+et_max_depth=6_n_estimators=500,Extra Trees Regressor,-4.3506,12.013,3365.4102,47.3873,1.414934497213512e+16
+et_max_depth=6_n_estimators=1000,Extra Trees Regressor,-4.3508,12.012,3365.4684,47.3804,1.414934497213498e+16
+et_max_depth=8_n_estimators=500,Extra Trees Regressor,-4.3544,11.9573,3359.0855,47.3997,1.4130043830874932e+16
+et_max_depth=8_n_estimators=1000,Extra Trees Regressor,-4.3546,11.9611,3359.1514,47.4033,1.4130043830874932e+16
+dt_max_depth=8,Decision Tree Regressor,-4.3618,12.0199,3362.4177,47.5018,1.4130043830874932e+16
+dt_max_depth=6,Decision Tree Regressor,-4.3689,12.2719,3376.2921,47.8794,1.4149344972135092e+16
+dt_with_default_parameters,Decision Tree Regressor,-4.3862,12.0173,3371.1294,48.1624,1.4130043830874932e+16
+et_with_default_parameters,Extra Trees Regressor,-4.3879,11.9264,3371.9849,48.1484,1.4130043830874932e+16
+et_max_depth=4_n_estimators=500,Extra Trees Regressor,-4.7617,13.9751,3447.8395,48.3716,1.3898824931824342e+16
+et_max_depth=4_n_estimators=1000,Extra Trees Regressor,-4.7637,13.9754,3448.3964,48.3763,1.3898824931824234e+16
+dt_max_depth=4,Decision Tree Regressor,-4.9432,14.1174,3498.5475,48.6328,1.389882493182425e+16
+lr_with_default_parameters,Linear Regression,-1.357732528965205e+25,18714415739639.6,4.276387200945296e+27,43405643679641.64,1.5633169408669784e+16

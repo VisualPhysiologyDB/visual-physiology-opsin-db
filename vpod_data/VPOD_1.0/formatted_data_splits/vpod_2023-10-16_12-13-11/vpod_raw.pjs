@@ -1,0 +1,24 @@
+{
+  "version": "1.2",
+  "dbname": "vpod_raw",
+  "dbtype": "Protein",
+  "db-version": 5,
+  "description": "wds.txt",
+  "number-of-letters": 305123,
+  "number-of-sequences": 864,
+  "last-updated": "2024-03-21T17:43:00",
+  "number-of-volumes": 1,
+  "bytes-total": 1378496,
+  "bytes-to-cache": 312992,
+  "files": [
+    "vpod_raw.pdb",
+    "vpod_raw.phr",
+    "vpod_raw.pin",
+    "vpod_raw.pog",
+    "vpod_raw.pos",
+    "vpod_raw.pot",
+    "vpod_raw.psq",
+    "vpod_raw.ptf",
+    "vpod_raw.pto"
+  ]
+}

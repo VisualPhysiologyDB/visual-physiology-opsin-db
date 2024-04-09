@@ -1,0 +1,24 @@
+{
+  "version": "1.2",
+  "dbname": "rod_db",
+  "dbtype": "Protein",
+  "db-version": 5,
+  "description": "rod.txt",
+  "number-of-letters": 122018,
+  "number-of-sequences": 352,
+  "last-updated": "2024-03-25T15:57:00",
+  "number-of-volumes": 1,
+  "bytes-total": 1151871,
+  "bytes-to-cache": 125279,
+  "files": [
+    "rod_db.pdb",
+    "rod_db.phr",
+    "rod_db.pin",
+    "rod_db.pog",
+    "rod_db.pos",
+    "rod_db.pot",
+    "rod_db.psq",
+    "rod_db.ptf",
+    "rod_db.pto"
+  ]
+}

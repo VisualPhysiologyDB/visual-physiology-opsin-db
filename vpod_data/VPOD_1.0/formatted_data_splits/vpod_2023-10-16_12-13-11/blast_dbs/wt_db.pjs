@@ -1,0 +1,24 @@
+{
+  "version": "1.2",
+  "dbname": "wt_db",
+  "dbtype": "Protein",
+  "db-version": 5,
+  "description": "wt.txt",
+  "number-of-letters": 112194,
+  "number-of-sequences": 318,
+  "last-updated": "2024-03-25T15:56:00",
+  "number-of-volumes": 1,
+  "bytes-total": 1139149,
+  "bytes-to-cache": 115141,
+  "files": [
+    "wt_db.pdb",
+    "wt_db.phr",
+    "wt_db.pin",
+    "wt_db.pog",
+    "wt_db.pos",
+    "wt_db.pot",
+    "wt_db.psq",
+    "wt_db.ptf",
+    "wt_db.pto"
+  ]
+}

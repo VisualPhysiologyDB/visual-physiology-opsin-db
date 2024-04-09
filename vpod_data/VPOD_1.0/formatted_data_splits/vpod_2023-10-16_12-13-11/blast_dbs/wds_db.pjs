@@ -1,0 +1,24 @@
+{
+  "version": "1.2",
+  "dbname": "wds_db",
+  "dbtype": "Protein",
+  "db-version": 5,
+  "description": "wds.txt",
+  "number-of-letters": 305123,
+  "number-of-sequences": 864,
+  "last-updated": "2024-03-25T15:56:00",
+  "number-of-volumes": 1,
+  "bytes-total": 1378496,
+  "bytes-to-cache": 312992,
+  "files": [
+    "wds_db.pdb",
+    "wds_db.phr",
+    "wds_db.pin",
+    "wds_db.pog",
+    "wds_db.pos",
+    "wds_db.pot",
+    "wds_db.psq",
+    "wds_db.ptf",
+    "wds_db.pto"
+  ]
+}
