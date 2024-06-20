@@ -4,13 +4,13 @@
 # Visual Physiology Opsin Database (VPOD)
 **_VPOD_, a database opsin data and machine-learning models to predict phenotype.**
 
-![](https://github.com/VisualPhysiologyDB/visual-physiology-opsin-db/blob/main/scripts_n_notebooks/figure_making/figures/VPOD_1.1/opsin_histogram_with_scaled_kde_and_colorbar_5_24_24.svg?raw=True) <!-- Alt text: Histogram distributions of Vertebrate and Invertebrate Opsin Light Sensitivity Data - λmax - from VPOD_het_1.0 with a scaled Kernel Density Estimate (KDE) curves overlaid to better visualize the general shape and characteristics of our λmax distributions. -->
+![](https://github.com/VisualPhysiologyDB/visual-physiology-opsin-db/blob/main/scripts_n_notebooks/figure_making/figures/VPOD_1.1/opsin_histogram_with_scaled_kde_and_colorbar_5_24_24.svg?raw=True) <!-- Alt text: Histogram distributions of Vertebrate and Invertebrate Opsin Light Sensitivity Data - λmax - from VPOD_het_1.1 with a scaled Kernel Density Estimate (KDE) curves overlaid to better visualize the general shape and characteristics of our λmax distributions. -->
 
-  _Histogram distributions of Vertebrate and Invertebrate Opsin Light Sensitivity Data - λmax - from VPOD_het_1.0 with a scaled Kernel Density Estimate (KDE) curves overlaid to better visualize the general shape and characteristics of our λmax distributions_
+  _Histogram distributions of Vertebrate and Invertebrate Opsin Light Sensitivity Data - λmax - from VPOD_het_1.1 with a scaled Kernel Density Estimate (KDE) curves overlaid to better visualize the general shape and characteristics of our λmax distributions_
 
 --- 
 ## Summary
-Here, we report a newly compiled database of all heterologously expressed opsin genes with λmax phenotypes called the Visual Physiology Opsin Database (VPOD). VPOD_1.0 contains 864 unique opsin genotypes and corresponding λmax phenotypes collected across all animals from 73 separate publications. 
+Here, we report a newly compiled database of all heterologously expressed opsin genes with λmax phenotypes called the Visual Physiology Opsin Database (VPOD). VPOD_1.1 contains 1123 unique opsin genotypes and corresponding λmax phenotypes collected across all animals from 90 separate publications. 
 
 We use VPOD data and _[deepBreaks](https://github.com/omicsEye/deepbreaks)_(an ML tool designed for exploring genotype-phenotype associations) to show regression-based machine learning (ML) models often reliably predict λmax, account for non-additive effects of mutations on function, and identify functionally critical amino acid sites. 
 
@@ -33,12 +33,12 @@ We use VPOD data and _[deepBreaks](https://github.com/omicsEye/deepbreaks)_(an M
 Instructions for navigating VPOD data files, including raw and curated data used for training models, and for accessing scripts/notebooks used for sequence data manipulation, testing, and model training.
 
   ### Data
-  * Navigate to the folder _vpod_data/VPOD_1.0_ 
+  * Navigate to the folder _vpod_data/VPOD_1.X_ (i.e. _vpod_data/VPOD_1.0_ or _vpod_data/VPOD_1.1_)
   * Select the _formatted_data_subsets_ folder to access subsets of the database suitable for direct model training without requiring mySQL or sequence alignment.
-      - The folder _vpod_2023-10-16_12-13-11_ contains all data subsets.
-      - Files marked _VPOD_xxx_1.0_ (ex. _VPOD_vert_het_1.0.fasta_) are the fully aligned data subsets 
+      - The folder _vpod_1.1_data_subsets_2024-05-02_ contains all data subsets for VPOD_1.1.
+      - Files marked _VPOD_xxx_het_1.1_ (ex. _VPOD_vert_het_1.0.fasta_) are the fully aligned data subsets 
       - Files marked _xxx_meta_ (ex. _wds_meta.tsv_) are the corresponding metadata files for each subset
-  * Select the _raw_database_files_ folder for the raw components of the database taht will need to be loaded into mySQL and formatted using steps 0-2 of the _vpod_main_wf.ipynb_ Jupyter notebook
+  * Select the _raw_database_files_ folder for the raw components of the database that you can load into a mySQL database and creat your own formatted dataset using steps 0-2 of the _vpod_main_wf.ipynb_ Jupyter notebook
 
   ### Scripts & Notebooks
   Instructions for accessing scripts and Jupyter notebooks used to create the database and train ML models.
@@ -53,9 +53,19 @@ Instructions for navigating VPOD data files, including raw and curated data used
    ### Notebooks
    * Navigate to the folder _scripts_n_notebooks_
       - Select the folder _vpod_ML_workflows_ to access notebooks used for training ML models.
-          - The _substests_ folder contains notebooks used for subtests outlined in "_Discovering genotype-phenotype relationships with machine learning and the Visual Physiology Opsin Database (VPOD)_".
-      - Select the folder _figure_making_ to access the Jupyter notebook _figuremaking.ipynb_ used to generate some of the figures in the publication.
-      - Select the folder _phylogenetic_imputation_ to access the R-notebook _Phylogenetic_Imputation.Rmd_ used to compare ML predictions to phylogenetic imputation.
+          - _vpod_main_wf.ipynb_ - Our primary notebook, with a full pipeline for everything gtom creating your own local instance of VPOD using mySQL to formatting your own datasplits and training ML models for λmax predictions. 
+          - _substests_ folder - Contains notebooks used for subtests outlined in our publication "_Discovering genotype-phenotype relationships with machine learning and the Visual Physiology Opsin Database (VPOD)_".
+            - _vpod_main_wf_msp_iterate.ipynb_
+            - _vpod_wf_imp_sample_test_iterate.ipynb_
+            - _vpod_wf_iterate_all_sample_t1_ops.ipynb_
+            - _vpod_wf_iterate_epistasic_muts.ipynb_
+            - _vpod_wf_iterate_model_perf_vs_tds.ipynb_
+            - _vpod_wf_iterate_subsample.ipynb_
+            - _vpod_wf_iterate_sws_comp.ipynb_
+            - _vpod_wf_iterate_train_all_subsets.ipynb_
+            - _vpod_wf_wt_mut_test.ipynb_
+      - Select the folder _figure_making_ to access the Jupyter notebook _figuremaking.ipynb_ used to generate some of the figures used in our publication.
+      - Select the folder _phylogenetic_imputation_ to access the R-notebook _Phylogenetic_Imputation.Rmd_ - used to compare ML predictions to phylogenetic imputation in our publication.
 ---
 
 ### Training New ML Models With _deepBreaks_
