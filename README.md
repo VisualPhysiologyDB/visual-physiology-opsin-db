@@ -103,6 +103,6 @@ Contact information for author questions or feedback.
   * https://orcid.org/0000-0002-3800-212X
 
 ## Additional_Resources 
-  **[Here](https://tinyurl.com/nm7tt3k8)** is a link to a bibliography of the publications used to build VPOD_1.0
+  **[Here](https://tinyurl.com/nm7tt3k8)** is a link to a bibliography of the publications used to build VPOD_1.1
   
-  If you know of publications for training opsin ML models not included in the VPOD_1.0 database, please send them to us through **[this form](https://tinyurl.com/29afaxyr)**
+  If you know of publications for training opsin ML models not included in the VPOD_1.1 database, please send them to us through **[this form](https://tinyurl.com/29afaxyr)**
