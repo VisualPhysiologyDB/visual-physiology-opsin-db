@@ -22,10 +22,14 @@ We use VPOD data and _[deepBreaks](https://github.com/omicsEye/deepbreaks)_ (an 
 ## Table of Contents
 
 1. [Instructions](#Instructions)
-2. [License](#license)
-3. [Citation](#citation)
-4. [Contact](#contact)
-5. [Additional Resources](#additional_resources)
+   * [Data](#data)
+   * [Results](#results)
+   * [Scripts & Notebooks](#scripts&notebooks)
+   * [Training New ML Models With _deepBreaks_](#training_ml)
+3. [License](#license)
+4. [Citation](#citation)
+5. [Contact](#contact)
+6. [Additional Resources](#additional_resources)
 
 ## Instructions
 
@@ -46,7 +50,7 @@ Instructions for navigating VPOD data files, including raw and curated data used
       - _full_iter_sample_results_ - Contains results of our 'sample iterate test' on each dataset - where x number of datapoints are removed from the training data prior to training and used as test data. This is repeated until all points have been sampled once.
       - _imputation_tests_ - Contains results comparing the predictions of phylogentic imputation and our ML models for the same data points (varies by dataset).
       - _main_model_results_ - Contains model training results for each dataset, seperated by alignment method used (MAFFT, MUSCLE, GBLOCKS (following MUSCLE alignment) and then by database version (i.e. VPOD_1.0 or VPOD_1.1)
-      - _msp_tests_ - Contain results for model predictions from each dataset on thirty unseen wild-type invertebrate opsins from a separately curated MSP dataset.
+      - _msp_tests_ - Contains results for model predictions from each dataset on thirty unseen wild-type invertebrate opsins from a separately curated MSP dataset.
       - _perf_v_tds_ - Contains results tracking the correlation between dataset size and model R^2, to better understand how training data relate to model performance.
       - _sws_ops_prediction_comparison_test_ - Contains results comparing predictive capabilities of models trained on different data subsets by randomly selecting and removing the same 25 wild-type ultraviolet or short-wave sensitive opsins from the training data of the WDS, Vertebrate, WT, and UVS/SWS.
       - _wt_model_predicting_all_mutants_test_ - Contains results of the Wild-Type model (which lacks data from artificially mutated sequences) predictions on all experimentally mutated opsins in VPOD.
@@ -66,17 +70,17 @@ Instructions for navigating VPOD data files, including raw and curated data used
    ### Notebooks
    * Navigate to the folder _scripts_n_notebooks_
       - Select the folder _vpod_ML_workflows_ to access notebooks used for training ML models.
-          - _vpod_main_wf.ipynb_ - Our primary notebook, with a full pipeline for everything from creating a local instance of VPOD using mySQL to formatting datasets and training ML models for λmax predictions. 
+          - _vpod_main_wf.ipynb_ - Primary notebook for users, with a full pipeline for everything from creating a local instance of VPOD using mySQL to formatting datasets and training ML models for λmax predictions. 
           - _substests_ folder - Contains notebooks used for subtests outlined in _Frazer et al. 2024_.
-            - _vpod_main_wf_msp_iterate.ipynb_ - Used to iteratively train and test models from each dataset on thirty unseen wild-type invertebrate opsins from a separately curated MSP dataset.
-            - _vpod_wf_imp_sample_test_iterate.ipynb_ - Used to iteratively train and test models from each dataset on randomly sampled subset of data; for comparison to predictions made by phylogentic imputation.
-            - _vpod_wf_iterate_all_sample_t1_ops.ipynb_ 
-            - _vpod_wf_iterate_epistasic_muts.ipynb_
-            - _vpod_wf_iterate_model_perf_vs_tds.ipynb_
-            - _vpod_wf_iterate_subsample.ipynb_
-            - _vpod_wf_iterate_sws_comp.ipynb_
-            - _vpod_wf_iterate_train_all_subsets.ipynb_
-            - _vpod_wf_wt_mut_test.ipynb_
+            - _vpod_main_wf_msp_iterate.ipynb_ - Iteratively train and test models from each dataset on thirty unseen wild-type invertebrate opsins from a separately curated MSP dataset.
+            - _vpod_wf_imp_sample_test_iterate.ipynb_ - Iteratively train and test models from each dataset on randomly sampled subset of data; for comparison to predictions made by phylogentic imputation.
+            - _vpod_wf_iterate_all_sample_t1_ops.ipynb_ - Iteratively subsample T1 dataset, removing X datapoints before training before training and using it as test-data until all datapoints are sampled once.
+            - _vpod_wf_iterate_epistasic_muts.ipynb_ - Iteratively subsample whole-dataset of mutations which demonstrate epistatic interactions between mutations, removing X datapoints before training before training and using it as test-data until all datapoints are sampled once (can also be modified to remove all epistatic mutants at once, as detailed in _Frazer et al. 2024_).
+            - _vpod_wf_iterate_model_perf_vs_tds.ipynb_ - Iteratively adds or substracts X datapoints from dataset to track the correlation between dataset size and model performance.
+            - _vpod_wf_iterate_subsample.ipynb_ -  Iteratively subsample target dataset, removing X datapoints before training before training and using it as test-data until all datapoints are sampled once.
+            - _vpod_wf_iterate_sws_comp.ipynb_ - Iteratively removes the same 25 randomly wild-type ultraviolet or short-wave sensitive opsins from the training data of the WDS, Vertebrate, WT, and UVS/SWS to compare predictive capabilities of models trained on different data subsets.
+            - _vpod_wf_iterate_train_all_subsets.ipynb_ - Iteratively train each dataset with no modifications to the training process; simply streamlines the training of all datasets in case of desire. 
+            - _vpod_wf_wt_mut_test.ipynb_ - Trains and tests the predictive capabilities of the Wild-Type model (which lacks data from artificially mutated sequences) on all experimentally mutated opsins in VPOD.
       - Select the folder _figure_making_ to access the Jupyter notebook _figuremaking.ipynb_ used to generate some of the figures used in _Frazer et al. 2024_.
           - _figures_ contains a collection of completed figures and drafts use in _Frazer et al. 2024_ - seperated by version of the database used to generate the figures (i.e VPOD_1.0 or VPOD_1.1)
       - Select the folder _phylogenetic_imputation_ to access all files used to predict λmax via phylogenetic imputation and compare with predictions made by ML, as detailed in  _Frazer et al. 2024_.
