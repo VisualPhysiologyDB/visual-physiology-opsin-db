@@ -29,43 +29,57 @@ We use VPOD data and _[deepBreaks](https://github.com/omicsEye/deepbreaks)_(an M
 
 ## Instructions
 
-### Data and Code Structure
+### Data, Results and Code Structure
 Instructions for navigating VPOD data files, including raw and curated data used for training models, and for accessing scripts/notebooks used for sequence data manipulation, testing, and model training.
 
   ### Data
   * Navigate to the folder _vpod_data/VPOD_1.X_ (i.e. _vpod_data/VPOD_1.0_ or _vpod_data/VPOD_1.1_)
-  * Select the _formatted_data_subsets_ folder to access subsets of the database suitable for direct model training without requiring mySQL or sequence alignment.
+    * Select the _formatted_data_subsets_ folder to access subsets of the database suitable for direct model training without requiring mySQL or sequence alignment.
       - The folder _vpod_1.1_data_subsets_2024-05-02_ contains all data subsets for VPOD_1.1.
-      - Files marked _VPOD_xxx_het_1.1_ (ex. _VPOD_vert_het_1.0.fasta_) are the fully aligned data subsets 
+      - Files marked _VPOD_xxx_het_1.1_ (ex. _VPOD_vert_het_1.1.fasta_) are the fully aligned data subsets 
       - Files marked _xxx_meta_ (ex. _wds_meta.tsv_) are the corresponding metadata files for each subset
-  * Select the _raw_database_files_ folder for the raw components of the database that you can load into a mySQL database and creat your own formatted dataset using steps 0-2 of the _vpod_main_wf.ipynb_ Jupyter notebook
-
+    * Select the _raw_database_files_ folder for the raw components of the database that you can load into a mySQL database and creat your own formatted dataset using steps 0-2 of the _vpod_main_wf.ipynb_ Jupyter notebook
+  
+  ### Results
+  * Navigate to the folder _results_files_ - All subfolders contain results specific to different subtests outlined in our publication, "_Discovering genotype-phenotype relationships with machine learning and the Visual Physiology Opsin Database (VPOD)_" (_Frazer et al. 2024_)
+      - _epistasis_pred_test_
+      - _full_iter_sample_results_
+      - _imputation_tests_
+      - _main_model_results_
+      - _msp_tests_
+      - _perf_v_tds_
+      - _sws_ops_prediction_comparison_test_
+      - _wt_model_predicting_all_mutants_test_
+    
   ### Scripts & Notebooks
   Instructions for accessing scripts and Jupyter notebooks used to create the database and train ML models.
 
    ### Scripts
    NOTE - It's recommended that you open these scripts in a compiler for a more detailed explination of how to properly use them* 
    * Navigate to the folder _scripts_n_notebooks/sequence_manipulation_
-       - Select the script _mutagenesis.py_ to generate mutants from a sequence accessible via NCBI by accession number or manually enter the raw sequence.
-       - Select the script _chimeras.py_ to generate chimeric sequences from sequences accessible via NCBI by accession or manually enter the raw sequence.
+       - _mutagenesis.py_ - Used to generate mutants from a sequence accessible via NCBI by accession number or manually enter the raw sequence.
+       - _chimeras.py_ - Used to generate chimeric sequences from sequences accessible via NCBI by accession or manually enter the raw sequence.
            - Opsin _chimeras_ are mutants where one or more transmembrane domains are copied from a different opsin to replace the original. 
            - Contact us for assistance with using this script.
    ### Notebooks
    * Navigate to the folder _scripts_n_notebooks_
       - Select the folder _vpod_ML_workflows_ to access notebooks used for training ML models.
-          - _vpod_main_wf.ipynb_ - Our primary notebook, with a full pipeline for everything gtom creating your own local instance of VPOD using mySQL to formatting your own datasplits and training ML models for λmax predictions. 
-          - _substests_ folder - Contains notebooks used for subtests outlined in our publication "_Discovering genotype-phenotype relationships with machine learning and the Visual Physiology Opsin Database (VPOD)_".
-            - _vpod_main_wf_msp_iterate.ipynb_
-            - _vpod_wf_imp_sample_test_iterate.ipynb_
-            - _vpod_wf_iterate_all_sample_t1_ops.ipynb_
+          - _vpod_main_wf.ipynb_ - Our primary notebook, with a full pipeline for everything from creating a local instance of VPOD using mySQL to formatting datasets and training ML models for λmax predictions. 
+          - _substests_ folder - Contains notebooks used for subtests outlined in _Frazer et al. 2024_.
+            - _vpod_main_wf_msp_iterate.ipynb_ - Used to iteratively train and test models from each dataset on thirty unseen wild-type invertebrate opsins from a separately curated MSP dataset.
+            - _vpod_wf_imp_sample_test_iterate.ipynb_ - Used to iteratively train and test models from each dataset on randomly sampled subset of data; for comparison to predictions made by phylogentic imputation.
+            - _vpod_wf_iterate_all_sample_t1_ops.ipynb_ 
             - _vpod_wf_iterate_epistasic_muts.ipynb_
             - _vpod_wf_iterate_model_perf_vs_tds.ipynb_
             - _vpod_wf_iterate_subsample.ipynb_
             - _vpod_wf_iterate_sws_comp.ipynb_
             - _vpod_wf_iterate_train_all_subsets.ipynb_
             - _vpod_wf_wt_mut_test.ipynb_
-      - Select the folder _figure_making_ to access the Jupyter notebook _figuremaking.ipynb_ used to generate some of the figures used in our publication.
-      - Select the folder _phylogenetic_imputation_ to access the R-notebook _Phylogenetic_Imputation.Rmd_ - used to compare ML predictions to phylogenetic imputation in our publication.
+      - Select the folder _figure_making_ to access the Jupyter notebook _figuremaking.ipynb_ used to generate some of the figures used in _Frazer et al. 2024_.
+          - _figures_ contains a collection of completed figures and drafts use in _Frazer et al. 2024_ - seperated by version of the database used to generate the figures (i.e VPOD_1.0 or VPOD_1.1)
+      - Select the folder _phylogenetic_imputation_ to access all files used to predict λmax via phylogenetic imputation and compare with predictions made by ML, as detailed in  _Frazer et al. 2024_.
+          - _Phylogenetic_Imputation.Rmd_ - Used to load tree files and make λmax predictions via phylogenetic imputation [Requires RStudio].
+          - _trees_ - Contains all the tree files and λmax meta-data neccessary for predictions via phylogentic imputation.
 ---
 
 ### Training New ML Models With _deepBreaks_
