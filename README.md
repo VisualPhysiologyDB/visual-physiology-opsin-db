@@ -10,7 +10,7 @@
 
 --- 
 ## Summary
-Here, we report a newly compiled database of all heterologously expressed opsin genes with λmax phenotypes (wavelength of maximal absorbance; peak-senstivity) called the Visual Physiology Opsin Database (VPOD). VPOD_1.1 contains 1123 unique opsin genotypes and corresponding λmax phenotypes collected across all animals from 90 separate publications. 
+Here, we report a newly compiled database for all heterologously expressed opsin genes with λmax phenotypes (wavelength of maximal absorbance; peak-senstivity) called the Visual Physiology Opsin Database (VPOD). VPOD_1.1 contains 1123 unique opsin genotypes and corresponding λmax phenotypes collected across all animals from 90 separate publications. 
 
 We use VPOD data and _[deepBreaks](https://github.com/omicsEye/deepbreaks)_ (an ML tool designed for exploring genotype-phenotype associations) to show regression-based machine learning (ML) models often reliably predict λmax, account for non-additive effects of mutations on function, and identify functionally critical amino acid sites. 
 
@@ -40,9 +40,15 @@ Instructions for navigating VPOD data files, including raw and curated data used
   * Navigate to the folder _vpod_data/VPOD_1.X_ (i.e. _vpod_data/VPOD_1.0_ or _vpod_data/VPOD_1.1_)
     * Select the _formatted_data_subsets_ folder to access subsets of the database suitable for direct model training without requiring mySQL or sequence alignment.
       - The folder _vpod_1.1_data_subsets_2024-05-02_ contains all data subsets for VPOD_1.1.
-      - Files marked _VPOD_xxx_het_1.1_ (ex. _VPOD_vert_het_1.1.fasta_) are the fully aligned data subsets 
-      - Files marked _xxx_meta_ (ex. _wds_meta.tsv_) are the corresponding metadata files for each subset
-    * Select the _raw_database_files_ folder for the raw components of the database that you can load into a mySQL database and creat your own formatted dataset using steps 0-2 of the _vpod_main_wf.ipynb_ Jupyter notebook
+      - Files marked _xxx.txt_ (ex. _vert.txt_) are the unaligned data subsets.
+      - Files marked _xxx_aligned.txt_ (ex. _vert.txt_) are the aligned data subsets (not-formatted; will become obsolete in later versions of VPOD).
+      - Files marked _VPOD_xxx_het_1.1_ (ex. _VPOD_vert_het_1.1.fasta_) are the fully aligned and formatted data subsets.
+      - Files marked _xxx_meta_ (ex. _wds_meta.tsv_) are the corresponding metadata files for each subset (includes species, accession, gene names, λmax, etc).
+    * Select the _raw_database_files_ folder for the raw components of the database that you can load into a mySQL database and creat your own formatted dataset using steps 0-2 of the _vpod_main_wf.ipynb_ Jupyter notebook. For more information on the specific meaning of data columns, see _Frazer et al. 2024_.
+      - _litsearch.csv_ - All literature search information relevant to the current version of VPOD.  
+      - _references.csv_ - All publication references relevant to the current version of VPOD.
+      - _opsins.csv_ - All opsin sequence data and taxonomic meta-data.
+      - _heterologous.csv_ - All opsin phenotype data (λmax) and experiment related meta-data. 
   
   ### Results
   * Navigate to the folder _results_files_ - All subfolders contain results specific to different subtests outlined in _Frazer et al. 2024_
