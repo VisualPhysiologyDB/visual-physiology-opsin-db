@@ -10,7 +10,7 @@
 
 --- 
 ## Summary
-Here, we report a newly compiled database of all heterologously expressed opsin genes with λmax phenotypes called the Visual Physiology Opsin Database (VPOD). VPOD_1.1 contains 1123 unique opsin genotypes and corresponding λmax phenotypes collected across all animals from 90 separate publications. 
+Here, we report a newly compiled database of all heterologously expressed opsin genes with λmax phenotypes (wavelength of maximal absorbance; peak-senstivity) called the Visual Physiology Opsin Database (VPOD). VPOD_1.1 contains 1123 unique opsin genotypes and corresponding λmax phenotypes collected across all animals from 90 separate publications. 
 
 We use VPOD data and _[deepBreaks](https://github.com/omicsEye/deepbreaks)_ (an ML tool designed for exploring genotype-phenotype associations) to show regression-based machine learning (ML) models often reliably predict λmax, account for non-additive effects of mutations on function, and identify functionally critical amino acid sites. 
 
@@ -41,15 +41,17 @@ Instructions for navigating VPOD data files, including raw and curated data used
     * Select the _raw_database_files_ folder for the raw components of the database that you can load into a mySQL database and creat your own formatted dataset using steps 0-2 of the _vpod_main_wf.ipynb_ Jupyter notebook
   
   ### Results
-  * Navigate to the folder _results_files_ - All subfolders contain results specific to different subtests outlined in our publication, "_Discovering genotype-phenotype relationships with machine learning and the Visual Physiology Opsin Database (VPOD)_" (_Frazer et al. 2024_)
-      - _epistasis_pred_test_
-      - _full_iter_sample_results_
-      - _imputation_tests_
-      - _main_model_results_
-      - _msp_tests_
-      - _perf_v_tds_
-      - _sws_ops_prediction_comparison_test_
-      - _wt_model_predicting_all_mutants_test_
+  * Navigate to the folder _results_files_ - All subfolders contain results specific to different subtests outlined in _Frazer et al. 2024_
+      - _epistasis_pred_test_ - Contains predictions by and comparisons between our WT and WDS models on 111 'epistatic mutations' (non-additive) to more generally the capabilities of our ML models to predict epistatic interactions between mutations.
+      - _full_iter_sample_results_ - Contains results of our 'sample iterate test' on each dataset - where x number of datapoints are removed from the training data prior to training and used as test data. This is repeated until all points have been sampled once.
+      - _imputation_tests_ - Contains results comparing the predictions of phylogentic imputation and our ML models for the same data points (varies by dataset).
+      - _main_model_results_ - Contains model training results for each dataset, seperated by alignment method used (MAFFT, MUSCLE, GBLOCKS (following MUSCLE alignment) and then by database version (i.e. VPOD_1.0 or VPOD_1.1)
+      - _msp_tests_ - Contain results for model predictions from each dataset on thirty unseen wild-type invertebrate opsins from a separately curated MSP dataset.
+      - _perf_v_tds_ - Contains results tracking the correlation between dataset size and model R^2, to better understand how training data relate to model performance.
+      - _sws_ops_prediction_comparison_test_ - Contains results comparing predictive capabilities of models trained on different data subsets by randomly selecting and removing the same 25 wild-type ultraviolet or short-wave sensitive opsins from the training data of the WDS, Vertebrate, WT, and UVS/SWS.
+      - _wt_model_predicting_all_mutants_test_ - Contains results of the Wild-Type model (which lacks data from artificially mutated sequences) predictions on all experimentally mutated opsins in VPOD.
+        - This folder contains results for several versions of VPOD (i.e. VPOD_1.0 and VPOD_1.1), but only the results of VPOD_1.0 are reported in _Frazer et al. 2024_.
+        - _mutant_pred_analysis.ipynb_ - Used to run _Wilcoxn Signed-Rank Tests_ - comparing the distributions of squared error for predictions made on all mutant data by the Whole-dataset and Wild-type models. Results are displayed directly in the notebook.
     
   ### Scripts & Notebooks
   Instructions for accessing scripts and Jupyter notebooks used to create the database and train ML models.
