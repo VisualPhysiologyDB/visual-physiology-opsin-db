@@ -10,11 +10,12 @@
 
 --- 
 ## Summary
-We introduce the Visual Physiology Opsin Database, a newly compiled database for all heterologously expressed opsin genes with λmax phenotypes (wavelength of maximal absorbance; peak-senstivity). VPOD_1.1 contains 1123 unique opsin genotypes and corresponding λmax phenotypes collected across all animals from 90 separate publications. 
+We introduce the Visual Physiology Opsin Database, a newly compiled database for all heterologously expressed [opsin genes](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2005-6-3-213) with λmax phenotypes (wavelength of maximal absorbance; peak-senstivity). VPOD_1.1 contains 1123 unique opsin genotypes and corresponding λmax phenotypes collected across all animals from 90 separate publications. 
 
 We use VPOD data and _[deepBreaks](https://github.com/omicsEye/deepbreaks)_ (an ML tool designed for exploring genotype-phenotype associations) to show regression-based machine learning (ML) models often reliably predict λmax, account for non-additive effects of mutations on function, and identify functionally critical amino acid sites. 
 
 We provide an approach that lays the groundwork for future robust exploration of molecular-evolutionary patterns governing phenotype, with potential broader applications to any family of genes with quantifiable and comparable phenotypes.
+
 ---
 
 # VPOD user guide #
