@@ -24,12 +24,12 @@ We use VPOD data and _[deepBreaks](https://github.com/omicsEye/deepbreaks)_ (an 
 1. [Instructions](#Instructions)
    * [Data](#data)
    * [Results](#results)
-   * [Scripts & Notebooks](#Scripts&Notebooks)
-   * [Training New ML Models With _deepBreaks_](#TrainingNewMLModelsWith_deepBreaks_)
+   * [Scripts & Notebooks](#scripts--notebooks)
+   * [Training New ML Models With _deepBreaks_](#training-new-ml-models-with-deepbreaks)
 3. [License](#license)
 4. [Citation](#citation)
 5. [Contact](#contact)
-6. [Additional Resources](#additional_resources)
+6. [Additional Resources](#additional-resources)
 
 ## Instructions
 
