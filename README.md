@@ -89,6 +89,7 @@ Instructions for navigating VPOD data files, including raw and curated data used
             - _vpod_wf_wt_mut_test.ipynb_ - Trains and tests the predictive capabilities of the Wild-Type model (which lacks data from artificially mutated sequences) on all experimentally mutated opsins in VPOD.
       - Select the folder _figure_making_ to access the Jupyter notebook _figuremaking.ipynb_ used to generate some of the figures used in _Frazer et al. 2024_.
           - _figures_ contains a collection of completed figures and drafts use in _Frazer et al. 2024_ - seperated by version of the database used to generate the figures (i.e VPOD_1.0 or VPOD_1.1)
+            * Select the _opsin_wt_tree_ folder for all files used to make the tree used in supplementary figure 10 (S10) of _Frazer et al. 2024_. We've also provided it as a _.svg_ file in this same folder or **[click here]([https://tinyurl.com/29afaxyr](https://github.com/VisualPhysiologyDB/visual-physiology-opsin-db/blob/main/scripts_n_notebooks/figure_making/figures/VPOD_1.1/opsin_wt_tree/wt_tree_w_ancestors.svg)**] to download.
       - Select the folder _phylogenetic_imputation_ to access all files used to predict λmax via phylogenetic imputation and compare with predictions made by ML, as detailed in  _Frazer et al. 2024_.
           - _Phylogenetic_Imputation.Rmd_ - Used to load tree files and make λmax predictions via phylogenetic imputation [Requires RStudio].
           - _trees_ - Contains all the tree files and λmax meta-data neccessary for predictions via phylogentic imputation.
