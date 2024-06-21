@@ -2,7 +2,7 @@
 
 
 # Visual Physiology Opsin Database (VPOD)
-**_VPOD_: A database of opsin data and machine-learning models to predict λmax phenotypes.**
+**_VPOD_: A database of opsins and machine-learning models to predict λmax phenotypes.**
 
 ![](https://github.com/VisualPhysiologyDB/visual-physiology-opsin-db/blob/main/scripts_n_notebooks/figure_making/figures/VPOD_1.1/opsin_histogram_with_scaled_kde_and_colorbar_5_24_24.svg?raw=True) <!-- Alt text: Histogram distributions of Vertebrate and Invertebrate Opsin Light Sensitivity Data - λmax - from VPOD_het_1.1 with a scaled Kernel Density Estimate (KDE) curves overlaid to better visualize the general shape and characteristics of our λmax distributions. -->
 
@@ -10,11 +10,11 @@
 
 --- 
 ## Summary
-Here, we report a newly compiled database for all heterologously expressed opsin genes with λmax phenotypes (wavelength of maximal absorbance; peak-senstivity) called the Visual Physiology Opsin Database (VPOD). VPOD_1.1 contains 1123 unique opsin genotypes and corresponding λmax phenotypes collected across all animals from 90 separate publications. 
+We introduce the Visual Physiology Opsin Database, a newly compiled database for all heterologously expressed opsin genes with λmax phenotypes (wavelength of maximal absorbance; peak-senstivity). VPOD_1.1 contains 1123 unique opsin genotypes and corresponding λmax phenotypes collected across all animals from 90 separate publications. 
 
 We use VPOD data and _[deepBreaks](https://github.com/omicsEye/deepbreaks)_ (an ML tool designed for exploring genotype-phenotype associations) to show regression-based machine learning (ML) models often reliably predict λmax, account for non-additive effects of mutations on function, and identify functionally critical amino acid sites. 
 
-
+We provide an approach that lays the groundwork for future robust exploration of molecular-evolutionary patterns governing phenotype, with potential broader applications to any family of genes with quantifiable and comparable phenotypes.
 ---
 
 # VPOD user guide #
