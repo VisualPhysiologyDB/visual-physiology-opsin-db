@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 from Bio import Phylo
+import numpy as np
+import random
 
 
 def get_dist_matrix_from_tree(tree_file):
@@ -43,9 +45,6 @@ def percentile_threshold(distance_matrix, percentile=5):
     distances = distance_matrix[np.triu_indices_from(distance_matrix, k=1)]  # Extract upper triangle
     return np.percentile(distances, percentile)
 
-
-import numpy as np
-
 def farthest_points(distance_matrix, k=10):
     n = distance_matrix.shape[0]
 
@@ -53,7 +52,7 @@ def farthest_points(distance_matrix, k=10):
     
     avg_distances = np.mean(distance_matrix, axis=1)
     avg_distances_hold = np.mean(distance_matrix, axis=1)
-    print(f'These are the average distances for each leaf:\n{avg_distances}')
+    #print(f'These are the average distances for each leaf:\n{avg_distances}')
     
     # Initialize cluster (here, we start with the point with max avg distance)
     point_list = [np.argmax(avg_distances)]
@@ -75,7 +74,7 @@ def farthest_points(distance_matrix, k=10):
         point_list.append(best_point)
         avg_distances = np.delete(avg_distances, best_point)
 
-    print(f'Length of avg. distances after intial point assignment is:{len(avg_distances)}')
+    #print(f'Length of avg. distances after intial point assignment is:{len(avg_distances)}')
 
     return point_list, avg_distances, avg_distances_hold
 
@@ -100,8 +99,8 @@ def phylo_weighted_cv(distance_matrix, tip_names, n_folds, distance_threshold, r
 
     # 1. Initialize Bins with Most Distant Points:
     initial_points, avg_distances, avg_distances_hold = farthest_points(distance_matrix=distance_matrix , k=n_folds)
-    print(f'These are the intial points: {initial_points}')
-    print(f'This is the length of the intial points: {len(initial_points)}')
+    #print(f'These are the intial points: {initial_points}')
+    #print(f'This is the length of the intial points: {len(initial_points)}')
 
     for i, idx in enumerate(initial_points):
         class_assignments[idx] = i
@@ -118,13 +117,13 @@ def phylo_weighted_cv(distance_matrix, tip_names, n_folds, distance_threshold, r
     # Unzip the sorted pairs back into separate lists
     sorted_avg_distances, unassigned_leaves = zip(*sorted_pairs)
     
-    print(f'These are the unassigned leaves: {unassigned_leaves}')
-    print(f'This is the length of unassigned leaves: {len(unassigned_leaves)}')
+    #print(f'These are the unassigned leaves: {unassigned_leaves}')
+    #print(f'This is the length of unassigned leaves: {len(unassigned_leaves)}')
 
     for leaf_idx in unassigned_leaves:
         mean_distances = [np.mean(distance_matrix[leaf_idx, class_assignments == bin_num])
                           for bin_num in range(n_folds)]
-        print(f'Just checking that these are distance: {mean_distances}')
+        #print(f'Just checking that these are distance: {mean_distances}')
         # Find best bin (highest mean distance above threshold)
         best_bin = np.argmax(mean_distances)
         if mean_distances[best_bin] >= distance_threshold:
@@ -134,23 +133,24 @@ def phylo_weighted_cv(distance_matrix, tip_names, n_folds, distance_threshold, r
             else:
                 # Try next best bin until a suitable bin is found or none exist
                 sorted_bins = np.argsort(mean_distances)[::-1]  # Descending order
-                print(f'This is the sorted bins by mean distance: {sorted_bins}')
+                #print(f'This is the sorted bins by mean distance: {sorted_bins}')
                 for bin_idx in sorted_bins[1:]:  # Skip the already checked best bin
                     if all(distance_matrix[leaf_idx, class_assignments == bin_idx] >= distance_threshold):
                         class_assignments[leaf_idx] = bin_idx
                         break
         if class_assignments[leaf_idx] == -1:
             if relation_mode == 'random':
+                sorted_bins = np.argsort(mean_distances)[::-1]  # Descending order
                 best_bin = random.choice(sorted_bins)
                 class_assignments[leaf_idx] = best_bin
-                print(f'The bin chosen using the random method is {best_bin}')            
+                #print(f'The bin chosen using the random method is {best_bin}')            
             elif relation_mode == 'merge':
                 #best_bin = np.argmin(mean_distances)
                 min_distances = [min(distance_matrix[leaf_idx, class_assignments == bin_num])
                           for bin_num in range(n_folds)]
                 min_dist = min(min_distances)
                 best_bin = min_distances.index(min_dist)  
-                print(f'The best bin using the merge method is {best_bin}')            
+                #print(f'The best bin using the merge method is {best_bin}')            
                 class_assignments[leaf_idx] = best_bin
             elif relation_mode == 'max_mean':
                 class_assignments[leaf_idx] = best_bin
