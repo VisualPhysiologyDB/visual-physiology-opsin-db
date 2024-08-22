@@ -79,7 +79,7 @@ def farthest_points(distance_matrix, k=10):
 
     return point_list, avg_distances, avg_distances_hold
 
-def phylo_weighted_cv(distance_matrix, tip_names, n_initial_bins, distance_threshold, relation_mode='leave_out'):
+def phylo_weighted_cv(distance_matrix, tip_names, n_folds, distance_threshold, relation_mode='leave_out'):
     
     """
     Clusters terminal leaves of a phylogenetic tree into bins based on distance,
@@ -87,7 +87,7 @@ def phylo_weighted_cv(distance_matrix, tip_names, n_initial_bins, distance_thres
 
     Args:
         distance_matrix: A square numpy array representing pairwise distances.
-        n_initial_bins: The number of initial bins to create with the most distant points.
+        n_folds: The number of initial bins to create with the most distant points.
         distance_threshold: The minimum allowable distance for bin assignment.
         relation_mode: The method used to deal with nodes which fall beneath the distance threshold.
         
@@ -99,7 +99,7 @@ def phylo_weighted_cv(distance_matrix, tip_names, n_initial_bins, distance_thres
     class_assignments = np.full(n_leaves, -1, dtype=int)  # Initialize as -1 (unassigned)
 
     # 1. Initialize Bins with Most Distant Points:
-    initial_points, avg_distances, avg_distances_hold = farthest_points(distance_matrix=distance_matrix , k=n_initial_bins)
+    initial_points, avg_distances, avg_distances_hold = farthest_points(distance_matrix=distance_matrix , k=n_folds)
     print(f'These are the intial points: {initial_points}')
     print(f'This is the length of the intial points: {len(initial_points)}')
 
@@ -123,7 +123,7 @@ def phylo_weighted_cv(distance_matrix, tip_names, n_initial_bins, distance_thres
 
     for leaf_idx in unassigned_leaves:
         mean_distances = [np.mean(distance_matrix[leaf_idx, class_assignments == bin_num])
-                          for bin_num in range(n_initial_bins)]
+                          for bin_num in range(n_folds)]
         print(f'Just checking that these are distance: {mean_distances}')
         # Find best bin (highest mean distance above threshold)
         best_bin = np.argmax(mean_distances)
@@ -147,7 +147,7 @@ def phylo_weighted_cv(distance_matrix, tip_names, n_initial_bins, distance_thres
             elif relation_mode == 'merge':
                 #best_bin = np.argmin(mean_distances)
                 min_distances = [min(distance_matrix[leaf_idx, class_assignments == bin_num])
-                          for bin_num in range(n_initial_bins)]
+                          for bin_num in range(n_folds)]
                 min_dist = min(min_distances)
                 best_bin = min_distances.index(min_dist)  
                 print(f'The best bin using the merge method is {best_bin}')            
