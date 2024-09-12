@@ -7,7 +7,7 @@ import tempfile
 import argparse
 import os
 import csv  # For CSV export
-import time
+
 
 def process_sequence(mafft, sequence, selected_model, alignment_data, gap_threshold = 0.6):
 
