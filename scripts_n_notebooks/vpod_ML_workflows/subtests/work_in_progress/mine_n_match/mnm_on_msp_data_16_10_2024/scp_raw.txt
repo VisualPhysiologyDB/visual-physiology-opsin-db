@@ -1,0 +1,1571 @@
+maxid	Genus	Species	phylum	CellType	CellSubType	LambdaMax	error	Chromophore	Stage	useable	expid	opsinid	refid	Notes		isGenusInHetero	isSpeciesInHetero	isInHetero	isVert
+1	Acipenser	transmontanus	Chordata	rod		540			adult	1		463	30	partial cds but is rod opsin				0	1
+2	Acipenser	transmontanus	Chordata	cone		464			adult	0		0	30					0	
+3	Acipenser	transmontanus	Chordata	cone		531			adult	0		0	30					0	
+4	Acipenser	transmontanus	Chordata	cone		605			adult	0		0	30					0	
+5	Acipenser	medirostris	Chordata	rod		540			adult	0		0	43					0	
+6	Acipenser	medirostris	Chordata	cone	single	465			adult	0		0	43					0	
+7	Acipenser	medirostris	Chordata	cone	single	538			adult	0		0	43					0	
+8	Acipenser	medirostris	Chordata	cone	single	614			adult	0		0	43					0	
+9	Cymatogaster	aggregata	Chordata	rod		500			adult	0		0	5					0	
+10	Cymatogaster	aggregata	Chordata	cone	single	455			adult	0		0	5					0	
+11	Cymatogaster	aggregata	Chordata	cone	single	528			adult	0		0	5					0	
+12	Cymatogaster	aggregata	Chordata	cone	twin	532			adult	0		0	5					0	
+13	Amia	calva	Chordata	rod		527	2		adult	0		0	6	Incomplete seq avaliable				0	
+14	Amia	calva	Chordata	cone	single	457	5		adult	0		0	6	Accession Avaliable - not validated via expdom - narrowed down via process off elimnation - Green Opsin				0	
+15	Amia	calva	Chordata	cone	single	556	2		adult	0		0	6	Accession Avaliable - not validated via expdom - narrowed down via process off elimnation - Green Opsin				0	
+16	Amia	calva	Chordata	cone	single	624	6		adult	1		2475	6	Accession Avaliable - not validated via expdom - narrowed down via process off elimnation - LWS Opsin				0	
+17	Amia	calva	Chordata	cone	double	556	2		adult	0		0	6					0	
+18	Amia	calva	Chordata	cone	twin	624	6		adult	0		0	6					0	
+19	Gymnothorax	favagineus	Chordata	rod		487	5.4		adult	0		0	47	has rodopsin, partial				0	
+20	Gymnothorax	favagineus	Chordata	cone	single	501	7.7		adult	0		0	47	two green cone opsins exists				0	
+21	Gymnothorax	reticularis	Chordata	rod		486	4		adult	0		0	47	has rodopsin, partial				0	
+22	Gymnothorax	reticularis	Chordata	cone	single	494	5.8		adult	0		0	47	two green cone opsins exists				0	
+23	Rhinomuraena	quaesita	Chordata	rod		498	4.8		adult	0		0	47	has rodopsin, partial				0	
+24	Rhinomuraena	quaesita	Chordata	cone	single	493	7		adult	0		0	47	two green cone opsins exists				0	
+25	Strophidon	sathete	Chordata	rod		487	4.8		adult	0		0	47	has rodopsin, partial				0	
+26	Strophidon	sathete	Chordata	cone	single	509	6.6		adult	0		0	47	two green cone opsins exists				0	
+27	Atherina	boyeri	Chordata	rod		511			adult	0		0	18	has rodopsin, partial				0	
+28	Atherina	boyeri	Chordata	cone	single	570			adult	0		0	18	no avaliable genetic data				0	
+29	Atherina	boyeri	Chordata	cone	double	435			adult	0		0	18	no avaliable genetic data				0	
+30	Atherina	boyeri	Chordata	cone	twin	530			adult	0		0	18	no available genetic data				0	
+31	Melanotaenia	maccullochi	Chordata	rod		509			adult	0		0	40	no available genetic data				0	
+32	Melanotaenia	maccullochi	Chordata	cone	single	377			adult	0		0	40	no available genetic data				0	
+33	Melanotaenia	maccullochi	Chordata	cone	single	409			adult	0		0	40	no available genetic data				0	
+34	Melanotaenia	maccullochi	Chordata	cone	single	443			adult	0		0	40	no available genetic data				0	
+35	Melanotaenia	maccullochi	Chordata	cone	single	495			adult	0		0	40	no available genetic data				0	
+36	Melanotaenia	maccullochi	Chordata	cone	single	528			adult	0		0	40	no available genetic data				0	
+37	Melanotaenia	maccullochi	Chordata	cone	double	495			adult	0		0	40	no available genetic data				0	
+38	Melanotaenia	maccullochi	Chordata	cone	double	528			adult	0		0	40	no available genetic data				0	
+39	Melanotaenia	maccullochi	Chordata	cone	double	578			adult	0		0	40	no available genetic data				0	
+40	Marosatherina	ladigesi	Chordata	rod		507			adult	0		0	40	no available genetic data				0	
+41	Marosatherina	ladigesi	Chordata	cone	single	368			adult	0		0	40	no available genetic data				0	
+42	Marosatherina	ladigesi	Chordata	cone	single	452			adult	0		0	40	no available genetic data				0	
+43	Marosatherina	ladigesi	Chordata	cone	single	461			adult	0		0	40	no available genetic data				0	
+44	Marosatherina	ladigesi	Chordata	cone	single	481			adult	0		0	40	no available genetic data				0	
+45	Marosatherina	ladigesi	Chordata	cone	single	531			adult	0		0	40	no available genetic data				0	
+46	Marosatherina	ladigesi	Chordata	cone	single	557			adult	0		0	40	no available genetic data				0	
+47	Marosatherina	ladigesi	Chordata	cone	double	452			adult	0		0	40	no available genetic data				0	
+48	Marosatherina	ladigesi	Chordata	cone	double	461			adult	0		0	40	no available genetic data				0	
+49	Marosatherina	ladigesi	Chordata	cone	double	531			adult	0		0	40	no available genetic data				0	
+50	Marosatherina	ladigesi	Chordata	cone	double	557			adult	0		0	40	no available genetic data				0	
+51	Synodus	variegatus	Chordata	rod		493			adult	0		0	32	no available genetic data				0	
+52	Synodus	variegatus	Chordata	cone	single	368			adult	0		0	32	no available genetic data				0	
+53	Synodus	variegatus	Chordata	cone	double	482			adult	0		0	32	no available genetic data				0	
+54	Synodus	variegatus	Chordata	cone	double	503			adult	0		0	32	no available genetic data				0	
+55	Belone	belone	Chordata	rod		509			adult	0		0	40	has rodopsin, partial				0	
+56	Belone	belone	Chordata	cone	single	422			adult	0		0	40	no available genetic data				0	
+57	Belone	belone	Chordata	cone	single	508			adult	0		0	40	no available genetic data				0	
+58	Belone	belone	Chordata	cone	twin	508			adult	0		0	40	no available genetic data				0	
+59	Dermogenys	pusilla	Chordata	rod		507			adult	0		0	40	no available genetic data				0	
+60	Dermogenys	pusilla	Chordata	cone	single	377			adult	0		0	40	no available genetic data				0	
+61	Dermogenys	pusilla	Chordata	cone	single	526			adult	0		0	40	no available genetic data				0	
+62	Dermogenys	pusilla	Chordata	cone	single	572			adult	0		0	40	no available genetic data				0	
+63	Dermogenys	pusilla	Chordata	cone	double	483			adult	0		0	40	no available genetic data				0	
+64	Dermogenys	pusilla	Chordata	cone	double	526			adult	0		0	40	no available genetic data				0	
+65	Dermogenys	pusilla	Chordata	cone	double	572			adult	0		0	40	no available genetic data				0	
+66	Dermogenys	pusilla	Chordata	cone	double	545			adult	0		0	40	no available genetic data				0	
+67	Myripristis	berndti	Chordata	rod		495			adult	0		0	32	included in the heterologous sheet				0	
+68	Myripristis	berndti	Chordata	cone	double	514	1.4		adult	0		0	32	possible multiple pigments				0	
+69	Myripristis	berndti	Chordata	cone	double	506			adult	0		0	32	possible multiple pigments				0	
+70	Neoniphon	sammara	Chordata	rod		502	0.3		adult	0		0	32	included in the heterologous sheet				0	
+71	Neoniphon	sammara	Chordata	cone	single	446			adult	0		0	32	has LWS, partial				0	
+72	Neoniphon	sammara	Chordata	cone	double	512	3		adult	0		0	32	possible multiple pigments				0	
+73	Sargocentron	xantherythrum	Chordata	rod		490	1.4		adult	0		0	32	included in the heterologous sheet				0	
+74	Sargocentron	xantherythrum	Chordata	cone	single	447	2.8		adult	0		0	32					0	
+75	Sargocentron	xantherythrum	Chordata	cone	double	516	1		adult	0		0	32	possible multiple pigments				0	
+76	15	xantherythrum	NA	cone	double	509	2.4		adult	0		0	32	possible multiple pigments				0	
+77	Neoceratodus	forsteri	Chordata	rod		540	0		adult	0		0	19	possible multiple pigments				0	
+78	Neoceratodus	forsteri	Chordata	cone	single	479			adult	0		0	19	possible multiple pigments				0	
+79	Neoceratodus	forsteri	Chordata	cone	single	558			adult	0		0	19	possible multiple pigments *an UV reading was not recorded				0	
+80	Neoceratodus	forsteri	Chordata	cone	single	623			adult	1		22	19					0	
+81	Astyanax	fasciatus	Chordata	rod		520			adult	0		0	37	possible multiple pigments				0	
+82	Astyanax	fasciatus	Chordata	cone	single	449			adult	0		0	37	possible multiple pigments				0	
+83	Astyanax	fasciatus	Chordata	cone	single	547			adult	0		0	37	possible multiple pigments				0	
+84	Astyanax	fasciatus	Chordata	cone	single	572			adult	0		0	37	possible multiple pigments				0	
+85	Astyanax	fasciatus	Chordata	cone	double	547			adult	0		0	37	possible multiple pigments				0	
+86	Astyanax	fasciatus	Chordata	cone	double	572			adult	0		0	37	possible multiple pigments				0	
+87	Alosa	kessleri	Chordata	rod		510			adult	0		0	18	no available genetic data				0	
+88	Alosa	kessleri	Chordata	cone	single	509			adult	0		0	18	no available genetic data				0	
+89	Alosa	kessleri	Chordata	cone	single	557			adult	0		0	18	no available genetic data				0	
+90	Alosa	kessleri	Chordata	cone	double	509			adult	0		0	18	no available genetic data				0	
+91	Alosa	kessleri	Chordata	cone	double	557			adult	0		0	18	no available genetic data				0	
+92	Alosa	kessleri	Chordata	cone	twin	557			adult	0		0	18	no available genetic data				0	
+93	Clupea	pallasii	Chordata	rod		501			adult	0		0	5	no available genetic data				0	
+94	Clupea	pallasii	Chordata	cone	single	514			adult	0		0	5	no available genetic data				0	
+95	Clupea	pallasii	Chordata	cone	double	515			adult	0		0	5	no available genetic data				0	
+96	Clupea	pallasii	Chordata	cone	double	534			adult	0		0	5	no available genetic data				0	
+97	Clupea	pallasii	Chordata	cone	twin	529			adult	0		0	5	no available genetic data				0	
+98	Sardinops	melanostictus	Chordata	rod		502	2		adult	0		0	35	possible multiple pigments				0	
+99	Sardinops	melanostictus	Chordata	cone	single	393	3		adult	1		2476	35	possibly only have UV				0	
+100	Sardinops	melanostictus	Chordata	cone	double	493	3		adult	0		0	35	possible multiple pigments				0	
+101	Sardinops	melanostictus	Chordata	cone	double	522	2		adult	0		0	35	possible multiple pigments				0	
+102	Sardinops	melanostictus	Chordata	cone	double	542	3		adult	0		0	35	possible multiple pigments				0	
+103	Engraulis	mordax	Chordata	rod		498			adult	0		0	5	has rodopsin, partial				0	
+104	Engraulis	mordax	Chordata	cone	single	530			adult	0		0	5	no available genetic data				0	
+105	Engraulis	mordax	Chordata	cone	twin	532			adult	0		0	5	no available genetic data				0	
+106	Engraulis	encrasicolus	Chordata	rod		500			adult	0		0	25	no available genetic data				0	
+107	Engraulis	encrasicolus	Chordata	cone	single	492			adult	0		0	25	no available genetic data				0	
+108	Engraulis	encrasicolus	Chordata	cone	single	500			adult	0		0	25	no available genetic data				0	
+109	Engraulis	encrasicolus	Chordata	cone	triple	474			adult	0		0	25	no available genetic data				0	
+110	Engraulis	encrasicolus	Chordata	cone	triple	500			adult	0		0	25	no available genetic data				0	
+111	Engraulis	japonicus	Chordata	rod		502		Vitamin A1-based	adult	1		473	25	RH1, verified by refid 365				0	
+112	Engraulis	japonicus	Chordata	cone	single	492		Vitamin A1-based	adult	0		0	25	possible multiple pigments				0	
+113	Engraulis	japonicus	Chordata	cone	single	502		Vitamin A1-based	adult	0		0	25	possible multiple pigments				0	
+114	Engraulis	japonicus	Chordata	cone	triple	478		Vitamin A1-based	adult	0		0	25	possible multiple pigments				0	
+115	Engraulis	japonicus	Chordata	cone	triple	502		Vitamin A1-based	adult	0		0	25	possible multiple pigments				0	
+116	Abramis	ballerus	Chordata	rod		518			adult	0		0	22	no available genetic data				0	
+117	Abramis	ballerus	Chordata	cone	single	451			adult	0		0	22	no available genetic data				0	
+118	Abramis	ballerus	Chordata	cone	single	537			adult	0		0	22	no available genetic data				0	
+119	Abramis	ballerus	Chordata	cone	single	620			adult	0		0	22	no available genetic data				0	
+120	Abramis	ballerus	Chordata	cone	double	537			adult	0		0	22	no available genetic data				0	
+121	Abramis	ballerus	Chordata	cone	double	620			adult	0		0	22	no available genetic data				0	
+122	Abramis	brama	Chordata	rod		537			adult	0		0	22	has RH1, partial				0	
+123	Abramis	brama	Chordata	cone	single	451			adult	0		0	22	no available genetic data				0	
+124	Abramis	brama	Chordata	cone	single	537			adult	0		0	22	no available genetic data				0	
+125	Abramis	brama	Chordata	cone	single	620			adult	0		0	22	no available genetic data				0	
+126	Abramis	brama	Chordata	cone	double	537			adult	0		0	22	no available genetic data				0	
+127	Abramis	brama	Chordata	cone	double	620			adult	0		0	22	no available genetic data				0	
+128	Alburnus	alburnus	Chordata	rod		517			adult	0		0	22	no available genetic data				0	
+129	Alburnus	alburnus	Chordata	cone	single	440			adult	0		0	22	no available genetic data				0	
+130	Alburnus	alburnus	Chordata	cone	single	523			adult	0		0	22	no available genetic data				0	
+131	Alburnus	alburnus	Chordata	cone	single	571			adult	0		0	22	no available genetic data				0	
+132	Blicca	bjoerkna	Chordata	rod		539			adult	0		0	22	no available genetic data				0	
+133	Blicca	bjoerkna	Chordata	cone	single	444			adult	0		0	22	no available genetic data				0	
+134	Blicca	bjoerkna	Chordata	cone	single	533			adult	0		0	22	no available genetic data				0	
+135	Blicca	bjoerkna	Chordata	cone	single	603			adult	0		0	22	no available genetic data				0	
+136	Carassius	auratus	Chordata	rod		521			adult	0		0	3	included in the heterologous sheet				0	
+137	Carassius	auratus	Chordata	cone	single	360			adult	0		0	3	included in the heterologous sheet				0	
+138	Carassius	auratus	Chordata	cone	single	452			adult	0		0	3	included in the heterologous sheet				0	
+139	Carassius	auratus	Chordata	cone	single	532			adult	0		0	3	included in the heterologous sheet				0	
+140	Carassius	auratus	Chordata	cone	single	614			adult	0		0	3	included in the heterologous sheet				0	
+141	Carassius	auratus	Chordata	cone	double	532			adult	0		0	3	included in the heterologous sheet				0	
+142	Carassius	auratus	Chordata	cone	double	614			adult	0		0	3	included in the heterologous sheet				0	
+143	Carassius	carassius	Chordata	rod		526			adult	0		0	22	no available genetic data, only predicted				0	
+144	Carassius	carassius	Chordata	cone	single	449			adult	0		0	22	no available genetic data, only predicted				0	
+145	Carassius	carassius	Chordata	cone	single	529			adult	0		0	22	no available genetic data, only predicted				0	
+146	Carassius	carassius	Chordata	cone	single	535			adult	0		0	22	no available genetic data, only predicted				0	
+147	Carassius	carassius	Chordata	cone	single	608			adult	0		0	22	no available genetic data, only predicted				0	
+148	Carassius	carassius	Chordata	cone	twin	619			adult	0		0	22	no available genetic data, only predicted				0	
+149	Carassius	auratus	Chordata	rod		522			adult	0		0	29	included in the heterologous sheet				0	
+150	Carassius	auratus	Chordata	cone	single	455			adult	0		0	29	included in the heterologous sheet				0	
+151	Carassius	auratus	Chordata	cone	double	530			adult	0		0	29	included in the heterologous sheet				0	
+152	Carassius	auratus	Chordata	cone	double	625			adult	0		0	29	included in the heterologous sheet				0	
+153	Scardinius	erythrophthalmus	Chordata	rod		515			adult	0		0	49	has RH, partial				0	
+154	Scardinius	erythrophthalmus	Chordata	cone	single	355			adult	0		0	49	no available genetic data				0	
+155	Scardinius	erythrophthalmus	Chordata	cone	single	405			adult	0		0	49	no available genetic data				0	
+156	Scardinius	erythrophthalmus	Chordata	cone	single	505			adult	0		0	49	no available genetic data				0	
+157	Scardinius	erythrophthalmus	Chordata	cone	single	565			adult	0		0	49	no available genetic data				0	
+158	Scardinius	erythrophthalmus	Chordata	cone	double	505			adult	0		0	49	no available genetic data				0	
+159	Scardinius	erythrophthalmus	Chordata	cone	double	565			adult	0		0	49	no available genetic data				0	
+160	Tinca	tinca	Chordata	rod		533			adult	0		0	29	no available genetic data				0	
+161	Tinca	tinca	Chordata	cone	single	454			adult	0		0	29	no available genetic data				0	
+162	Tinca	tinca	Chordata	cone	single	533			adult	0		0	29	no available genetic data				0	
+163	Tinca	tinca	Chordata	cone	single	615			adult	0		0	29	no available genetic data				0	
+164	Tinca	tinca	Chordata	cone	double	533			adult	0		0	29	no available genetic data				0	
+165	Tinca	tinca	Chordata	cone	double	615			adult	0		0	29	no available genetic data				0	
+166	Fundulus	heteroclitus	Chordata	rod		503			adult	0		0	14	no available genetic data, only predicted				0	
+167	Fundulus	heteroclitus	Chordata	cone	single	363			adult	0		0	14	no available genetic data, only predicted				0	
+168	Fundulus	heteroclitus	Chordata	cone	single	400			adult	0		0	14	no available genetic data, only predicted				0	
+169	Fundulus	heteroclitus	Chordata	cone	double	463			adult	0		0	14	no available genetic data, only predicted				0	
+170	Fundulus	heteroclitus	Chordata	cone	double	563			adult	0		0	14	no available genetic data, only predicted				0	
+171	Fundulus	heteroclitus	Chordata	cone	twin	563			adult	0		0	14	no available genetic data, only predicted				0	
+172	Lucania	goodei	Chordata	cone	single	359			adult	0		0	17	included in the heterologous sheet				0	
+173	Lucania	goodei	Chordata	cone	single	405			adult	0		0	17	included in the heterologous sheet				0	
+174	Lucania	goodei	Chordata	cone	single	454			adult	0		0	17	included in the heterologous sheet				0	
+175	Lucania	goodei	Chordata	cone	single	538			adult	0		0	17	included in the heterologous sheet				0	
+176	Lucania	goodei	Chordata	cone	double	454			adult	0		0	17	included in the heterologous sheet				0	
+177	Lucania	goodei	Chordata	cone	double	538			adult	0		0	17	included in the heterologous sheet				0	
+178	Lucania	goodei	Chordata	cone	double	573			adult	0		0	17	included in the heterologous sheet				0	
+179	Poecilia	parae	Chordata	rod		503			adult	0		0	21	no available genetic data				0	
+180	Poecilia	parae	Chordata	cone	single	355			adult	0		0	21	no available genetic data				0	
+181	Poecilia	parae	Chordata	cone	single	407			adult	0		0	21	no available genetic data				0	
+182	Poecilia	parae	Chordata	cone	double	456			adult	0		0	21	no available genetic data				0	
+183	Poecilia	parae	Chordata	cone	double	526			adult	0		0	21	no available genetic data				0	
+184	Poecilia	parae	Chordata	cone	double	543			adult	0		0	21	no available genetic data				0	
+185	Poecilia	parae	Chordata	cone	twin	543			adult	0		0	21	no available genetic data				0	
+186	Poecilia	latipinna	Chordata	rod		503			adult	0		0	27	possible multiple pigments				0	
+187	Poecilia	latipinna	Chordata	cone	single	403			adult	0		0	27	possible multiple pigments				0	
+188	Poecilia	latipinna	Chordata	cone	single	463			adult	0		0	27	possible multiple pigments				0	
+189	Poecilia	latipinna	Chordata	cone	single	551			adult	0		0	27	possible multiple pigments				0	
+190	Poecilia	latipinna	Chordata	cone	single	577			adult	0		0	27	possible multiple pigments				0	
+191	Poecilia	latipinna	Chordata	cone	twin	551			adult	0		0	27	possible multiple pigments				0	
+192	Poecilia	latipinna	Chordata	cone	twin	577			adult	0		0	27	possible multiple pigments				0	
+193	Poecilia	mexicana	Chordata	rod		504			adult	0		0	27	possible multiple pigments				0	
+194	Poecilia	mexicana	Chordata	cone	single	350			adult	0		0	27	possible multiple pigments				0	
+195	Poecilia	mexicana	Chordata	cone	single	402			adult	0		0	27	possible multiple pigments				0	
+196	Poecilia	mexicana	Chordata	cone	double	461			adult	0		0	27	possible multiple pigments				0	
+197	Poecilia	mexicana	Chordata	cone	double	537			adult	0		0	27	possible multiple pigments				0	
+198	Poecilia	mexicana	Chordata	cone	double	563			adult	0		0	27	possible multiple pigments				0	
+199	Poecilia	formosa	Chordata	rod		504			adult	0		0	27	possible multiple pigments				0	
+200	Poecilia	formosa	Chordata	cone	single	352			adult	0		0	27	possible multiple pigments				0	
+201	Poecilia	formosa	Chordata	cone	single	404			adult	0		0	27	possible multiple pigments				0	
+202	Poecilia	formosa	Chordata	cone	double	463			adult	0		0	27	possible multiple pigments				0	
+203	Poecilia	formosa	Chordata	cone	double	560			adult	0		0	27	possible multiple pigments				0	
+204	Megalops	atlanticus	Chordata	rod		500			adult	0		0	44	only has LWS, partial				0	
+205	Megalops	atlanticus	Chordata	cone	single	364			adult	0		0	44	only has LWS, partial				0	
+206	Megalops	atlanticus	Chordata	cone	single	411			adult	0		0	44	only has LWS, partial				0	
+207	Megalops	atlanticus	Chordata	cone	single	451			adult	0		0	44	only has LWS, partial				0	
+208	Megalops	atlanticus	Chordata	cone	single	476			adult	0		0	44	only has LWS, partial				0	
+209	Megalops	atlanticus	Chordata	cone	single	551			adult	0		0	44	only has LWS, partial				0	
+210	Gadus	macrocephalus	Chordata	cone	single	441			adult	0		0	5	no available genetic data				0	
+211	Gadus	macrocephalus	Chordata	cone	twin	523			adult	0		0	5	no available genetic data				0	
+212	Gaidropsarus	mediterraneus	Chordata	rod		512			adult			0	29					0	
+213	Gaidropsarus	mediterraneus	Chordata	cone	single	535			adult			0	29					0	
+214	Gaidropsarus	mediterraneus	Chordata	cone	twin	535			adult			0	29					0	
+215	Microgadus	proximus	Chordata	rod		497			adult			0	5					0	
+216	Microgadus	proximus	Chordata	cone	single	439			adult			0	5					0	
+217	Microgadus	proximus	Chordata	cone	single	523			adult			0	5					0	
+218	Microgadus	proximus	Chordata	cone	twin	522			adult			0	5					0	
+219	Theragra	chalcogramma	Chordata	rod		500			adult			0	5					0	
+220	Theragra	chalcogramma	Chordata	cone	single	442			adult			0	5					0	
+221	Theragra	chalcogramma	Chordata	cone	twin	516			adult			0	5					0	
+222	Poecilia	reticulata	Chordata	rod		503			adult			0	1					0	
+223	Poecilia	reticulata	Chordata	cone	single	410			adult			0	1					0	
+224	Poecilia	reticulata	Chordata	cone	double	465			adult			0	1					0	
+225	Poecilia	reticulata	Chordata	cone	double	473			adult			0	1					0	
+226	Poecilia	reticulata	Chordata	cone	twin	573			adult			0	1					0	
+227	Merluccius	productus	Chordata	rod		495			adult			0	5					0	
+228	Merluccius	productus	Chordata	cone	single	516			adult			0	5					0	
+229	Merluccius	productus	Chordata	cone	twin	517			adult			0	5					0	
+230	Aulorhynchus	flavidus	Chordata	rod		499			adult			0	5					0	
+231	Aulorhynchus	flavidus	Chordata	cone	single	360			adult			0	5					0	
+232	Aulorhynchus	flavidus	Chordata	cone	double	496			adult			0	5					0	
+233	Aulorhynchus	flavidus	Chordata	cone	double	536			adult			0	5					0	
+234	Aulostomus	chinensis	Chordata	rod		494			adult			0	32					0	
+235	Aulostomus	chinensis	Chordata	cone	single	421			adult			0	32					0	
+236	Aulostomus	chinensis	Chordata	cone	twin	473			adult			0	32					0	
+237	Gasterosteus	aculeatus	Chordata	rod		502			adult			0	5					0	
+238	Gasterosteus	aculeatus	Chordata	cone	single	362			adult			0	5					0	
+239	Gasterosteus	aculeatus	Chordata	cone	single	439			adult			0	5					0	
+240	Gasterosteus	aculeatus	Chordata	cone	double	524			adult			0	5					0	
+241	Gasterosteus	aculeatus	Chordata	cone	double	576			adult			0	5					0	
+242	Spinachia	spinachia	Chordata	rod		510			adult			0	29					0	
+243	Spinachia	spinachia	Chordata	cone	single	445			adult			0	29					0	
+244	Spinachia	spinachia	Chordata	cone	single	555			adult			0	29					0	
+245	Spinachia	spinachia	Chordata	cone	double	532			adult			0	29					0	
+246	Spinachia	spinachia	Chordata	cone	double	590			adult			0	29					0	
+247	Gobiesox	maecmdricus	NA	rod		500			adult			0	5					0	
+248	Gobiesox	maecmdricus	NA	cone	single	440			adult			0	5					0	
+249	Gobiesox	maecmdricus	NA	cone	double	526			adult			0	5					0	
+250	Gobiesox	maecmdricus	NA	cone	double	567			adult			0	5					0	
+251	Hypomesus	pretiosus	Chordata	rod		500			adult			0	5					0	
+252	Hypomesus	pretiosus	Chordata	cone	single	369			adult			0	5					0	
+253	Hypomesus	pretiosus	Chordata	cone	single	461			adult			0	5					0	
+254	Hypomesus	pretiosus	Chordata	cone	double	522			adult			0	5					0	
+255	Hypomesus	pretiosus	Chordata	cone	double	570			adult			0	5					0	
+256	Osmerus	dentex	Chordata	rod		516			adult			0	26					0	
+257	Osmerus	dentex	Chordata	cone	single	425			adult			0	26					0	
+258	Osmerus	dentex	Chordata	cone	double	514			adult			0	26					0	
+259	Osmerus	dentex	Chordata	cone	double	565			adult			0	26					0	
+260	Spirinchus	thaleichthys	Chordata	rod		499			adult			0	5					0	
+261	Spirinchus	thaleichthys	Chordata	cone	single	364			adult			0	5					0	
+262	Spirinchus	thaleichthys	Chordata	cone	single	465			adult			0	5					0	
+263	Spirinchus	thaleichthys	Chordata	cone	double	517			adult			0	5					0	
+264	Spirinchus	thaleichthys	Chordata	cone	double	572			adult			0	5					0	
+265	Acanthurus	nigroris	Chordata	rod		494			adult			0	32					0	
+266	Acanthurus	nigroris	Chordata	cone	single	439			adult			0	32					0	
+267	Acanthurus	nigroris	Chordata	cone	double	523			adult			0	32					0	
+268	Acanthurus	nigroris	Chordata	cone	double	538			adult			0	32					0	
+269	Acanthurus	triostegus	Chordata	rod		493			adult			0	32					0	
+270	Acanthurus	triostegus	Chordata	cone	single	458			adult			0	32					0	
+271	Acanthurus	triostegus	Chordata	cone	twin	518			adult			0	32					0	
+272	Acanthurus	achilles	Chordata	rod		496			adult			0	32					0	
+273	Acanthurus	achilles	Chordata	cone	twin	501			adult			0	32					0	
+274	Ctenochaetus	strigosus	Chordata	rod		486			adult			0	32					0	
+275	Ctenochaetus	strigosus	Chordata	cone	single	453			adult			0	32					0	
+276	Ctenochaetus	strigosus	Chordata	cone	double	521			adult			0	32					0	
+277	Ctenochaetus	strigosus	Chordata	cone	double	548			adult			0	32					0	
+278	Ctenochaetus	strigosus	Chordata	cone	twin	501			adult			0	32					0	
+279	Naso	lituratus	Chordata	rod		497			adult			0	32					0	
+280	Naso	lituratus	Chordata	cone	single	421			adult			0	32					0	
+281	Naso	lituratus	Chordata	cone	double	496			adult			0	32					0	
+282	Naso	lituratus	Chordata	cone	double	521			adult			0	32					0	
+283	Naso	unicornis	Chordata	rod		494			adult			0	32					0	
+284	Naso	unicornis	Chordata	cone	single	416			adult			0	32					0	
+285	Naso	unicornis	Chordata	cone	double	486			adult			0	32					0	
+286	Naso	unicornis	Chordata	cone	double	507			adult			0	32					0	
+287	Zebrasoma	veliferum	Chordata	rod		494			adult			0	32					0	
+288	Zebrasoma	veliferum	Chordata	cone	single	448			adult			0	32					0	
+289	Zebrasoma	veliferum	Chordata	cone	double	511			adult			0	32					0	
+290	Zebrasoma	veliferum	Chordata	cone	double	517			adult			0	32					0	
+291	Zebrasoma	veliferum	Chordata	cone	twin	523			adult			0	32					0	
+292	Zebrasoma	flavescens	Chordata	rod		494			adult			0	32					0	
+293	Zebrasoma	flavescens	Chordata	cone	single	446			adult			0	32					0	
+294	Zebrasoma	flavescens	Chordata	cone	double	510			adult			0	32					0	
+295	Zebrasoma	flavescens	Chordata	cone	double	519			adult			0	32					0	
+296	Ammodytes	hexapterus	Chordata	rod		470			adult			0	5					0	
+297	Ammodytes	hexapterus	Chordata	cone	single	398			adult			0	5					0	
+298	Ammodytes	hexapterus	Chordata	cone	single	524			adult			0	5					0	
+299	Ammodytes	hexapterus	Chordata	cone	twin	520			adult			0	5					0	
+300	Apogon	kallopterus	Chordata	rod		492			adult			0	32					0	
+301	Apogon	kallopterus	Chordata	cone	single	441			adult			0	32					0	
+302	Apogon	kallopterus	Chordata	cone	double	494			adult			0	32					0	
+303	Apogon	kallopterus	Chordata	cone	double	516			adult			0	32					0	
+304	Ronquilus	jordani	Chordata	rod		492			adult			0	5					0	
+305	Ronquilus	jordani	Chordata	cone	single	461			adult			0	5					0	
+306	Ronquilus	jordani	Chordata	cone	twin	521			adult			0	5					0	
+307	Lipophyrs	pholis	NA	rod		515			adult			0	29					0	
+308	Lipophyrs	pholis	NA	cone	single	535			adult			0	29					0	
+309	Lipophyrs	pholis	NA	cone	double	500			adult			0	29					0	
+310	Lipophyrs	pholis	NA	cone	double	570			adult			0	29					0	
+311	Plagiotremus	rhinorhynchos	Chordata	rod		498			adult			0	9					0	
+312	Plagiotremus	rhinorhynchos	Chordata	cone	single	449			adult			0	9					0	
+313	Plagiotremus	rhinorhynchos	Chordata	cone	double	520			adult			0	9					0	
+314	Plagiotremus	rhinorhynchos	Chordata	cone	double	561			adult			0	9					0	
+315	Trachurus	mediterraneus	Chordata	rod		502			adult			0	18					0	
+316	Trachurus	mediterraneus	Chordata	cone	single	433			adult			0	18					0	
+317	Trachurus	mediterraneus	Chordata	cone	twin	525			adult			0	18					0	
+318	Spicara	smaris	Chordata	rod		502			adult			0	18					0	
+319	Spicara	smaris	Chordata	cone	single	436			adult			0	18					0	
+320	Spicara	smaris	Chordata	cone	twin	522			adult			0	18					0	
+321	Lepomis	macrochirus	Chordata	rod		538			adult			0	20					0	
+322	Lepomis	macrochirus	Chordata	cone	single	536			adult			0	20					0	
+323	Lepomis	macrochirus	Chordata	cone	twin	620			adult			0	20					0	
+324	Micropterus	salmoides	Chordata	rod		528			adult			0	34					0	
+325	Micropterus	salmoides	Chordata	cone	single	535			adult			0	34					0	
+326	Micropterus	salmoides	Chordata	cone	twin	614			adult			0	34					0	
+327	Chaetodon	kleini	NA	rod		496			adult			0	32					0	
+328	Chaetodon	kleini	NA	cone	double	496			adult			0	32					0	
+329	Chaetodon	kleini	NA	cone	double	530			adult			0	32					0	
+330	Chaetodon	unimaculatus	Chordata	rod		491			adult			0	32					0	
+331	Chaetodon	unimaculatus	Chordata	cone	double	487			adult			0	32					0	
+332	Chaetodon	unimaculatus	Chordata	cone	double	530			adult			0	32					0	
+333	Forcipiger	flavissimus	Chordata	rod		488			adult			0	32					0	
+334	Forcipiger	flavissimus	Chordata	cone	single	431			adult			0	32					0	
+335	Forcipiger	flavissimus	Chordata	cone	double	490			adult			0	32					0	
+336	Forcipiger	flavissimus	Chordata	cone	double	527			adult			0	32					0	
+337	Aequidens	pulcher	Chordata	rod		507			adult			0	29					0	
+338	Aequidens	pulcher	Chordata	cone	double	565			adult			0	29					0	
+339	Aequidens	pulcher	Chordata	cone	double	605			adult			0	29					0	
+340	Aequidens	pulcher	Chordata	cone	twin	605			adult			0	29					0	
+341	Aulonocara	hueseri	Chordata	rod		496			adult			0	23					0	
+342	Aulonocara	hueseri	Chordata	cone	single	415			adult			0	23					0	
+343	Aulonocara	hueseri	Chordata	cone	double	484			adult			0	23					0	
+344	Aulonocara	hueseri	Chordata	cone	double	526			adult			0	23					0	
+345	Copadichromis	borleyi	Chordata	rod		494			adult			0	23					0	
+346	Copadichromis	borleyi	Chordata	cone	single	424			adult			0	23					0	
+347	Copadichromis	borleyi	Chordata	cone	double	478			adult			0	23					0	
+348	Copadichromis	borleyi	Chordata	cone	double	539			adult			0	23					0	
+349	Crenicichla	frenata	Chordata	rod		420			adult			0	48					0	
+350	Crenicichla	frenata	Chordata	cone	single	480			adult			0	48					0	
+351	Crenicichla	frenata	Chordata	cone	double	547			adult			0	48					0	
+352	Crenicichla	frenata	Chordata	cone	double	614			adult			0	48					0	
+353	Crenicichla	frenata	Chordata	cone	twin	614			adult			0	48					0	
+354	Cynotilapia	afra	Chordata	rod		496			adult			0	23					0	
+355	Cynotilapia	afra	Chordata	cone	single	358			adult			0	23					0	
+356	Cynotilapia	afra	Chordata	cone	double	472			adult			0	23					0	
+357	Cynotilapia	afra	Chordata	cone	double	525			adult			0	23					0	
+358	Dimidiochromis	compressiceps	Chordata	rod		498			adult			0	23					0	
+359	Dimidiochromis	compressiceps	Chordata	cone	single	447			adult			0	23					0	
+360	Dimidiochromis	compressiceps	Chordata	cone	double	533			adult			0	23					0	
+361	Dimidiochromis	compressiceps	Chordata	cone	double	567			adult			0	23					0	
+362	Haplochromis	burtoni	Chordata	rod		500			adult			0	13					0	
+363	Haplochromis	burtoni	Chordata	cone	single	455			adult			0	13					0	
+364	Haplochromis	burtoni	Chordata	cone	double	523			adult			0	13					0	
+365	Haplochromis	burtoni	Chordata	cone	double	562			adult			0	13					0	
+366	Haplochromis	pyrrhocephalus	Chordata	rod		519			adult			0	46					0	
+367	Haplochromis	pyrrhocephalus	Chordata	cone	single	462			adult			0	46					0	
+368	Haplochromis	pyrrhocephalus	Chordata	cone	double	539			adult			0	46					0	
+369	Haplochromis	pyrrhocephalus	Chordata	cone	double	595			adult			0	46					0	
+370	Haplochromis	ishmaeli	Chordata	rod		507			adult			0	46					0	
+371	Haplochromis	ishmaeli	Chordata	cone	single	456			adult			0	46					0	
+372	Haplochromis	ishmaeli	Chordata	cone	double	535			adult			0	46					0	
+373	Haplochromis	ishmaeli	Chordata	cone	double	569			adult			0	46					0	
+374	Haplochromis	piceatus	Chordata	rod		503			adult			0	46					0	
+375	Haplochromis	piceatus	Chordata	cone	single	465			adult			0	46					0	
+376	Haplochromis	piceatus	Chordata	cone	double	522			adult			0	46					0	
+377	Haplochromis	piceatus	Chordata	cone	double	565			adult			0	46					0	
+378	Lethrinops	parvidens	Chordata	rod		498			adult			0	23					0	
+379	Lethrinops	parvidens	Chordata	cone	single	426			adult			0	23					0	
+380	Lethrinops	parvidens	Chordata	cone	double	514			adult			0	23					0	
+381	Lethrinops	parvidens	Chordata	cone	double	563			adult			0	23					0	
+382	Melanochromis	auratus	Chordata	rod		497			adult			0	23					0	
+383	Melanochromis	auratus	Chordata	cone	single	414			adult			0	23					0	
+384	Melanochromis	auratus	Chordata	cone	double	482			adult			0	23					0	
+385	Melanochromis	auratus	Chordata	cone	double	525			adult			0	23					0	
+386	Melanochromis	vermivorus	Chordata	rod		505			adult			0	38					0	
+387	Melanochromis	vermivorus	Chordata	cone	single	418			adult			0	38					0	
+388	Melanochromis	vermivorus	Chordata	cone	single	506			adult			0	38					0	
+389	Melanochromis	vermivorus	Chordata	cone	single	555			adult			0	38					0	
+390	Melanochromis	vermivorus	Chordata	cone	double	485			adult			0	38					0	
+391	Melanochromis	vermivorus	Chordata	cone	double	534			adult			0	38					0	
+392	Metriaclima	zebra	Chordata	cone	single	368			adult			0	7					0	
+393	Metriaclima	zebra	Chordata	cone	double	482			adult			0	7					0	
+394	Metriaclima	zebra	Chordata	cone	double	531			adult			0	7					0	
+395	Metriaclima	barlowi	Chordata	rod		491			adult			0	23					0	
+396	Metriaclima	barlowi	Chordata	cone	single	366			adult			0	23					0	
+397	Metriaclima	barlowi	Chordata	cone	double	483			adult			0	23					0	
+398	Metriaclima	barlowi	Chordata	cone	double	523			adult			0	23					0	
+399	Metriaclima	benetos	Chordata	cone	single	379			adult			0	23					0	
+400	Metriaclima	benetos	Chordata	cone	double	489			adult			0	23					0	
+401	Metriaclima	benetos	Chordata	cone	double	522			adult			0	23					0	
+402	Metriaclima	emmiltos	Chordata	cone	single	383			adult			0	23					0	
+403	Metriaclima	emmiltos	Chordata	cone	double	482			adult			0	23					0	
+404	Metriaclima	emmiltos	Chordata	cone	double	521			adult			0	23					0	
+405	Metriaclima	livingstonii	Chordata	rod		495			adult			0	23					0	
+406	Metriaclima	livingstonii	Chordata	cone	single	364			adult			0	23					0	
+407	Metriaclima	livingstonii	Chordata	cone	double	473			adult			0	23					0	
+408	Metriaclima	livingstonii	Chordata	cone	double	526			adult			0	23					0	
+409	Metriaclima	melabranchion	NA	rod		495			adult			0	23					0	
+410	Metriaclima	melabranchion	NA	cone	single	371			adult			0	23					0	
+411	Metriaclima	melabranchion	NA	cone	double	477			adult			0	23					0	
+412	Metriaclima	melabranchion	NA	cone	double	515			adult			0	23					0	
+413	Mylochromis	lateristriga	Chordata	rod		496			adult			0	23					0	
+414	Mylochromis	lateristriga	Chordata	cone	single	419			adult			0	23					0	
+415	Mylochromis	lateristriga	Chordata	cone	double	482			adult			0	23					0	
+416	Mylochromis	lateristriga	Chordata	cone	double	522			adult			0	23					0	
+417	Protomelas	taeniolatus	Chordata	rod		496			adult			0	23					0	
+418	Protomelas	taeniolatus	Chordata	cone	single	453			adult			0	23					0	
+419	Protomelas	taeniolatus	Chordata	cone	double	527			adult			0	23					0	
+420	Protomelas	taeniolatus	Chordata	cone	double	566			adult			0	23					0	
+421	Pseudotropheus	tropheops	Chordata	rod		510			adult			0	23					0	
+422	Pseudotropheus	tropheops	Chordata	cone	single	371			adult			0	23					0	
+423	Pseudotropheus	tropheops	Chordata	cone	double	492			adult			0	23					0	
+424	Pseudotropheus	tropheops	Chordata	cone	double	531			adult			0	23					0	
+425	Pseudotropheus	acei	Chordata	rod		505			adult			0	38					0	
+426	Pseudotropheus	acei	Chordata	cone	single	378			adult			0	38					0	
+427	Pseudotropheus	acei	Chordata	cone	double	482			adult			0	38					0	
+428	Pseudotropheus	acei	Chordata	cone	double	535			adult			0	38					0	
+429	Pundamilia	red head	NA	cone	single	456			adult			0	8					0	
+430	Pundamilia	red head	NA	cone	double	527			adult			0	8					0	
+431	Pundamilia	red head	NA	cone	double	567			adult			0	8					0	
+432	Pundamilia	au	NA	rod		503			adult			0	8					0	
+433	Pundamilia	azurea	Chordata	cone	single	455			adult			0	8					0	
+434	Pundamilia	azurea	Chordata	cone	double	526			adult			0	8					0	
+435	Pundamilia	azurea	Chordata	cone	double	563			adult			0	8					0	
+436	Pundamilia	nyererei	Chordata	rod		505			adult			0	8					0	
+437	Pundamilia	nyererei	Chordata	cone	single	451			adult			0	8					0	
+438	Pundamilia	nyererei	Chordata	cone	double	535			adult			0	8					0	
+439	Pundamilia	nyererei	Chordata	cone	double	562			adult			0	8					0	
+440	Pundamilia	nyererei	Chordata	cone	twin	562			adult			0	8					0	
+441	Pundamilia	luanso	NA	rod		505			adult			0	8					0	
+442	Pundamilia	luanso	NA	cone	single	455			adult			0	8					0	
+443	Pundamilia	luanso	NA	cone	double	527			adult			0	8					0	
+444	Pundamilia	luanso	NA	cone	double	561			adult			0	8					0	
+445	Pundamilia	luanso	NA	cone	twin	561			adult			0	8					0	
+446	Pundamilia	pundamilia	Chordata	rod		506			adult			0	8					0	
+447	Pundamilia	pundamilia	Chordata	cone	single	455			adult			0	8					0	
+448	Pundamilia	pundamilia	Chordata	cone	double	529			adult			0	8					0	
+449	Pundamilia	pundamilia	Chordata	cone	double	563			adult			0	8					0	
+450	Pundamilia	pundamilia	Chordata	cone	twin	563			adult			0	8					0	
+451	Tramitichromis	intermedius	Chordata	rod		505			adult			0	38					0	
+452	Tramitichromis	intermedius	Chordata	cone	single	455			adult			0	38					0	
+453	Tramitichromis	intermedius	Chordata	cone	double	531			adult			0	38					0	
+454	Tramitichromis	intermedius	Chordata	cone	double	568			adult			0	38					0	
+455	Tyrannochromis	macrostoma	Chordata	rod		494			adult			0	23					0	
+456	Tyrannochromis	macrostoma	Chordata	cone	single	410			adult			0	23					0	
+457	Tyrannochromis	macrostoma	Chordata	cone	double	482			adult			0	23					0	
+458	Tyrannochromis	macrostoma	Chordata	cone	double	529			adult			0	23					0	
+459	Embiotoca	lateralis	Chordata	rod		499			adult			0	5					0	
+460	Embiotoca	lateralis	Chordata	cone	single	459			adult			0	5					0	
+461	Embiotoca	lateralis	Chordata	cone	single	534			adult			0	5					0	
+462	Embiotoca	lateralis	Chordata	cone	twin	535			adult			0	5					0	
+463	Embiotoca	jacksoni	Chordata	rod		505			adult			0	11					0	
+464	Embiotoca	jacksoni	Chordata	cone	single	477			adult			0	11					0	
+465	Embiotoca	jacksoni	Chordata	cone	twin	534			adult			0	11					0	
+466	Hypsurus	caryi	Chordata	rod		506			adult			0	11					0	
+467	Hypsurus	caryi	Chordata	cone	single	455			adult			0	11					0	
+468	Hypsurus	caryi	Chordata	cone	single	532			adult			0	11					0	
+469	Hypsurus	caryi	Chordata	cone	twin	532			adult			0	11					0	
+470	Micrometrus	minimus	Chordata	rod		518			adult			0	11					0	
+471	Micrometrus	minimus	Chordata	cone	single	470			adult			0	11					0	
+472	Micrometrus	minimus	Chordata	cone	single	546			adult			0	11					0	
+473	Micrometrus	minimus	Chordata	cone	twin	546			adult			0	11					0	
+474	Micrometrus	aurora	Chordata	rod		519			adult			0	11					0	
+475	Micrometrus	aurora	Chordata	cone	single	466			adult			0	11					0	
+476	Micrometrus	aurora	Chordata	cone	single	538			adult			0	11					0	
+477	Micrometrus	aurora	Chordata	cone	twin	538			adult			0	11					0	
+478	Rhacochilus	vacca	Chordata	rod		507			adult			0	5					0	
+479	Rhacochilus	vacca	Chordata	cone	single	472			adult			0	5					0	
+480	Rhacochilus	vacca	Chordata	cone	single	540			adult			0	5					0	
+481	Rhacochilus	vacca	Chordata	cone	twin	539			adult			0	5					0	
+482	Zalembius	rosaceus	Chordata	rod		494			adult			0	11					0	
+483	Zalembius	rosaceus	Chordata	cone	single	470			adult			0	11					0	
+484	Zalembius	rosaceus	Chordata	cone	single	527			adult			0	11					0	
+485	Zalembius	rosaceus	Chordata	cone	twin	527			adult			0	11					0	
+486	Asterropteryx	semipunctata	Chordata	rod		498			adult			0	32					0	
+487	Asterropteryx	semipunctata	Chordata	cone	double	531			adult			0	32					0	
+488	Asterropteryx	semipunctata	Chordata	cone	double	538			adult			0	32					0	
+489	Gobius	paganellus	Chordata	rod		512			adult			0	29					0	
+490	Gobius	paganellus	Chordata	cone	single	465			adult			0	29					0	
+491	Gobius	paganellus	Chordata	cone	single	565			adult			0	29					0	
+492	Gobius	paganellus	Chordata	cone	twin	565			adult			0	29					0	
+493	Gobiusculus	flavescens	Chordata	rod		508			adult			0	45					0	
+494	Gobiusculus	flavescens	Chordata	cone	single	456			adult			0	45					0	
+495	Gobiusculus	flavescens	Chordata	cone	single	531			adult			0	45					0	
+496	Gobiusculus	flavescens	Chordata	cone	single	553			adult			0	45					0	
+497	Gobiusculus	flavescens	Chordata	cone	double	531			adult			0	45					0	
+498	Gobiusculus	flavescens	Chordata	cone	double	553			adult			0	45					0	
+499	Gobiusculus	flavescens	Chordata	cone	twin	531			adult			0	45					0	
+500	Pomatoschistus	minutus	Chordata	rod		508			adult			0	22					0	
+501	Pomatoschistus	minutus	Chordata	cone	single	447			adult			0	22					0	
+502	Pomatoschistus	minutus	Chordata	cone	single	548			adult			0	22					0	
+503	Pomatoschistus	minutus	Chordata	cone	twin	527			adult			0	22					0	
+504	Tetrapturus	audax	Chordata	cone	single	535			adult			0	16					0	
+505	Tetrapturus	audax	Chordata	cone	single	609			adult			0	16					0	
+506	Kuhlia	sandvicensis	Chordata	rod		491			adult			0	32					0	
+507	Kuhlia	sandvicensis	Chordata	cone	single	436			adult			0	32					0	
+508	Kuhlia	sandvicensis	Chordata	cone	double	488			adult			0	32					0	
+509	Kuhlia	sandvicensis	Chordata	cone	double	531			adult			0	32					0	
+510	Bodianus	bilunnulatus	NA	rod		485			adult			0	32					0	
+511	Bodianus	bilunnulatus	NA	cone	double	526			adult			0	32					0	
+512	Bodianus	bilunnulatus	NA	cone	double	545			adult			0	32					0	
+513	Symphodus	melops	Chordata	rod		520			adult			0	29					0	
+514	Symphodus	melops	Chordata	cone	single	505			adult			0	29					0	
+515	Symphodus	melops	Chordata	cone	single	555			adult			0	29					0	
+516	Symphodus	melops	Chordata	cone	double	525			adult			0	29					0	
+517	Symphodus	melops	Chordata	cone	double	555			adult			0	29					0	
+518	Lutjanus	adetii	Chordata	rod		496			adult			0	33					0	
+519	Lutjanus	adetii	Chordata	cone	single	443			adult			0	33					0	
+520	Lutjanus	adetii	Chordata	cone	double	511			adult			0	33					0	
+521	Lutjanus	adetii	Chordata	cone	double	526			adult			0	33					0	
+522	Lutjanus	argentimaculatus	Chordata	cone	double	536			adult			0	33					0	
+523	Lutjanus	argentimaculatus	Chordata	cone	double	575			adult			0	33					0	
+524	Lutjanus	bohar	Chordata	rod		497			adult			0	33					0	
+525	Lutjanus	bohar	Chordata	cone	single	424			adult			0	33					0	
+526	Lutjanus	bohar	Chordata	cone	double	494			adult			0	33					0	
+527	Lutjanus	bohar	Chordata	cone	double	518			adult			0	33					0	
+528	Lutjanus	carponotatus	Chordata	rod		499			adult			0	33					0	
+529	Lutjanus	carponotatus	Chordata	cone	single	454			adult			0	33					0	
+530	Lutjanus	carponotatus	Chordata	cone	double	519			adult			0	33					0	
+531	Lutjanus	carponotatus	Chordata	cone	double	552			adult			0	33					0	
+532	Lutjanus	erythropterus	Chordata	rod		496			adult			0	33					0	
+533	Lutjanus	erythropterus	Chordata	cone	single	446			adult			0	33					0	
+534	Lutjanus	erythropterus	Chordata	cone	double	527			adult			0	33					0	
+535	Lutjanus	erythropterus	Chordata	cone	double	540			adult			0	33					0	
+536	Lutjanus	kasmira	Chordata	cone	single	430			adult			0	33					0	
+537	Lutjanus	kasmira	Chordata	cone	double	487			adult			0	33					0	
+538	Lutjanus	kasmira	Chordata	cone	double	518			adult			0	33					0	
+539	Lutjanus	malabaricus	Chordata	rod		494			adult			0	33					0	
+540	Lutjanus	malabaricus	Chordata	cone	single	408			adult			0	33					0	
+541	Lutjanus	malabaricus	Chordata	cone	single	442			adult			0	33					0	
+542	Lutjanus	malabaricus	Chordata	cone	double	529			adult			0	33					0	
+543	Lutjanus	malabaricus	Chordata	cone	double	541			adult			0	33					0	
+544	Lutjanus	quinquelineatus	Chordata	rod		499			adult			0	33					0	
+545	Lutjanus	quinquelineatus	Chordata	cone	single	444			adult			0	33					0	
+546	Lutjanus	quinquelineatus	Chordata	cone	double	520			adult			0	33					0	
+547	Lutjanus	quinquelineatus	Chordata	cone	double	540			adult			0	33					0	
+548	Lutjanus	russellii	Chordata	rod		499			adult			0	33					0	
+549	Lutjanus	russellii	Chordata	cone	single	451			adult			0	33					0	
+550	Lutjanus	russellii	Chordata	cone	double	530			adult			0	33					0	
+551	Lutjanus	russellii	Chordata	cone	double	557			adult			0	33					0	
+552	Lutjanus	sebae	Chordata	rod		494			adult			0	33					0	
+553	Lutjanus	sebae	Chordata	cone	single	430			adult			0	33					0	
+554	Lutjanus	sebae	Chordata	cone	double	521			adult			0	33					0	
+555	Lutjanus	sebae	Chordata	cone	double	539			adult			0	33					0	
+556	Lutjanus	johnii	Chordata	rod		498			adult			0	33					0	
+557	Lutjanus	johnii	Chordata	cone	double	543			adult			0	33					0	
+558	Lutjanus	johnii	Chordata	cone	double	567			adult			0	33					0	
+559	Mulloidichthys	flavolineatus	Chordata	rod		486			adult			0	32					0	
+560	Mulloidichthys	flavolineatus	Chordata	cone	single	366			adult			0	32					0	
+561	Mulloidichthys	flavolineatus	Chordata	cone	double	480			adult			0	32					0	
+562	Mulloidichthys	flavolineatus	Chordata	cone	double	523			adult			0	32					0	
+563	Mullus	barbatus	Chordata	rod		497			adult			0	18					0	
+564	Mullus	barbatus	Chordata	cone	single	380			adult			0	18					0	
+565	Mullus	barbatus	Chordata	cone	single	491			adult			0	18					0	
+566	Mullus	barbatus	Chordata	cone	single	533			adult			0	18					0	
+567	Mullus	barbatus	Chordata	cone	double	491			adult			0	18					0	
+568	Mullus	barbatus	Chordata	cone	double	533			adult			0	18					0	
+569	Mullus	barbatus	Chordata	cone	twin	533			adult			0	18					0	
+570	Parupeneus	multifasceatus	NA	rod		494			adult			0	32					0	
+571	Parupeneus	multifasceatus	NA	cone	double	486			adult			0	32					0	
+572	Parupeneus	multifasceatus	NA	cone	double	516			adult			0	32					0	
+573	Parupeneus	multifasceatus	NA	cone	twin	515			adult			0	32					0	
+574	Dissostichus	mawsoni	Chordata	rod		504			adult			0	39					0	
+575	Dissostichus	mawsoni	Chordata	cone	single	414			adult			0	39					0	
+576	Dissostichus	mawsoni	Chordata	cone	single	490			adult			0	39					0	
+577	Dissostichus	mawsoni	Chordata	cone	twin	490			adult			0	39					0	
+578	Pagothenia	borchgrevinki	Chordata	rod		499			adult			0	39					0	
+579	Pagothenia	borchgrevinki	Chordata	cone	single	489			adult			0	39					0	
+580	Pagothenia	borchgrevinki	Chordata	cone	twin	489			adult			0	39					0	
+581	Trematomus	bernacchii	Chordata	rod		502			adult			0	39					0	
+582	Trematomus	bernacchii	Chordata	cone	single	416			adult			0	39					0	
+583	Trematomus	bernacchii	Chordata	cone	single	490			adult			0	39					0	
+584	Trematomus	bernacchii	Chordata	cone	twin	490			adult			0	39					0	
+585	Trematomus	hansoni	Chordata	rod		501			adult			0	39					0	
+586	Trematomus	hansoni	Chordata	cone	single	418			adult			0	39					0	
+587	Trematomus	hansoni	Chordata	cone	single	490			adult			0	39					0	
+588	Trematomus	hansoni	Chordata	cone	twin	490			adult			0	39					0	
+589	Trematomus	loennbergii	Chordata	rod		500			adult			0	39					0	
+590	Trematomus	loennbergii	Chordata	cone	single	426			adult			0	39					0	
+591	Trematomus	loennbergii	Chordata	cone	single	490			adult			0	39					0	
+592	Trematomus	loennbergii	Chordata	cone	twin	490			adult			0	39					0	
+593	Perca	fluviatilis	Chordata	rod		540			adult			0	29					0	
+594	Perca	fluviatilis	Chordata	cone	single	535			adult			0	29					0	
+595	Perca	fluviatilis	Chordata	cone	twin	615			adult			0	29					0	
+596	Sander	lucioperca	Chordata	rod		524			adult			0	22					0	
+597	Sander	lucioperca	Chordata	cone	single	530			adult			0	22					0	
+598	Sander	lucioperca	Chordata	cone	twin	598			adult			0	22					0	
+599	Apodichthys	flavidus	Chordata	rod		504			adult			0	5					0	
+600	Apodichthys	flavidus	Chordata	cone	single	363			adult			0	5					0	
+601	Apodichthys	flavidus	Chordata	cone	single	441			adult			0	5					0	
+602	Apodichthys	flavidus	Chordata	cone	double	529			adult			0	5					0	
+603	Apodichthys	flavidus	Chordata	cone	double	567			adult			0	5					0	
+604	Pholis	omata	NA	rod		498			adult			0	5					0	
+605	Pholis	omata	NA	cone	single	444			adult			0	5					0	
+606	Pholis	omata	NA	cone	single	528			adult			0	5					0	
+607	Pholis	omata	NA	cone	single	560			adult			0	5					0	
+608	Pholis	omata	NA	cone	double	526			adult			0	5					0	
+609	Pholis	omata	NA	cone	double	561			adult			0	5					0	
+610	Pholis	laeta	Chordata	rod		504			adult			0	5					0	
+611	Pholis	laeta	Chordata	cone	single	449			adult			0	5					0	
+612	Pholis	laeta	Chordata	cone	double	527			adult			0	5					0	
+613	Pholis	laeta	Chordata	cone	double	562			adult			0	5					0	
+614	Abudefduf	abdominalis	Chordata	rod		492			adult			0	32					0	
+615	Abudefduf	abdominalis	Chordata	cone	single	347			adult			0	32					0	
+616	Abudefduf	abdominalis	Chordata	cone	single	464			adult			0	32					0	
+617	Abudefduf	abdominalis	Chordata	cone	double	457			adult			0	32					0	
+618	Abudefduf	abdominalis	Chordata	cone	double	519			adult			0	32					0	
+619	Chromis	hanui	Chordata	rod		477			adult			0	32					0	
+620	Chromis	hanui	Chordata	cone	single	355			adult			0	32					0	
+621	Chromis	hanui	Chordata	cone	single	483			adult			0	32					0	
+622	Chromis	hanui	Chordata	cone	double	470			adult			0	32					0	
+623	Chromis	hanui	Chordata	cone	double	514			adult			0	32					0	
+624	Chromis	ovalis	Chordata	rod		492			adult			0	32					0	
+625	Chromis	ovalis	Chordata	cone	single	404			adult			0	32					0	
+626	Chromis	ovalis	Chordata	cone	double	473			adult			0	32					0	
+627	Chromis	ovalis	Chordata	cone	double	518			adult			0	32					0	
+628	Chromis	vanderbilti	Chordata	rod		498			adult			0	32					0	
+629	Chromis	vanderbilti	Chordata	cone	double	462			adult			0	32					0	
+630	Chromis	vanderbilti	Chordata	cone	double	522			adult			0	32					0	
+631	Chromis	verater	Chordata	rod		480			adult			0	32					0	
+632	Chromis	verater	Chordata	cone	single	410			adult			0	32					0	
+633	Chromis	verater	Chordata	cone	double	471			adult			0	32					0	
+634	Chromis	verater	Chordata	cone	double	514			adult			0	32					0	
+635	Dascyllus	albisella	Chordata	rod		490			adult			0	32					0	
+636	Dascyllus	albisella	Chordata	cone	single	386			adult			0	32					0	
+637	Dascyllus	albisella	Chordata	cone	single	483			adult			0	32					0	
+638	Dascyllus	albisella	Chordata	cone	double	470			adult			0	32					0	
+639	Dascyllus	albisella	Chordata	cone	double	514			adult			0	32					0	
+640	Plectroglyphidodon	johnstonianus	Chordata	rod		495			adult			0	32					0	
+641	Plectroglyphidodon	johnstonianus	Chordata	cone	double	474			adult			0	32					0	
+642	Plectroglyphidodon	johnstonianus	Chordata	cone	double	518			adult			0	32					0	
+643	Pomacentrus	melanochir	Chordata	rod		501			adult			0	29					0	
+644	Pomacentrus	melanochir	Chordata	cone	single	502			adult			0	29					0	
+645	Pomacentrus	melanochir	Chordata	cone	double	502			adult			0	29					0	
+646	Pomacentrus	melanochir	Chordata	cone	double	560			adult			0	29					0	
+647	Pomacentrus	melanochir	Chordata	cone	twin	502			adult			0	29					0	
+648	Stegastes	fasciolatus	Chordata	rod		495			adult			0	32					0	
+649	Stegastes	fasciolatus	Chordata	cone	single	363			adult			0	32					0	
+650	Stegastes	fasciolatus	Chordata	cone	double	470			adult			0	32					0	
+651	Stegastes	fasciolatus	Chordata	cone	double	528			adult			0	32					0	
+652	Thunnus	albacares	Chordata	rod		483			adult			0	31					0	
+653	Thunnus	albacares	Chordata	cone	single	426			adult			0	31					0	
+654	Thunnus	albacares	Chordata	cone	twin	485			adult			0	31					0	
+655	Acanthopagrus	butcheri	Chordata	rod		509			adult			0	41					0	
+656	Acanthopagrus	butcheri	Chordata	cone	single	476			adult			0	41					0	
+657	Acanthopagrus	butcheri	Chordata	cone	double	545			adult			0	41					0	
+658	Acanthopagrus	butcheri	Chordata	cone	double	575			adult			0	41					0	
+659	Diplodus	annularis	Chordata	rod		505			adult			0	18					0	
+660	Diplodus	annularis	Chordata	cone	single	458			adult			0	18					0	
+661	Diplodus	annularis	Chordata	cone	twin	537			adult			0	18					0	
+662	Sphyraena	barracuda	Chordata	rod		498			adult			0	32					0	
+663	Sphyraena	barracuda	Chordata	cone	single	455			adult			0	32					0	
+664	Sphyraena	barracuda	Chordata	cone	twin	531			adult			0	32					0	
+665	Acantholumpenus	mackayi	Chordata	rod		502			adult			0	24					0	
+666	Acantholumpenus	mackayi	Chordata	cone	single	450			adult			0	24					0	
+667	Acantholumpenus	mackayi	Chordata	cone	twin	519			adult			0	24					0	
+668	Anoplarchus	purpurescens	Chordata	rod		502			adult			0	5					0	
+669	Anoplarchus	purpurescens	Chordata	cone	single	444			adult			0	5					0	
+670	Anoplarchus	purpurescens	Chordata	cone	double	523			adult			0	5					0	
+671	Anoplarchus	purpurescens	Chordata	cone	double	562			adult			0	5					0	
+672	Chirolophis	japonicus	Chordata	rod		502			adult			0	24					0	
+673	Chirolophis	japonicus	Chordata	cone	single	455			adult			0	24					0	
+674	Chirolophis	japonicus	Chordata	cone	double	520			adult			0	24					0	
+675	Chirolophis	japonicus	Chordata	cone	double	550			adult			0	24					0	
+676	Ernogrammus	hexagrammus	Chordata	rod		506			adult			0	24					0	
+677	Ernogrammus	hexagrammus	Chordata	cone	single	445			adult			0	24					0	
+678	Ernogrammus	hexagrammus	Chordata	cone	double	515			adult			0	24					0	
+679	Ernogrammus	hexagrammus	Chordata	cone	double	548			adult			0	24					0	
+680	Lumpenus	sagitta	Chordata	rod		496			adult			0	5					0	
+681	Lumpenus	sagitta	Chordata	cone	single	434			adult			0	5					0	
+682	Lumpenus	sagitta	Chordata	cone	single	520			adult			0	5					0	
+683	Lumpenus	sagitta	Chordata	cone	twin	520			adult			0	5					0	
+684	Opisthocentrus	ocellatus	Chordata	rod		504			adult			0	24					0	
+685	Opisthocentrus	ocellatus	Chordata	cone	single	442			adult			0	24					0	
+686	Opisthocentrus	ocellatus	Chordata	cone	double	521			adult			0	24					0	
+687	Opisthocentrus	ocellatus	Chordata	cone	double	557			adult			0	24					0	
+688	Pholidapus	dybowsky	NA	rod		522			adult			0	24					0	
+689	Pholidapus	dybowsky	NA	cone	single	465			adult			0	24					0	
+690	Pholidapus	dybowsky	NA	cone	double	546			adult			0	24					0	
+691	Pholidapus	dybowsky	NA	cone	double	555			adult			0	24					0	
+692	Pholidapus	dybowsky	NA	cone	double	578			adult			0	24					0	
+693	Pholidapus	dybowsky	NA	cone	double	605			adult			0	24					0	
+694	Phytichthys	chirus	Chordata	rod		522			adult			0	5					0	
+695	Phytichthys	chirus	Chordata	cone	single	445			adult			0	5					0	
+696	Phytichthys	chirus	Chordata	cone	double	548			adult			0	5					0	
+697	Phytichthys	chirus	Chordata	cone	double	609			adult			0	5					0	
+698	Stichaeopsis	nana	Chordata	rod		522			adult			0	24					0	
+699	Stichaeopsis	nana	Chordata	cone	single	525			adult			0	24					0	
+700	Stichaeopsis	nana	Chordata	cone	double	540			adult			0	24					0	
+701	Stichaeopsis	nana	Chordata	cone	double	600			adult			0	24					0	
+702	Stichaeus	grigorjewi	Chordata	rod		502			adult			0	24					0	
+703	Stichaeus	grigorjewi	Chordata	cone	single	450			adult			0	24					0	
+704	Stichaeus	grigorjewi	Chordata	cone	twin	517			adult			0	24					0	
+705	Stichaeus	nozawae	Chordata	rod		502			adult			0	24					0	
+706	Stichaeus	nozawae	Chordata	cone	single	450			adult			0	24					0	
+707	Stichaeus	nozawae	Chordata	cone	twin	518			adult			0	24					0	
+708	Xiphister	mucosus	Chordata	rod		504			adult			0	5					0	
+709	Xiphister	mucosus	Chordata	cone	single	443			adult			0	5					0	
+710	Xiphister	mucosus	Chordata	cone	double	520			adult			0	5					0	
+711	Xiphister	mucosus	Chordata	cone	double	559			adult			0	5					0	
+712	Xiphister	atropurpureus	Chordata	rod		503			adult			0	5					0	
+713	Xiphister	atropurpureus	Chordata	cone	single	449			adult			0	5					0	
+714	Xiphister	atropurpureus	Chordata	cone	single	521			adult			0	5					0	
+715	Xiphister	atropurpureus	Chordata	cone	single	562			adult			0	5					0	
+716	Xiphister	atropurpureus	Chordata	cone	double	520			adult			0	5					0	
+717	Xiphister	atropurpureus	Chordata	cone	double	559			adult			0	5					0	
+718	Peprilus	simillimus	Chordata	rod		496			adult			0	5					0	
+719	Peprilus	simillimus	Chordata	cone	single	437			adult			0	5					0	
+720	Peprilus	simillimus	Chordata	cone	single	523			adult			0	5					0	
+721	Peprilus	simillimus	Chordata	cone	twin	524			adult			0	5					0	
+722	Trichodon	trichodon	Chordata	rod		503			adult			0	5					0	
+723	Trichodon	trichodon	Chordata	cone	single	364			adult			0	5					0	
+724	Trichodon	trichodon	Chordata	cone	double	519			adult			0	5					0	
+725	Trichodon	trichodon	Chordata	cone	double	561			adult			0	5					0	
+726	Trichodon	trichodon	Chordata	cone	twin	520			adult			0	5					0	
+727	Zanclus	cornutus	Chordata	rod		492			adult			0	32					0	
+728	Zanclus	cornutus	Chordata	cone	single	447			adult			0	32					0	
+729	Zanclus	cornutus	Chordata	cone	twin	517			adult			0	32					0	
+730	Lycodes	pacificus	Chordata	rod		483			adult			0	5					0	
+731	Lycodes	pacificus	Chordata	cone	single	433			adult			0	5					0	
+732	Lycodes	pacificus	Chordata	cone	single	521			adult			0	5					0	
+733	Lycodes	pacificus	Chordata	cone	twin	512			adult			0	5					0	
+734	Zoarces	viviparus	Chordata	rod		513			adult			0	22					0	
+735	Zoarces	viviparus	Chordata	cone	single	437			adult			0	22					0	
+736	Zoarces	viviparus	Chordata	cone	single	552			adult			0	22					0	
+737	Zoarces	viviparus	Chordata	cone	twin	552			adult			0	22					0	
+738	Geotria	australis	Chordata	rod		499			adult			0	10					0	
+739	Geotria	australis	Chordata	cone	single	515			adult			0	10					0	
+740	Geotria	australis	Chordata	cone	single	616			adult			0	10					0	
+741	Citharichthys	sordidus	Chordata	rod		489			adult			0	5					0	
+742	Citharichthys	sordidus	Chordata	cone	single	440			adult			0	5					0	
+743	Citharichthys	sordidus	Chordata	cone	twin	523			adult			0	5					0	
+744	Hippoglossoides	herzensteini	Chordata	rod		500			adult			0	24					0	
+745	Hippoglossoides	herzensteini	Chordata	cone	single	457			adult			0	24					0	
+746	Hippoglossoides	herzensteini	Chordata	cone	twin	521			adult			0	24					0	
+747	Hippoglossoides	elassodon	Chordata	rod		495			adult			0	5					0	
+748	Hippoglossoides	elassodon	Chordata	cone	single	412			adult			0	5					0	
+749	Hippoglossoides	elassodon	Chordata	cone	twin	511			adult			0	5					0	
+750	Isopsetta	isolepis	Chordata	rod		492			adult			0	5					0	
+751	Isopsetta	isolepis	Chordata	cone	single	444			adult			0	5					0	
+752	Isopsetta	isolepis	Chordata	cone	twin	527			adult			0	5					0	
+753	Lepidopsetta	bilineata	Chordata	rod		492			adult			0	5					0	
+754	Lepidopsetta	bilineata	Chordata	cone	single	444			adult			0	5					0	
+755	Lepidopsetta	bilineata	Chordata	cone	twin	526			adult			0	5					0	
+756	Lepidopsetta	polyxystra	Chordata	rod		493			adult			0	5					0	
+757	Lepidopsetta	polyxystra	Chordata	cone	single	438			adult			0	5					0	
+758	Lepidopsetta	polyxystra	Chordata	cone	twin	525			adult			0	5					0	
+759	Limanda	limanda	Chordata	rod		502			adult			0	29					0	
+760	Limanda	limanda	Chordata	cone	single	475			adult			0	29					0	
+761	Limanda	limanda	Chordata	cone	twin	527			adult			0	29					0	
+762	Lyopsetta	exilis	Chordata	rod		482			adult			0	5					0	
+763	Lyopsetta	exilis	Chordata	cone	single	424			adult			0	5					0	
+764	Lyopsetta	exilis	Chordata	cone	twin	509			adult			0	5					0	
+765	Microstomus	kitt	Chordata	rod		502			adult			0	29					0	
+766	Microstomus	kitt	Chordata	cone	single	465			adult			0	29					0	
+767	Microstomus	kitt	Chordata	cone	twin	525			adult			0	29					0	
+768	Parophrys	vetulus	Chordata	rod		498			adult			0	5					0	
+769	Parophrys	vetulus	Chordata	cone	single	437			adult			0	5					0	
+770	Parophrys	vetulus	Chordata	cone	twin	525			adult			0	5					0	
+771	Platichthys	stellatus	Chordata	rod		508			adult			0	5					0	
+772	Platichthys	stellatus	Chordata	cone	single	439			adult			0	5					0	
+773	Platichthys	stellatus	Chordata	cone	double	532			adult			0	5					0	
+774	Platichthys	stellatus	Chordata	cone	double	551			adult			0	5					0	
+775	Platichthys	stellatus	Chordata	cone	twin	531			adult			0	5					0	
+776	Platichthys	flesus	Chordata	rod		510			adult			0	22					0	
+777	Platichthys	flesus	Chordata	cone	single	455			adult			0	22					0	
+778	Platichthys	flesus	Chordata	cone	single	533			adult			0	22					0	
+779	Platichthys	flesus	Chordata	cone	twin	537			adult			0	22					0	
+780	Pleuronectes	asper	Chordata	rod		503			adult			0	24					0	
+781	Pleuronectes	asper	Chordata	cone	single	454			adult			0	24					0	
+782	Pleuronectes	asper	Chordata	cone	twin	523			adult			0	24					0	
+783	Pleuronectes	herzensteini	Chordata	rod		500			adult			0	24					0	
+784	Pleuronectes	herzensteini	Chordata	cone	single	450			adult			0	24					0	
+785	Pleuronectes	herzensteini	Chordata	cone	twin	523			adult			0	24					0	
+786	Pleuronectes	obscurus	Chordata	rod		525			adult			0	24					0	
+787	Pleuronectes	obscurus	Chordata	cone	single	465			adult			0	24					0	
+788	Pleuronectes	obscurus	Chordata	cone	twin	528			adult			0	24					0	
+789	Pleuronectes	platessa	Chordata	rod		515			adult			0	29					0	
+790	Pleuronectes	platessa	Chordata	cone	single	450			adult			0	29					0	
+791	Pleuronectes	platessa	Chordata	cone	single	529			adult			0	29					0	
+792	Pleuronectes	platessa	Chordata	cone	twin	529			adult			0	29					0	
+793	Pseudopleuronectes	americanus	Chordata	rod		506			adult			0	12					0	
+794	Pseudopleuronectes	americanus	Chordata	cone	single	457			adult			0	12					0	
+795	Pseudopleuronectes	americanus	Chordata	cone	double	531			adult			0	12					0	
+796	Pseudopleuronectes	americanus	Chordata	cone	double	547			adult			0	12					0	
+797	Oncorhynchus	keta	Chordata	rod		524			adult			0	15					0	
+798	Oncorhynchus	keta	Chordata	cone	single	439			adult			0	15					0	
+799	Oncorhynchus	keta	Chordata	cone	double	528			adult			0	15					0	
+800	Oncorhynchus	keta	Chordata	cone	double	599			adult			0	15					0	
+801	Oncorhynchus	kisutch	Chordata	rod		531			adult			0	15					0	
+802	Oncorhynchus	kisutch	Chordata	cone	single	446			adult			0	15					0	
+803	Oncorhynchus	kisutch	Chordata	cone	double	507			adult			0	15					0	
+804	Oncorhynchus	kisutch	Chordata	cone	double	553			adult			0	15					0	
+805	Oncorhynchus	tshawytscha	Chordata	rod		524			adult			0	15					0	
+806	Oncorhynchus	tshawytscha	Chordata	cone	single	441			adult			0	15					0	
+807	Oncorhynchus	tshawytscha	Chordata	cone	double	536			adult			0	15					0	
+808	Oncorhynchus	tshawytscha	Chordata	cone	double	582			adult			0	15					0	
+809	Salmo	trutta	Chordata	rod		532			adult			0	2					0	
+810	Salmo	trutta	Chordata	cone	single	441			adult			0	2					0	
+811	Salmo	trutta	Chordata	cone	double	535			adult			0	2					0	
+812	Salmo	trutta	Chordata	cone	double	600			adult			0	2					0	
+813	Salmo	irideus	Chordata	rod		512			adult			0	28					0	
+814	Salmo	irideus	Chordata	cone	single	453			adult			0	28					0	
+815	Salmo	irideus	Chordata	cone	single	530			adult			0	28					0	
+816	Salmo	irideus	Chordata	cone	double	498			adult			0	28					0	
+817	Salmo	irideus	Chordata	cone	double	530			adult			0	28					0	
+818	Abyssocottus	korotneffi	Chordata	rod		481			adult			0	4					0	
+819	Abyssocottus	korotneffi	Chordata	cone	single	494			adult			0	4					0	
+820	Cottinella	boulengeri	Chordata	rod		482			adult			0	4					0	
+821	Cottinella	boulengeri	Chordata	cone	single	496			adult			0	4					0	
+822	Limnocottus	eurystomus	Chordata	rod		489			adult			0	4					0	
+823	Limnocottus	eurystomus	Chordata	cone	single	427			adult			0	4					0	
+824	Limnocottus	eurystomus	Chordata	cone	twin	512			adult			0	4					0	
+825	Limnocottus	griseus	Chordata	rod		485			adult			0	4					0	
+826	Limnocottus	griseus	Chordata	cone	single	431			adult			0	4					0	
+827	Limnocottus	griseus	Chordata	cone	twin	503			adult			0	4					0	
+828	Procottus	jettelesii	Chordata	rod		505			adult			0	4					0	
+829	Procottus	jettelesii	Chordata	cone	single	448			adult			0	4					0	
+830	Procottus	jettelesii	Chordata	cone	twin	521			adult			0	4					0	
+831	Agonopsis	vulsa	Chordata	cone	single	440			adult			0	5					0	
+832	Agonopsis	vulsa	Chordata	cone	double	516			adult			0	5					0	
+833	Agonopsis	vulsa	Chordata	cone	double	559			adult			0	5					0	
+834	Agonopsis	vulsa	Chordata	cone	twin	517			adult			0	5					0	
+835	Bothragonus	swani	NA	rod		500			adult			0	5					0	
+836	Bothragonus	swani	NA	cone	single	436			adult			0	5					0	
+837	Bothragonus	swani	NA	cone	double	514			adult			0	5					0	
+838	Bothragonus	swani	NA	cone	double	567			adult			0	5					0	
+839	Bothragonus	swani	NA	cone	twin	514			adult			0	5					0	
+840	Podothecus	acipenserinus	Chordata	rod		500			adult			0	5					0	
+841	Podothecus	acipenserinus	Chordata	cone	single	438			adult			0	5					0	
+842	Podothecus	acipenserinus	Chordata	cone	double	520			adult			0	5					0	
+843	Podothecus	acipenserinus	Chordata	cone	double	569			adult			0	5					0	
+844	Podothecus	acipenserinus	Chordata	cone	twin	519			adult			0	5					0	
+845	Artedius	fenestrates	NA	rod		498			adult			0	5					0	
+846	Artedius	fenestrates	NA	cone	single	449			adult			0	5					0	
+847	Artedius	fenestrates	NA	cone	double	522			adult			0	5					0	
+848	Artedius	fenestrates	NA	cone	double	561			adult			0	5					0	
+849	Artedius	harringtoni	Chordata	rod		501			adult			0	5					0	
+850	Artedius	harringtoni	Chordata	cone	single	455			adult			0	5					0	
+851	Artedius	harringtoni	Chordata	cone	double	518			adult			0	5					0	
+852	Artedius	harringtoni	Chordata	cone	double	558			adult			0	5					0	
+853	Artedius	meanyi	NA	rod		496			adult			0	5					0	
+854	Artedius	meanyi	NA	cone	single	451			adult			0	5					0	
+855	Artedius	meanyi	NA	cone	single	518			adult			0	5					0	
+856	Artedius	meanyi	NA	cone	twin	518			adult			0	5					0	
+857	Ascelichthys	rhodorus	Chordata	rod		501			adult			0	5					0	
+858	Ascelichthys	rhodorus	Chordata	cone	single	444			adult			0	5					0	
+859	Ascelichthys	rhodorus	Chordata	cone	double	520			adult			0	5					0	
+860	Ascelichthys	rhodorus	Chordata	cone	double	564			adult			0	5					0	
+861	Bero	elegans	Chordata	rod		507			adult			0	24					0	
+862	Bero	elegans	Chordata	cone	single	452			adult			0	24					0	
+863	Bero	elegans	Chordata	cone	double	527			adult			0	24					0	
+864	Bero	elegans	Chordata	cone	double	562			adult			0	24					0	
+865	Clinocottus	globiceps	Chordata	rod		523			adult			0	5					0	
+866	Clinocottus	globiceps	Chordata	cone	single	443			adult			0	5					0	
+867	Clinocottus	globiceps	Chordata	cone	double	549			adult			0	5					0	
+868	Clinocottus	globiceps	Chordata	cone	double	617			adult			0	5					0	
+869	Enophrys	bison	Chordata	rod		501			adult			0	5					0	
+870	Enophrys	bison	Chordata	cone	single	437			adult			0	5					0	
+871	Enophrys	bison	Chordata	cone	double	523			adult			0	5					0	
+872	Enophrys	bison	Chordata	cone	double	565			adult			0	5					0	
+873	Enophrys	diceraus	Chordata	rod		500			adult			0	24					0	
+874	Enophrys	diceraus	Chordata	cone	single	428			adult			0	24					0	
+875	Enophrys	diceraus	Chordata	cone	double	513			adult			0	24					0	
+876	Enophrys	diceraus	Chordata	cone	double	555			adult			0	24					0	
+877	Gymnocanthus	pistilliger	Chordata	rod		501			adult			0	24					0	
+878	Gymnocanthus	pistilliger	Chordata	cone	single	446			adult			0	24					0	
+879	Gymnocanthus	pistilliger	Chordata	cone	double	523			adult			0	24					0	
+880	Gymnocanthus	pistilliger	Chordata	cone	double	549			adult			0	24					0	
+881	Gymnocanthus	intermedius	Chordata	rod		504			adult			0	24					0	
+882	Gymnocanthus	intermedius	Chordata	cone	single	448			adult			0	24					0	
+883	Gymnocanthus	intermedius	Chordata	cone	double	516			adult			0	24					0	
+884	Gymnocanthus	intermedius	Chordata	cone	double	530			adult			0	24					0	
+885	Hemilepidotus	hemilepidotus	Chordata	rod		501			adult			0	5					0	
+886	Hemilepidotus	hemilepidotus	Chordata	cone	single	481			adult			0	5					0	
+887	Hemilepidotus	hemilepidotus	Chordata	cone	double	513			adult			0	5					0	
+888	Hemilepidotus	hemilepidotus	Chordata	cone	double	567			adult			0	5					0	
+889	Hemilepidotus	hemilepidotus	Chordata	cone	twin	514			adult			0	5					0	
+890	Icelinus	borealis	Chordata	rod		495			adult			0	5					0	
+891	Icelinus	borealis	Chordata	cone	single	442			adult			0	5					0	
+892	Icelinus	borealis	Chordata	cone	twin	516			adult			0	5					0	
+893	Jordania	zonope	Chordata	rod		500			adult			0	5					0	
+894	Jordania	zonope	Chordata	cone	single	432			adult			0	5					0	
+895	Jordania	zonope	Chordata	cone	twin	521			adult			0	5					0	
+896	Leptocottus	armatus	Chordata	rod		510			adult			0	5					0	
+897	Leptocottus	armatus	Chordata	cone	single	432			adult			0	5					0	
+898	Leptocottus	armatus	Chordata	cone	twin	521			adult			0	5					0	
+899	Megalocottus	platycephalus	Chordata	rod		514			adult			0	24					0	
+900	Megalocottus	platycephalus	Chordata	cone	single	435			adult			0	24					0	
+901	Megalocottus	platycephalus	Chordata	cone	double	510			adult			0	24					0	
+902	Megalocottus	platycephalus	Chordata	cone	double	542			adult			0	24					0	
+903	Microcottus	sellaris	Chordata	rod		505			adult			0	24					0	
+904	Microcottus	sellaris	Chordata	cone	single	435			adult			0	24					0	
+905	Microcottus	sellaris	Chordata	cone	double	510			adult			0	24					0	
+906	Microcottus	sellaris	Chordata	cone	double	520			adult			0	24					0	
+907	Microcottus	sellaris	Chordata	cone	double	542			adult			0	24					0	
+908	Myoxocephalus	scorpius	Chordata	rod		506			adult			0	4					0	
+909	Myoxocephalus	scorpius	Chordata	cone	single	453			adult			0	4					0	
+910	Myoxocephalus	scorpius	Chordata	cone	double	520			adult			0	4					0	
+911	Myoxocephalus	scorpius	Chordata	cone	double	553			adult			0	4					0	
+912	Myoxocephalus	potyacanthocephalus	NA	rod		500			adult			0	5					0	
+913	Myoxocephalus	potyacanthocephalus	NA	cone	single	443			adult			0	5					0	
+914	Myoxocephalus	potyacanthocephalus	NA	cone	single	518			adult			0	5					0	
+915	Myoxocephalus	potyacanthocephalus	NA	cone	double	521			adult			0	5					0	
+916	Myoxocephalus	potyacanthocephalus	NA	cone	double	556			adult			0	5					0	
+917	Myoxocephalus	stelleri	Chordata	rod		506			adult			0	24					0	
+918	Myoxocephalus	stelleri	Chordata	cone	single	448			adult			0	24					0	
+919	Myoxocephalus	stelleri	Chordata	cone	double	525			adult			0	24					0	
+920	Myoxocephalus	stelleri	Chordata	cone	double	565			adult			0	24					0	
+921	Myoxocephalus	brandti	NA	rod		506			adult			0	24					0	
+922	Myoxocephalus	brandti	NA	cone	single	453			adult			0	24					0	
+923	Myoxocephalus	brandti	NA	cone	double	523			adult			0	24					0	
+924	Myoxocephalus	brandti	NA	cone	double	546			adult			0	24					0	
+925	Myoxocephalus	brandti	NA	cone	double	565			adult			0	24					0	
+926	Myoxocephalus	jack	NA	rod		507			adult			0	24					0	
+927	Myoxocephalus	jack	NA	cone	single	455			adult			0	24					0	
+928	Myoxocephalus	jack	NA	cone	double	520			adult			0	24					0	
+929	Myoxocephalus	jack	NA	cone	double	526			adult			0	24					0	
+930	Oligocottus	maculosus	Chordata	rod		520			adult			0	5					0	
+931	Oligocottus	maculosus	Chordata	cone	single	447			adult			0	5					0	
+932	Oligocottus	maculosus	Chordata	cone	double	559			adult			0	5					0	
+933	Oligocottus	maculosus	Chordata	cone	double	620			adult			0	5					0	
+934	Scorpaenichthys	marmoratus	Chordata	rod		500			adult			0	5					0	
+935	Scorpaenichthys	marmoratus	Chordata	cone	single	443			adult			0	5					0	
+936	Scorpaenichthys	marmoratus	Chordata	cone	double	523			adult			0	5					0	
+937	Scorpaenichthys	marmoratus	Chordata	cone	double	565			adult			0	5					0	
+938	Taurulus	bubalis	Chordata	rod		507			adult			0	4					0	
+939	Taurulus	bubalis	Chordata	cone	single	460			adult			0	4					0	
+940	Taurulus	bubalis	Chordata	cone	double	523			adult			0	4					0	
+941	Taurulus	bubalis	Chordata	cone	double	561			adult			0	4					0	
+942	Triglops	pingelii	Chordata	rod		485			adult			0	5					0	
+943	Triglops	pingelii	Chordata	cone	single	435			adult			0	5					0	
+944	Triglops	pingelii	Chordata	cone	twin	520			adult			0	5					0	
+945	Triglopsis	quadricornis	Chordata	rod		512			adult			0	22					0	
+946	Triglopsis	quadricornis	Chordata	cone	single	450			adult			0	22					0	
+947	Triglopsis	quadricornis	Chordata	cone	double	523			adult			0	22					0	
+948	Triglopsis	quadricornis	Chordata	cone	double	556			adult			0	22					0	
+949	Batrachocottus	baicalensis	Chordata	rod		509			adult			0	4					0	
+950	Batrachocottus	baicalensis	Chordata	cone	single	450			adult			0	4					0	
+951	Batrachocottus	baicalensis	Chordata	cone	twin	521			adult			0	4					0	
+952	Batrachocottus	multiradiatus	Chordata	rod		489			adult			0	4					0	
+953	Batrachocottus	multiradiatus	Chordata	cone	single	447			adult			0	4					0	
+954	Batrachocottus	multiradiatus	Chordata	cone	twin	517			adult			0	4					0	
+955	Batrachocottus	nikolskii	Chordata	rod		488			adult			0	4					0	
+956	Batrachocottus	nikolskii	Chordata	cone	single	428			adult			0	4					0	
+957	Batrachocottus	nikolskii	Chordata	cone	twin	511			adult			0	4					0	
+958	Cottocomephorus	inermis	Chordata	rod		494			adult			0	4					0	
+959	Cottocomephorus	inermis	Chordata	cone	single	450			adult			0	4					0	
+960	Cottocomephorus	inermis	Chordata	cone	twin	520			adult			0	4					0	
+961	Cottocomephorus	grewingkii	NA	rod		503			adult			0	4					0	
+962	Cottocomephorus	grewingkii	NA	cone	single	449			adult			0	4					0	
+963	Cottocomephorus	grewingkii	NA	cone	twin	523			adult			0	4					0	
+964	Leocottus	kesslerii	Chordata	rod		516			adult			0	4					0	
+965	Leocottus	kesslerii	Chordata	cone	single	449			adult			0	4					0	
+966	Leocottus	kesslerii	Chordata	cone	double	525			adult			0	4					0	
+967	Leocottus	kesslerii	Chordata	cone	double	546			adult			0	4					0	
+968	Paracottus	knerii	Chordata	rod		516			adult			0	4					0	
+969	Paracottus	knerii	Chordata	cone	single	450			adult			0	4					0	
+970	Paracottus	knerii	Chordata	cone	double	523			adult			0	4					0	
+971	Paracottus	knerii	Chordata	cone	double	521			adult			0	4					0	
+972	Eumicrotremus	orbis	Chordata	rod		494			adult			0	5					0	
+973	Eumicrotremus	orbis	Chordata	cone	single	439			adult			0	5					0	
+974	Eumicrotremus	orbis	Chordata	cone	double	521			adult			0	5					0	
+975	Eumicrotremus	orbis	Chordata	cone	double	567			adult			0	5					0	
+976	Eumicrotremus	orbis	Chordata	cone	twin	520			adult			0	5					0	
+977	Blepsias	cirrhosus	Chordata	rod		500			adult			0	24					0	
+978	Blepsias	cirrhosus	Chordata	cone	single	457			adult			0	24					0	
+979	Blepsias	cirrhosus	Chordata	cone	double	540			adult			0	24					0	
+980	Blepsias	cirrhosus	Chordata	cone	double	600			adult			0	24					0	
+981	Hemitripterus	villosus	Chordata	rod		503			adult			0	24					0	
+982	Hemitripterus	villosus	Chordata	cone	single	454			adult			0	24					0	
+983	Hemitripterus	villosus	Chordata	cone	double	518			adult			0	24					0	
+984	Hemitripterus	villosus	Chordata	cone	triple	560			adult			0	24					0	
+985	Hemitripterus	villosus	Chordata	cone	triple	518			adult			0	24					0	
+986	Nautichthys	oculofasciatus	Chordata	rod		501			adult			0	5					0	
+987	Nautichthys	oculofasciatus	Chordata	cone	single	452			adult			0	5					0	
+988	Nautichthys	oculofasciatus	Chordata	cone	single	513			adult			0	5					0	
+989	Nautichthys	oculofasciatus	Chordata	cone	twin	513			adult			0	5					0	
+990	Hexagrammos	decagrammus	Chordata	rod		497			adult			0	5					0	
+991	Hexagrammos	decagrammus	Chordata	cone	single	461			adult			0	5					0	
+992	Hexagrammos	decagrammus	Chordata	cone	double	524			adult			0	5					0	
+993	Hexagrammos	decagrammus	Chordata	cone	double	566			adult			0	5					0	
+994	Hexagrammos	decagrammus	Chordata	cone	twin	528			adult			0	5					0	
+995	Hexagrammos	octogrammus	Chordata	rod		523			adult			0	24					0	
+996	Hexagrammos	octogrammus	Chordata	cone	single	422			adult			0	24					0	
+997	Hexagrammos	octogrammus	Chordata	cone	double	552			adult			0	24					0	
+998	Hexagrammos	octogrammus	Chordata	cone	double	615			adult			0	24					0	
+999	Hexagrammos	stelleri	Chordata	rod		502			adult			0	24					0	
+1000	Hexagrammos	stelleri	Chordata	cone	single	480			adult			0	24					0	
+1001	Hexagrammos	stelleri	Chordata	cone	double	525			adult			0	24					0	
+1002	Hexagrammos	stelleri	Chordata	cone	double	530			adult			0	24					0	
+1003	Hexagrammos	stelleri	Chordata	cone	double	554			adult			0	24					0	
+1004	Hexagrammos	stelleri	Chordata	cone	double	552			adult			0	24					0	
+1005	Ophiodon	elongatus	Chordata	rod		499			adult			0	5					0	
+1006	Ophiodon	elongatus	Chordata	cone	single	461			adult			0	5					0	
+1007	Ophiodon	elongatus	Chordata	cone	single	523			adult			0	5					0	
+1008	Ophiodon	elongatus	Chordata	cone	double	560			adult			0	5					0	
+1009	Ophiodon	elongatus	Chordata	cone	double	565			adult			0	5					0	
+1010	Ophiodon	elongatus	Chordata	cone	twin	521			adult			0	5					0	
+1011	Pleurogrammus	azonus	Chordata	rod		504			adult			0	24					0	
+1012	Pleurogrammus	azonus	Chordata	cone	single	467			adult			0	24					0	
+1013	Pleurogrammus	azonus	Chordata	cone	twin	513			adult			0	24					0	
+1014	Liparis	dennyi	Chordata	rod		494			adult			0	5					0	
+1015	Liparis	dennyi	Chordata	cone	twin	522			adult			0	5					0	
+1016	Liparis	pulchellus	Chordata	rod		490			adult			0	5					0	
+1017	Liparis	pulchellus	Chordata	cone	single	524			adult			0	5					0	
+1018	Liparis	florae	Chordata	rod		495			adult			0	5					0	
+1019	Liparis	florae	Chordata	cone	single	440			adult			0	5					0	
+1020	Liparis	florae	Chordata	cone	twin	527			adult			0	5					0	
+1021	Liparis	greeni	Chordata	rod		495			adult			0	5					0	
+1022	Liparis	greeni	Chordata	cone	single	435			adult			0	5					0	
+1023	Liparis	greeni	Chordata	cone	twin	527			adult			0	5					0	
+1024	Dasycottus	setiger	Chordata	rod		485			adult			0	5					0	
+1025	Dasycottus	setiger	Chordata	cone	single	446			adult			0	5					0	
+1026	Dasycottus	setiger	Chordata	cone	twin	517			adult			0	5					0	
+1027	Gilbertidia	sigalutes	Chordata	rod		496			adult			0	5					0	
+1028	Gilbertidia	sigalutes	Chordata	cone	single	454			adult			0	5					0	
+1029	Gilbertidia	sigalutes	Chordata	cone	single	519			adult			0	5					0	
+1030	Gilbertidia	sigalutes	Chordata	cone	twin	520			adult			0	5					0	
+1031	Psychrobites	paradoxus	NA	rod		483			adult			0	5					0	
+1032	Psychrobites	paradoxus	NA	cone	single	441			adult			0	5					0	
+1033	Psychrobites	paradoxus	NA	cone	single	522			adult			0	5					0	
+1034	Psychrobites	paradoxus	NA	cone	single	564			adult			0	5					0	
+1035	Psychrobites	paradoxus	NA	cone	double	522			adult			0	5					0	
+1036	Psychrobites	paradoxus	NA	cone	double	564			adult			0	5					0	
+1037	Psychrobites	paradoxus	NA	cone	twin	521			adult			0	5					0	
+1038	Rhamphocottus	richardsonii	Chordata	rod		493			adult			0	5					0	
+1039	Rhamphocottus	richardsonii	Chordata	cone	single	452			adult			0	5					0	
+1040	Rhamphocottus	richardsonii	Chordata	cone	double	522			adult			0	5					0	
+1041	Rhamphocottus	richardsonii	Chordata	cone	double	559			adult			0	5					0	
+1042	Rhamphocottus	richardsonii	Chordata	cone	twin	522			adult			0	5					0	
+1043	Dendrochirus	zebra	Chordata	rod		501			adult			0	29					0	
+1044	Dendrochirus	zebra	Chordata	cone	single	440			adult			0	29					0	
+1045	Dendrochirus	zebra	Chordata	cone	twin	513			adult			0	29					0	
+1046	Scorpaena	porcus	Chordata	rod		506			adult			0	18					0	
+1047	Scorpaena	porcus	Chordata	cone	single	455			adult			0	18					0	
+1048	Scorpaena	porcus	Chordata	cone	twin	530			adult			0	18					0	
+1049	Sebastes	auriculatus	Chordata	rod		498			adult			0	5					0	
+1050	Sebastes	auriculatus	Chordata	cone	single	445			adult			0	5					0	
+1051	Sebastes	auriculatus	Chordata	cone	twin	521			adult			0	5					0	
+1052	Sebastes	caurinus	Chordata	rod		496			adult			0	5					0	
+1053	Sebastes	caurinus	Chordata	cone	single	447			adult			0	5					0	
+1054	Sebastes	caurinus	Chordata	cone	double	520			adult			0	5					0	
+1055	Sebastes	caurinus	Chordata	cone	double	534			adult			0	5					0	
+1056	Sebastes	caurinus	Chordata	cone	twin	524			adult			0	5					0	
+1057	Sebastes	maliger	Chordata	cone	single	432			adult			0	5					0	
+1058	Sebastes	maliger	Chordata	cone	double	522			adult			0	5					0	
+1059	Sebastes	maliger	Chordata	cone	double	535			adult			0	5					0	
+1060	Sebastes	empaeus	NA	rod		493			adult			0	5					0	
+1061	Sebastes	empaeus	NA	cone	single	421			adult			0	5					0	
+1062	Sebastes	empaeus	NA	cone	single	443			adult			0	5					0	
+1063	Sebastes	empaeus	NA	cone	twin	523			adult			0	5					0	
+1064	Chelidonichthys	lucernus	Chordata	rod		502			adult			0	29					0	
+1065	Chelidonichthys	lucernus	Chordata	cone	single	460			adult			0	29					0	
+1066	Chelidonichthys	lucernus	Chordata	cone	twin	530			adult			0	29					0	
+1067	Eutrigla	gurnardus	Chordata	rod		502			adult			0	29					0	
+1068	Eutrigla	gurnardus	Chordata	cone	single	460			adult			0	29					0	
+1069	Eutrigla	gurnardus	Chordata	cone	twin	520			adult			0	29					0	
+1070	Ictalurus	catus	Chordata	rod		541			adult			0	42					0	
+1071	Ictalurus	catus	Chordata	cone	single	447			adult			0	42					0	
+1072	Ictalurus	catus	Chordata	cone	double	509			adult			0	42					0	
+1073	Ictalurus	catus	Chordata	cone	double	516			adult			0	42					0	
+1074	Ictalurus	melas	Chordata	rod		541			adult			0	42					0	
+1075	Ictalurus	melas	Chordata	cone	single	536			adult			0	42					0	
+1076	Ictalurus	melas	Chordata	cone	single	505			adult			0	42					0	
+1077	Ictalurus	punctatus	Chordata	rod		542			adult			0	42					0	
+1078	Ictalurus	punctatus	Chordata	cone	single	536			adult			0	42					0	
+1079	Ictalurus	punctatus	Chordata	cone	single	607			adult			0	42					0	
+1080	Hippocampus	subelongatus	Chordata	rod		500			adult			0	36					0	
+1081	Hippocampus	subelongatus	Chordata	cone	single	467			adult			0	36					0	
+1082	Hippocampus	subelongatus	Chordata	cone	double	522			adult			0	36					0	
+1083	Hippocampus	subelongatus	Chordata	cone	double	537			adult			0	36					0	
+1084	Hippocampus	subelongatus	Chordata	cone	double	560			adult			0	36					0	
+1085	Hippocampus	subelongatus	Chordata	cone	twin	522			adult			0	36					0	
+1086	Hippocampus	subelongatus	Chordata	cone	twin	537			adult			0	36					0	
+1087	Hippocampus	barbouri	Chordata	rod		499			adult			0	36					0	
+1088	Hippocampus	barbouri	Chordata	cone	single	429			adult			0	36					0	
+1089	Hippocampus	barbouri	Chordata	cone	single	460			adult			0	36					0	
+1090	Hippocampus	barbouri	Chordata	cone	twin	521			adult			0	36					0	
+1091	Hippocampus	barbouri	Chordata	cone	twin	537			adult			0	36					0	
+1092	Hippocampus	barbouri	Chordata	cone	twin	558			adult			0	36					0	
+1093	Stigmatopora	argus	Chordata	rod		502			adult			0	36					0	
+1094	Stigmatopora	argus	Chordata	cone	single	457			adult			0	36					0	
+1095	Stigmatopora	argus	Chordata	cone	double	519			adult			0	36					0	
+1096	Stigmatopora	argus	Chordata	cone	double	537			adult			0	36					0	
+1097	Stigmatopora	argus	Chordata	cone	double	579			adult			0	36					0	
+1098	Stigmatopora	argus	Chordata	cone	twin	519			adult			0	36					0	
+1099	Stigmatopora	argus	Chordata	cone	twin	537			adult			0	36					0	
+1100	Sygnathus	leptorhynchus	NA	rod		499			adult			0	5					0	
+1101	Sygnathus	leptorhynchus	NA	cone	single	404			adult			0	5					0	
+1102	Sygnathus	leptorhynchus	NA	cone	single	440			adult			0	5					0	
+1103	Sygnathus	leptorhynchus	NA	cone	double	524			adult			0	5					0	
+1104	Sygnathus	leptorhynchus	NA	cone	double	569			adult			0	5					0	
+1105	Canthidermis	maculatus	NA	rod		486			adult			0	32					0	
+1106	Canthidermis	maculatus	NA	cone	single	407			adult			0	32					0	
+1107	Canthidermis	maculatus	NA	cone	single	493			adult			0	32					0	
+1108	Canthidermis	maculatus	NA	cone	double	479			adult			0	32					0	
+1109	Canthidermis	maculatus	NA	cone	double	522			adult			0	32					0	
+1110	Sufflamen	bursa	Chordata	rod		487			adult			0	32					0	
+1111	Sufflamen	bursa	Chordata	cone	single	404			adult			0	32					0	
+1112	Sufflamen	bursa	Chordata	cone	twin	503			adult			0	32					0	
+1113	Pergavor	spilosoma	NA	rod		494			adult			0	32					0	
+1114	Pergavor	spilosoma	NA	cone	single	398			adult			0	32					0	
+1115	Pergavor	spilosoma	NA	cone	double	492			adult			0	32					0	
+1116	Pergavor	spilosoma	NA	cone	double	510			adult			0	32					0	
+1117	Pergavor	aspricaudus	NA	rod		492			adult			0	32					0	
+1118	Pergavor	aspricaudus	NA	cone	single	404			adult			0	32					0	
+1119	Pergavor	aspricaudus	NA	cone	double	476			adult			0	32					0	
+1120	Pergavor	aspricaudus	NA	cone	double	516			adult			0	32					0	
+1121	Ostracion	meleagris	Chordata	rod		495			adult			0	32					0	
+1122	Ostracion	meleagris	Chordata	cone	single	416			adult			0	32					0	
+1123	Ostracion	meleagris	Chordata	cone	single	471			adult			0	32					0	
+1124	Ostracion	meleagris	Chordata	cone	double	479			adult			0	32					0	
+1125	Ostracion	meleagris	Chordata	cone	double	520			adult			0	32					0	
+1126	Ostracion	meleagris	Chordata	cone	twin	497			adult			0	32					0	
+1127	Arothron	meleagris	Chordata	rod		493			adult			0	32					0	
+1128	Arothron	meleagris	Chordata	cone	single	439			adult			0	32					0	
+1129	Arothron	meleagris	Chordata	cone	double	507			adult			0	32					0	
+1130	Arothron	meleagris	Chordata	cone	double	525			adult			0	32					0	
+1131	Cavia	porcellus	Chordata	rod		500			adult 			0	106					0	
+1132	Cavia	porcellus	Chordata	cone?	single?	530			adult			0	106					0	
+1133	Cavia	porcellus	Chordata	cone?	single?	400			adult			0	106					0	
+1134	Serinus	canaria	Chordata	rod		506			adult			0	51					0	
+1135	Serinus	canaria	Chordata	cone	single	569			adult			0	51					0	
+1136	Serinus	canaria	Chordata	cone	single	505			adult			0	51					0	
+1137	Serinus	canaria	Chordata	cone	single	442			adult			0	51					0	
+1138	Serinus	canaria	Chordata	cone	single	366			adult			0	51					0	
+1139	Serinus	canaria	Chordata	cone	double	569			adult			0	51					0	
+1140	Dasyatis	fluviorum	Chordata	rod		500			adult			0	52					0	
+1141	Dasyatis	fluviorum	Chordata	cone	single	475			adult			0	52					0	
+1142	Dasyatis	fluviorum	Chordata	cone	single	566			adult			0	52					0	
+1143	Himantura	fai	Chordata	rod		503			adult			0	52					0	
+1144	Himantura	fai	Chordata	cone	single	475			adult			0	52					0	
+1145	Himantura	fai	Chordata	cone	single	557			adult			0	52					0	
+1146	Neotrygon	kuhlii	Chordata	rod		497			adult			0	52					0	
+1147	Neotrygon	kuhlii	Chordata	rod		498			immature			0	52					0	
+1148	Neotrygon	kuhlii	Chordata	cone	single	476			adult			0	52					0	
+1149	Neotrygon	kuhlii	Chordata	cone	single	552			adult			0	52					0	
+1150	Taeniura	lymma	Chordata	rod		500			adult			0	52					0	
+1151	Taeniura	lymma	Chordata	cone	single	479			adult			0	52					0	
+1152	Taeniura	lymma	Chordata	cone	single	557			adult			0	52					0	
+1153	Gymnura	australis	Chordata	rod		500			adult			0	52					0	
+1154	Gymnura	australis	Chordata	cone	single	467			adult			0	52					0	
+1155	Gymnura	australis	Chordata	cone	single	556			adult			0	52					0	
+1156	Aetobatus	narinari	Chordata	rod		502			adult			0	52					0	
+1157	Aetobatus	narinari	Chordata	cone	single	450			adult			0	52					0	
+1158	Aetobatus	narinari	Chordata	cone	single	552			adult			0	52					0	
+1159	Aptychotrema	rostrata	Chordata	rod		498			adult			0	52					0	
+1160	Aptychotrema	rostrata	Chordata	rod		492			immature			0	52					0	
+1161	Aptychotrema	rostrata	Chordata	cone	single	459			adult			0	52					0	
+1162	Aptychotrema	rostrata	Chordata	cone	single	553			adult			0	52					0	
+1163	Aptychotrema	vincentiana	Chordata	rod		500			adult			0	52					0	
+1164	Aptychotrema	vincentiana	Chordata	rod		501			immature			0	52					0	
+1165	Aptychotrema	vincentiana	Chordata	cone	single	460			adult			0	52					0	
+1166	Aptychotrema	vincentiana	Chordata	cone	single	557			adult			0	52					0	
+1167	Glaucostegus	typus	Chordata	rod		504			adult			0	52					0	
+1168	Glaucostegus	typus	Chordata	rod		504			immature			0	52					0	
+1169	Glaucostegus	typus	Chordata	cone	single	477			adult			0	52					0	
+1170	Glaucostegus	typus	Chordata	cone	single	561			adult			0	52					0	
+1171	Trygonorrhina	fasciata	Chordata	rod		499			adult			0	52					0	
+1172	Trygonorrhina	fasciata	Chordata	cone	single	470			adult			0	52					0	
+1173	Trygonorrhina	fasciata	Chordata	cone	single	568			adult			0	52					0	
+1174	Rhinobatos	lentiginosus	Chordata	rod		496			adult			0	52					0	
+1175	Rhinobatos	lentiginosus	Chordata	rod		499			immature			0	52					0	
+1176	Rhinoptera	bonasus	Chordata	rod		500			adult			0	52					0	
+1177	Rhinoptera	bonasus	Chordata	cone	single	470			adult			0	52					0	
+1178	Rhinoptera	bonasus	Chordata	cone	single	551			adult			0	52					0	
+1179	Rhynchobatus	australiae	Chordata	rod		500			adult			0	52					0	
+1180	Rhynchobatus	australiae	Chordata	cone	single	475			adult			0	52					0	
+1181	Rhynchobatus	australiae	Chordata	cone	single	555			adult			0	52					0	
+1182	Trygonoptera	testacea	Chordata	rod		498			adult			0	52					0	
+1183	Trygonoptera	testacea	Chordata	cone	single	481			adult			0	52					0	
+1184	Trygonoptera	testacea	Chordata	cone	single	557			adult			0	52					0	
+1185	Urobatis	jamaicensis	Chordata	rod		499			adult			0	52					0	
+1186	Urobatis	jamaicensis	Chordata	cone	single	475			adult			0	52					0	
+1187	Urobatis	jamaicensis	Chordata	cone	single	562			adult			0	52					0	
+1188	Carcharhinus	amboinensis	Chordata	rod		507			adult			0	52					0	
+1189	Carcharhinus	amboinensis	Chordata	cone	single	534			adult			0	52					0	
+1190	Carcharhinus	amblyrhynchos	Chordata	rod		504			adult			0	52					0	
+1191	Carcharhinus	leucas	Chordata	rod		518			adult			0	52					0	
+1192	Carcharhinus	leucas	Chordata	cone	single	554			adult			0	52					0	
+1193	Carcharhinus	limbatus	Chordata	rod		506			adult			0	52					0	
+1194	Carcharhinus	limbatus	Chordata	cone	single	532			adult			0	52					0	
+1195	Carcharhinus	melanopterus	Chordata	rod		505			adult			0	52					0	
+1196	Carcharhinus	melanopterus	Chordata	rod		507			immature			0	52					0	
+1197	Carcharhinus	melanopterus	Chordata	cone	single	528			adult			0	52					0	
+1198	Carcharhinus	obscurus	Chordata	rod		502			adult			0	52					0	
+1199	Rhizoprionodon	taylori	Chordata	rod		508			adult			0	52					0	
+1200	Rhizoprionodon	taylori	Chordata	cone	single	533			adult			0	52					0	
+1201	Chiloscyllium	punctatum	Chordata	rod		499.6	2.6		adult			0	52					0	
+1202	Chiloscyllium	punctatum	Chordata	cone	single	531.8	6.7		adult			0	52					0	
+1203	Orectolobus	maculatus	Chordata	rod		484			adult			0	52					0	
+1204	Orectolobus	maculatus	Chordata	cone	single	553			adult			0	52					0	
+1205	Orectolobus	ornatus	Chordata	rod		498			adult			0	52					0	
+1206	Orectolobus	ornatus	Chordata	cone	single	561			adult			0	52					0	
+1207	Oncorhynchus	mykiss	Chordata	cone	single	386			juvenile (alevin stage)			0	53					0	
+1208	Oncorhynchus	mykiss	Chordata	cone	double	498			juvenile (alevin stage)			0	53					0	
+1209	Oncorhynchus	mykiss	Chordata	cone	double	563			juvenile (alevin stage)			0	53					0	
+1210	Ctenophorus	decresii	Chordata	cone	single	569			adult			0	55					0	
+1211	Ctenophorus	decresii	Chordata	cone	single	491			adult			0	55					0	
+1212	Ctenophorus	decresii	Chordata	cone	single	436			adult			0	55					0	
+1213	Ctenophorus	decresii	Chordata	cone	single	507			adult			0	55					0	
+1214	Ctenophorus	ornatus	Chordata	cone	single	440			adult			0	55					0	
+1215	Ctenophorus	ornatus	Chordata	cone	single	493			adult			0	55					0	
+1216	Ctenophorus	ornatus	Chordata	cone	single	571			adult			0	55					0	
+1217	Alouatta	sp.	NA	cone	single	530			adult			0	56					0	
+1218	Alouatta	sp.	NA	cone	single	558			adult			0	56					0	
+1219	Alouatta	sp.	NA	rod		500			adult			0	56					0	
+1220	Oncorhynchus	kisutch	Chordata	cone	single	380			juvenile			0	57	development altered with T4 hormone 				0	
+1221	Oncorhynchus	kisutch	Chordata	cone	single	455			juvenile			0	57	development altered withT4 hormone 				0	
+1222	Oncorhynchus	kisutch	Chordata	cone	single	405			juvenile			0	57	development altered with T4 hormone 				0	
+1223	Oncorhynchus	mykiss	Chordata	cone	single	434			juvenile (smolt stage)			0	58					0	
+1224	Oncorhynchus	mykiss	Chordata	cone	double	521			juvenile (smolt stage)			0	58					0	
+1225	Oncorhynchus	mykiss	Chordata	cone	double	564			juvenile (smolt stage)			0	58					0	
+1226	Oncorhynchus	mykiss	Chordata	rod		509			juvenile (smolt stage)			0	58					0	
+1227	Oncorhynchus	mykiss	Chordata	cone	single	382			juvenile (alevin stage)			0	58					0	
+1228	Oncorhynchus	mykiss	Chordata	cone	double	500			juvenile (alevin stage)			0	58					0	
+1229	Oncorhynchus	mykiss	Chordata	cone	double	563			juvenile (alevin stage)			0	58					0	
+1230	Oncorhynchus	mykiss	Chordata	rod		508			juvenile (alevin stage)			0	58					0	
+1231	Danio	rerio	Chordata	cone	single	361			juvenile			0	58					0	
+1232	Danio	rerio	Chordata	cone	single	417			juvenile			0	58					0	
+1233	Danio	rerio	Chordata	cone	double	483			juvenile			0	58					0	
+1234	Danio	rerio	Chordata	cone	double	566			juvenile			0	58					0	
+1235	Danio	rerio	Chordata	rod		501			juvenile			0	58					0	
+1236	Lampetra	fluviatilis	Chordata	rod		515			adult			0	59					0	
+1237	Lampetra	fluviatilis	Chordata	cone	single	555			adult			0	59					0	
+1238	Lampetra	fluviatilis	Chordata	cone	single	610			adult			0	59					0	
+1239	Eigenmannia	virescens	Chordata	rod		524			adult			0	60					0	
+1240	Eigenmannia	virescens	Chordata	cone	single	608			adult			0	60					0	
+1241	Gasterosteus	acuelatus	NA	cone	single	373			adult			0	61	avg from 5 lakes in British Columbia				0	
+1242	Gasterosteus	acuelatus	NA	cone	single	449			adult			0	61	avg from 5 lakes in British Columbia				0	
+1243	Gasterosteus	acuelatus	NA	cone	double	528			adult			0	61	avg from 5 lakes in British Columbia				0	
+1244	Gasterosteus	acuelatus	NA	cone	double	603			adult			0	61	avg from 5 lakes in British Columbia				0	
+1245	Gasterosteus	acuelatus	NA	rod		524			adult			0	61	avg from 5 lakes in British Columbia				0	
+1246	Pseudotropheus	acei	Chordata	cone	single	378			adult			0	62					0	
+1247	Pseudotropheus	acei	Chordata	cone	single	415			adult			0	62					0	
+1248	Pseudotropheus	acei	Chordata	cone	single	452			adult			0	62					0	
+1249	Pseudotropheus	acei	Chordata	rod		505			adult			0	62					0	
+1250	Pseudotropheus	acei	Chordata	cone	double	482			adult			0	62					0	
+1251	Pseudotropheus	acei	Chordata	cone	double	506			adult			0	62					0	
+1252	Pseudotropheus	acei	Chordata	cone	double	535			adult			0	62					0	
+1253	Pseudotropheus	acei	Chordata	cone	single	476			adult			0	62					0	
+1254	Pseudotropheus	acei	Chordata	cone	single	505			adult			0	62					0	
+1255	Pseudotropheus	acei	Chordata	cone	single	534			adult			0	62					0	
+1256	Pseudotropheus	acei	Chordata	cone	single	566			adult			0	62					0	
+1257	Melanochromis	vermivorus	Chordata	rod		505			adult			0	62					0	
+1258	Melanochromis	vermivorus	Chordata	cone	single	418			adult			0	62					0	
+1259	Melanochromis	vermivorus	Chordata	cone	double	485			adult			0	62					0	
+1260	Melanochromis	vermivorus	Chordata	cone	double	503			adult			0	62					0	
+1261	Melanochromis	vermivorus	Chordata	cone	double	535			adult			0	62					0	
+1262	Melanochromis	vermivorus	Chordata	cone	single	506			adult			0	62					0	
+1263	Melanochromis	vermivorus	Chordata	cone	single	555			adult			0	62					0	
+1264	Tramitichromis	intermedius	Chordata	rod		506			adult			0	62					0	
+1265	Tramitichromis	intermedius	Chordata	cone	single	455			adult			0	62					0	
+1266	Tramitichromis	intermedius	Chordata	cone	double	532			adult			0	62					0	
+1267	Tramitichromis	intermedius	Chordata	cone	double	569			adult			0	62					0	
+1268	Tramitichromis	intermedius	Chordata	cone	single	534			adult			0	62					0	
+1269	Poecilia	reticulata cumana	NA	cone		359			adult			0	66					0	
+1270	Poecilia	reticulata cumana	NA	cone		406			adult			0	66					0	
+1271	Poecilia	reticulata cumana	NA	cone		465			adult			0	66					0	
+1272	Poecilia	reticulata cumana	NA	cone		525			adult			0	66					0	
+1273	Poecilia	reticulata cumana	NA	cone		541			adult			0	66					0	
+1274	Poecilia	reticulata cumana	NA	cone		560			adult			0	66					0	
+1275	Poecilia	reticulata cumana	NA	rod		503			adult			0	66					0	
+1276	Poecilia	reticulata trinidad	NA	rod		501			adult			0	115					0	
+1277	Poecilia	reticulata trinidad	NA	cone		408			adult			0	115					0	
+1278	Poecilia	reticulata trinidad	NA	cone		464			adult			0	115					0	
+1279	Poecilia	reticulata trinidad	NA	cone		533			adult			0	115					0	
+1280	Poecilia	reticulata trinidad	NA	cone		543			adult			0	115					0	
+1281	Poecilia	reticulata trinidad	NA	cone		572			adult			0	115					0	
+1282	Neoniphon	sammara	Chordata	rod		502			unknown			0	160	Cites thesis: Toller, W. W. 1996. Rhodopsin evolution in the Holocentridae (Pisces: Beryciformes). Doctoral dissertation, University Southern California, Los Angeles.				0	
+1283	Neoniphon	argenteus	Chordata	rod		502			unknown			0	160	Cites thesis: Toller, W. W. 1996. Rhodopsin evolution in the Holocentridae (Pisces: Beryciformes). Doctoral dissertation, University Southern California, Los Angeles.				0	
+1284	Neoniphon	aurolineatus	Chordata	rod		481			unknown			0	160	Cites thesis: Toller, W. W. 1996. Rhodopsin evolution in the Holocentridae (Pisces: Beryciformes). Doctoral dissertation, University Southern California, Los Angeles.				0	
+1285	Sargocentron	punctatissimum	Chordata	rod		494			unknown			0	160	Cites thesis: Toller, W. W. 1996. Rhodopsin evolution in the Holocentridae (Pisces: Beryciformes). Doctoral dissertation, University Southern California, Los Angeles.				0	
+1286	Sargocentron	microstoma	Chordata	rod		494			unknown			0	160	Cites thesis: Toller, W. W. 1996. Rhodopsin evolution in the Holocentridae (Pisces: Beryciformes). Doctoral dissertation, University Southern California, Los Angeles.				0	
+1287	Sargocentron	diadema	Chordata	rod		491			unknown			0	160	Cites thesis: Toller, W. W. 1996. Rhodopsin evolution in the Holocentridae (Pisces: Beryciformes). Doctoral dissertation, University Southern California, Los Angeles.				0	
+1288	Sargocentron	xantherythrum	Chordata	rod		486			unknown			0	160	Cites thesis: Toller, W. W. 1996. Rhodopsin evolution in the Holocentridae (Pisces: Beryciformes). Doctoral dissertation, University Southern California, Los Angeles.				0	
+1289	Sargocentron	spiniferum	Chordata	rod		490			unknown			0	160	Cites thesis: Toller, W. W. 1996. Rhodopsin evolution in the Holocentridae (Pisces: Beryciformes). Doctoral dissertation, University Southern California, Los Angeles.				0	
+1290	Sargocentron	tiere	Chordata	rod		490			unknown			0	160	Cites thesis: Toller, W. W. 1996. Rhodopsin evolution in the Holocentridae (Pisces: Beryciformes). Doctoral dissertation, University Southern California, Los Angeles.				0	
+1291	Myripristis	violacea	Chordata	rod		499			unknown			0	160	Cites thesis: Toller, W. W. 1996. Rhodopsin evolution in the Holocentridae (Pisces: Beryciformes). Doctoral dissertation, University Southern California, Los Angeles.				0	
+1292	Myripristis	berndti	Chordata	rod		493			unknown			0	160	Cites thesis: Toller, W. W. 1996. Rhodopsin evolution in the Holocentridae (Pisces: Beryciformes). Doctoral dissertation, University Southern California, Los Angeles.				0	
+1293	Photostomias	guernei	Chordata	rod		483			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1294	Chauliodus	danae	Chordata	rod		484			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1295	Chauliodus	sloani	Chordata	rod		485			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1296	Idiacanthus	fasciola	Chordata	rod		485			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1297	Stomias	boa	Chordata	rod		489			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1298	Ichthyocossus	ovatus	NA	rod		489			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1299	Vinciguerria	nimbaria	Chordata	rod		477			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1300	Argyropelecus	aculeatus	Chordata	rod		477			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1301	Argyropelecus	gigas	Chordata	rod		477			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1302	Gonostoma	bathyphilium	NA	rod		481			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1303	Gonostoma	elongatum	Chordata	rod		483			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1304	Diaphus	rafinesquei	Chordata	rod		489			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1305	Bolinichthys	indicus	Chordata	rod		489			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1306	Ceratoscopelus	warmingii	Chordata	rod		488			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1307	Lampanyctus	alatus	Chordata	rod		485			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1308	Benthosema	suborbitale	Chordata	rod		487			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1309	Phycis	blennoides	Chordata	rod		494			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1310	Coryphaenoides	guntheri	NA	rod		479			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1311	Bassozetus	compresis	Chordata	rod		476			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1312	Cataetyx	laticeps	Chordata	rod		468			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1313	Conocara	salmonea	NA	rod		480			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1314	Alepocephalus	bairdii	Chordata	rod		476			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1315	Anoplogaster	cornuta	Chordata	rod		485			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1316	Hoplostethus	mediteranus	NA	rod		479			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1317	Bathysaurus	ferox	Chordata	rod		481			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1318	Bathysaurus	mollis	Chordata	rod		479			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1319	Aristostomias	tittmani	NA	rod		523			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1320	Aristostomias	tittmani	NA	rod		551			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1321	Aristostomias	tittmani	NA	rod		581			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1322	Malacosteus	niger	Chordata	rod		517			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1323	Malacosteus	niger	Chordata	rod		542			unknown			0	162	Compiled from other sources (Table 1): Douglas pers com; four publications by Douglas and/or Partridge				0	
+1324	Loligo	forbesi	Mollusca	rhabdomeric		494			unknown			0	67	Compiled from other sources (Table 1): Morris				0	
+1325	Loligo	pealii	Mollusca	rhabdomeric		493			unknown			0	67	Compiled from other sources (Table 1): Brown PK and Brown PS				0	
+1326	Loligo	subulata	Mollusca	rhabdomeric		499			unkown			0	67	Compiled from other sources (Table 1): Morris				0	
+1327	Sepia	officinalis	Mollusca	rhabdomeric		492			unknown			0	67	Compiled from other sources (Table 1): Brown PK and Brown PS				0	
+1328	Todarodes	pacificus	Mollusca	rhabdomeric		480			unknown			0	67	Compiled from other sources (Table 1): Naito				0	
+1329	Enteroctopus	dofleini	Mollusca	rhabdomeric		475			unknown			0	67	Compiled from other sources (Table 1): Koutalos				0	
+1330	Typhlops	platycephalus	Chordata	rhabdomeric		494	3 nm		unknown			0	69					0	
+1331	Typhlops	hypomethes	Chordata	rhabdomeric		490	8 nm		unknown			0	69					0	
+1332	Leptotyphlops	sp.	NA	rhabdomeric		500	6 nm		unknown			0	69					0	
+1333	Anilius	scytale	Chordata	rhabdomeric		497	2 nm		unknown			0	69					0	
+1334	Platichthys	stellatus	Chordata	rod		517	3.5	A1	large juvenile			0	165					0	
+1335	Platichthys	stellatus	Chordata	cone	single	445	8.4	A1	large juvenile			0	165		So only vertebrates have rods and cones. I think the best thing to put for (most) invertebrates will be "rhabdomeric" cell type			0	
+1336	Platichthys	stellatus	Chordata	cone	single	459	3.3	A1	large juvenile			0	165					0	
+1337	Platichthys	stellatus	Chordata	cone	double	526	4.1	A1	large juvenile			0	165					0	
+1338	Platichthys	stellatus	Chordata	cone	double	536	6.8	A1	large juvenile			0	165					0	
+1339	Platichthys	stellatus	Chordata	cone	double	548	5	A1	large juvenile			0	165					0	
+1340	Platichthys	stellatus	Chordata	cone	double	557	5.7	A1	large juvenile			0	165					0	
+1341	Platichthys	stellatus	Chordata	rod		507	3.9	A1	small juvenile			0	165					0	
+1342	Platichthys	stellatus	Chordata	cone	single	437	8.3	A1	small juvenile			0	165					0	
+1343	Platichthys	stellatus	Chordata	cone	single	456	6.2	A1	small juvenile			0	165					0	
+1344	Platichthys	stellatus	Chordata	cone	double	527	4.9	A1	small juvenile			0	165					0	
+1345	Platichthys	stellatus	Chordata	cone	double	545	6.5	A1	small juvenile			0	165					0	
+1346	Platichthys	stellatus	Chordata	cone	double	557	10	A1	small juvenile			0	165					0	
+1347	Platichthys	stellatus	Chordata	cone		369		A1	small juvenile			0	165					0	
+1348	Platichthys	stellatus	Chordata	cone		415		A1	small juvenile			0	165					0	
+1349	Carassius	auratus	Chordata	cone		509			unknown			0	54					0	
+1350	Cavia	porcellus	Chordata	rod		499	2.7					0	106					0	
+1351	Cavia	porcellus	Chordata	cone		530						0	106					0	
+1352	Cavia	porcellus	Chordata	cone		400	4.7					0	106					0	
+1353	Galleria	mellonella	Arthropoda	rhabdomeric		510			adult			0	82	Couldn't see page due to bad wifi, not sure if there is error reported. Check for cell subtype.				0	
+1354	Microcebus	murinus	Chordata	cone	SWS	409						0	171					0	
+1355	Struthioniformes	Struthio camelus	NA	Rod		504			chick			0	283	Herbivore				0	
+1356	Struthioniformes	Rhea americana	NA	Rod		504			chick			0	283	Herbivore				0	
+1357	Galliformes	Gallus gallus domesticus	NA	Rod		509			unknown			0	283	Insectivore	*Omnivore			0	
+1358	Galliformes	Coturnix japonica	NA	Rod		505			unknown			0	283	Herbivore	*seems to eat plants more			0	
+1359	Galliformes	Meleagris galoparvo	NA	Rod		504			unknown			0	283	Herbivore				0	
+1360	Galliformes	Pavo cristatus	NA	Rod		504			unknown			0	283	Insectivore	*Omnivore			0	
+1361	Anseriformes	Anas platyrhynchos	NA	Rod		505			unknown			0	283	Herbivore	*mostly plant-based diet			0	
+1362	Clombiformes	Columba livia	NA	Rod		506			unknown			0	283	Herbivore				0	
+1363	Passeriformes	Taeniopygia guttata	NA	Rod		507			unknown			0	283	Herbivore	*only eats insects when young 			0	
+1364	Passeriformes	Leiothrix lutea	NA	Rod		500			unknown			0	283	Herbivore	*omnivore but large amount of fruits in diet			0	
+1365	Passeriformes	Serinus canaria	NA	Rod		506			unknown			0	283	Herbivore				0	
+1366	Passeriformes	Sturnus vulgaris	NA	Rod		503			unknown			0	283	Insectivore				0	
+1367	Passeriformes	Turdus merula	NA	Rod		504			unknown			0	283	Herbivore				0	
+1368	Passeriformes	Parvus caeruleus	NA	Rod		503			unknown			0	283	Insectivore				0	
+1369	Psittaciforme	Melopsittacus undulatus	NA	Rod		509			unknown			0	283	Herbivore				0	
+1370	Strigiformes	Strix aluco	NA	Rod		503			unknown			0	283	Insectivore/Carnivore	*and small mammals/organisms			0	
+1371	Anseriformes	Anas playrhnchos domesticus	NA	Rod		504			unknown			0	72	Insectivore	*omnivore but large amount of insect in diet			0	
+1372	Ciconiiformes	Buteo jamaicensis	NA	Rod		501			unknown			0	72	Insectivore/Carnivore	*and small mammals			0	
+1373	Ciconiiformes	Larus atricilla	NA	Rod		508			unknown			0	72	Insectivore				0	
+1374	Passeriformes	Amandina fasciata	NA	Rod		503			unknown			0	72	Insectivore	*Omnivore			0	
+1375	Passeriformes	Corvus frugilegus	NA	Rod		504			unknown			0	72	Insectivore	*Omnivore			0	
+1376	Passeriformes	Chloebia gouldiae	NA	Rod		502			unknown			0	72	Herbivore				0	
+1377	Passeriformes	Lonchura maga	NA	Rod		503			unknown			0	72	Herbivore				0	
+1378	Passeriformes	Neochmia modesta	NA	Rod		503			unknown			0	72	Herbivore				0	
+1379	Passeriformes	Passer domesticus	NA	Rod		504			unknown			0	72	Herbivore				0	
+1380	Psittaciformes	Melopsittacus undalutus	NA	Rod		509			unknown			0	72	Herbivore				0	
+1381	Struthioniformes	Dromiceius novae-hollandiae	NA	Rod		502			unknown			0	72	Herbivore	*only feed on insects when easily available 			0	
+1382	Tinamiformes	Nothoprocta cinerascens cinerascens	NA	Rod		504			unknown			0	72	Insectivore	*Omnivore			0	
+1383	Tinamiformes	Nothoprocta perdicaria sanborni	NA	Rod		501			unknown			0	72	Herbivore				0	
+1384	Caprimulgiformes	Phalaenoptilus nuttallii	NA	Rod		506			unknown			0	72	Insectivore				0	
+1385	Columbiformes	Streptopelia roseogrisea	NA	Rod		502			unknown			0	72	Herbivore	*sometimes feed on insects if available			0	
+1386	Columbiformes	Zenaida macroura	NA	Rod		502			unknown			0	72	Herbivore				0	
+1387	Galliformes	Callipepla californica	NA	Rod		500			unknown			0	72	Herbivores	*sometimes insects			0	
+1388	Galliformes	Colinus virginianus	NA	Rod		500			unknown			0	72	Herbivores				0	
+1389	Passeriformes	Carpodacus mexicanus	NA	Rod		502			unknown			0	72	Herbivore				0	
+1390	Passeriformes	Estrilda troglodytes	NA	Rod		502			unknown			0	72	Insectivore	*Omnivore			0	
+1391	Passeriformes	Lonchura malabarica	NA	Rod		502			unknown			0	72	Herbivore				0	
+1392	Passeriformes	Lonchura malacca	NA	Rod		503			unknown			0	72	Herbivore				0	
+1393	Passeriformes	Lonchura striata	NA	Rod		502			unknown			0	72	Herbivore				0	
+1394	Passeriformes	Molothrus ater	NA	Rod		501			unknown			0	72	Herbivore	*primarily seeds			0	
+1395	Passeriformes	Pipilo fuscus	NA	Rod		500			unknown			0	72	Insectivore	*Omnivore: eats more insects during the summer but more seeds/fruits in the winter			0	
+1396	Passeriformes	Plocepasser mahali	NA	Rod		504			unknown			0	72	Insectivore				0	
+1397	Passeriformes	Zonotrichia leucophrys	NA	Rod		502			unknown			0	72	Herbivore	*Omnivore eats insects during spring			0	
+1398	Psittaciformes	Melopsittacus undalatus	NA	Rod		505			unknown			0	72	Herbivore				0	
+1399	Strigiformes	Bubo virginianus	NA	Rod		502			unknown			0	72	Carnivore				0	
+1400	Strigiformes	Otus asio	NA	Rod		505			unknown			0	72	Insectivore	*and small mammals			0	
+1401	Strigiformes	Speotyto cunicularia	NA	Rod		503			unknown			0	72	Insectivore				0	
+1402	Strigiformes	Tyto alba	NA	Rod		500			unknown			0	72	Insectivore	*and small mammals			0	
+1403	Ostorhinchus	Cookii	Chordata	cone	single 	453						0	299					0	
+1404	Ostorhinchus	Cookii	Chordata	cone	single 	468						0	299					0	
+1405	Ostorhinchus	Cookii	Chordata	cone 	double	506						0	299					0	
+1406	Ostorhinchus	Cookii	Chordata	cone	double	519						0	299					0	
+1407	Ostorhinchus	Cookii	Chordata	rod		504						0	299					0	
+1408	Ostorhinchus	Cyanosoma	Chordata	cone	single	452						0	299					0	
+1409	Ostorhinchus	Cyanosoma	Chordata	cone 	double	504						0	299					0	
+1410	Ostorhinchus	Cyanosoma	Chordata	cone 	double	519						0	299					0	
+1411	Ostorhinchus	Cyanosoma	Chordata	rod 	single	503						0	299					0	
+1412	Ostorhinchus	Doederleini	Chordata	cone	single	467						0	299					0	
+1413	Ostorhinchus	Doederleini	Chordata	cone	double	402						0	299					0	
+1414	Ostorhinchus	Doederleini	Chordata	cone	double	516						0	299					0	
+1415	Ostorhinchus	Doederleini	Chordata	rod		501						0	299					0	
+1416	Zoramia 	Viridiventer	Chordata	cone	single	441						0	299					0	
+1417	Zoramia 	Viridiventer	Chordata	cone	double	506						0	299					0	
+1418	Zoramia 	Viridiventer	Chordata	cone	double	520						0	299					0	
+1419	Zoramia 	Viridiventer	Chordata	rod		502						0	299					0	
+1420	Zoramia 	Leptacanthus	NA	cone	single	442						0	299					0	
+1421	Zoramia 	Leptacanthus	NA	cone	double	501						0	299					0	
+1422	Zoramia 	Leptacanthus	NA	cone	double	512						0	299					0	
+1423	Zoramia 	Leptacanthus	NA	cone	double	521						0	299					0	
+1424	Zoramia 	Leptacanthus	NA	rod		504						0	299					0	
+1425	Rhabdamia 	Gracilis	Chordata	cone	single	420						0	299					0	
+1426	Rhabdamia 	Gracilis	Chordata	cone	double	485						0	299					0	
+1427	Rhabdamia 	Gracilis	Chordata	cone	double	500						0	299					0	
+1428	Rhabdamia 	Gracilis	Chordata	cone	double	520						0	299					0	
+1429	Rhabdamia 	Gracilis	Chordata	rod		497						0	299					0	
+1430	Nectamia 	Savayensis	Chordata	cone	single	466						0	299					0	
+1431	Nectamia 	Savayensis	Chordata	cone	double	493						0	299					0	
+1432	Nectamia 	Savayensis	Chordata	cone	double	507						0	299					0	
+1433	Nectamia 	Savayensis	Chordata	cone	double	520						0	299					0	
+1434	Nectamia 	Savayensis	Chordata	rod		505						0	299					0	
+1435	Microcebus	murinus	Chordata	cone	LWS	558						0	171					0	
+1436	Mirza	coquereli	Chordata	cone	SWS	409						0	171					0	
+1437	Mirza	coquereli	Chordata	cone	LWS	558						0	171					0	
+1438	Cheirogaleus	major	Chordata	cone	SWS	409						0	171					0	
+1439	Cheirogaleus	major	Chordata	cone	LWS	543						0	171					0	
+1440	Cheirogaleus	medius	Chordata	cone	LWS	543						0	171					0	
+1441	Avahi	laniger	Chordata	cone	LWS	558						0	171					0	
+1442	Lepilemur	ruficaudatus	Chordata	cone	SWS	416						0	171					0	
+1443	Lepilemur	ruficaudatus	Chordata	cone	LWS	543						0	171					0	
+1444	Daubentonia	madagascariensis 	Chordata	cone	SWS	406						0	171					0	
+1445	Daubentonia	madagascariensis 	Chordata	cone	LWS	543						0	171					0	
+1446	Loris	tardigradus	Chordata	cone	LWS	543						0	171					0	
+1447	Otolemur	crassicaudatus	Chordata	cone	LWS	543						0	171					0	
+1448	Otolemur	crassicaudatus	Chordata	rod		507						0	171					0	
+1449	Otolemur	garnettii	Chordata	cone	LWS	545						0	171					0	
+1450	Galago	senegalensis	Chordata	cone	LWS	545						0	171					0	
+1451	Tarsius	syrichta	Chordata	cone	LWS	558						0	171					0	
+1452	Tarsius	bancanus	Chordata	cone	LWS	543						0	171					0	
+1453	Aotus	trivirgatus	Chordata	cone	LWS	543						0	171					0	
+1454	Aotus	trivirgatus	Chordata	rod		500						0	171					0	
+1455	Procyon	lotor	Chordata	cone	LWS	560						0	171					0	
+1456	Procyon	lotor	Chordata	rod		503						0	171					0	
+1457	Potos	flavus	Chordata	cone	LWS	548						0	171					0	
+1458	Mustela	putorius furo	Chordata	cone	SWS	430						0	171					0	
+1459	Mustela	putorius furo	Chordata	cone	LWS	558						0	171					0	
+1460	Mustela	putorius furo	Chordata	rod		505						0	171					0	
+1461	Mus	musculus	Chordata	cone	SWS	360						0	171					0	
+1462	Mus	musculus	Chordata	cone	LWS	512						0	171					0	
+1463	Mus	musculus	Chordata	rod		498						0	171					0	
+1464	Rattus	rattus	Chordata	cone	SWS	360						0	171					0	
+1465	Rattus	rattus	Chordata	cone	LWS	510						0	171					0	
+1466	Rattus	rattus	Chordata	rod		498						0	171					0	
+1467	Glaucomys	sabrinus	Chordata	cone	LWS	512						0	171					0	
+1468	Monodelphis	domestica	Chordata	cone	SWS	362						0	171					0	
+1469	Monodelphis	domestica	Chordata	cone	LWS	555						0	171					0	
+1470	Didelphis	aurita	Chordata	cone	SWS	362						0	171					0	
+1471	Didelphis	aurita	Chordata	cone	LWS	555						0	171					0	
+1472	Didelphis	virginiana	Chordata	rod		493						0	171					0	
+1473	Setonix	brachyurus	Chordata	cone	SWS	424						0	171					0	
+1474	Setonix	brachyurus	Chordata	cone	LWS	502						0	171					0	
+1475	Setonix	brachyurus	Chordata	cone	LWS	538						0	171					0	
+1476	Setonix	brachyurus	Chordata	rod		505						0	171					0	
+1477	Thylamys	elegans	Chordata	cone	SWS	365						0	171					0	
+1478	Thylamys	elegans	Chordata	cone	LWS	565						0	171					0	
+1479	Thylamys	elegans	Chordata	rod		505						0	171					0	
+1480	Glossophaga	soricina	Chordata	cone	SWS	365						0	171					0	
+1481	Carollia	perspicillata	Chordata	cone	SWS	365						0	171					0	
+1482	Carollia	perspicillata	Chordata	rod		500						0	171					0	
+1483	Pteropus	dasymallus	Chordata	cone	SWS	358						0	171					0	
+1484	Pteropus	dasymallus	Chordata	cone	LWS	553						0	171					0	
+1485	Haplonycteris	fischeri	Chordata	cone	SWS	358						0	171					0	
+1486	Haplonycteris	fischeri	Chordata	cone	LWS	553						0	171					0	
+1487	Myotis	velifer	Chordata	cone	SWS	358						0	171					0	
+1488	Myotis	velifer	Chordata	cone	LWS	565						0	171					0	
+1489	Myotis	velifer	Chordata	rod		501						0	171					0	
+1490	Strix	aluco	Chordata	cone	SWS	463						0	171					0	
+1491	Strix	aluco	Chordata	rod		503						0	171					0	
+1492	Bubo	virginianus	Chordata	cone	LWS	555						0	171					0	
+1493	Caprimulgus	europaeus	Chordata	cone	SWS	406						0	171					0	
+1494	Tarentola	chazaliae	Chordata	cone	SWS	360						0	171					0	
+1495	Tarentola	chazaliae	Chordata	cone	SWS	440						0	171					0	
+1496	Tarentola	chazaliae	Chordata	cone	LWS	520						0	171					0	
+1497	Gekko	gekko	Chordata	cone	SWS	364						0	171					0	
+1498	Gekko	gekko	Chordata	cone	SWS	467						0	171					0	
+1499	Gekko	gekko	Chordata	cone	LWS	521						0	171					0	
+1500	Hemidactylus	turcicus	Chordata	cone	SWS	366						0	171					0	
+1501	Hemidactylus	turcicus	Chordata	cone	SWS	467						0	171					0	
+1502	Hemidactylus	turcicus	Chordata	cone	LWS	527						0	171					0	
+1503	Hemidactylus	garnotii	Chordata	cone	SWS	363						0	171					0	
+1504	Hemidactylus	garnotii	Chordata	cone	SWS	464						0	171					0	
+1505	Hemidactylus	garnotii	Chordata	cone	LWS	521						0	171					0	
+1506	Teratoscincus	scincus	Chordata	cone	SWS	365						0	171					0	
+1507	Teratoscincus	scincus	Chordata	cone	SWS	452						0	171					0	
+1508	Teratoscincus	scincus	Chordata	cone	LWS	533						0	171					0	
+1509	Mysis 		Arthropoda		LWS, MWS							0	119					0	
+1510	Cottus	gobio	Chordata	cone	LWS	465						0	129					0	
+1511	Cottus	gobio	Chordata	cone	MWS	453						0	129					0	
+1512	Cottus	gobio	Chordata	cone	SWS	452						0	129					0	
+1513	Cottus	gobio	Chordata	rod		458						0	129					0	
+1514	Serinus	canaria	Chordata	cone	LWS, single	615		A1	Adult			0	134					0	
+1515	Serinus	canaria	Chordata	cone	MWS, single	540		A1	Adult			0	134					0	
+1516	Serinus	canaria	Chordata	cone	SWS, single	450		A1	Adult			0	134					0	
+1517	Serinus	canaria	Chordata	cone	UVS, single	366		A1	Adult			0	134					0	
+1518	Serinus	canaria	Chordata	rod		505.5	2.1	A1	Adult			0	134					0	
+1519	Pseudotropheus 	acei	Chordata	rod		505	1.1					0	387					0	
+1520	Pseudotropheus 	acei	Chordata	cone	SWS, single	378	2.5					0	387					0	
+1521	Pseudotropheus 	acei	Chordata	cone	SWS, single	415	4.7					0	387					0	
+1522	Pseudotropheus 	acei	Chordata	cone	SWS, single	451	7.5					0	387					0	
+1523	Pseudotropheus 	acei	Chordata	cone	double	482	1					0	387					0	
+1524	Pseudotropheus 	acei	Chordata	cone	double	506	2.7					0	387					0	
+1525	Pseudotropheus 	acei	Chordata	cone	double	535	0.6					0	387					0	
+1526	Pseudotropheus 	acei	Chordata	cone	LWS, single	476	5.3					0	387					0	
+1527	Pseudotropheus 	acei	Chordata	cone	LWS, single	505	2.3					0	387					0	
+1528	Pseudotropheus 	acei	Chordata	cone	LWS, single	534	2.1					0	387					0	
+1529	Pseudotropheus 	acei	Chordata	cone	LWS, single	566	8					0	387					0	
+1530	Melanochromis 	vermivorus	Chordata	rod		505	1.1					0	387					0	
+1531	Melanochromis 	vermivorus	Chordata	cone	SWS, single	418	1.3					0	387					0	
+1532	Melanochromis 	vermivorus	Chordata	cone	double	485	1.2					0	387					0	
+1533	Melanochromis 	vermivorus	Chordata	cone	double 	503	3.5					0	387					0	
+1534	Melanochromis 	vermivorus	Chordata	cone	double 	535	0.5					0	387					0	
+1535	Melanochromis 	vermivorus	Chordata	cone	single 	506	3.9					0	387					0	
+1536	Melanochromis 	vermivorus	Chordata	cone	single 	555	2.2					0	387					0	
+1537	Tramitichromis 	intermedius	Chordata	rod		506	0.9					0	387					0	
+1538	Tramitichromis 	intermedius	Chordata	cone	single 	455	1.9					0	387					0	
+1539	Tramitichromis 	intermedius	Chordata	cone	double	532	0.6					0	387					0	
+1540	Tramitichromis 	intermedius	Chordata	cone	double	569	1.1					0	387					0	
+1541	Tramitichromis 	intermedius	Chordata	cone	single	534	1.5					0	387					0	
+1542	Neogonodactylus	oerstedii	Arthropoda	retinular		334	3.3				1	0	388					0	
+1543	Neogonodactylus	oerstedii	Arthropoda	retinular		383	0			0	2	0	388					0	
+1544	Bombus 	impatiens	Arthropoda	retinular	R3-8	539	0			1	15	1026	395					0	
+1545	Bombus 	impatiens	Arthropoda	retinular	R1, R2	424	0			1	16	1027	395					0	
+1546	Bombus 	impatiens	Arthropoda	retinular	R1, R2	347	0			1	17	1028	395					0	
+1547	Drosophilia	melanogaster	NA	retinular	R1-6	486	0			0	21	0	399-402					0	
+1548	Drosophilia	melanogaster	NA	retinular		418	0			0	22	0	399-402					0	
+1549	Drosophilia	melanogaster	NA	retinular	R7	331	0			0	23	0	399-402					0	
+1550	Drosophilia	melanogaster	NA	retinular	R7	355	0			0	24	0	399-402					0	
+1551	Drosophilia	melanogaster	NA	retinular	R8	442	0			0	25	0	399-402					0	
+1552	Drosophilia	melanogaster	NA	retinular	R8	515	0			0	26	0	399-402					0	
+1553	Lycaena	rubidus	Arthropoda	retinular	R1-2	360	0				27	0	403-404					0	
+1554	Lycaena	rubidus	Arthropoda	retinular	R1-8	437	0				28	0	403-404					0	
+1555	Lycaena	rubidus	Arthropoda	retinular	R1-2 	500	0				29	0	403-404					0	
+1556	Lycaena	rubidus	Arthropoda	retinular	R3-8	568	0				30	0	403-404					0	
+1557	Squilla	empusa	Arthropoda	rhabdomeric	R1-7	507	0					0	435	monochromic				0	
+1558	Acyrthosiphon	pisum	Arthropoda	retinular		518	0					1313	436	using intracellular recording from only green photoreceptor; identified the green opsin using process of elimination				0	
+1559	Heliconius	erato petiverana	Arthropoda	retinular	R1-R2	389	1.6				32	1791	466	female UVRh2				0	
+1560	Heliconius	erato petiverana	Arthropoda	retinular	R1-R2	356	1.5				33	1792	466	female UVRh1				0	
+1561	Heliconius	erato petiverana	Arthropoda	retinular	R1-R2	470	2				34	1793	466	female BRh				0	
+1562	Heliconius	erato petiverana	Arthropoda	retinular	R3–8	555	1				35	1794	466	female LWRh				0	
+1563	Heliconius	erato petiverana	Arthropoda	retinular	R1-R2	390	1.2				36	1795	466	male UVRh2				0	
+1564	Heliconius	erato petiverana	Arthropoda	retinular	R1-R2	469	1.8				37	1796	466	male BRh				0	
+1565	Heliconius	erato petiverana	Arthropoda	retinular	R3–8	556	2.2				38	1797	466	male LWRh				0	
+1566	Coccinella	septempunctata	Arthropoda	retinula		360						1585-1587	463	uv, 1585-1587				0	
+1567	Coccinella	septempunctata	Arthropoda	retinula		420						1585-1588	463	blue				0	
+1568	Coccinella	septempunctata	Arthropoda	retinula		520						1585-1589	463	green				0	
+1569	Pieris	rapae crucivora	Arthropoda	retinula	R3,R4	563			Adult		39	2450	479	LWS				0	
+1570	Neoceratodus	forsteri	Chordata	cone	single	366			Adult	0		0	19					0	
