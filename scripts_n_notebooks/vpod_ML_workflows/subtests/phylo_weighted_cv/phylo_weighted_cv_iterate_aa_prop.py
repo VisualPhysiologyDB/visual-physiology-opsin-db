@@ -38,9 +38,9 @@
 
 # %%
 #loading neccessary vpod scripts for phylogenetic cross validation
-from vpod_scripts.phylo_weighted_cv import get_dist_matrix_from_tree, percentile_threshold, phylo_weighted_cv
+from vpod_scripts.phylo_weighted_cv import get_dist_matrix_from_tree, percentile_threshold, phylo_weighted_cv, plot_phylo_cv_line_graphs, plot_phylo_cv_indv_model_graphs, plot_phylo_cv_bar_graphs 
 # importing deepBreaks libraries 
-from deepBreaks.utils import get_models, get_scores, make_pipeline
+from deepBreaks.utils_alt2 import get_models, get_scores, make_pipeline
 from deepBreaks.preprocessing import MisCare, ConstantCare
 from deepBreaks.preprocessing import FeatureSelection, CollinearCare, AminoAcidPropertyEncoder
 from deepBreaks.preprocessing import read_data
@@ -57,13 +57,16 @@ warnings.simplefilter('ignore')
 
 # %%
 # defining user params, file pathes, analysis type
-
+# Maybe make these all command line input parameters? Add param for whether or not to used gs optimized params for model training? 
 #assign your path to folder containing all the datasplits
-path = './vpod_1.2_data_splits_2024-08-20_16-14-09'
+path = './vpod_1.2_data_splits_2024-10-19_10-30-09'
 # path to sequences of interest
-seqFileName = f'{path}/wt_aligned_VPOD_1.2_het.fasta' 
+seqFileName = f'{path}/wt_mnm_aligned_VPOD_1.2_het.fasta' 
 # path to corresponding metadata of interest
-metaDataFileName = f'{path}/wt_meta.tsv' 
+metaDataFileName = f'{path}/wt_mnm_meta.csv' 
+ds = 'wt'
+
+encoding = 'aa_prop'
 
 # name of the phenotype
 mt = 'Lambda_Max'
@@ -79,6 +82,9 @@ gap_threshold = 0.5
 #Whether or not you want to drop the reference sequence from the training data- Either 'Bovine' or 'Squid' (for Invertebrate dataset)
 drop_ref = False
 
+#folder containing target trees
+tree_folder = "./phylo_cv_results/opsin_vert_wt_tree/vpod_1.2"
+
 #Specify which properties you want to keep for the amino-acid property encoding:
 #We keep FIVE by deafult - 'H1, H3, P1, NCI, MASS' 
 #But NINE total are avaliable -'H1, H2, H3, P1, P2, V, NCI, MASS, and SASA' 
@@ -87,7 +93,7 @@ drop_ref = False
 props_to_keep = ['H1', 'H3', 'NCI']
 
 # making a unique directory for saving the reports of the analysis
-print('direcory preparation')
+#print('direcory preparation')
 dt_label = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 seqFile = seqFileName.split('/')[2]
 #print(seqFile)
@@ -100,11 +106,11 @@ report_dir = str(props_used + seqFile +'_' + mt + '_' + dt_label)
 os.makedirs(report_dir)
 
 # %%
-print('reading meta-data')
+#print('reading meta-data')
 # importing metadata
 meta_data = read_data(metaDataFileName, seq_type = None, is_main=False)
 # importing sequences data
-print('reading fasta file')
+#print('reading fasta file')
 
 tr = read_data(seqFileName, seq_type = seq_type, is_main=True, gap_threshold=gap_threshold)
 
@@ -115,10 +121,9 @@ tr = tr.merge(meta_data.loc[:, mt],  left_index=True, right_index=True)
 
 # %%
 # Parameters and Conditions to Test
-relation_handling_methods = ["leave_out", "max_mean", "merge", "random"]
+relation_handling_methods = ["leave_out", "merge", "max_mean", "random"]
 n_folds_range = [5, 8, 10, 12, 15, 20]
 percentile_threshold_range = list(range(1, 96, int(95 / 40))) # Generate 40 percentile points
-tree_folder = "./opsin_wt_tree/vpod_1.2_wt"
 
 # %%
 # Create prep_pipeline outside the loop to avoid re-creation
@@ -166,10 +171,10 @@ for tree_file in os.listdir(tree_folder):
                     if tr_temp.shape[0] > 100:
                         # Run deepBreaks pipeline (assuming necessary functions exist)
                         report, top = model_compare_cv(X=tr_temp, y=y, preprocess_pipe=prep_pipeline,
-                                models_dict=get_models(ana_type=ana_type),
-                                scoring=get_scores(ana_type=ana_type),
-                                report_dir=report_dir,
-                                cv=tr_phylo_folds, ana_type=ana_type, cache_dir=report_dir)
+                                                    models_dict=get_models(ana_type=ana_type, dataset=ds, encoding=encoding),
+                                                    scoring=get_scores(ana_type=ana_type),
+                                                    report_dir=report_dir,
+                                                    cv=10, ana_type=ana_type, cache_dir=report_dir)
                         # Record R^2 values for each model
                         with open(results_file, "a") as f:
                             for model_name, r2_value, mae_value, mape_value, mse_value, rmse_value in zip(report.index.to_list(), report["R2"],report["MAE"],report["MAPE"],report["MSE"],report["RMSE"]):
@@ -179,6 +184,15 @@ for tree_file in os.listdir(tree_folder):
                         shutil.rmtree(f'{report_dir}/joblib')
                     else:
                         continue
-
+    
+    # The next three functions are for generating several graphs for various analyses on relationship between handling methods and model metrics. 
+    plot_phylo_cv_line_graphs(results_folder, results_file, atts_of_intrst=['R2', 'MAE', 'MAPE', 'MSE', 'RMSE'])
+    
+    plot_phylo_cv_bar_graphs(results_folder, results_file, atts_of_intrst=['R2', 'MAE', 'MAPE', 'MSE', 'RMSE'])
+    
+    plot_phylo_cv_indv_model_graphs(results_folder, results_file)
+    
+    # Moving the folder with alignment to the results folder to have as a sort of metadata for post analysis 
+    shutil.move(report_dir, results_folder)
 
 

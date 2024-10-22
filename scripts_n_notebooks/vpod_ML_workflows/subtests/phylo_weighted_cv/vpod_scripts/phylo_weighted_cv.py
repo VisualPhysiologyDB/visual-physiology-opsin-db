@@ -1,8 +1,9 @@
 import numpy as np
 import pandas as pd
-from Bio import Phylo
-import numpy as np
 import random
+from Bio import Phylo
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 
 def get_dist_matrix_from_tree(tree_file):
@@ -166,6 +167,102 @@ def phylo_weighted_cv(distance_matrix, tip_names, n_folds, distance_threshold, r
     #tip_to_dist = dict(zip(tip_names, ))
     return tip_to_fold_df
 
+def plot_phylo_cv_line_graphs(report_dir, results_file, atts_of_intrst=['R2', 'MAE', 'MAPE', 'MSE', 'RMSE']):
+    
+    results_df = pd.read_csv(results_file)
+    model_att = results_df[results_df['Model'] != 'lr']
+    # Get unique relation handling methods
+    relation_handling_methods = model_att['Relation_Handling'].unique()
+    for attr in atts_of_intrst:
+        for method in relation_handling_methods:
+            # Filter for 'leave_out' method and drop NaN values
+            method_df = model_att[model_att['Relation_Handling'] == method].dropna(subset=attr)
+            # Create the plot using Seaborn
+            plt.figure(figsize=(16, 8))  # Increase width for better clarity
+            sns.lineplot(data=method_df, x='Threshold', y=attr, hue='Model')
 
+            # Add labels and title with larger font size
+            plt.xlabel(f'Percentile Threshold\n(Using "{method}" Threshold Handling)', fontsize=20)
+            plt.ylabel(attr, fontsize=20)
+            plt.xticks(fontsize=20)
+            plt.yticks(fontsize=20)
 
+            # Place the legend in the bottom left corner
+            plt.legend(loc='lower left', fontsize=16)
 
+            # Show the plot
+            plt.tight_layout()
+
+            # Save the figure as an SVG file
+            plt.savefig(f'./{report_dir}/{attr}_{method}_handling_performance_trend.svg', format='svg')  # You can change the filename if needed
+
+            plt.show()
+
+def plot_phylo_cv_indv_model_graphs(report_dir, results_file):
+
+    results_df = pd.read_csv(results_file)
+    results_df = results_df[results_df['Model'] != 'lr']
+    model_list = results_df['Model'].unique().tolist()
+
+    for model in model_list:
+        # Filter for method and drop NaN values
+        model_df = results_df[results_df['Model'] == model].dropna(subset=['R2'])
+        model_df = model_df[model_df['R2'] >= 0]
+
+        # Create the plot using Seaborn
+        plt.figure(figsize=(16, 8))  # Increase width for better clarity
+        sns.lineplot(data=model_df, x='Threshold', y='R2', hue='Relation_Handling')
+
+        # Add labels and title with larger font size
+        plt.xlabel(f'Percentile Threshold\n(All Methods of Threshold Handling for {model} Model)', fontsize=20)
+        plt.ylabel('R^2', fontsize=20)
+        plt.xticks(fontsize=20)
+        plt.yticks(fontsize=20)
+
+        # Place the legend in the bottom left corner
+        plt.legend(loc='lower left', fontsize=16)
+
+        # Show the plot
+        plt.tight_layout()
+
+        # Save the figure as an SVG file
+        plt.savefig(f'./{report_dir}/{model}_performance_vs_handling.svg', format='svg')  # You can change the filename if needed
+
+        plt.show()
+
+def plot_phylo_cv_bar_graphs(report_dir, results_file, atts_of_intrst=['R2', 'MAE', 'MAPE', 'MSE', 'RMSE']):
+
+    results_df = pd.read_csv(results_file)
+    model_att = results_df[results_df['Model'] != 'lr']
+    
+    for attr in atts_of_intrst:
+        # Group by `Relation_Handling` and `Model`, calculate the mean of `R2`, and reset the index
+        model_att = results_df.groupby(['Relation_Handling', 'Model'])[attr].mean().reset_index()
+        model_att = model_att[model_att['Model'] != 'lr']
+        # Get unique relation handling methods
+        relation_handling_methods = model_att['Relation_Handling'].unique()
+
+        # Create a separate bar plot for each relation handling method
+        for method in relation_handling_methods:
+            # Filter data for the current method
+            method_data = model_att[model_att['Relation_Handling'] == method]
+            method_data = method_data.sort_values([attr], ascending=[False])
+
+            # Create the bar plot
+            plt.figure(figsize=(10, 6))  # Adjust figure size as needed
+            sns.barplot(data=method_data, x='Model', y=attr)
+
+            # Add labels and title
+            plt.xlabel('Model')
+            plt.ylabel(f'Mean {attr}')
+            plt.title(f'Mean {attr} for Relation Handling Method: {method}')
+            plt.xticks(rotation=45)  # Rotate x-axis labels if needed
+
+            # Show the plot
+            plt.tight_layout()
+
+            # Save the figure as an SVG file
+            plt.savefig(f'./{report_dir}/avg_{attr}_perf_{method}_handling_bar_graph.svg', format='svg')  # You can change the filename if needed
+
+            # Display the plot
+            plt.show()
