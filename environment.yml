@@ -1,0 +1,22 @@
+# This file may be used to create an environment using:
+# $ conda env create
+# You can specify a different name or path using:
+# $ conda env create --name <environment name>
+# $ conda env create --prefix <path>
+name: vpod
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - scikit-bio
+  - scikit-learn
+  - biopython
+  - seaborn
+  - sqlite
+  - executing
+  - lightgbm
+  - xgboost
+  - notebook
+  - pip
+  - pip:
+    - deepbreaks
