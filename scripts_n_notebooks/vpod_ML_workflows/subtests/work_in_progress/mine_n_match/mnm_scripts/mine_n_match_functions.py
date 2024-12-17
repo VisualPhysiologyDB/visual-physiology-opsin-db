@@ -4,7 +4,7 @@ import datetime
 import time
 import pandas as pd
 from Bio import Entrez, SeqIO
-from progress.bar import ShadyBar
+import progressbar
 
 
 # create a function that return the collection of all NCBI fetch result
@@ -22,7 +22,7 @@ def ncbi_fetch(email, term, ncbi_db = "nuccore", rettype = "gb", format = "genba
                         api_key = "1efb120056e1cea873ba8d85d6692abd5d09",
                         retmax = full_res + 1)
   record_full = Entrez.read(handle_full)
-  print(record_full)
+  #print(record_full)
   q_list = record_full["IdList"]
 
 # create a list for all the sequence fetched from NCBI
@@ -53,7 +53,6 @@ def ncbi_query_to_df(query_list):
     
     # loop through the result list obtained from the NCBI search
     # may take over 10 minutes
-    bar = ShadyBar('Processing Sequences', max=len(query_list), charset='ascii')
     for query in query_list:
         for seq in query:
             # get genus nd speceis name seperately
@@ -76,7 +75,6 @@ def ncbi_query_to_df(query_list):
             gene_des.append(str(seq.description))
             version.append(str(seq.id))
             Protein.append(str(pro_seq))
-        bar.next()
     # create a dataframe for the information
     ncbi_q_df = pd.DataFrame(
         {'Accession': version,
@@ -87,7 +85,6 @@ def ncbi_query_to_df(query_list):
         'Gene_Description': gene_des
         })
     ncbi_q_df.drop_duplicates(subset=['Full_Species', 'Protein'],  keep='first')
-    bar.finish()
     return ncbi_q_df
     
 
@@ -97,30 +94,76 @@ def ncbi_fetch_opsins(email, job_label='unnamed', out='unnamed', species_list=No
     query_list = []
     
     # make a progress bar for tracking query progression. Based on length of the species list
-    bar = ShadyBar('Processing Sequences', max=len(species_list), charset='ascii')
-    for species in species_list:
-        NCBI_seq = ncbi_fetch(email=email, 
-                        term = f"{species}[ORGN] AND (opsin[All Fields] AND complete[All Fields] AND cds[All Fields] NOT voucher)")
-        query_list.append(NCBI_seq)
-        bar.next()
-    bar.finish()
-    print('NCBI Queries Complete!\nNow Extracting and Formatting Results For DataFrame...\n')
-    ncbi_q_df = ncbi_query_to_df(query_list=query_list)
+    i=0
+    with progressbar.ProgressBar(max_value=len(species_list),style='BouncingBar') as bar:
+        for species in species_list:
+            NCBI_seq = ncbi_fetch(email=email, 
+                            term = f"{species}[Organism] AND (opsin[Title] OR rhodopsin[Title] OR Opn[Title] OR rh1[Title] OR rh2[Title] OR Rh1[Title] OR Rh2[Title]) NOT partial[Title] NOT voucher[All Fields] NOT kinase[All Fields] NOT similar[Title] NOT homolog[Title]")
+            query_list.append(NCBI_seq)
+            bar.update(i)
+            i+=1
+        bar.finish()
+    try:
+        dt_label = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+        report_dir = f'mnm_on_{job_label}_{dt_label}'
+        os.makedirs(report_dir)
+        print('NCBI Queries Complete!\nNow Extracting and Formatting Results For DataFrame...\n')
+        ncbi_q_df = ncbi_query_to_df(query_list=query_list)
+        
+        if out == 'unnamed':
+            out = job_label
+        ncbi_q_df.to_csv(path_or_buf=f"./{report_dir}/{out.replace(' ','_')}_ncbi_q_data.csv", index=False)
+        print('DataFrame Formatted and Saved to CSV file for future use :)\n')
+        fasta_file = f'{report_dir}/mined_{out.replace(" ","_")}_seqs.fasta'
+        with open(fasta_file, 'w') as f:
+            for id, seq in zip(ncbi_q_df['Accession'], ncbi_q_df['Protein']):
+                f.write(f'>{id}\n{seq}\n')
+        print('FASTA File Saved...\n')
+        
+        # Cleaning raw ncbi query df to keep only species entries that match our input sp list - returns the 'clean' df
+        # Will also return a dataframe of the 'potential' hits - since it could be that the species that don't match is due to species mispelling or synonymous names
+        ncbi_sp_hits = list(set(ncbi_query_df['Full_Species'].to_list()))
+        #len(ncbi_sp_hits)
+        intersection = list(set(ncbi_sp_hits) & set(species_list))
+        #len(intersection)
+        sp_no_hits  = list(set(species_list).symmetric_difference(intersection))
+        #len(sp_no_hits)
+        if len(sp_no_hits) > 0:
+            print('Saving txt file with names of species that retrieved no results for opsins...\n')
+            no_sp_hits_file = f'{report_dir}/species_w_no_hits.txt'
+            with open(no_sp_hits_file, 'w') as f:
+                for sp in sp_no_hits:
+                    f.write(f'{sp}\n')
+        
+        sp_rnd_hits  = list(set(ncbi_sp_hits).symmetric_difference(intersection))
+        if len(sp_no_hits) > 0:
+            print('Saving txt file with names of species that retrieved results for opsins but are NOT in submitted species list...\n')
+            #len(sp_rnd_hits)
+            rnd_sp_hits_file = f'{report_dir}/potnetial_species_hits.txt'
+            with open(rnd_sp_hits_file, 'w') as f:
+                for sp in sp_rnd_hits:
+                    f.write(f'{sp}\n')
+            ncbi_query_df_cleaned = ncbi_query_df[~ncbi_query_df['Full_Species'].isin(sp_rnd_hits)]
+            ncbi_query_df_potential_hits = ncbi_query_df[ncbi_query_df['Full_Species'].isin(sp_rnd_hits)]
+            #ncbi_query_df_cleaned.shape
+            #ncbi_query_df_potential_hits.shape
+            print('Saving and returning cleaned dataframe with only species entries from species list...\n')
+            ncbi_query_df_cleaned.to_csv(path_or_buf=f'{report_dir}/mnm_on_all_dbs_ncbi_q_data_cleaned.csv', index=False)
+            print('Saving another dataframe with species that retrieved results for opsins but are NOT in submitted species list for further examination...\n')
+            ncbi_query_df_potential_hits.to_csv(path_or_buf=f'{report_dir}/mnm_on_all_dbs_ncbi_q_potential_hits.csv', index=False)
+            
+            fasta_file = f'{report_dir}/mined_{out.replace(" ","_")}_seqs_cleaned.fasta'
+            with open(fasta_file, 'w') as f:
+                for id, seq in zip(ncbi_query_df_cleaned['Accession'], ncbi_query_df_cleaned['Protein']):
+                    f.write(f'>{id}\n{seq}\n')
+            print('Clean FASTA File Saved...\n')
+            return(ncbi_query_df_cleaned)
+        
+        return(ncbi_q_df)
     
-    dt_label = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-    report_dir = f'mnm_on_{job_label}_{dt_label}'
-    os.makedirs(report_dir)
-    if out == 'unnamed':
-        out = job_label
-    ncbi_q_df.to_csv(path_or_buf=f"./{report_dir}/{out.replace(' ','_')}_ncbi_q_data.csv", index=False)
-    print('DataFrame Formatted and Saved to CSV file for future use :)\n')
-    fasta_file = f'{report_dir}/mined_{out.replace(' ','_')}_seqs.fasta'
-    with open(fasta_file, 'w') as f:
-        for id, seq in zip(ncbi_q_df['Accession'], ncbi_q_df['Protein']):
-            f.write(f'>{id}\n{seq}\n')
-    print('FASTA File Saved...\n')
-
-    return(ncbi_q_df)
+    except:
+        print('Error occured when trying to save dataframe of NCBI query data!\nReturning query list instead...')
+        return(query_list)
 
 def create_matched_df(mnm_merged_df, source_data):
     # Get unique species from predictions
@@ -303,3 +346,77 @@ def post_process_matching(report_dir, mnm_file):
     mnm_duplicates.to_csv(path_or_buf=f"./mine_n_match_duplicates_{dt_label}.csv", index=True)
     
     return(mnm_data_unique)
+
+import requests
+from requests.adapters import HTTPAdapter, Retry
+import re
+import random
+
+def get_random_protein_fasta(query, max_outputs=2000, desired_seqs=5000, out=None):
+    # Define the UniProt API endpoint
+    base_url = "https://rest.uniprot.org/uniprotkb/search"
+
+    # Loop until all results are fetched
+    # Define the parameters for the API request
+    params = {
+        "query": query,
+        "format": "fasta",
+        "size": 500,  # Fetch in batches of 500
+    }
+
+    # Send the API request
+    ex_response = requests.get(base_url, params=params)
+
+    re_next_link = re.compile(r'<(.+)>; rel="next"')
+    retries = Retry(total=5, backoff_factor=0.25, status_forcelist=[500, 502, 503, 504])
+    session = requests.Session()
+    session.mount("https://", HTTPAdapter(max_retries=retries))
+    all_sequences = []
+
+    url = ex_response.url
+    interactions = {}
+    for batch, total in get_batch(url, session, re_next_link):
+        sequences = batch.text.split(">")[1:]
+            #primaryAccession, interactsWith = line.split('\t')
+            #interactions[primaryAccession] = len(interactsWith.split(';')) if interactsWith else 0
+
+            # Add the sequences to the list
+        all_sequences.extend(sequences)
+        
+        if len(all_sequences) > desired_seqs:
+            break
+
+        print(f'{len(all_sequences)} / {total}')
+        
+    unique_sequences = list(set(all_sequences))
+    
+    # Randomly select 1000 sequences from the unique list
+    if len(unique_sequences) >= max_outputs:
+        random_sequences = random.sample(unique_sequences, desired_seqs)
+    else:
+        random_sequences = unique_sequences  # Take all unique sequences if less than 1000
+
+    # Save the sequences to a file
+    with open(out, "w") as f:
+        
+        #f.write(">" + ">".join(random_sequences)
+        for entry in random_sequences:
+            name,sequence = entry.split('\n',1)
+            f.write(f'>{name.strip().replace("|","_").replace(" ","_").replace("/","")[0:30]}\n')
+            f.write(f'{sequence}')
+            
+    return(random_sequences)
+
+def get_next_link(headers, re_next_link):
+    if "Link" in headers:
+        match = re_next_link.match(headers["Link"])
+        if match:
+            return match.group(1)
+
+def get_batch(batch_url, session, re_next_link):
+    while batch_url:
+        response = session.get(batch_url)
+        response.raise_for_status()
+        total = response.headers["x-total-results"]
+        yield response, total
+        batch_url = get_next_link(response.headers, re_next_link)

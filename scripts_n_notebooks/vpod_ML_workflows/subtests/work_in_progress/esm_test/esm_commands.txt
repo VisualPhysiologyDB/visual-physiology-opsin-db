@@ -8,3 +8,5 @@ python scripts/extract.py esm1v_t33_650M_UR90S_1 C:\Users\safra\Documents\GitHub
 
 
 python scripts/extract.py esm1v_t33_650M_UR90S_1 E:\safra\Documents\GitHub\visual-physiology-opsin-db\scripts_n_notebooks\vpod_ML_workflows\subtests\work_in_progress\mine_n_match\non_opsins\random_proteins_uniprot.fasta  E:\safra\Documents\GitHub\visual-physiology-opsin-db\scripts_n_notebooks\vpod_ML_workflows\subtests\work_in_progress\mine_n_match\non_opsins --repr_layers 33 --include mean
+
+python scripts/extract.py esm1v_t33_650M_UR90S_1 E:\safra\Documents\GitHub\visual-physiology-opsin-db\scripts_n_notebooks\vpod_ML_workflows\subtests\work_in_progress\esm_test\vpod_1.2_all\unique_opsins_vpod_1.2.fasta  E:\safra\Documents\GitHub\visual-physiology-opsin-db\scripts_n_notebooks\vpod_ML_workflows\subtests\work_in_progress\esm_test\vpod_1.2_all --repr_layers 33 --include mean
