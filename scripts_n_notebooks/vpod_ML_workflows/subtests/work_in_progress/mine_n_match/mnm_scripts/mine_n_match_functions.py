@@ -52,7 +52,6 @@ def ncbi_query_to_df(query_list):
     full_sp_names = []
     
     # loop through the result list obtained from the NCBI search
-    # may take over 10 minutes
     for query in query_list:
         for seq in query:
             # get genus nd speceis name seperately
@@ -84,7 +83,9 @@ def ncbi_query_to_df(query_list):
         'Protein': Protein,
         'Gene_Description': gene_des
         })
-    ncbi_q_df.drop_duplicates(subset=['Full_Species', 'Protein'],  keep='first')
+
+    # This could be where the duplicate issue arises
+    ncbi_q_df.drop_duplicates(subset=['Full_Species', 'Protein'],  keep='first', inplace=True)
     return ncbi_q_df
     
 
@@ -165,6 +166,170 @@ def ncbi_fetch_opsins(email, job_label='unnamed', out='unnamed', species_list=No
         print('Error occured when trying to save dataframe of NCBI query data!\nReturning query list instead...')
         return(query_list)
 
+
+def clean_lambda_max(df, lambda_max_column):
+    """
+    Cleans a DataFrame column containing lambda max values.
+
+    Args:
+        df: The pandas DataFrame.
+        lambda_max_column: The name of the column containing lambda max values.
+
+    Returns:
+        A new DataFrame with cleaned lambda max values.
+    """
+
+    new_rows = []
+
+    for index, row in df.iterrows():
+        lambda_max_str = str(row[lambda_max_column])  # Convert to string to handle potential NaN
+        other_data = row.drop(lambda_max_column)
+
+        if pd.isna(lambda_max_str) or lambda_max_str.lower() == 'nan' :  # Handle NaN or "nan" string values
+            new_row = other_data.to_dict()
+            new_row[lambda_max_column] = np.nan
+            new_rows.append(new_row)
+            continue
+
+
+        if ',' in lambda_max_str:
+            # Multiple values separated by commas
+            values = lambda_max_str.split(',')
+            for value in values:
+                new_row = other_data.to_dict()
+                # Remove non-numerical characters and take average if necessary
+                cleaned_value = clean_single_value(value)
+                new_row[lambda_max_column] = cleaned_value
+                new_rows.append(new_row)
+
+        elif '-' in lambda_max_str:
+            # Range of values
+            new_row = other_data.to_dict()
+            # Remove non-numerical characters and take average
+            new_row[lambda_max_column] = clean_single_value(lambda_max_str)
+            new_rows.append(new_row)
+        else:
+            # Single value (potentially with non-numerical characters)
+            new_row = other_data.to_dict()
+            new_row[lambda_max_column] = clean_single_value(lambda_max_str)
+            new_rows.append(new_row)
+
+    new_df = pd.DataFrame(new_rows)
+    return new_df
+
+def clean_single_value(value_str):
+    """
+    Cleans a single lambda max value string.
+    
+    Args:
+        value_str: string of lambda max value
+
+    Returns:
+        Cleaned numerical lambda max value or np.nan if unable to extract
+    """
+    
+    # Extract numbers and hyphens
+    numbers = re.findall(r"[\d\-]+", value_str)
+    
+    if not numbers:
+        return np.nan  # Return NaN if no numbers are found
+    
+    # Handle multiple numbers
+    if len(numbers) > 1:
+        extracted_numbers = []
+        for num in numbers:
+            # If hyphen is present, split the values and convert to numbers
+            if '-' in num:
+                try:
+                    start, end = map(float, num.split('-'))
+                    extracted_numbers.extend([start, end])
+                except ValueError:
+                    return np.nan  # Return NaN if there's a problem with splitting or converting to float
+            else:
+                try:
+                    extracted_numbers.append(float(num))
+                except ValueError:
+                    return np.nan # Return NaN if value cannot be converted to float
+        return np.mean(extracted_numbers)
+    
+    # Handle single range or single number
+    elif len(numbers) == 1:
+        if '-' in numbers[0]:
+            try:
+                start, end = map(float, numbers[0].split('-'))
+                return np.mean([start, end])
+            except ValueError:
+                return np.nan
+        else:
+            try:
+                return float(numbers[0])
+            except ValueError:
+                return np.nan
+
+def merge_accessory_dbs(df_list, report_dir):
+    """
+    Merges a list of DataFrames, retaining specified columns and using index 
+    columns as foreign keys.
+
+    Args:
+      df_list: A list of pandas DataFrames.
+
+    Returns:
+      A merged pandas DataFrame.
+    """
+
+    merged_df = pd.DataFrame()  # Initialize an empty DataFrame
+
+    for df in df_list:
+      # If 'Accession' is missing, create it with NaN values
+      if 'Accession' not in df.columns:
+          df['Accession'] = pd.NA  
+
+      # Extract the name of the index column
+      index_name = df.index.name 
+      # Select desired columns, including the index as a new column
+      temp_df = df[['Full_Species', 'LambdaMax', 'Accession']].copy()
+      temp_df = temp_df.reset_index(drop=True)
+      temp_df[index_name] = df.index.astype(str).to_list()
+      #temp_df['LambdaMax'] = temp_df['LambdaMax'].astype(str) 
+      #print(temp_df.head())
+
+      # Rename the index column to its unique name
+      #df = df.rename(columns={index_name: index_name})
+
+      # Perform the merge (outer join to keep all data)
+      if merged_df.empty:
+          merged_df = temp_df
+      else:
+          merged_df = pd.concat([merged_df, temp_df]) 
+          
+    merged_df.index.name = 'comp_db_id'
+    #merged_df.drop_duplicates(subset=['Full_Species', 'LambdaMax'], keep='first', inplace=True)
+    # Sort the DataFrame by 'Accession' (descending) and then 'obs_id' (ascending)
+    processed_df = merged_df.sort_values(by=['Accession', 'comp_db_id'], ascending=[False, True])
+    # Drop duplicate rows based on 'Full_Species' and 'LambdaMax', keeping the first occurrence
+    processed_df = processed_df.drop_duplicates(subset=['Full_Species', 'LambdaMax'], keep='first')
+    processed_df.dropna(subset=['LambdaMax'], inplace=True)
+    #re-sort by index and then reset index
+    #processed_df = processed_df.sort_values('comp_db_id')
+    processed_df = processed_df.reset_index(drop=True)
+    processed_df.index.name = 'comp_db_id'
+    dt_label = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    processed_df.to_csv(f'{report_dir}/vpod_comp_acc_dbs_{dt_label}.csv', index=True)
+
+    #Clean the proccessed df column containing lambda max values of rows with mutliple entries or ranges
+    cleaned_df = clean_lambda_max(processed_df.copy(), 'LambdaMax')  # Use df.copy() to avoid modifying the original DataFrame
+    cleaned_df.dropna(subset=['LambdaMax'], inplace=True)
+    cleaned_df = cleaned_df.reset_index(drop=True)
+    cleaned_df.index.name = 'comp_db_id'
+    
+    #save the final clean, merged df
+    dt_label = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    cleaned_df.to_csv(f'{report_dir}/clean_vpod_comp_acc_dbs_{dt_label}.csv', index=True)
+    
+    return cleaned_df
+
+
 def create_matched_df(mnm_merged_df, source_data):
     # Get unique species from predictions
     unique_species = list(mnm_merged_df['Full_Species'].unique())
@@ -184,40 +349,41 @@ def create_matched_df(mnm_merged_df, source_data):
             #print(species)
             # Iterate through each prediction for the current species
             for _, prediction_row in species_predictions.iterrows():
-                prediction_value = prediction_row['Prediction_Means']
-            try:
-                accession = prediction_row['Accession']
-            except:
-                accession = prediction_row.name
+                prediction_value = prediction_row['Prediction_Medians']
+                try:
+                    accession = prediction_row['Accession']
+                except:
+                    accession = prediction_row.name
 
-            # Calculate absolute differences between the prediction and all measurements for the species
-            species_measurements.loc[:, 'abs_diff'] = (species_measurements['LambdaMax'] - prediction_value).abs()
-            # Find the closest measurement (handling ties)
-            closest_measurement_row = species_measurements.sort_values('abs_diff').iloc[0]
-            min_diff = closest_measurement_row['abs_diff']
-            
-            existing_match_index = next((i for i, match in enumerate(matched_results) if match['Accession'] == accession), None)
+                # Calculate absolute differences between the prediction and all measurements for the species
+                species_measurements.loc[:, 'abs_diff'] = (species_measurements['LambdaMax'] - prediction_value).abs()
+                # Find the closest measurement (handling ties)
+                closest_measurement_row = species_measurements.sort_values('abs_diff').iloc[0]
+                min_diff = closest_measurement_row['abs_diff']
+                
+                existing_match_index = next((i for i, match in enumerate(matched_results) if match['Accession'] == accession), None)
 
-            if (existing_match_index is not None): 
-                if (min_diff < matched_results[existing_match_index]['abs_diff']):
-                    # If it exists, compare the absolute differences and keep the better match
-                    matched_results[existing_match_index].update({
+                if (existing_match_index is not None): 
+                    if (min_diff < matched_results[existing_match_index]['abs_diff']):
+                        # If it exists, compare the absolute differences and keep the better match
+                        matched_results[existing_match_index].update({
+                            'prediction_value': prediction_value,
+                            'LambdaMax': closest_measurement_row['LambdaMax'],
+                            'abs_diff': min_diff,
+                            'comp_db_id': closest_measurement_row.name
+                        })
+                        print('Updating match dataframe, better match found.')
+                else:
+                    # If it doesn't exist, add the new match
+                    matched_results.append({
+                        'Accession': accession,
+                        'Full_Species': species,
                         'prediction_value': prediction_value,
-                        'closest_measurement': closest_measurement_row['LambdaMax'],
+                        'LambdaMax': closest_measurement_row['LambdaMax'],
                         'abs_diff': min_diff,
-                        'max_id': closest_measurement_row.name
+                        'comp_db_id': closest_measurement_row.name
                     })
-            else:
-                # If it doesn't exist, add the new match
-                matched_results.append({
-                    'Accession': accession,
-                    'Full_Species': species,
-                    'prediction_value': prediction_value,
-                    'closest_measurement': closest_measurement_row['LambdaMax'],
-                    'abs_diff': min_diff,
-                    'max_id': closest_measurement_row.name
-                })
-            
+                
     # Create a new dataframe from the matched results
     matched_df = pd.DataFrame(matched_results)
     print(f'There were {i} unmatched species')
@@ -228,6 +394,7 @@ def create_matched_df(mnm_merged_df, source_data):
     aa_seq_list = []
     genus_list = []
     species_list = []
+    mnm_merged_df.set_index('Accession', inplace=True)
     for _, d in matched_df.iterrows():
         acc = d['Accession']
         iden_list.append(mnm_merged_df.loc[acc]['%Identity_Nearest_VPOD_Sequence'])
@@ -240,21 +407,21 @@ def create_matched_df(mnm_merged_df, source_data):
     matched_df['Protein'] = aa_seq_list
     matched_df['Genus'] = genus_list
     matched_df['Species'] = species_list
-    matched_df = matched_df.reindex(columns=['Accession','Genus','Species','%Identity_Nearest_VPOD_Sequence','prediction_value','closest_measurement','abs_diff','max_id','Protein','Gene_Description','Notes'])
+    matched_df = matched_df.reindex(columns=['Accession','Genus','Species','%Identity_Nearest_VPOD_Sequence','prediction_value','LambdaMax','abs_diff','comp_db_id','Protein','Gene_Description','Notes'])
     
-    # Group by 'max_id' and count unique accessions
-    grouped_counts = matched_df.groupby('max_id')['Accession'].nunique()
+    # Group by 'comp_db_id' and count unique accessions
+    grouped_counts = matched_df.groupby('comp_db_id')['Accession'].nunique()
 
     # Filter groups with more than one unique accession
-    duplicate_max_id_groups = grouped_counts[grouped_counts > 1]
+    duplicate_comp_db_id_groups = grouped_counts[grouped_counts > 1]
 
-    if not duplicate_max_id_groups.empty:
+    if not duplicate_comp_db_id_groups.empty:
         filtered_results = []
 
-        # Iterate through each max_id with duplicates
-        for max_id in duplicate_max_id_groups.index:
-            # Filter rows with the current max_id
-            duplicates = matched_df[matched_df['max_id'] == max_id]
+        # Iterate through each mnm_id with duplicates
+        for comp_db_id in duplicate_comp_db_id_groups.index:
+            # Filter rows with the current mnm_id
+            duplicates = matched_df[matched_df['comp_db_id'] == comp_db_id]
 
             # Sort by abs_diff (ascending) and then percent_identity (descending)
             duplicates = duplicates.sort_values(['abs_diff', 'Accession'], ascending=[True, False])
@@ -264,7 +431,7 @@ def create_matched_df(mnm_merged_df, source_data):
             filtered_results.append(duplicates.iloc[0])
 
         # Combine filtered results with non-duplicate rows
-        non_duplicates = matched_df[~matched_df['max_id'].isin(duplicate_max_id_groups.index)]
+        non_duplicates = matched_df[~matched_df['comp_db_id'].isin(duplicate_comp_db_id_groups.index)]
         final_filtered_df = pd.concat([pd.DataFrame(filtered_results), non_duplicates], ignore_index=True)
         final_filtered_df = final_filtered_df.sort_values(['abs_diff', '%Identity_Nearest_VPOD_Sequence'], ascending=[True, False])
         final_filtered_df.reset_index(drop=True, inplace=True)
@@ -273,15 +440,14 @@ def create_matched_df(mnm_merged_df, source_data):
         final_filtered_df = matched_df 
     
     return(final_filtered_df)
-    
 
 def mine_n_match(report_dir, source_file, ncbi_q_file, optics_pred_file, out='unnamed', err_filter = 15):
 
     try:
-        source_data = pd.read_csv(source_file)
+        source_data = pd.read_csv(source_file, index_col = 0)
     except:
         source_file = f'./{report_dir}/{source_file}'
-        source_data = pd.read_csv(source_file)    
+        source_data = pd.read_csv(source_file, index_col = 0)   
         
     if 'Genus' in source_data.columns and 'Species' in source_data.columns and 'Full_Species' not in source_data.columns:
         source_data['Full_Species'] = source_data['Genus'] + '_' + source_data['Species']
@@ -289,19 +455,12 @@ def mine_n_match(report_dir, source_file, ncbi_q_file, optics_pred_file, out='un
         gn_list = []
         sp_list = []
         og_sp_list = source_data['Full_Species'].to_list()
-        try:
-            for sp in og_sp_list:
-                gn_list.append(sp.split(' ')[0])
-                sp_list.append(sp.split(' ')[1])
-            source_data['Genus'] = gn_list
-            source_data['Species'] = sp_list
-        except:
-            for sp in og_sp_list:
-                gn_list.append(sp.split('_')[0])
-                sp_list.append(sp.split('_')[1])
-            source_data['Genus'] = gn_list
-            source_data['Species'] = sp_list
-    source_data.index.name = 'mnm_id'
+        for sp in og_sp_list:
+        #    print(sp)
+            gn_list.append(sp.split(' ')[0])
+            sp_list.append(sp.split(' ')[1:])
+        source_data['Genus'] = gn_list
+        source_data['Species'] = sp_list
 
     try:
         ncbi_data = pd.read_csv(ncbi_q_file)
@@ -309,21 +468,65 @@ def mine_n_match(report_dir, source_file, ncbi_q_file, optics_pred_file, out='un
         ncbi_q_file = f'./{report_dir}/{ncbi_q_file}'
         ncbi_data = pd.read_csv(ncbi_q_file)
     try:
-        pred_data = pd.read_csv(optics_pred_file)
+        pred_data = pd.read_csv(optics_pred_file, sep = '\t')
     except:
         optics_pred_file = f'./{report_dir}/{optics_pred_file}'
-        pred_data = pd.read_csv(optics_pred_file)
+        pred_data = pd.read_csv(optics_pred_file, sep = '\t')
         
     mnm_merged_df = pd.merge(ncbi_data, pred_data, left_index=True, right_index=True)
+    mnm_merged_df.drop_duplicates(subset=['Full_Species', 'Protein'],  keep='first', inplace=True)
+    mnm_merged_df = mnm_merged_df[mnm_merged_df['%Identity_Nearest_VPOD_Sequence'] != 'blastp unsuccessful']
+    mnm_merged_df.to_csv(path_or_buf=f"./{report_dir}/mnm_merged_df.csv", index=True)
+
     matched_df = create_matched_df(mnm_merged_df=mnm_merged_df, source_data=source_data)
     matched_df.to_csv(path_or_buf=f"./{report_dir}/mnm_on_{out}_results_id_filtered.csv", index=True)
     #note that prediction values from optics are taken from the mean of the bootstrap predictions
     final_err_filtered_df = matched_df[matched_df['abs_diff'] <= err_filter]
-    final_err_filtered_df = final_err_filtered_df[final_err_filtered_df['%Identity_Nearest_VPOD_Sequence'] != 'blastp unsuccessful']
+    #final_err_filtered_df = final_err_filtered_df[final_err_filtered_df['%Identity_Nearest_VPOD_Sequence'] != 'blastp unsuccessful']
     final_err_filtered_df = final_err_filtered_df[final_err_filtered_df['%Identity_Nearest_VPOD_Sequence'] != 100.000]
     final_err_filtered_df.to_csv(path_or_buf=f"./{report_dir}/mnm_on_{out}_final_results_err_filtered.csv", index=True)
     
-    return(final_err_filtered_df)
+    # Initialize a dictionary with keys as the `Protein` column value and values as a list of the `Accession` column value
+    protein_accession_dict = final_err_filtered_df.groupby("Protein")['Accession'].apply(list).to_dict()
+    # Initialize a list to store the results
+    result_list = []
+    # Iterate through all the proteins in the dataset
+    for protein, accessions in protein_accession_dict.items():
+        # Filter the dataframe for rows where the protein is the same
+        temp_df = final_err_filtered_df[final_err_filtered_df["Protein"] == protein].reset_index(drop = True)
+
+        # Check if there are more than 1 unique accession number for the same protein
+        if len(set(accessions)) > 1:
+            # Sort the dataframe by `abs_diff`
+            temp_df = temp_df.sort_values("abs_diff")
+
+            # Take the first row
+            first_row = temp_df.iloc[[0]]
+
+            # Take the `comp_db_id` of the other rows
+            comp_db_id_list = temp_df.iloc[1:]['comp_db_id'].to_list()
+
+            # If there are multiple `comp_db_id`, join them together
+            if len(comp_db_id_list) > 1:
+                comp_db_id_str = ", ".join(str(comp_db_id) for comp_db_id in comp_db_id_list)
+            else:
+                comp_db_id_str = str(comp_db_id_list[0])
+
+            # Add the `comp_db_id` to the `Notes` column
+            first_row["Notes"] = "Entry with different Accession from different species but redundant sequence found. Comp_db_id: " + comp_db_id_str
+
+            # Append the first row to the result list
+            result_list.append(first_row)
+        else:
+            # Append the row to the result list
+            result_list.append(temp_df)
+
+    # Concatenate all the series into a single dataframe
+    final_df = pd.concat(result_list).reset_index(drop = True)
+    final_df.index.name = 'mnm_id'
+    final_df.to_csv(path_or_buf=f"./{report_dir}/mnm_on_{out}_final_results_fully_filtered.csv", index=True)
+
+    return(final_df)
     
 def post_process_matching(report_dir, mnm_file):
     try:
@@ -347,10 +550,31 @@ def post_process_matching(report_dir, mnm_file):
     
     return(mnm_data_unique)
 
+
 import requests
 from requests.adapters import HTTPAdapter, Retry
 import re
 import random
+
+
+def get_prots_from_acc(acc_list):
+    
+    protein_list = []
+    for accession in acc_list:
+        try:
+            handle = Entrez.efetch(db="nucleotide", id=accession, rettype="gb", retmode="text")
+            record = SeqIO.read(handle, "gb")
+            handle.close()
+            for i,feature in enumerate(record.features):
+                if feature.type=='CDS':
+                    aa = feature.qualifiers['translation'][0]
+        except:
+            aa = input(f"Accession# {accession} - Not Recognized by NCBI\nPlease Enter Target Sequence to Continue: ")
+        
+        protein_list.append(aa)
+        
+    return(protein_list)
+
 
 def get_random_protein_fasta(query, max_outputs=2000, desired_seqs=5000, out=None):
     # Define the UniProt API endpoint
@@ -420,3 +644,24 @@ def get_batch(batch_url, session, re_next_link):
         total = response.headers["x-total-results"]
         yield response, total
         batch_url = get_next_link(response.headers, re_next_link)
+        
+        
+def get_species_synonyms(species_name):
+    """Fetches synonyms for a given species name from NCBI Taxonomy."""
+    try:
+        search_handle = Entrez.esearch(db="taxonomy", term=species_name, usehistory="y")
+        search_results = Entrez.read(search_handle)
+        query_key = search_results["QueryKey"]
+        webenv = search_results["WebEnv"]
+
+        fetch_handle = Entrez.esummary(db="taxonomy", query_key=query_key, webenv=webenv)
+        fetch_results = Entrez.read(fetch_handle)
+
+        synonyms = []
+        for result in fetch_results:
+            if 'Synonym' in result:
+                synonyms.extend(result['Synonym'].split('; '))
+        return synonyms
+    except Exception as e:
+        print(f"Error fetching synonyms for {species_name}: {e}")
+        return []

@@ -1,3 +1,0 @@
-Command executed:	optics_predictions.py -in ncbi_mined_longcore_seqs.fasta -rd mined_longcore_seqs -out longcore_predictions.tsv -m wildtype -e aa_prop -b True -ir longcore_blastp_report.tsv -r bovine -s True -bsv longcore_bs_viz
-Model Used:	wildtype
-Encoding Method:	aa_prop

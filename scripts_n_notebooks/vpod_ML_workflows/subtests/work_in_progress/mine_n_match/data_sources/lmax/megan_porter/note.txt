@@ -1,0 +1,8 @@
+Used tabula to extract data for Porter 2006 tabula
+
+import tabula
+import pandas as pd
+
+# Load the table with tabula and concatenate all the tables into a single dataframe
+df = tabula.read_pdf("./data_sources/megan_porter/Porter_2005_Table1_1 (1).pdf", pages="all", stream=True)
+tabula.convert_into("./data_sources/megan_porter/Porter_2005_Table1_1 (1).pdf", "megan_porter_extract.tsv", pages="all", output_format="tsv", stream=True)
