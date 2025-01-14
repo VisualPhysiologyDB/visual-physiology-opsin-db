@@ -3,6 +3,7 @@ import re
 import datetime
 import time
 import pandas as pd
+import numpy as np
 from Bio import Entrez, SeqIO
 import progressbar
 
@@ -25,7 +26,7 @@ def ncbi_fetch(email, term, ncbi_db = "nuccore", rettype = "gb", format = "genba
   #print(record_full)
   q_list = record_full["IdList"]
 
-# create a list for all the sequence fetched from NCBI
+# create a list for all the entries fetched from NCBI
   NCBI_seq =[]
   for x in q_list:
     # fetch result from previous search
@@ -35,28 +36,112 @@ def ncbi_fetch(email, term, ncbi_db = "nuccore", rettype = "gb", format = "genba
     
     NCBI_seq.append(seq)
 
-    time.sleep(0.5)
+    time.sleep(0.25)
   
   return NCBI_seq
 
-def ncbi_query_to_df(query_list):
+def get_species_taxonomy(species_name, email):
+    """Fetches synonyms for a given species name from NCBI Taxonomy."""
+
+    Entrez.email = email    # Always tell NCBI who you are
+
+    # Search for the species
+    handle = Entrez.esearch(db="taxonomy", term=species_name)
+    record = Entrez.read(handle)
+    taxonomy = {}
+    
+    try:
+        tax_id = record["IdList"][0]
+        # Fetch the taxonomy record
+        handle = Entrez.efetch(db="taxonomy", id=tax_id, retmode="xml")
+        record = Entrez.read(handle)[0]
+        #print(record)
+        # Extract synonyms
+        synonyms = []
+        if "OtherNames" in record:
+            for name in record["OtherNames"]["Synonym"]:
+                synonyms.append(name)
+        for lineage in record["LineageEx"]:
+            rank = lineage["Rank"]
+            if rank == "phylum": 
+                taxonomy["Phylum"] = lineage["ScientificName"]
+            elif rank == "subphylum":
+                taxonomy["Subphylum"] = lineage["ScientificName"]
+            elif rank == "class":
+                taxonomy["Class"] = lineage["ScientificName"]
+    except:
+        synonyms = []
+      
+    # Asign species synonyms  
+    taxonomy['Synonyms'] = synonyms
+    
+    # Ensure all desired ranks are present
+    for rank in ["Phylum", "Subphylum", "Class"]:
+        if rank not in taxonomy:
+            taxonomy[rank] = "Unknown"  # Or None if you prefer
+
+    handle.close()
+
+    return taxonomy
+
+def get_sp_taxon_dict(species_list, email):
+    sp_taxon_dict = {}
+    for species in species_list:
+        synonyms = get_species_taxonomy(species, email)
+        #print(f"{species} synonyms: {synonyms}")
+        sp_taxon_dict[species] = synonyms
+    return sp_taxon_dict
+
+def ncbi_query_to_df(query_list, species_list, species_taxon_dict, email):
     
     # create empty lists
     Accession = []
-    DNA = []
+    #DNA = []
+    Phylum = []
+    Subphylum = []
+    Class = []
     Genus = []
     Species = []
     gene_des = []
     version = []
     Protein = []
     full_sp_names = []
+    Sp_syn_used = []
     
     # loop through the result list obtained from the NCBI search
-    for query in query_list:
+    for query, sp in zip(query_list, species_list):
+        # Get genus and speceis name seperately
+        g_s_name = sp.split(' ', 1)
         for seq in query:
-            # get genus nd speceis name seperately
-            spe_name = seq.annotations["organism"]
-            g_s_name = spe_name.split()
+            # Search the dictionary of synonymous species names to see 
+            # if this is the primary name or synonym.
+            entry_spe_name = seq.annotations["organism"]
+            
+            l1 = len(entry_spe_name)
+            l2 = len(sp)
+            if ((entry_spe_name == sp) or (entry_spe_name[:l1-1] == sp) or (entry_spe_name == sp[:l2-1])):
+                found_w_synonym = False
+                Phylum.append(species_taxon_dict[sp]["Phylum"])
+                Subphylum.append(species_taxon_dict[sp]["Subphylum"])
+                Class.append(species_taxon_dict[sp]["Class"])
+            else:
+                if entry_spe_name in species_taxon_dict[sp]["Synonyms"]:
+                    found_w_synonym = True
+                    Phylum.append(species_taxon_dict[sp]["Phylum"])
+                    Subphylum.append(species_taxon_dict[sp]["Subphylum"])
+                    Class.append(species_taxon_dict[sp]["Class"])
+                else:
+                    g_s_name = entry_spe_name.split(' ', 1)
+                    found_w_synonym = False
+                    # If the species for this entry is not in the species list or synonyms dict then we will fetch the phylogeny now
+                    temp_taxon = get_species_taxonomy(entry_spe_name, email)
+                    Phylum.append(temp_taxon["Phylum"])
+                    Subphylum.append(temp_taxon["Subphylum"])
+                    Class.append(temp_taxon["Class"])
+            if found_w_synonym == True:
+                Sp_syn_used.append(entry_spe_name)
+            else:
+                Sp_syn_used.append('NA')
 
             # get and append protein sequence
             if seq.features:
@@ -65,8 +150,7 @@ def ncbi_query_to_df(query_list):
                         if "translation" in feature.qualifiers.keys():
                             pro_seq = feature.qualifiers['translation'][0]
                         
-
-            # attached them to lists
+            # Append all meta data to corresponding lists
             Accession.append(str(seq.name))
             Genus.append(str(g_s_name[0]))
             Species.append(str(g_s_name[1]))
@@ -77,14 +161,18 @@ def ncbi_query_to_df(query_list):
     # create a dataframe for the information
     ncbi_q_df = pd.DataFrame(
         {'Accession': version,
+        'Phylum': Phylum,
+        'Subphylum': Subphylum,
+        'Class': Class,
         'Genus': Genus,
         'Species': Species,
         'Full_Species': full_sp_names,
         'Protein': Protein,
-        'Gene_Description': gene_des
+        'Gene_Description': gene_des,
+        'Species_Synonym_Used': Sp_syn_used
         })
 
-    # This could be where the duplicate issue arises
+    # Drop duplicates where the species names and protein sequences are the same...
     ncbi_q_df.drop_duplicates(subset=['Full_Species', 'Protein'],  keep='first', inplace=True)
     return ncbi_q_df
     
@@ -92,79 +180,90 @@ def ncbi_query_to_df(query_list):
 
 def ncbi_fetch_opsins(email, job_label='unnamed', out='unnamed', species_list=None):
     
+    # Create a taxonomic dictionary, including species synonyms, for all the species in the unique species list  
+    print('Constructing Taxon Dictionary, Including Species Synonyms\n')
+    species_taxon_dict = get_sp_taxon_dict(species_list, email)
+    print('Taxon Dictionary Complete!\n')
+    # List to append query responses to
     query_list = []
-    
     # make a progress bar for tracking query progression. Based on length of the species list
+    print('Starting Queries to NCBI for Opsin Sequences\n')
     i=0
     with progressbar.ProgressBar(max_value=len(species_list),style='BouncingBar') as bar:
         for species in species_list:
+            if len(species_taxon_dict[species]['Synonyms']) > 0:
+                sp_for_query = f'({species}[Organism]'
+                for syn in species_taxon_dict[species]['Synonyms']:
+                    sp_for_query+= f' OR {syn}[Organism]'
+                sp_for_query+=')'
+            else:
+                sp_for_query = f'{species}[Organism]'
+            
             NCBI_seq = ncbi_fetch(email=email, 
-                            term = f"{species}[Organism] AND (opsin[Title] OR rhodopsin[Title] OR Opn[Title] OR rh1[Title] OR rh2[Title] OR Rh1[Title] OR Rh2[Title]) NOT partial[Title] NOT voucher[All Fields] NOT kinase[All Fields] NOT similar[Title] NOT homolog[Title]")
+                            term = f"{sp_for_query} AND (opsin[Title] OR rhodopsin[Title] OR Opn[Title] OR rh1[Title] OR rh2[Title] OR Rh1[Title] OR Rh2[Title]) NOT partial[Title] NOT voucher[All Fields] NOT kinase[All Fields] NOT similar[Title] NOT homolog[Title]")
             query_list.append(NCBI_seq)
             bar.update(i)
             i+=1
         bar.finish()
-    try:
-        dt_label = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-        report_dir = f'mnm_on_{job_label}_{dt_label}'
-        os.makedirs(report_dir)
-        print('NCBI Queries Complete!\nNow Extracting and Formatting Results For DataFrame...\n')
-        ncbi_q_df = ncbi_query_to_df(query_list=query_list)
         
-        if out == 'unnamed':
-            out = job_label
-        ncbi_q_df.to_csv(path_or_buf=f"./{report_dir}/{out.replace(' ','_')}_ncbi_q_data.csv", index=False)
-        print('DataFrame Formatted and Saved to CSV file for future use :)\n')
-        fasta_file = f'{report_dir}/mined_{out.replace(" ","_")}_seqs.fasta'
-        with open(fasta_file, 'w') as f:
-            for id, seq in zip(ncbi_q_df['Accession'], ncbi_q_df['Protein']):
-                f.write(f'>{id}\n{seq}\n')
-        print('FASTA File Saved...\n')
-        
-        # Cleaning raw ncbi query df to keep only species entries that match our input sp list - returns the 'clean' df
-        # Will also return a dataframe of the 'potential' hits - since it could be that the species that don't match is due to species mispelling or synonymous names
-        ncbi_sp_hits = list(set(ncbi_query_df['Full_Species'].to_list()))
-        #len(ncbi_sp_hits)
-        intersection = list(set(ncbi_sp_hits) & set(species_list))
-        #len(intersection)
-        sp_no_hits  = list(set(species_list).symmetric_difference(intersection))
-        #len(sp_no_hits)
-        if len(sp_no_hits) > 0:
-            print('Saving txt file with names of species that retrieved no results for opsins...\n')
-            no_sp_hits_file = f'{report_dir}/species_w_no_hits.txt'
-            with open(no_sp_hits_file, 'w') as f:
-                for sp in sp_no_hits:
-                    f.write(f'{sp}\n')
-        
-        sp_rnd_hits  = list(set(ncbi_sp_hits).symmetric_difference(intersection))
-        if len(sp_no_hits) > 0:
-            print('Saving txt file with names of species that retrieved results for opsins but are NOT in submitted species list...\n')
-            #len(sp_rnd_hits)
-            rnd_sp_hits_file = f'{report_dir}/potnetial_species_hits.txt'
-            with open(rnd_sp_hits_file, 'w') as f:
-                for sp in sp_rnd_hits:
-                    f.write(f'{sp}\n')
-            ncbi_query_df_cleaned = ncbi_query_df[~ncbi_query_df['Full_Species'].isin(sp_rnd_hits)]
-            ncbi_query_df_potential_hits = ncbi_query_df[ncbi_query_df['Full_Species'].isin(sp_rnd_hits)]
-            #ncbi_query_df_cleaned.shape
-            #ncbi_query_df_potential_hits.shape
-            print('Saving and returning cleaned dataframe with only species entries from species list...\n')
-            ncbi_query_df_cleaned.to_csv(path_or_buf=f'{report_dir}/mnm_on_all_dbs_ncbi_q_data_cleaned.csv', index=False)
-            print('Saving another dataframe with species that retrieved results for opsins but are NOT in submitted species list for further examination...\n')
-            ncbi_query_df_potential_hits.to_csv(path_or_buf=f'{report_dir}/mnm_on_all_dbs_ncbi_q_potential_hits.csv', index=False)
-            
-            fasta_file = f'{report_dir}/mined_{out.replace(" ","_")}_seqs_cleaned.fasta'
-            with open(fasta_file, 'w') as f:
-                for id, seq in zip(ncbi_query_df_cleaned['Accession'], ncbi_query_df_cleaned['Protein']):
-                    f.write(f'>{id}\n{seq}\n')
-            print('Clean FASTA File Saved...\n')
-            return(ncbi_query_df_cleaned)
-        
-        return(ncbi_q_df)
+    dt_label = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    report_dir = f'mnm_data/mnm_on_{job_label}_{dt_label}'
+    os.makedirs(report_dir)
+    print('NCBI Queries Complete!\nNow Extracting and Formatting Results For DataFrame...\n')
+    #maybe add the syn-species dictionary to the function below
+    ncbi_query_df = ncbi_query_to_df(query_list=query_list, species_list=species_list, species_taxon_dict=species_taxon_dict, email=email)
     
-    except:
-        print('Error occured when trying to save dataframe of NCBI query data!\nReturning query list instead...')
-        return(query_list)
+    if out == 'unnamed':
+        out = job_label
+    ncbi_query_df.to_csv(path_or_buf=f"./{report_dir}/{out.replace(' ','_')}_ncbi_q_data.csv", index=False)
+    print('DataFrame Formatted and Saved to CSV file for future use :)\n')
+    fasta_file = f'{report_dir}/mined_{out.replace(" ","_")}_seqs.fasta'
+    with open(fasta_file, 'w') as f:
+        for id, seq in zip(ncbi_query_df['Accession'], ncbi_query_df['Protein']):
+            f.write(f'>{id}\n{seq}\n')
+    print('FASTA File Saved...\n')
+    
+    # Cleaning raw ncbi query df to keep only species entries that match our input sp list - returns the 'clean' df
+    # Will also return a dataframe of the 'potential' hits - since it could be that the species that don't match is due to species mispelling or synonymous names
+    ncbi_sp_hits = list(set(ncbi_query_df['Full_Species'].to_list()))
+    #len(ncbi_sp_hits)
+    intersection = list(set(ncbi_sp_hits) & set(species_list))
+    #len(intersection)
+    sp_no_hits  = list(set(species_list).symmetric_difference(intersection))
+    #len(sp_no_hits)
+    if len(sp_no_hits) > 0:
+        print('Saving txt file with names of species that retrieved no results for opsins...\n')
+        no_sp_hits_file = f'{report_dir}/species_w_no_hits.txt'
+        with open(no_sp_hits_file, 'w') as f:
+            for sp in sp_no_hits:
+                f.write(f'{sp}\n')
+    
+    sp_rnd_hits  = list(set(ncbi_sp_hits).symmetric_difference(intersection))
+    if len(sp_rnd_hits) > 0:
+        print('Saving txt file with names of species that retrieved results for opsins but are NOT in submitted species list...\n')
+        #len(sp_rnd_hits)
+        rnd_sp_hits_file = f'{report_dir}/potnetial_species_hits.txt'
+        with open(rnd_sp_hits_file, 'w') as f:
+            for sp in sp_rnd_hits:
+                f.write(f'{sp}\n')
+        ncbi_query_df_cleaned = ncbi_query_df[~ncbi_query_df['Full_Species'].isin(sp_rnd_hits)]
+        ncbi_query_df_potential_hits = ncbi_query_df[ncbi_query_df['Full_Species'].isin(sp_rnd_hits)]
+        #ncbi_query_df_cleaned.shape
+        #ncbi_query_df_potential_hits.shape
+        print('Saving and returning cleaned dataframe with only species entries from species list...\n')
+        ncbi_query_df_cleaned.to_csv(path_or_buf=f'{report_dir}/mnm_on_all_dbs_ncbi_q_data_cleaned.csv', index=False)
+        print('Saving another dataframe with species that retrieved results for opsins but are NOT in submitted species list for further examination...\n')
+        ncbi_query_df_potential_hits.to_csv(path_or_buf=f'{report_dir}/mnm_on_all_dbs_ncbi_q_potential_hits.csv', index=False)
+        
+        fasta_file = f'{report_dir}/mined_{out.replace(" ","_")}_seqs_cleaned.fasta'
+        with open(fasta_file, 'w') as f:
+            for id, seq in zip(ncbi_query_df_cleaned['Accession'], ncbi_query_df_cleaned['Protein']):
+                f.write(f'>{id}\n{seq}\n')
+        print('Clean FASTA File Saved...\n')
+        return(ncbi_query_df_cleaned)
+        
+    return(ncbi_query_df)
+    
 
 
 def clean_lambda_max(df, lambda_max_column):
