@@ -173,17 +173,28 @@ def ncbi_query_to_df(query_list, species_list, species_taxon_dict, email):
         })
 
     # Drop duplicates where the species names and protein sequences are the same...
-    ncbi_q_df.drop_duplicates(subset=['Full_Species', 'Protein'],  keep='first', inplace=True)
+    ncbi_q_df.drop_duplicates(subset=['Full_Species', 'Protein'],  keep='first', inplace=True).reset_index(drop=True)
     return ncbi_q_df
     
 
 
 def ncbi_fetch_opsins(email, job_label='unnamed', out='unnamed', species_list=None):
     
+    print('Creating Job Directory')
+    dt_label = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    report_dir = f'mnm_data/mnm_on_{job_label}_{dt_label}'
+    os.makedirs(report_dir)
+    
+    print('Saving Species Query List to Text')
+    with open(f"{report_dir}/species_queried.txt", "w") as f:
+        for sp in species_list:
+            f.write(str(sp) + "\n")
+    
     # Create a taxonomic dictionary, including species synonyms, for all the species in the unique species list  
     print('Constructing Taxon Dictionary, Including Species Synonyms\n')
     species_taxon_dict = get_sp_taxon_dict(species_list, email)
     print('Taxon Dictionary Complete!\n')
+    
     # List to append query responses to
     query_list = []
     # make a progress bar for tracking query progression. Based on length of the species list
@@ -206,9 +217,6 @@ def ncbi_fetch_opsins(email, job_label='unnamed', out='unnamed', species_list=No
             i+=1
         bar.finish()
         
-    dt_label = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-    report_dir = f'mnm_data/mnm_on_{job_label}_{dt_label}'
-    os.makedirs(report_dir)
     print('NCBI Queries Complete!\nNow Extracting and Formatting Results For DataFrame...\n')
     #maybe add the syn-species dictionary to the function below
     ncbi_query_df = ncbi_query_to_df(query_list=query_list, species_list=species_list, species_taxon_dict=species_taxon_dict, email=email)
@@ -260,9 +268,9 @@ def ncbi_fetch_opsins(email, job_label='unnamed', out='unnamed', species_list=No
             for id, seq in zip(ncbi_query_df_cleaned['Accession'], ncbi_query_df_cleaned['Protein']):
                 f.write(f'>{id}\n{seq}\n')
         print('Clean FASTA File Saved...\n')
-        return(ncbi_query_df_cleaned)
+        return(ncbi_query_df_cleaned, report_dir)
         
-    return(ncbi_query_df)
+    return(ncbi_query_df, report_dir)
     
 
 
@@ -493,6 +501,10 @@ def create_matched_df(mnm_merged_df, source_data):
     aa_seq_list = []
     genus_list = []
     species_list = []
+    phylum_list = []
+    subphylum_list = []
+    class_list = []
+    
     mnm_merged_df.set_index('Accession', inplace=True)
     for _, d in matched_df.iterrows():
         acc = d['Accession']
@@ -501,12 +513,22 @@ def create_matched_df(mnm_merged_df, source_data):
         aa_seq_list.append(mnm_merged_df.loc[acc]['Protein'])
         genus_list.append(mnm_merged_df.loc[acc]['Genus'])
         species_list.append(mnm_merged_df.loc[acc]['Species'])
+        try:
+            phylum_list.append(mnm_merged_df.loc[acc]['Phylum'])
+            subphylum_list.append(mnm_merged_df.loc[acc]['Subphylum'])
+            class_list.append(mnm_merged_df.loc[acc]['Class'])
+        except:
+            pass
+        
     matched_df['%Identity_Nearest_VPOD_Sequence'] = iden_list
     matched_df['Gene_Description'] = prot_des_list
     matched_df['Protein'] = aa_seq_list
     matched_df['Genus'] = genus_list
     matched_df['Species'] = species_list
-    matched_df = matched_df.reindex(columns=['Accession','Genus','Species','%Identity_Nearest_VPOD_Sequence','prediction_value','LambdaMax','abs_diff','comp_db_id','Protein','Gene_Description','Notes'])
+    matched_df['Phylum'] = phylum_list
+    matched_df['Subphylum'] = subphylum_list
+    matched_df['Class'] = class_list
+    matched_df = matched_df.reindex(columns=['Accession','Phylum','Subphylum','Class','Genus','Species','%Identity_Nearest_VPOD_Sequence','prediction_value','LambdaMax','abs_diff','comp_db_id','Protein','Gene_Description','Notes'])
     
     # Group by 'comp_db_id' and count unique accessions
     grouped_counts = matched_df.groupby('comp_db_id')['Accession'].nunique()
@@ -540,7 +562,7 @@ def create_matched_df(mnm_merged_df, source_data):
     
     return(final_filtered_df)
 
-def mine_n_match(report_dir, source_file, ncbi_q_file, optics_pred_file, out='unnamed', err_filter = 15):
+def mine_n_match(email, report_dir, source_file, ncbi_q_file, optics_pred_file, out='unnamed', err_filter = 15):
 
     try:
         source_data = pd.read_csv(source_file, index_col = 0)
@@ -556,8 +578,8 @@ def mine_n_match(report_dir, source_file, ncbi_q_file, optics_pred_file, out='un
         og_sp_list = source_data['Full_Species'].to_list()
         for sp in og_sp_list:
         #    print(sp)
-            gn_list.append(sp.split(' ')[0])
-            sp_list.append(sp.split(' ')[1:])
+            gn_list.append(sp.split(' ', 1)[0])
+            sp_list.append(sp.split(' ', 1)[1])
         source_data['Genus'] = gn_list
         source_data['Species'] = sp_list
 
@@ -583,7 +605,7 @@ def mine_n_match(report_dir, source_file, ncbi_q_file, optics_pred_file, out='un
     final_err_filtered_df = matched_df[matched_df['abs_diff'] <= err_filter]
     #final_err_filtered_df = final_err_filtered_df[final_err_filtered_df['%Identity_Nearest_VPOD_Sequence'] != 'blastp unsuccessful']
     final_err_filtered_df = final_err_filtered_df[final_err_filtered_df['%Identity_Nearest_VPOD_Sequence'] != 100.000]
-    final_err_filtered_df.to_csv(path_or_buf=f"./{report_dir}/mnm_on_{out}_final_results_err_filtered.csv", index=True)
+    final_err_filtered_df.to_csv(path_or_buf=f"./{report_dir}/mnm_on_{out}_results_err_filtered.csv", index=True)
     
     # Initialize a dictionary with keys as the `Protein` column value and values as a list of the `Accession` column value
     protein_accession_dict = final_err_filtered_df.groupby("Protein")['Accession'].apply(list).to_dict()
@@ -621,9 +643,63 @@ def mine_n_match(report_dir, source_file, ncbi_q_file, optics_pred_file, out='un
             result_list.append(temp_df)
 
     # Concatenate all the series into a single dataframe
-    final_df = pd.concat(result_list).reset_index(drop = True)
+    redundant_filter_df = pd.concat(result_list).reset_index(drop = True)
+    redundant_filter_df.index.name = 'mnm_id'
+    
+    # Add in any sequences with accessions from the lmax compendium (aka - 'source_data')
+    sd_2 = source_data.copy()
+    sd_2= sd_2[~sd_2["Accession"].isna()].reset_index(drop = True)
+    
+    # Filter the Accession column to include only those without '-' or '–'
+    sd_2 = sd_2[~sd_2["Accession"].str.contains("-|–")].reset_index(drop = True)
+
+    # Create a list of `Accession` in `result_df`
+    accession_list = final_err_filtered_df["Accession"].to_list()
+
+    # Filter `sd_2` to include only those whose `Accession` is not in `accession_list`
+    sd_2_filtered = sd_2[~sd_2["Accession"].isin(accession_list)].reset_index(drop = True)
+
+    prot_list = get_prots_from_acc(sd_2_filtered['Accession'].to_list())
+    sd_2_filtered['Protein'] = prot_list
+
+    # Split the `Full_Species` column by the first space (' ') into `Genus` and `Species`
+    g_list = [x.split(' ')[0] for x in sd_2_filtered['Full_Species']]
+    sp_list = [' '.join(x.split(' ')[1:]) for x in sd_2_filtered['Full_Species']]
+    sp_list = [' '.join(x.split(' ')[0:]) for x in sp_list]
+
+    sd_2_filtered["Genus"] = g_list
+    sd_2_filtered["Species"] = sp_list
+
+    # Filter to make sure that no other sequences here are repeats of sequences in the main dataframe
+    existing_proteins = final_err_filtered_df["Protein"].to_list()
+    sd_2_filtered = sd_2[~sd_2["Protein"].isin(existing_proteins)].reset_index(drop = True)
+
+    # Need to get the taxon data for the added data
+    # Call taxa dictionary function here
+    species_list = sd_2_filtered['Full_Species'].to_list()
+    species_taxon_dict = get_sp_taxon_dict(species_list, email)
+
+    Phylum = []
+    Subphylum = []
+    Class = []
+    for sp in species_taxon_dict:    
+        Phylum.append(species_taxon_dict[sp]["Phylum"])
+        Subphylum.append(species_taxon_dict[sp]["Subphylum"])
+        Class.append(species_taxon_dict[sp]["Class"])
+    sd_2_filtered["Phylum"] = Phylum
+    sd_2_filtered['Subphylum'] = Subphylum
+    sd_2_filtered['Class'] = Class
+
+    # Take the `comp_db_id`, `Genus`, `Species`, `Accession`, and `LambdaMax` from the filtered dataframe and rename the `LambdaMax` column to `closest_measurement`
+    sd_2_filtered = sd_2_filtered[["comp_db_id", "Accession", "Phylum", "Subphylum", "Class", "Genus", "Species",  "LambdaMax", "Protein"]]
+
+    # Add a column named `Notes` with the text 'Known sequence specified in accessory database'
+    sd_2_filtered["Notes"] = "Known sequence specified in accessory database"
+
+    # Concatenate this series with the `result_df` dataframe
+    final_df = pd.concat([redundant_filter_df, sd_2_filtered]).reset_index(drop = True)
     final_df.index.name = 'mnm_id'
-    final_df.to_csv(path_or_buf=f"./{report_dir}/mnm_on_{out}_final_results_fully_filtered.csv", index=True)
+    final_df.to_csv(path_or_buf=f"./{report_dir}/mnm_on_{out}_results_fully_filtered.csv", index=True)
 
     return(final_df)
     
@@ -764,3 +840,73 @@ def get_species_synonyms(species_name):
     except Exception as e:
         print(f"Error fetching synonyms for {species_name}: {e}")
         return []
+    
+    
+def fasta_to_dataframe(fasta_file):
+  """
+  Converts a fasta file into a pandas DataFrame, extracting species name, 
+  opsin type, accession, and sequence from the header line and sequence data.
+
+  Args:
+    fasta_file: Path to the fasta file.
+
+  Returns:
+    A pandas DataFrame with columns: 'species_name', 'opsin_type', 
+    'accession', and 'sequence'.
+  """
+
+  data = []
+  with open(fasta_file, "r") as f:
+    for record in SeqIO.parse(f, "fasta"):
+      try:
+        header = record.description.split("---")
+        species_name = header[0].replace("_", " ")
+        opsin_type = header[1].split("-",1)[0]
+        accession = header[1].split("-",1)[1]
+      except:
+        header = record.description.split("_")        
+        if str(record.description).count('_') > 1:
+            try:
+              accession = header[0] + header[1]
+              species_name = header[2].split('--')[0].replace('-',' ')
+              opsin_type = header[2].split('--')[1]
+            except:
+              try:
+                accession = header[0] + header[1]
+                species_name = header[2] + header[3].split('-')[0]
+                opsin_type = header[3].split('-')[1]
+              except:
+                try:
+                  accession = header[0] + header[1]
+                  species_name = header[2].split('-')[0] + ' ' + header[2].split('-')[1]
+                  opsin_type = header[2].split('-')[2]
+                except:
+                  print(header)
+                  raise Exception('Header with unique formating seems to have caused an error')
+        else:
+            try:
+              header = record.description.split("_")
+              accession = header[0]
+              species_name = header[1].split('--')[0].replace('-',' ')
+              opsin_type = header[1].split('--')[1]
+            except:
+              try:
+                accession = header[0]
+                species_name = header[1] + header[2].split('-')[0]
+                opsin_type = header[2].split('-')[1]
+              except:
+                try:
+                  accession = header[0]
+                  species_name = header[1].split('-')[0] + ' ' + header[1].split('-')[1]
+                  opsin_type = header[1].split('-')[2]
+                except:
+                  print(header)
+                  raise Exception('Header with unique formating seems to have caused an error')
+            
+      aln_sequence = str(record.seq).replace(" ", "").replace("\n", "").replace("=", "")
+      sequence = str(aln_sequence).replace('-','')
+      seq_len = len(sequence)
+      data.append([species_name, opsin_type, accession, aln_sequence, sequence, seq_len])
+        
+  df = pd.DataFrame(data, columns=['species_name', 'opsin_type', 'accession', 'aln_sequence','sequence', 'seq_length'])
+  return df
