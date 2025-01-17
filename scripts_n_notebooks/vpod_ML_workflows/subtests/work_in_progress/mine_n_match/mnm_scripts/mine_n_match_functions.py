@@ -173,19 +173,20 @@ def ncbi_query_to_df(query_list, species_list, species_taxon_dict, email):
         })
 
     # Drop duplicates where the species names and protein sequences are the same...
-    ncbi_q_df.drop_duplicates(subset=['Full_Species', 'Protein'],  keep='first', inplace=True).reset_index(drop=True)
+    ncbi_q_df.drop_duplicates(subset=['Full_Species', 'Protein'],  keep='first', inplace=True)
+    ncbi_q_df = ncbi_q_df.reset_index(drop=True)
     return ncbi_q_df
     
 
 
 def ncbi_fetch_opsins(email, job_label='unnamed', out='unnamed', species_list=None):
     
-    print('Creating Job Directory')
+    print('Creating Job Directory\n')
     dt_label = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
     report_dir = f'mnm_data/mnm_on_{job_label}_{dt_label}'
     os.makedirs(report_dir)
     
-    print('Saving Species Query List to Text')
+    print('Saving Species Query List to Text\n')
     with open(f"{report_dir}/species_queried.txt", "w") as f:
         for sp in species_list:
             f.write(str(sp) + "\n")
