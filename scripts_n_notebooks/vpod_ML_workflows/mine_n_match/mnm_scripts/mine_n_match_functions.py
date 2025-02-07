@@ -6,23 +6,126 @@ import json
 import copy
 import pandas as pd
 import numpy as np
+import io
 from Bio import Entrez, SeqIO
 import progressbar
 
+api_key = "1efb120056e1cea873ba8d85d6692abd5d09"
+
+def ncbi_fetch_alt(email, term, ncbi_db="nuccore", rettype="gb", format="genbank"):
+    """Fetches sequences from NCBI's databases using Entrez.
+
+    This function queries an NCBI database (default: "nuccore") using a provided search term and
+    retrieves all corresponding sequence records. It uses the provided email for identification
+    and an API key for increased request limits. It also caches results in a JSON file to avoid
+    redundant NCBI queries.
+
+    Args:
+        email (str): Your email address. Required by NCBI for Entrez queries.
+        term (str): The search term to query the NCBI database.
+        ncbi_db (str, optional): The NCBI database to search. Defaults to "nuccore".
+        rettype (str, optional): The retrieval type for efetch. Defaults to "gb".
+        format (str, optional): The format of the sequence records to retrieve. Defaults to "genbank".
+        
+    Returns:
+        list: A list of Biopython SeqRecord objects representing the fetched sequence records.
+                
+    Notes:
+        - An API key should be set using `api_key = 'your_api_key'` in the main code before calling this function for increased requests per second.
+        - The function automatically pauses for 0.25 seconds between fetches to avoid overloading 
+          the NCBI servers, adhering to the rate limit even with an API key.
+        - The function returns all results, even if the number of results exceeds the default `retmax` limit of Entrez.esearch.
+
+    """
+    Entrez.email = email  # Always tell NCBI who you are
+
+    # Create queries directory if it doesn't exist
+    queries_dir = "data_sources/queries"
+    if not os.path.exists(queries_dir):
+        os.makedirs(queries_dir)
+
+    cache_file = os.path.join(queries_dir, "cached_ncbi_queries.json")
+
+    # Load cache from file if it exists
+    try:
+        with open(cache_file, "r") as f:
+            cache = json.load(f)
+    except FileNotFoundError:
+        cache = {}
+
+    handle = Entrez.esearch(db=ncbi_db, term=term, api_key=api_key)
+    record = Entrez.read(handle)
+    full_res = int(record["Count"])
+
+    handle_full = Entrez.esearch(db=ncbi_db, term=term, api_key=api_key, retmax=full_res + 1)
+    record_full = Entrez.read(handle_full)
+    q_list = record_full["IdList"]
+    #print(f'Here is the query ID return list:\n{q_list}\n')
+    NCBI_seq = []
+    for x in q_list:
+        if x in cache:
+            # Fetch from cache
+            print(f"Fetching record {x} from cache.")
+            seq_record = SeqIO.read(io.StringIO(cache[x]), format)
+            NCBI_seq.append(seq_record)
+        else:
+            # Fetch from NCBI
+            print(f"Fetching record {x} from NCBI.")
+            fet = Entrez.efetch(db=ncbi_db, id=x, rettype=rettype)
+            seq = SeqIO.read(fet, format)
+            fet.close()
+
+            NCBI_seq.append(seq)
+            
+            # Store in cache as a string
+            with io.StringIO() as string_handle:
+                SeqIO.write(seq, string_handle, format)
+                cache[x] = string_handle.getvalue()
+
+            time.sleep(0.25)
+
+    # Save cache to file
+    with open(cache_file, "w") as f:
+        json.dump(cache, f, indent=4)
+
+    return NCBI_seq
 
 # create a function that return the collection of all NCBI fetch result
-def ncbi_fetch(email, term, ncbi_db = "nuccore", rettype = "gb", format = "genbank"):
+def ncbi_fetch(email, term, ncbi_db="nuccore", rettype="gb", format="genbank"):
+    
+  """Fetches sequences from NCBI's databases using Entrez.
+
+    This function queries an NCBI database (default: "nuccore") using a provided search term and 
+    retrieves all corresponding sequence records. It uses the provided email for identification 
+    and an API key for increased request limits.
+
+    Args:
+        email (str): Your email address. Required by NCBI for Entrez queries.
+        term (str): The search term to query the NCBI database.
+        ncbi_db (str, optional): The NCBI database to search. Defaults to "nuccore".
+        rettype (str, optional): The retrieval type for efetch. Defaults to "gb".
+        format (str, optional): The format of the sequence records to retrieve. Defaults to "genbank".
+
+    Returns:
+        list: A list of Biopython SeqRecord objects representing the fetched sequence records.
+
+    Notes:
+        - An API key should be set using `api_key = 'your_api_key'` in the main code before calling this function for increased requests per second.
+        - The function automatically pauses for 0.25 seconds between fetches to avoid overloading 
+          the NCBI servers, adhering to the rate limit even with an API key.
+        - The function returns all results, even if the number of results exceeds the default `retmax` limit of Entrez.esearch.
+  """    
   Entrez.email = email    # Always tell NCBI who you are
   handle = Entrez.esearch(db=ncbi_db,
                         term=term, 
-                        api_key = "1efb120056e1cea873ba8d85d6692abd5d09") # using api key allows 10 fetch per second
+                        api_key = api_key) # using api key allows 10 fetch per second
   record = Entrez.read(handle)
   #print(record)
   full_res = int(record["Count"])
   
   handle_full = Entrez.esearch(db=ncbi_db,
                         term=term, 
-                        api_key = "1efb120056e1cea873ba8d85d6692abd5d09",
+                        api_key = api_key,
                         retmax = full_res + 1)
   record_full = Entrez.read(handle_full)
   #print(record_full)
@@ -44,23 +147,87 @@ def ncbi_fetch(email, term, ncbi_db = "nuccore", rettype = "gb", format = "genba
 
 from pygbif import species
 def correct_species_name(species_name):
-    result = species.name_backbone(name=species_name, rank='species', verbose=True)
-    if 'species' in result:
-        return result['species']
-    else:
-        return "No match found"
+    
+    """Attempts to find a corrected species name and its associated higher taxa using the GBIF backbone taxonomy.
+
+    This function uses the `pygbif` library to query the Global Biodiversity Information Facility (GBIF) 
+    backbone taxonomy. It attempts to find a match for the input `species_name` and returns the 
+    corrected species name (if different) along with a higher taxonomic group (family, order, or genus).
+    The higher taxonomic group can be used to find related taxa from NCBI if a species name is not recognized.
+
+    Args:
+        species_name (str): The species name to check.
+
+    Returns:
+        tuple: A tuple containing two strings:
+            - The corrected species name (if found), or "No match found" otherwise.
+            - The associated higher taxa (family, order, or genus) of the corrected species name (if found), or "No match found" otherwise.
+
+    Notes:
+        - The function retries the GBIF query up to 10 times if it fails initially.
+        - The function prioritizes returning the family, then the order, then the genus if a species is found.
+        - If no match is found in the GBIF backbone, or if there's an error during the query, 
+          it returns ("No match found", "No match found").
+    """
+    queried = False
+    try:
+        for x in range(10):
+            if queried == False:
+                result = species.name_backbone(name=species_name, rank='species', verbose=True)
+                queried = True
+    except:
+        pass
+    
+    try:
+        if 'species' in result and 'family' in result:
+            return result['species'], result['family']
+        elif ('species' in result) and ('order' in result):
+            return result['species'], result['order']
+        elif ('species' in result):
+            return result['species'], result['genus']
+        else:
+            return "No match found", "No match found"
+    except:
+        return "No match found", "No match found"
 
 
-def get_species_taxonomy(species_name, email, record_alt=False):
-    """Fetches synonyms for a given species name from NCBI Taxonomy."""
 
+def get_species_taxonomy(species_name, email, record_alt=False, use_higher_taxa=False, higher_taxa=None):
+    
+    """Fetches taxonomic information, including synonyms, for a given species or higher taxon from NCBI Taxonomy.
+
+    This function retrieves taxonomic details from the NCBI Taxonomy database using the Biopython Entrez module.
+    It can retrieve synonyms for a species or information about a higher taxon if `use_higher_taxa` is set to True.
+    It also attempts to determine the Phylum, Subphylum and Class of the species or taxon.
+
+    Args:
+        species_name (str): The scientific name of the species to look up.
+        email (str): Your email address, required by NCBI Entrez.
+        record_alt (bool, optional): If True, includes the input `species_name` in the synonyms list. Defaults to False.
+        use_higher_taxa (bool, optional): If True, searches for a higher taxon instead of a species. Defaults to False.
+        higher_taxa (str, optional): The name of the higher taxon to search for when `use_higher_taxa` is True.
+
+    Returns:
+        dict: A dictionary containing the taxonomic information, including:
+            - Synonyms (list): A list of synonymous names for the species.
+            - Phylum (str): The phylum of the species/taxon.
+            - Subphylum (str): The subphylum of the species/taxon.
+            - Class (str): The class of the species/taxon.
+            - If a rank is not found, it will be assigned "Unknown".
+    """
     Entrez.email = email    # Always tell NCBI who you are
     queried = False
+    synonyms = []
+
     for x in range(10):
         if queried == False:
             try:
-                # Search for the species
-                handle = Entrez.esearch(db="taxonomy", term=species_name, api_key = "1efb120056e1cea873ba8d85d6692abd5d09")
+                if use_higher_taxa == False:
+                    # Search for the species
+                    handle = Entrez.esearch(db="taxonomy", term=species_name, api_key = api_key)
+                else:
+                    handle = Entrez.esearch(db="taxonomy", term=higher_taxa, api_key = api_key)
+
                 record = Entrez.read(handle)
                 taxonomy = {}
             
@@ -68,10 +235,13 @@ def get_species_taxonomy(species_name, email, record_alt=False):
                 # Fetch the taxonomy record
                 handle = Entrez.efetch(db="taxonomy", id=tax_id, retmode="xml")
                 record = Entrez.read(handle)[0]
+                #if the code makes it this far, then there was a successful query
+                queried = True
                 #print(record)
+                taxonomy["TaxId"] = record["TaxId"]
+
                 # Extract synonyms
-                synonyms = []
-                if "OtherNames" in record:
+                if ("OtherNames" in record) and (use_higher_taxa == False):
                     for name in record["OtherNames"]["Synonym"]:
                         if name not in synonyms:
                             if '(' in name:
@@ -97,8 +267,7 @@ def get_species_taxonomy(species_name, email, record_alt=False):
                                     synonyms.append(name)
                         else:
                             pass
-                queried = True
-
+    
                 for lineage in record["LineageEx"]:
                     rank = lineage["Rank"]
                     if rank == "phylum": 
@@ -108,8 +277,8 @@ def get_species_taxonomy(species_name, email, record_alt=False):
                     elif rank == "class":
                         taxonomy["Class"] = lineage["ScientificName"]
             except:
-                synonyms = []
-        
+                pass
+            
     if record_alt == True:
         synonyms.append(species_name)
         
@@ -119,18 +288,54 @@ def get_species_taxonomy(species_name, email, record_alt=False):
     # Ensure all desired ranks are present
     for rank in ["Phylum", "Subphylum", "Class"]:
         if rank not in taxonomy:
-            taxonomy[rank] = "Unknown"  # Or None if you prefer
+            taxonomy[rank] = "Unknown"
             
     handle.close()
     
     return taxonomy
 
 def get_sp_taxon_dict(species_list, email, taxon_file, sp_taxon_dict={}):
-    #sp_taxon_dict = {}
+    
+    """Builds a dictionary of taxonomic information for a list of species.
+
+    This function takes a list of species names and constructs a dictionary where keys are 
+    species names and values are dictionaries containing taxonomic information 
+    (e.g., Phylum, Subphylum, Class, Order, Synonyms) for each species. It uses the 
+    `get_species_taxonomy` function to retrieve the information from NCBI, and can also
+    leverage the `correct_species_name` function to handle potential misspellings or outdated names.
+
+    Args:
+        species_list (list): A list of species names (strings).
+        email (str): Your email address, required for NCBI Entrez queries.
+        taxon_file (str): The file path to save the resulting taxonomy dictionary (JSON format). This is used in error handling to save progress.
+        sp_taxon_dict (dict, optional): An existing taxonomy dictionary to update. Defaults to an empty dictionary.
+
+    Returns:
+        dict: A dictionary where keys are species names and values are dictionaries 
+              containing taxonomic information for each species.
+
+    Raises:
+        Exception: If there is an issue querying NCBI for taxonomic information. In this case the
+                   current progress is saved to the taxon_file, and the user is prompted to restart.
+                   This is implemented to avoid issues with querying NCBI's servers.
+
+    Notes:
+        - If a species is already present in `sp_taxon_dict`, its information is not fetched again,
+        unless the existing entry is missing crucial taxonomic levels, in which case it will try to look
+        up the species again using the `correct_species_name` function if possible.
+        - The function attempts to correct species names using the `correct_species_name` function if the initial
+          taxonomy lookup fails or returns incomplete information (missing Phylum, Order, and Class).
+        - The `correct_species_name` function tries to find a corrected name or higher taxonomic
+          group from the Global Biodiversity Information Facility (GBIF).
+        - Intermediate results are saved to `taxon_file` in case of errors during the process. This allows
+          you to resume the process from where it left off if an error occurs, rather than starting from scratch.
+    """
+    
     all_keys = sp_taxon_dict.keys()
 
     for species in species_list:
-        if species in all_keys:
+        #if (species in all_keys) and (sp_taxon_dict[species]['Phylum']!="Unknown"):
+        if (species in all_keys):
             pass
         else: 
             try:
@@ -139,14 +344,27 @@ def get_sp_taxon_dict(species_list, email, taxon_file, sp_taxon_dict={}):
                 sp_taxon_dict[species] = taxonomy
                 if (len(sp_taxon_dict[species]['Synonyms']) == 0) and (sp_taxon_dict[species]['Phylum']=="Unknown") and (sp_taxon_dict[species]['Subphylum']=="Unknown") and (sp_taxon_dict[species]['Class']=="Unknown"):
                     try:
-                        corrected_name = correct_species_name(species)
-                        if corrected_name != "No match found":
+                        corrected_name, higher_taxa_name = correct_species_name(species)
+                        if (corrected_name != "No match found") and (corrected_name != species):
                             taxonomy = get_species_taxonomy(corrected_name, email, record_alt=True)
                             sp_taxon_dict[species] = taxonomy
+
+                            if (sp_taxon_dict[species]['Phylum']=="Unknown") and (sp_taxon_dict[species]['Subphylum']=="Unknown") and (sp_taxon_dict[species]['Class']=="Unknown"):
+                                try:
+                                    taxonomy = get_species_taxonomy(corrected_name, email, record_alt=True, use_higher_taxa=True, higher_taxa=higher_taxa_name)
+                                    sp_taxon_dict[species] = taxonomy
+                                    #print(f"Corrected Species' ({species}) Higher Taxa Name Used to Find Taxa!\n")
+                                except:
+                                    sp_taxon_dict[species] = taxonomy
+                                    #print(f'Finding Corrected Species Name for {species} Failed Due to Error Using Higher Taxa as Substitute.\n')  
+                            else:
+                                pass
+                                #print(f'Corrected Species Name for {species} Used to Find Taxa!\n')
                         else:
-                            print('Finding Corrected Species Name Failed.\n') 
+                            pass
+                            #print(f'Finding Corrected Species Name for {species} Failed.\n') 
                     except:
-                        print('Finding Corrected Species Name Failed.\n')  
+                        print(f'Finding Corrected Species Name for {species} Failed Due to Error.\n')  
             except:
                 with open(taxon_file, 'w') as f:
                     json.dump(sp_taxon_dict, f, indent=4)  # indent for pretty formatting
@@ -156,9 +374,54 @@ def get_sp_taxon_dict(species_list, email, taxon_file, sp_taxon_dict={}):
 
 def ncbi_query_to_df(query_list, species_list, species_taxon_dict, email):
     
+    """Converts a list of NCBI query results into a Pandas DataFrame.
+
+    This function takes a list of Biopython SeqRecord objects (the results of NCBI queries) 
+    and extracts relevant information such as accession numbers, taxonomic information, 
+    gene descriptions, and protein sequences. It then organizes this data into a Pandas DataFrame.
+
+    Args:
+        query_list (list): A list of lists, where each inner list contains Biopython SeqRecord objects 
+                           returned from NCBI queries for a specific species.
+        species_list (list): A list of species names (strings) that were used in the NCBI queries.
+        species_taxon_dict (dict): A dictionary containing taxonomic information for each species in 
+                                   `species_list`, including synonyms. The keys are species names, 
+                                   and the values are dictionaries with keys like "Phylum", "Subphylum", 
+                                   "Class", and "Synonyms".
+        email (str): Your email address, used for querying NCBI in the case of missing taxonomy.
+
+    Returns:
+        pandas.DataFrame: A DataFrame containing the extracted information from the NCBI query results. 
+                          The DataFrame has the following columns:
+                            - Accession: The NCBI accession number (version).
+                            - Phylum: The phylum of the species.
+                            - Subphylum: The subphylum of the species.
+                            - Class: The class of the species.
+                            - Genus: The genus of the species.
+                            - Species: The species name (without the genus).
+                            - Full_Species: The full species name (genus + species).
+                            - Protein: The amino acid sequence of the protein.
+                            - Gene_Description: A description of the gene.
+                            - Species_Synonym_Used: The synonymous species name used in the query if a synonym was used, 
+                                                    otherwise 'NA'.
+
+    Raises:
+        Exception: If a species query fails during the taxonomic lookup for an unknown species. This exception
+                   is raised after 50 retries. This is highly unlikely, and likely indicates a back-end problem.
+                   If you encounter this exception please save any work and restart the script.
+
+    Notes:
+      - The function handles cases where the species name in the NCBI record might be a synonym 
+        of the name used in the original query.
+      - It attempts to look up the taxonomic classification (Phylum, Subphylum, Class) 
+        in the provided `species_taxon_dict`.
+      - If a species is not found in `species_taxon_dict` and is not a synonym of any included species, it will attempt to fetch the taxonomic information from NCBI directly using the `get_species_taxonomy` function and the provided email. It will retry this process up to 50 times for each species if the initial attempt fails.
+      - Duplicate entries (based on species name and protein sequence) are removed, keeping only the first occurrence.
+    """
+    
     # create empty lists
     Accession = []
-    #DNA = []
+    dna = []
     Phylum = []
     Subphylum = []
     Class = []
@@ -249,6 +512,17 @@ def ncbi_query_to_df(query_list, species_list, species_taxon_dict, email):
             else:
                 Sp_syn_used.append('NA')
 
+            if seq.seq:
+                try:
+                    if len(str(seq.seq)) < 10000:
+                        dna_seq = str(seq.seq).strip().replace('\n','').replace(',','').replace('\t','')
+                    else:
+                        dna_seq = ""
+                except:
+                    dna_seq = ""
+            else:
+                dna_seq = ""
+
             # get and append protein sequence
             if seq.features:
                 for feature in seq.features:
@@ -263,7 +537,16 @@ def ncbi_query_to_df(query_list, species_list, species_taxon_dict, email):
             full_sp_names.append(str(g_s_name[0]) + ' ' + str(g_s_name[1]))
             gene_des.append(str(seq.description))
             version.append(str(seq.id))
-            Protein.append(str(pro_seq))
+            try:
+                dna.append(str(dna_seq))
+            except:
+                print(f'DNA-Seq for {seq.id} is undefined...\n')
+                dna.append('')
+            try:
+                Protein.append(str(pro_seq))
+            except:
+                print(f'Protein-Seq for {seq.id} is undefined...\n')
+                Protein.append('')
             
     # create a dataframe for the information
     ncbi_q_df = pd.DataFrame(
@@ -274,6 +557,7 @@ def ncbi_query_to_df(query_list, species_list, species_taxon_dict, email):
         'Genus': Genus,
         'Species': Species,
         'Full_Species': full_sp_names,
+        'DNA': dna,
         'Protein': Protein,
         'Gene_Description': gene_des,
         'Species_Synonym_Used': Sp_syn_used
@@ -286,7 +570,43 @@ def ncbi_query_to_df(query_list, species_list, species_taxon_dict, email):
     
 
 
-def ncbi_fetch_opsins(email, job_label='unnamed', out='unnamed', species_list=None):
+def ncbi_fetch_opsins(email, job_label='unnamed', out='unnamed', species_list=None, filter_len_lower=300, filter_len_upper=700):
+    
+    """Fetches opsin sequences from NCBI for a given list of species.
+
+    This function performs the following steps:
+    1. Creates a directory to store results, labeled with the job name and timestamp.
+    2. Saves the list of queried species to a text file.
+    3. Constructs a taxonomic dictionary for the species, including synonyms, 
+       using an existing dictionary if available to improve efficiency.
+    4. Queries NCBI's Nucleotide database for opsin sequences for each species,
+       using the species name and its synonyms, as well as search terms related to opsin proteins.
+    5. Handles query failures with a retry mechanism (up to 50 attempts with 1 second delays).
+    6. Parses the results into a Pandas DataFrame.
+    7. Saves the DataFrame to a CSV file.
+    8. Saves the retrieved protein sequences to a FASTA file.
+    9. Filters the results to include only species present in the original input list.
+    10. Saves a list of species with no hits to a text file.
+    11. Saves a list of species with hits that were not in the original list (potential hits due to synonyms or misspellings) to a separate file and dataframe.
+    12. Returns the cleaned DataFrame (containing only species from the input list) and the path to the report directory.
+
+    Args:
+        email (str): Your email address. Required for NCBI Entrez queries.
+        job_label (str, optional): A label for the job. Used in directory and file names. Defaults to 'unnamed'.
+        out (str, optional): The base name for output files. Defaults to the `job_label`.
+        species_list (list): A list of species names (strings) to query.
+
+    Returns:
+        tuple: A tuple containing:
+            - pandas.DataFrame: A DataFrame containing the cleaned NCBI query results (only species from the input list). 
+                                If no species from the list had hits, returns the original unfiltered dataframe.
+            - str: The path to the directory where results are saved.
+
+    Raises:
+        Exception: If a species name causes issues in the query generation process. This is highly unlikely,
+                   and would only be seen if a species name is not formatted as a string.
+    """
+    
     
     print('Creating Job Directory\n')
     dt_label = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
@@ -315,7 +635,8 @@ def ncbi_fetch_opsins(email, job_label='unnamed', out='unnamed', species_list=No
         species_taxon_dict = get_sp_taxon_dict(species_list = species_list, email = email, taxon_file = taxon_file)
     
     # Save the taxon dictionary if it doesn't yet exist or if it has been updated since being loaded 
-    if (list(species_taxon_dict.keys()) > list(existing_taxon_dict.keys())):         #print('Saving Updated Dictionary') 
+    if (list(species_taxon_dict.keys()) >= list(existing_taxon_dict.keys())):         
+        #print('Saving Updated Dictionary') 
         try:
             with open(taxon_file, 'w') as f:
                 json.dump(species_taxon_dict, f, indent=4)  # indent for pretty formatting
@@ -331,24 +652,33 @@ def ncbi_fetch_opsins(email, job_label='unnamed', out='unnamed', species_list=No
     i=0
     with progressbar.ProgressBar(max_value=len(species_list),style='BouncingBar') as bar:
         for species in species_list:
+            
             try:
                 temp = species.split(' ')
             except:
                 raise Exception(f'Species Name Causing Error: {species}')
+            
             if len(species_taxon_dict[species]['Synonyms']) > 0:
+                sp_for_query = f'("{species}"[Organism] OR "{species}"[Title]'
+                if (len(temp) == 3) and ('(' not in species) and ('.' not in species):
+                    sp_for_query+= f' OR "{temp[0]} {temp[1]}"[Organism] OR "{temp[0]} {temp[1]}"[Title]'
+                    sp_for_query+= f' OR "{temp[0]} {temp[2]}"[Organism]  OR "{temp[0]} {temp[2]}"[Title]'
+                    for syn in species_taxon_dict[species]['Synonyms']:
+                        if (syn != species) and (f"{temp[0]} {temp[1]}" != syn) and (f"{temp[0]} {temp[2]}" != syn):
+                            sp_for_query+= f' OR "{syn}"[Organism] OR {syn}"[Title]'
+                            sp_for_query+=')'
+                else:
+                    for syn in species_taxon_dict[species]['Synonyms']:
+                        if (syn != species):
+                            sp_for_query+= f' OR "{syn}"[Organism] OR {syn}"[Title]'
+                            sp_for_query+=')'
+                            
+            elif (len(temp) == 3) and ('(' not in species) and ('.' not in species):
                 sp_for_query = f'("{species}"[Organism]'
-                if len(temp) == 3:
-                    sp_for_query+= f' OR "{temp[0]} {temp[1]}"[Organism]'
-                    sp_for_query+= f' OR "{temp[0]} {temp[2]}"[Organism]'
-
-                for syn in species_taxon_dict[species]['Synonyms']:
-                    sp_for_query+= f' OR "{syn}"[Organism]'
+                sp_for_query+= f' OR "{temp[0]} {temp[1]}"[Organism] OR "{temp[0]} {temp[1]}"[Title]'
+                sp_for_query+= f' OR "{temp[0]} {temp[2]}"[Organism] OR "{temp[0]} {temp[2]}"[Title]'
                 sp_for_query+=')'
-            elif len(temp) == 3:
-                sp_for_query = f'("{species}"[Organism]'
-                sp_for_query+= f' OR "{temp[0]} {temp[1]}"[Organism]'
-                sp_for_query+= f' OR "{temp[0]} {temp[2]}"[Organism]'
-                sp_for_query+=')'
+                
             else:
                 sp_for_query = f'"{species}"[Organism]'
             #print(sp_for_query)
@@ -356,8 +686,10 @@ def ncbi_fetch_opsins(email, job_label='unnamed', out='unnamed', species_list=No
             for x in range(50):
                 if queried == False:
                     try:            
-                        NCBI_seq = ncbi_fetch(email=email, 
-                                        term = f"{sp_for_query} AND (opsin[Title] OR rhodopsin[Title] OR OPN[Title] OR rh1[Title] OR rh2[Title] OR Rh1[Title] OR Rh2[Title]) NOT partial[Title] NOT voucher[All Fields] NOT kinase[All Fields] NOT kinase-like[All Fields] NOT similar[Title] NOT homolog[Title] NOT opsin-like[Title]")
+                        NCBI_seq = ncbi_fetch_alt(email=email, 
+                                        term = f'{sp_for_query} AND (opsin[Title] OR rhodopsin[Title] OR OPN[Title] OR rh1[Title] OR rh2[Title] OR Rh1[Title] OR Rh2[Title]) NOT partial[Title] NOT voucher[All Fields] NOT kinase[All Fields] NOT kinase-like[All Fields] NOT similar[Title] NOT homolog[Title] NOT enhancer[Title]')
+                                        #term = f'{sp_for_query} AND (opsin[Title] OR rhodopsin[Title] OR OPN[Title] OR rh1[Title] OR rh2[Title] OR Rh1[Title] OR Rh2[Title]) NOT partial[Title] NOT voucher[All Fields] NOT kinase[All Fields] NOT kinase-like[All Fields] NOT similar[Title] NOT homolog[Title] NOT opsin-like[Title] NOT enhancer[Title]')
+
                         queried = True
                     except:
                         time.sleep(1)
@@ -368,12 +700,15 @@ def ncbi_fetch_opsins(email, job_label='unnamed', out='unnamed', species_list=No
             query_list.append(NCBI_seq)
             bar.update(i)
             i+=1
+            #time.sleep(0.5)
+
         bar.finish()
         
     print('NCBI Queries Complete!\nNow Extracting and Formatting Results For DataFrame...\n')
-    #maybe add the syn-species dictionary to the function below
     ncbi_query_df = ncbi_query_to_df(query_list=query_list, species_list=species_list, species_taxon_dict=species_taxon_dict, email=email)
-    
+    ncbi_query_df['Prot_Len'] = ncbi_query_df['Protein'].str.len()
+    ncbi_query_df = ncbi_query_df[(ncbi_query_df['Prot_Len'] >= filter_len_lower) & (ncbi_query_df['Prot_Len'] <= filter_len_upper)]
+
     if out == 'unnamed':
         out = job_label
     ncbi_query_df.to_csv(path_or_buf=f"./{report_dir}/{out.replace(' ','_')}_ncbi_q_data.csv", index=False)
@@ -403,7 +738,7 @@ def ncbi_fetch_opsins(email, job_label='unnamed', out='unnamed', species_list=No
     if len(sp_rnd_hits) > 0:
         print('Saving txt file with names of species that retrieved results for opsins but are NOT in submitted species list...\n')
         #len(sp_rnd_hits)
-        rnd_sp_hits_file = f'{report_dir}/potnetial_species_hits.txt'
+        rnd_sp_hits_file = f'{report_dir}/potential_species_hits.txt'
         with open(rnd_sp_hits_file, 'w') as f:
             for sp in sp_rnd_hits:
                 f.write(f'{sp}\n')
@@ -593,6 +928,40 @@ def merge_accessory_dbs(df_list, report_dir):
 
 
 def create_matched_df(report_dir, mnm_merged_df, source_data):
+    
+    """Creates a matched DataFrame by comparing predicted and measured values for opsin sequences.
+
+    This function takes a DataFrame of merged NCBI and OPTICS prediction data (`mnm_merged_df`)
+    and a source DataFrame (`source_data`) containing measured LambdaMax values for opsin sequences.
+    It iterates through unique species in the `mnm_merged_df`, finds the closest measured LambdaMax 
+    value for each predicted value, and creates a new DataFrame (`matched_df`) containing the 
+    matched results.
+
+    The matching process involves:
+    1. Identifying unique species in the merged prediction data.
+    2. Iterating through each species and filtering the prediction and source data accordingly.
+    3. For each prediction, calculating the absolute difference between the predicted value 
+       and all measured LambdaMax values for that species.
+    4. Selecting the measurement with the minimum absolute difference as the closest match.
+    5. Handling cases where multiple predictions for the same species and Accession might exist,
+       keeping only the prediction with the smallest absolute difference to the measured value.
+    6. Adding relevant information from the `mnm_merged_df` to the `matched_df`, including
+       %Identity_Nearest_VPOD_Sequence, Gene_Description, Protein sequence, Genus, Species, 
+       Phylum, Subphylum, and Class.
+    7. Filtering out duplicate entries based on 'comp_db_id' and 'Full_Species', prioritizing 
+       entries with the lowest 'abs_diff' and highest '%Identity_Nearest_VPOD_Sequence' when duplicates are found.
+
+    Args:
+        report_dir (str): Path to the directory where output files will be saved. (Used for saving intermediate output)
+        mnm_merged_df (pandas.DataFrame): DataFrame containing merged NCBI and OPTICS prediction data. 
+                                          Must have columns 'Full_Species', 'Accession', 'Prediction_Medians', and others that will be copied to matched_df.
+        source_data (pandas.DataFrame): DataFrame containing measured LambdaMax values. Must have 
+                                       columns 'Full_Species' and 'LambdaMax'. Also a 'comp_db_id' column that will be used as index later.
+
+    Returns:
+        pandas.DataFrame: A DataFrame (`matched_df`) containing the matched prediction and 
+                          measurement data, along with additional information from `mnm_merged_df`.
+    """    
     # Get unique species from predictions
     unique_species = list(mnm_merged_df['Full_Species'].unique())
     # Initialize a list to store the matched results
@@ -736,8 +1105,42 @@ def create_matched_df(report_dir, mnm_merged_df, source_data):
     return(final_filtered_df)
 
 
-def mine_n_match(email, report_dir, source_file, ncbi_q_file, optics_pred_file, out='unnamed', err_filter = 15):
+def mine_n_match(email, report_dir, source_file, ncbi_q_file, optics_pred_file, out='unnamed', err_filter=15):
+    
+    """Mines and matches opsin sequences based on various criteria and prediction data.
 
+    This function performs a multi-step process to identify and filter opsin sequences 
+    based on provided data sources, including a source file with known opsin data, 
+    NCBI query results, and prediction data from the OPTICS tool.
+
+    The process involves:
+    1. Loading and preprocessing data from the source file, NCBI query file, and OPTICS prediction file.
+    2. Merging the NCBI and OPTICS data, filtering by identity to the nearest VPOD sequence, 
+       and creating a matched dataframe based on source data.
+    3. Filtering the matched dataframe by an error threshold (abs_diff) and removing entries 
+       with 100% identity to the nearest VPOD sequence.
+    4. Handling redundant sequences with different accession numbers by selecting the entry 
+       with the lowest abs_diff and adding a note about the redundancy.
+    5. Incorporating additional sequences from the source data that were not found in the 
+       initial matching process.
+    6. Retrieving and adding taxonomic information (Phylum, Subphylum, Class) for 
+       the added sequences.
+    7. Generating a final dataframe with filtered and annotated opsin data, including 
+       comp_db_id, Accession, taxonomic information, LambdaMax, Protein, and Notes.
+
+    Args:
+        email (str): User's email address, used for NCBI Entrez queries.
+        report_dir (str): Path to the directory where output files will be saved.
+        source_file (str): Path to the source data file (CSV or TSV format). This file should contain a "Full_Species" column or "Genus" and "Species" columns, and an "Accession" column that will be filtered to include only entries without "-" or "–".
+        ncbi_q_file (str): Path to the NCBI query results file (CSV format).
+        optics_pred_file (str): Path to the OPTICS prediction results file (TSV format).
+        out (str, optional): Base name for output files. Defaults to 'unnamed'.
+        err_filter (int, optional): Error threshold (abs_diff) for filtering results. Defaults to 15.
+
+    Returns:
+        pandas.DataFrame: A DataFrame containing the final filtered and annotated opsin data. 
+        The DataFrame is also saved as a CSV file in the report_dir.
+    """
     try:
         source_data = pd.read_csv(source_file, delimiter='\t',index_col = 0)
     except:
@@ -883,7 +1286,7 @@ def mine_n_match(email, report_dir, source_file, ncbi_q_file, optics_pred_file, 
         species_taxon_dict = get_sp_taxon_dict(species_list = species_list, email = email, taxon_file = taxon_file)
     
     # Save the taxon dictionary if it doesn't yet exist or if it has been updated since being loaded 
-    if (list(species_taxon_dict.keys()) > list(existing_taxon_dict.keys())):  
+    if (list(species_taxon_dict.keys()) >= list(existing_taxon_dict.keys())):  
         #print('Saving Updated Dictionary') 
         try:
             with open(taxon_file, 'w') as f:
@@ -917,27 +1320,6 @@ def mine_n_match(email, report_dir, source_file, ncbi_q_file, optics_pred_file, 
 
     return(final_df)
     
-def post_process_matching(report_dir, mnm_file):
-    try:
-        mnm_data = pd.read_csv(mnm_file)
-    except:
-        mnm_file = f'./{report_dir}/{mnm_file}'
-        mnm_data = pd.read_csv(mnm_file)
-
-    # Sort the dataframe by `abs_diff` in ascending order
-    mnm_data = mnm_data.sort_values('abs_diff')
-
-    # Drop duplicate `Accession` values, keeping only the first (lowest) `abs_diff` value
-    mnm_data_unique = mnm_data.drop_duplicates(subset='Accession', keep='first')
-    mnm_data_unique.reset_index(inplace=True, drop=True)
-    mnm_data_unique.index.name = 'mnm_id'    
-    dt_label = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-    mnm_data_unique.to_csv(path_or_buf=f".{report_dir}/mine_n_match_curated_{dt_label}.csv", index=True)
-    
-    mnm_duplicates = mnm_data[mnm_data.duplicated(subset=['Accession'], keep=False)]
-    mnm_duplicates.to_csv(path_or_buf=f"./mine_n_match_duplicates_{dt_label}.csv", index=True)
-    
-    return(mnm_data_unique)
 
 
 import requests
@@ -1034,27 +1416,6 @@ def get_batch(batch_url, session, re_next_link):
         yield response, total
         batch_url = get_next_link(response.headers, re_next_link)
         
-        
-def get_species_synonyms(species_name):
-    """Fetches synonyms for a given species name from NCBI Taxonomy."""
-    try:
-        search_handle = Entrez.esearch(db="taxonomy", term=species_name, api_key = "1efb120056e1cea873ba8d85d6692abd5d09", usehistory="y")
-        search_results = Entrez.read(search_handle)
-        query_key = search_results["QueryKey"]
-        webenv = search_results["WebEnv"]
-
-        fetch_handle = Entrez.esummary(db="taxonomy", query_key=query_key, webenv=webenv)
-        fetch_results = Entrez.read(fetch_handle)
-
-        synonyms = []
-        for result in fetch_results:
-            if 'Synonym' in result:
-                synonyms.extend(result['Synonym'].split('; '))
-        return synonyms
-    except Exception as e:
-        print(f"Error fetching synonyms for {species_name}: {e}")
-        return []
-    
     
 def fasta_to_dataframe(fasta_file):
   """
