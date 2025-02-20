@@ -8,6 +8,7 @@ import pandas as pd
 import numpy as np
 import io
 from Bio import Entrez, SeqIO
+from tqdm import tqdm
 import progressbar
 
 api_key = "1efb120056e1cea873ba8d85d6692abd5d09"
@@ -65,12 +66,12 @@ def ncbi_fetch_alt(email, term, ncbi_db="nuccore", rettype="gb", format="genbank
     for x in q_list:
         if x in cache:
             # Fetch from cache
-            print(f"Fetching record {x} from cache.")
+            #print(f"Fetching record {x} from cache.")
             seq_record = SeqIO.read(io.StringIO(cache[x]), format)
             NCBI_seq.append(seq_record)
         else:
             # Fetch from NCBI
-            print(f"Fetching record {x} from NCBI.")
+            #print(f"Fetching record {x} from NCBI.")
             fet = Entrez.efetch(db=ncbi_db, id=x, rettype=rettype)
             seq = SeqIO.read(fet, format)
             fet.close()
@@ -650,59 +651,63 @@ def ncbi_fetch_opsins(email, job_label='unnamed', out='unnamed', species_list=No
     # make a progress bar for tracking query progression. Based on length of the species list
     print('Starting Queries to NCBI for Opsin Sequences\n')
     i=0
-    with progressbar.ProgressBar(max_value=len(species_list),style='BouncingBar') as bar:
-        for species in species_list:
-            
-            try:
-                temp = species.split(' ')
-            except:
-                raise Exception(f'Species Name Causing Error: {species}')
-            
-            if len(species_taxon_dict[species]['Synonyms']) > 0:
-                sp_for_query = f'("{species}"[Organism] OR "{species}"[Title]'
-                if (len(temp) == 3) and ('(' not in species) and ('.' not in species):
-                    sp_for_query+= f' OR "{temp[0]} {temp[1]}"[Organism] OR "{temp[0]} {temp[1]}"[Title]'
-                    sp_for_query+= f' OR "{temp[0]} {temp[2]}"[Organism]  OR "{temp[0]} {temp[2]}"[Title]'
-                    for syn in species_taxon_dict[species]['Synonyms']:
-                        if (syn != species) and (f"{temp[0]} {temp[1]}" != syn) and (f"{temp[0]} {temp[2]}" != syn):
-                            sp_for_query+= f' OR "{syn}"[Organism] OR {syn}"[Title]'
-                            sp_for_query+=')'
-                else:
-                    for syn in species_taxon_dict[species]['Synonyms']:
-                        if (syn != species):
-                            sp_for_query+= f' OR "{syn}"[Organism] OR {syn}"[Title]'
-                            sp_for_query+=')'
-                            
-            elif (len(temp) == 3) and ('(' not in species) and ('.' not in species):
-                sp_for_query = f'("{species}"[Organism]'
+    #with progressbar.ProgressBar(max_value=len(species_list),style='BouncingBar') as bar:
+    for species in tqdm(species_list, 
+                   desc="Processing species queries",
+                   colour="#CF9FFF",
+                   bar_format="{l_bar}{bar:25}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}]",
+                   dynamic_ncols=True,
+                   ascii=" ▖▘▝▗▚▞█"):           
+        try:
+            temp = species.split(' ')
+        except:
+            raise Exception(f'Species Name Causing Error: {species}')
+        
+        if len(species_taxon_dict[species]['Synonyms']) > 0:
+            sp_for_query = f'("{species}"[Organism] OR "{species}"[Title]'
+            if (len(temp) == 3) and ('(' not in species) and ('.' not in species):
                 sp_for_query+= f' OR "{temp[0]} {temp[1]}"[Organism] OR "{temp[0]} {temp[1]}"[Title]'
-                sp_for_query+= f' OR "{temp[0]} {temp[2]}"[Organism] OR "{temp[0]} {temp[2]}"[Title]'
-                sp_for_query+=')'
-                
+                sp_for_query+= f' OR "{temp[0]} {temp[2]}"[Organism]  OR "{temp[0]} {temp[2]}"[Title]'
+                for syn in species_taxon_dict[species]['Synonyms']:
+                    if (syn != species) and (f"{temp[0]} {temp[1]}" != syn) and (f"{temp[0]} {temp[2]}" != syn):
+                        sp_for_query+= f' OR "{syn}"[Organism] OR {syn}"[Title]'
+                        sp_for_query+=')'
             else:
-                sp_for_query = f'"{species}"[Organism]'
-            #print(sp_for_query)
-            queried = False
-            for x in range(50):
-                if queried == False:
-                    try:            
-                        NCBI_seq = ncbi_fetch_alt(email=email, 
-                                        term = f'{sp_for_query} AND (opsin[Title] OR rhodopsin[Title] OR OPN[Title] OR rh1[Title] OR rh2[Title] OR Rh1[Title] OR Rh2[Title]) NOT partial[Title] NOT voucher[All Fields] NOT kinase[All Fields] NOT kinase-like[All Fields] NOT similar[Title] NOT homolog[Title] NOT enhancer[Title]')
-                                        #term = f'{sp_for_query} AND (opsin[Title] OR rhodopsin[Title] OR OPN[Title] OR rh1[Title] OR rh2[Title] OR Rh1[Title] OR Rh2[Title]) NOT partial[Title] NOT voucher[All Fields] NOT kinase[All Fields] NOT kinase-like[All Fields] NOT similar[Title] NOT homolog[Title] NOT opsin-like[Title] NOT enhancer[Title]')
-
-                        queried = True
-                    except:
-                        time.sleep(1)
-                        pass
+                for syn in species_taxon_dict[species]['Synonyms']:
+                    if (syn != species):
+                        sp_for_query+= f' OR "{syn}"[Organism] OR {syn}"[Title]'
+                        sp_for_query+=')'
+                        
+        elif (len(temp) == 3) and ('(' not in species) and ('.' not in species):
+            sp_for_query = f'("{species}"[Organism]'
+            sp_for_query+= f' OR "{temp[0]} {temp[1]}"[Organism] OR "{temp[0]} {temp[1]}"[Title]'
+            sp_for_query+= f' OR "{temp[0]} {temp[2]}"[Organism] OR "{temp[0]} {temp[2]}"[Title]'
+            sp_for_query+=')'
+            
+        else:
+            sp_for_query = f'"{species}"[Organism]'
+        #print(sp_for_query)
+        queried = False
+        for x in range(50):
             if queried == False:
-                print('Uh-oh, species query failed.\nThis is likely a back-end issue with the querying process\nIf this message continues to appear, please manually interrupt the qury process and restart...')
-                    
-            query_list.append(NCBI_seq)
-            bar.update(i)
-            i+=1
-            #time.sleep(0.5)
+                try:            
+                    NCBI_seq = ncbi_fetch_alt(email=email, 
+                                    term = f'{sp_for_query} AND (opsin[Title] OR rhodopsin[Title] OR OPN[Title] OR rh1[Title] OR rh2[Title] OR Rh1[Title] OR Rh2[Title]) NOT partial[Title] NOT voucher[All Fields] NOT kinase[All Fields] NOT kinase-like[All Fields] NOT similar[Title] NOT homolog[Title] NOT enhancer[Title]')
+                                    #term = f'{sp_for_query} AND (opsin[Title] OR rhodopsin[Title] OR OPN[Title] OR rh1[Title] OR rh2[Title] OR Rh1[Title] OR Rh2[Title]) NOT partial[Title] NOT voucher[All Fields] NOT kinase[All Fields] NOT kinase-like[All Fields] NOT similar[Title] NOT homolog[Title] NOT opsin-like[Title] NOT enhancer[Title]')
 
-        bar.finish()
+                    queried = True
+                except:
+                    time.sleep(1)
+                    pass
+        if queried == False:
+            print('Uh-oh, species query failed.\nThis is likely a back-end issue with the querying process\nIf this message continues to appear, please manually interrupt the qury process and restart...')
+                
+        query_list.append(NCBI_seq)
+        #bar.update(i)
+        #i+=1
+        #time.sleep(0.5)
+
+    #bar.finish()
         
     print('NCBI Queries Complete!\nNow Extracting and Formatting Results For DataFrame...\n')
     ncbi_query_df = ncbi_query_to_df(query_list=query_list, species_list=species_list, species_taxon_dict=species_taxon_dict, email=email)
@@ -797,7 +802,7 @@ def clean_lambda_max(df, lambda_max_column):
                 new_row[lambda_max_column] = cleaned_value
                 new_rows.append(new_row)
 
-        elif '-' in lambda_max_str:
+        elif ('-' in lambda_max_str) or ('–' in lambda_max_str):
             # Range of values
             new_row = other_data.to_dict()
             # Remove non-numerical characters and take average
@@ -828,6 +833,7 @@ def clean_single_value(value_str):
     numbers = re.findall(r"[\d\-]+", value_str)
     
     if not numbers:
+        print(f'Not a number: {value_str}')
         return np.nan  # Return NaN if no numbers are found
     
     # Handle multiple numbers
@@ -835,31 +841,49 @@ def clean_single_value(value_str):
         extracted_numbers = []
         for num in numbers:
             # If hyphen is present, split the values and convert to numbers
-            if '-' in num:
+            if ('-' in num):
                 try:
                     start, end = map(float, num.split('-'))
                     extracted_numbers.extend([start, end])
                 except ValueError:
+                    print(f'Not a number: {num}')
+                    return np.nan  # Return NaN if there's a problem with splitting or converting to float
+            elif ('–' in num):
+                try:
+                    start, end = map(float, num.split('–'))
+                    extracted_numbers.extend([start, end])
+                except ValueError:
+                    print(f'Not a number: {num}')
                     return np.nan  # Return NaN if there's a problem with splitting or converting to float
             else:
                 try:
                     extracted_numbers.append(float(num))
                 except ValueError:
+                    print(f'Not a number: {num}')
                     return np.nan # Return NaN if value cannot be converted to float
         return np.mean(extracted_numbers)
     
     # Handle single range or single number
     elif len(numbers) == 1:
-        if '-' in numbers[0]:
+        if ('-' in numbers[0]):
             try:
                 start, end = map(float, numbers[0].split('-'))
                 return np.mean([start, end])
             except ValueError:
+                print(f'Not a number: {num}')
                 return np.nan
+        elif ('–' in numbers[0]):
+            try:
+                start, end = map(float, numbers[0].split('–'))
+                return np.mean([start, end])
+            except ValueError:
+                print(f'Not a number: {num}')
+                return np.nan     
         else:
             try:
                 return float(numbers[0])
             except ValueError:
+                print(f'Not a number: {num}')
                 return np.nan
 
 def merge_accessory_dbs(df_list, report_dir):
@@ -873,9 +897,10 @@ def merge_accessory_dbs(df_list, report_dir):
     Returns:
       A merged pandas DataFrame.
     """
+    dt_label = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
     merged_df = pd.DataFrame()  # Initialize an empty DataFrame
-
+    
     for df in df_list:
       # If 'Accession' is missing, create it with NaN values
       if 'Accession' not in df.columns:
@@ -887,44 +912,34 @@ def merge_accessory_dbs(df_list, report_dir):
       temp_df = df[['Full_Species', 'LambdaMax', 'Accession']].copy()
       temp_df = temp_df.reset_index(drop=True)
       temp_df[index_name] = df.index.astype(str).to_list()
-      #temp_df['LambdaMax'] = temp_df['LambdaMax'].astype(str) 
-      #print(temp_df.head())
 
-      # Rename the index column to its unique name
-      #df = df.rename(columns={index_name: index_name})
-
-      # Perform the merge (outer join to keep all data)
       if merged_df.empty:
           merged_df = temp_df
       else:
-          merged_df = pd.concat([merged_df, temp_df]) 
-          
-    merged_df.index.name = 'comp_db_id'
+          merged_df = pd.concat([merged_df, temp_df], ignore_index=True) 
+
     #merged_df.drop_duplicates(subset=['Full_Species', 'LambdaMax'], keep='first', inplace=True)
     # Sort the DataFrame by 'Accession' (descending) and then 'obs_id' (ascending)
-    processed_df = merged_df.sort_values(by=['Accession', 'comp_db_id'], ascending=[False, True])
-    # Drop duplicate rows based on 'Full_Species' and 'LambdaMax', keeping the first occurrence
-    processed_df = processed_df.drop_duplicates(subset=['Full_Species', 'LambdaMax'], keep='first')
-    processed_df.dropna(subset=['LambdaMax'], inplace=True)
-    #re-sort by index and then reset index
-    #processed_df = processed_df.sort_values('comp_db_id')
-    processed_df = processed_df.reset_index(drop=True)
+    processed_df = merged_df.sort_values(by=['Accession'], ascending=[False])
+    processed_df['Accession'] = processed_df['Accession'].str.replace('â€“','-').replace('–','-').replace(',Â','-').replace(' ','').replace('-','-')
+    processed_df.reset_index(drop=True, inplace=True)
     processed_df.index.name = 'comp_db_id'
-    dt_label = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    #processed_df['LambdaMax'] = processed_df['LambdaMax'].str.replace('–','-').replace(' ','')
     processed_df.to_csv(f'{report_dir}/vpod_comp_acc_dbs_{dt_label}.csv', index=True)
-
+    processed_df.dropna(subset=['LambdaMax'], inplace=True)
+    
     #Clean the proccessed df column containing lambda max values of rows with mutliple entries or ranges
     cleaned_df = clean_lambda_max(processed_df.copy(), 'LambdaMax')  # Use df.copy() to avoid modifying the original DataFrame
     cleaned_df.dropna(subset=['LambdaMax'], inplace=True)
-    cleaned_df['Accession'] = cleaned_df['Accession'].str.replace('â€“','-').replace('–','-').replace(',Â','-').replace(' ','')
-    cleaned_df = cleaned_df.reset_index(drop=True)
+    # Drop duplicate rows based on 'Full_Species' and 'LambdaMax', keeping the first occurrence
+    cleaned_df = cleaned_df.drop_duplicates(subset=['Full_Species', 'LambdaMax'], keep='first')
+    cleaned_df.reset_index(drop=True, inplace=True)
     cleaned_df.index.name = 'comp_db_id'
-    
+
     #save the final clean, merged df
-    dt_label = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-    cleaned_df.to_csv(f'{report_dir}/clean_vpod_comp_acc_dbs_{dt_label}.csv', index=True)
-    
-    return cleaned_df
+    cleanded_df_name = f'{report_dir}/clean_vpod_comp_acc_dbs_{dt_label}.csv'
+    cleaned_df.to_csv(cleanded_df_name, index=True)
+    return cleaned_df, cleaned_df_name
 
 
 def create_matched_df(report_dir, mnm_merged_df, source_data):
@@ -1142,10 +1157,10 @@ def mine_n_match(email, report_dir, source_file, ncbi_q_file, optics_pred_file, 
         The DataFrame is also saved as a CSV file in the report_dir.
     """
     try:
-        source_data = pd.read_csv(source_file, delimiter='\t',index_col = 0)
+        source_data = pd.read_csv(source_file, index_col = 0)
     except:
         source_file = f'./{report_dir}/{source_file}'
-        source_data = pd.read_csv(source_file, delimiter='\t', index_col = 0)   
+        source_data = pd.read_csv(source_file, index_col = 0)   
         
     if 'Genus' in source_data.columns and 'Species' in source_data.columns and 'Full_Species' not in source_data.columns:
         source_data['Full_Species'] = source_data['Genus'] + '_' + source_data['Species']
@@ -1161,7 +1176,13 @@ def mine_n_match(email, report_dir, source_file, ncbi_q_file, optics_pred_file, 
                 gn_list.append(genus)
                 sp_list.append(species)
             except:
-                raise Exception(f'Problematic species name: {sp}')
+                try:
+                    genus = sp.split('Â', 1)[0]
+                    species = sp.split('Â', 1)[0]
+                    gn_list.append(genus)
+                    sp_list.append(species)
+                except:
+                    raise Exception(f'Problematic species name: {sp}')
         source_data['Genus'] = gn_list
         source_data['Species'] = sp_list
 
@@ -1236,7 +1257,7 @@ def mine_n_match(email, report_dir, source_file, ncbi_q_file, optics_pred_file, 
     sd_2= sd_2[~sd_2["Accession"].isna()].reset_index()
     
     # Filter the Accession column to include only those without '-' or '–'
-    sd_2 = sd_2[~sd_2["Accession"].str.contains("-|–|â€“")].reset_index(drop=True)
+    sd_2 = sd_2[~sd_2["Accession"].str.contains("-|–|â€“|,")].reset_index(drop=True)
     #sd_2 = sd_2[~sd_2["Accession"].str.contains("-|–|")].reset_index(drop = True)
 
     # Create a list of `Accession` in `result_df`

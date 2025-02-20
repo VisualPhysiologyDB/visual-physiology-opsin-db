@@ -1,0 +1,3 @@
+Command executed (reconstructed):	input_sequence: E:/safra/Documents/GitHub/visual-physiology-opsin-db/scripts_n_notebooks/vpod_ML_workflows/mine_n_match/optics_ex_short.txt, report_dir: ./prediction_outputs/optics_on_mnm_all_dbs_2025-02-18_11-51-29, output: optics_predictions.txt, model: whole-dataset, encoding_method: aa_prop, blastp: True, iden_report: blastp_report.txt, refseq: bovine, reffile: , bootstrap: True, visualize_bootstrap: False, bootstrap_viz_file: bootstrap_viz
+Model Used:	whole-dataset
+Encoding Method:	aa_prop

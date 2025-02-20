@@ -1,0 +1,20 @@
+kooi_insect_db_file = f'{report_dir}/j_van_der_kooi/j_van_der_kooi_2021_main_table.csv'
+kooi_df = pd.read_csv(kooi_insect_db_file, index_col=0)
+#kooi_df['Full_Species'] = (kooi_df['Genus'] + ' ' + kooi_df['Species']).to_list()
+#df_list.append(kooi_df)
+kooi_df.head()
+
+# Melt the dataframe
+melted_df = kooi_df.melt(
+    id_vars=['Family', 'Genus', 'Species'],
+    value_vars=['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Remaining'],
+    value_name='LambdaMax'
+)
+
+melted_df.drop_duplicates(subset=['Genus','Species','LambdaMax'], inplace=True)
+melted_df.dropna(subset=['LambdaMax'], inplace=True)
+melted_df.reset_index(drop=True, inplace=True)
+melted_df.index.name = 'kooi_id'
+melted_df['Full_Species'] = (melted_df['Genus'] + ' ' + melted_df['Species']).to_list()
+melted_df.to_csv('./data_sources/lmax/j_van_der_kooi/j_van_der_kooi_2021_mt_cleaned.csv')
+melted_df.head()
