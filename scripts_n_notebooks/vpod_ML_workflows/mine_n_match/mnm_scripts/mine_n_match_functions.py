@@ -91,60 +91,6 @@ def ncbi_fetch_alt(email, term, ncbi_db="nuccore", rettype="gb", format="genbank
 
     return NCBI_seq
 
-# create a function that return the collection of all NCBI fetch result
-def ncbi_fetch(email, term, ncbi_db="nuccore", rettype="gb", format="genbank"):
-    
-  """Fetches sequences from NCBI's databases using Entrez.
-
-    This function queries an NCBI database (default: "nuccore") using a provided search term and 
-    retrieves all corresponding sequence records. It uses the provided email for identification 
-    and an API key for increased request limits.
-
-    Args:
-        email (str): Your email address. Required by NCBI for Entrez queries.
-        term (str): The search term to query the NCBI database.
-        ncbi_db (str, optional): The NCBI database to search. Defaults to "nuccore".
-        rettype (str, optional): The retrieval type for efetch. Defaults to "gb".
-        format (str, optional): The format of the sequence records to retrieve. Defaults to "genbank".
-
-    Returns:
-        list: A list of Biopython SeqRecord objects representing the fetched sequence records.
-
-    Notes:
-        - An API key should be set using `api_key = 'your_api_key'` in the main code before calling this function for increased requests per second.
-        - The function automatically pauses for 0.25 seconds between fetches to avoid overloading 
-          the NCBI servers, adhering to the rate limit even with an API key.
-        - The function returns all results, even if the number of results exceeds the default `retmax` limit of Entrez.esearch.
-  """    
-  Entrez.email = email    # Always tell NCBI who you are
-  handle = Entrez.esearch(db=ncbi_db,
-                        term=term, 
-                        api_key = api_key) # using api key allows 10 fetch per second
-  record = Entrez.read(handle)
-  #print(record)
-  full_res = int(record["Count"])
-  
-  handle_full = Entrez.esearch(db=ncbi_db,
-                        term=term, 
-                        api_key = api_key,
-                        retmax = full_res + 1)
-  record_full = Entrez.read(handle_full)
-  #print(record_full)
-  q_list = record_full["IdList"]
-
-# create a list for all the entries fetched from NCBI
-  NCBI_seq =[]
-  for x in q_list:
-    # fetch result from previous search
-    fet = Entrez.efetch(db=ncbi_db, id=x, rettype=rettype)
-    seq = SeqIO.read(fet, format)
-    fet.close()
-    
-    NCBI_seq.append(seq)
-
-    time.sleep(0.25)
-  
-  return NCBI_seq
 
 from pygbif import species
 def correct_species_name(species_name):
@@ -240,11 +186,14 @@ def get_species_taxonomy(species_name, email, record_alt=False, use_higher_taxa=
                 queried = True
                 #print(record)
                 taxonomy["TaxId"] = record["TaxId"]
+                if species_name != record["ScientificName"]:
+                    synonyms.append(record["ScientificName"])
 
                 # Extract synonyms
                 if ("OtherNames" in record) and (use_higher_taxa == False):
                     for name in record["OtherNames"]["Synonym"]:
-                        if name not in synonyms:
+                        if name not in synonyms and name != species_name:
+
                             if '(' in name:
                                 if ',' in name:
                                     rename = name.split('(')[0].strip()
@@ -657,7 +606,7 @@ def ncbi_fetch_opsins(email, job_label='unnamed', out='unnamed', species_list=No
                    colour="#CF9FFF",
                    bar_format="{l_bar}{bar:25}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}]",
                    dynamic_ncols=True,
-                   ascii=" ▖▘▝▗▚▞█"):           
+                   ascii=" ▖▝▗▚▞█"):           
         try:
             temp = species.split(' ')
         except:
@@ -937,8 +886,8 @@ def merge_accessory_dbs(df_list, report_dir):
     cleaned_df.index.name = 'comp_db_id'
 
     #save the final clean, merged df
-    cleanded_df_name = f'{report_dir}/clean_vpod_comp_acc_dbs_{dt_label}.csv'
-    cleaned_df.to_csv(cleanded_df_name, index=True)
+    cleaned_df_name = f'{report_dir}/clean_vpod_comp_acc_dbs_{dt_label}.csv'
+    cleaned_df.to_csv(cleaned_df_name, index=True)
     return cleaned_df, cleaned_df_name
 
 
