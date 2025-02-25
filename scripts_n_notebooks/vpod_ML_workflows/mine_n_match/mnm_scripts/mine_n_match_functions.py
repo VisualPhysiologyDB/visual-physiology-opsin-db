@@ -482,9 +482,24 @@ def ncbi_query_to_df(query_list, species_list, species_taxon_dict, email):
                         
             # Append all meta data to corresponding lists
             Accession.append(str(seq.name))
-            Genus.append(str(g_s_name[0]))
-            Species.append(str(g_s_name[1]))
-            full_sp_names.append(str(g_s_name[0]) + ' ' + str(g_s_name[1]))
+            
+            try:
+                Species.append(str(g_s_name[1]))
+                Genus.append(str(g_s_name[0]))
+                full_sp_names.append(str(g_s_name[0]) + ' ' + str(g_s_name[1]))
+            except:
+                try:
+                    genus = sp.split('Â', 1)[0]
+                    species = sp.split('Â', 1)[1]
+                    Species.append(species)
+                    Genus.append(genus)
+                except:
+                    Genus.append(str(g_s_name[0]))
+                    Species.append('')
+                    full_sp_names.append(str(g_s_name[0]))
+                    print(f'This species, {sp}, is not a complete species name!')
+
+                
             gene_des.append(str(seq.description))
             version.append(str(seq.id))
             try:
@@ -1127,11 +1142,17 @@ def mine_n_match(email, report_dir, source_file, ncbi_q_file, optics_pred_file, 
             except:
                 try:
                     genus = sp.split('Â', 1)[0]
-                    species = sp.split('Â', 1)[0]
+                    species = sp.split('Â', 1)[1]
                     gn_list.append(genus)
                     sp_list.append(species)
                 except:
-                    raise Exception(f'Problematic species name: {sp}')
+                    try:
+                        genus = sp.split('Â', 1)[0]
+                        species = sp.split('Â', 1)[0]
+                        gn_list.append(genus)
+                        sp_list.append(species)
+                    except:
+                        raise Exception(f'Problematic species name: {sp}')
         source_data['Genus'] = gn_list
         source_data['Species'] = sp_list
 
