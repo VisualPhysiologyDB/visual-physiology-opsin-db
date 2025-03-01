@@ -469,7 +469,7 @@ def get_mnm_datasets(seq_report_dir, mnm_data, mnm_meta_list, mnm_meta_shorthand
         meta_df = read_data(meta, seq_type = None, is_main=False)
         mnm_data_copy = mnm_data.copy()
         mnm_data_copy.drop_duplicates(subset=['Protein'], keep='first', inplace=True)
-        if short_hand == 'vert':
+        if short_hand == 'vert'  or short_hand == 'wt_vert':
             mnm_data_copy = mnm_data_copy[mnm_data_copy['Phylum'] == 'Chordata']
         elif short_hand == 'inv':
             mnm_data_copy = mnm_data_copy[mnm_data_copy['Phylum'] != 'Chordata']
