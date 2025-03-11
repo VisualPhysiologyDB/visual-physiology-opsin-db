@@ -41,7 +41,7 @@
 from vpod_scripts.phylo_weighted_cv import get_dist_matrix_from_tree, percentile_threshold, phylo_weighted_cv, plot_phylo_cv_line_graphs, plot_phylo_cv_indv_model_graphs, plot_phylo_cv_bar_graphs 
 # importing deepBreaks libraries 
 from deepBreaks.preprocessing import MisCare, ConstantCare
-from deepBreaks.preprocessing import FeatureSelection, CollinearCare, AminoAcidPropertyEncoder
+from deepBreaks.preprocessing import FeatureSelection, CollinearCare, AminoAcidPropertyEncoder, CustomOneHotEncoder, URareCare
 from deepBreaks.preprocessing import read_data
 from deepBreaks.models import model_compare_cv
 from deepBreaks.preprocessing import write_fasta
@@ -51,7 +51,7 @@ import datetime
 import os
 import shutil 
 import numpy as np
-
+import logging 
 
 
 # %%
@@ -74,7 +74,6 @@ def main():
     parser.add_argument("--ana_type", default="reg", help="Type of analysis ('reg' for regression, 'cl' for classification)")
     parser.add_argument("--gap_threshold", type=float, default=0.5, help="Gap threshold for sequence filtering")
     parser.add_argument("--props_to_keep", nargs="+", default=['H1', 'H3', 'NCI'], help="List of properties to keep for the analysis")
-    #parser.add_argument("--drop_ref", action="store_true", help="Drop the reference sequence from the training data")
 
     # Optional: Add param for optimized model training
     parser.add_argument("--use_optimized_params", action="store_true", help="Use grid search optimized parameters for model training") 
@@ -93,7 +92,6 @@ def main():
     seq_type = args.seq_type
     ana_type = args.ana_type
     gap_threshold = args.gap_threshold
-    #drop_ref = args.drop_ref
     use_optimized_params = args.use_optimized_params  # For the optional argument
     
     if use_optimized_params == True:
@@ -114,6 +112,38 @@ def main():
         props_used += props + '_'
     report_dir = str(props_used + seqFile +'_' + mt + '_' + dt_label)
     os.makedirs(report_dir)
+    
+    # --- Logging Block ---
+    log_file_path = os.path.join(report_dir, 'run_arguments.log')
+    logging.basicConfig(filename=log_file_path, level=logging.INFO,
+                        format='%(message)s')  # Only log the message itself
+
+    logger = logging.getLogger()
+
+    logger.info("Command-line arguments used for this run:\n")  # Clear header
+    for arg in vars(args):
+        #  Get the value and handle possible None values. Convert lists to strings.
+        arg_value = getattr(args, arg)
+        if isinstance(arg_value, list):
+            arg_value = " ".join(arg_value)  # Join list elements with spaces
+        elif arg_value is None:
+            arg_value = "None"  # Explicitly represent None
+        logger.info(f"--{arg} {arg_value}")
+
+    logger.info("\nTo re-run the script with the same arguments, use the following command:")
+    command_line = "python phylo_weighted_cv.py "  # Replace your_script_name.py
+    for arg in vars(args):
+        arg_value = getattr(args, arg)
+        if isinstance(arg_value, list):
+            arg_value = " ".join(arg_value)
+        elif arg_value is None:
+            arg_value = "None"
+        command_line += f"--{arg} {arg_value} "
+    logger.info(command_line)
+    # --- End Logging Block ---
+    
+    print(f"Arguments logged to: {log_file_path}") # confirm to user the logging worked
+
 
     # %%
     #print('reading meta-data')
