@@ -1,0 +1,11 @@
+IQ-TREE multicore version 2.2.2.7 COVID-edition for Windows 64-bit built Aug 21 2023
+Developed by Bui Quang Minh, James Barbetti, Nguyen Lam Tung,
+Olga Chernomor, Heiko Schmidt, Dominik Schrempf, Michael Woodhams, Ly Trong Nhan.
+
+Host:    LAPTOP-Q6IEK2A2 (AVX2, FMA3, 15 GB RAM)
+Command: iqtree2 -s wt_vert_mnm_aligned_VPOD_1.2_het.fasta -m MFP+LM -nt AUTO -bb 1000
+Seed:    913046 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Wed Mar 12 12:21:34 2025
+Kernel:  AVX+FMA - auto-detect threads (16 CPU cores detected)
+
+Reading alignment file wt_vert_mnm_aligned_VPOD_1.2_het.fasta ... ERROR: File not found wt_vert_mnm_aligned_VPOD_1.2_het.fasta

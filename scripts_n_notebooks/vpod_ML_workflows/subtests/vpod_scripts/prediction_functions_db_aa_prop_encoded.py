@@ -48,14 +48,11 @@ def process_sequence(mafft, sequence, loaded_model, alignment_data, gap_threshol
     if loaded_model.steps[-1][0] == 'BayesianRidge':
         prediction, pred_std = loaded_model.predict(new_seq_test, return_std=True)
         # Compute confidence intervals (e.g., 95% confidence)
-        #print(f'This is the prediction std: {pred_std}')
         interval_width = 1.96 * pred_std  # Assuming a normal distribution
-        #print(f'This is the interval width: {interval_width}')
-
         #lower_bound = prediction - interval_width
         #upper_bound = prediction + interval_width
         try:
-            return(prediction[0], interval_width[0])
+            return(prediction[0], interval_width)
         except:
             return(prediction, interval_width)
     else:
@@ -102,44 +99,24 @@ def process_sequences_from_file(mafft,input_file,output_file,selected_model,alig
     #print(names)
                      
     predictions = []
-    #cis is only relevant if using BayesianRidge model
-    cis = []
     print('Processing predictions...')
     for seq in sequences:
         #print(seq)
         loaded_model = load_obj(selected_model)
         if loaded_model.steps[-1][0] == 'BayesianRidge':
             prediction, interval_width = process_sequence(mafft,seq,loaded_model, alignment_data, gap_threshold)  # Process each sequence
-            predictions.append(prediction)
-            cis.append(interval_width)
+            predictions.append(f'{prediction}+/-{interval_width}')
         else:
-            prediction = process_sequence(mafft,seq,loaded_model, alignment_data, gap_threshold)  # Process each sequence
+            prediction = process_sequence(mafft,seq,selected_model, alignment_data, gap_threshold)  # Process each sequence
             predictions.append(prediction)
     #print(predictions)
 
     with open(output_file, 'w') as f:
         i = 0
-        if loaded_model.steps[-1][0] == 'BayesianRidge':
-            while i in range(len(names)):
-                if i == 0:
-                    f.write('Names\tPredictions\CI\n')
-                f.write(f"{names[i]}\t{predictions[i]}\t{cis[i]}\n")
-                print(f"{names[i]}\t{predictions[i]}\t{cis[i]}\n\n")
-                i+=1 
-            predictions_df = pd.DataFrame()
-            predictions_df['Names'] = names
-            predictions_df['Predictions'] = predictions
-            predictions_df['CI'] = cis
-        else:
-            while i in range(len(names)):
-                if i == 0:
-                    f.write('Names\tPredictions\n')
-                f.write(f"{names[i]}\t{predictions[i]}\n")
-                print(f"{names[i]}\t{predictions[i]}\n")
-                i+=1
-            predictions_df = pd.DataFrame()
-            predictions_df['Names'] = names
-            predictions_df['Predictions'] = predictions
-
-    print(f'All {i} Predictions Complete')        
-    return(predictions_df)
+        while i in range(len(names)):
+            if i == 0:
+                f.write('Names\tPredictions\n')
+            f.write(f"{names[i]}\t{predictions[i]}\n")
+            print(f"{names[i]}\t{predictions[i]}\n")
+            i+=1
+    return(print(f'All {i} Predictions Complete'))
