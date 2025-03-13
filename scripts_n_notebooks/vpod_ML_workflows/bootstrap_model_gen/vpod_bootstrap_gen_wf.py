@@ -4,7 +4,7 @@
 
 # %%
 # importing deepBreaks libraries 
-from deepBreaks.utils_alt import get_models, get_scores, get_empty_params, make_pipeline
+from deepBreaks.utils_alt2 import get_models, get_scores, get_empty_params, make_pipeline
 from deepBreaks.preprocessing import MisCare, ConstantCare, URareCare, CustomOneHotEncoder
 from deepBreaks.preprocessing import FeatureSelection, CollinearCare
 from deepBreaks.preprocessing import read_data
@@ -30,10 +30,15 @@ warnings.simplefilter('ignore')
 # defining user params, file pathes, analysis type
 
 #assign your path to folder containing all the datasplits
-path = './vpod_1.2_data_splits_2024-08-20_16-14-09'
-meta_data_list = ['wds_meta.tsv','wt_meta.tsv','wt_vert_meta.tsv', 'inv_meta.tsv', 'vert_meta.tsv']
-seq_data_list = ['wds_aligned_VPOD_1.2_het.fasta','wt_aligned_VPOD_1.2_het.fasta','wt_vert_aligned_VPOD_1.2_het.fasta', 'inv_only_aligned_VPOD_1.2_het.fasta', 'vert_aligned_VPOD_1.2_het.fasta']
-ds_list = ['wds', 'wt', 'wt_vert', 'inv', 'vert']
+#path = './vpod_1.2_data_splits_2024-08-20_16-14-09'
+#meta_data_list = ['wds_meta.tsv','wt_meta.tsv','wt_vert_meta.tsv', 'inv_meta.tsv', 'vert_meta.tsv']
+#seq_data_list = ['wds_aligned_VPOD_1.2_het.fasta','wt_aligned_VPOD_1.2_het.fasta','wt_vert_aligned_VPOD_1.2_het.fasta', 'inv_only_aligned_VPOD_1.2_het.fasta', 'vert_aligned_VPOD_1.2_het.fasta']
+#ds_list = ['wds', 'wt', 'wt_vert', 'inv', 'vert']
+
+path = './vpod_1.2_data_splits_2024-10-31_11-31-04'
+meta_data_list = ['Karyasuyama_T1_ops_meta.tsv']
+seq_data_list = ['Karyasuyama_T1_ops.fasta']
+ds_list = ['t1']
 
 # name of the phenotype
 mt = 'Lambda_Max'
@@ -45,6 +50,8 @@ seq_type = 'aa'
 ana_type = 'reg' 
 
 gap_threshold = 0.5
+
+encoding = 'hot'
 
 n_iterations = 100
 rng = np.random.default_rng()  # Initialize NumPy's random number generator
@@ -76,7 +83,7 @@ for meta, seq, ds in zip(meta_data_list, seq_data_list, ds_list):
     seqFile = seqFileName.split('/')[2]
     #print(seqFile)
     seqFile = seqFile.split('.')[0]+'.'+seqFile.split('.')[1]
-    write_fasta(dat = tr, fasta_file = f'{seqFile}_gap_dropped.fasta' , report_dir = report_dir)
+    #write_fasta(dat = tr, fasta_file = f'{seqFile}_gap_dropped.fasta' , report_dir = report_dir)
 
     y = tr.loc[:, mt].values
     tr.drop(mt, axis=1, inplace=True)
@@ -101,7 +108,7 @@ for meta, seq, ds in zip(meta_data_list, seq_data_list, ds_list):
         
         #training models
         report, top = model_compare_cv(X=X_res, y=y_res, preprocess_pipe=prep_pipeline,
-                                    models_dict=get_models(ana_type=ana_type, dataset=ds),
+                                    models_dict=get_models(ana_type=ana_type, dataset=ds, encoding=encoding),
                                     scoring=get_scores(ana_type=ana_type),
                                     report_dir=report_dir,
                                     cv=10, ana_type=ana_type, cache_dir=report_dir)
@@ -159,5 +166,13 @@ for meta, seq, ds in zip(meta_data_list, seq_data_list, ds_list):
         except:
             raise Exception('Cannot copy or delete model pkl file either because it does not exist or the direcotry is incorrect')
 
+        try:
+            shutil.rmtree(f'{report_dir}/joblib')
+        except:
+            pass
+        try:
+            os.remove(f'{report_dir}/joblib')
+        except:
+            pass
 
 
