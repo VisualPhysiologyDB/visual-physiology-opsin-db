@@ -30,15 +30,10 @@ warnings.simplefilter('ignore')
 # defining user params, file pathes, analysis type
 
 #assign your path to folder containing all the datasplits
-#path = './vpod_1.2_data_splits_2024-08-20_16-14-09'
-#meta_data_list = ['wds_meta.tsv','wt_meta.tsv','wt_vert_meta.tsv', 'inv_meta.tsv', 'vert_meta.tsv']
-#seq_data_list = ['wds_aligned_VPOD_1.2_het.fasta','wt_aligned_VPOD_1.2_het.fasta','wt_vert_aligned_VPOD_1.2_het.fasta', 'inv_only_aligned_VPOD_1.2_het.fasta', 'vert_aligned_VPOD_1.2_het.fasta']
-#ds_list = ['wds', 'wt', 'wt_vert', 'inv', 'vert']
-
-path = './vpod_1.2_data_splits_2024-10-31_11-31-04'
-meta_data_list = ['Karyasuyama_T1_ops_meta.tsv']
-seq_data_list = ['Karyasuyama_T1_ops.fasta']
-ds_list = ['t1']
+path = './vpod_1.2_data_splits_2024-08-20_16-14-09'
+meta_data_list = ['wds_meta.tsv','wt_meta.tsv','wt_vert_meta.tsv', 'inv_meta.tsv', 'vert_meta.tsv']
+seq_data_list = ['wds_aligned_VPOD_1.2_het.fasta','wt_aligned_VPOD_1.2_het.fasta','wt_vert_aligned_VPOD_1.2_het.fasta', 'inv_only_aligned_VPOD_1.2_het.fasta', 'vert_aligned_VPOD_1.2_het.fasta']
+ds_list = ['wds', 'wt', 'wt_vert', 'inv', 'vert']
 
 # name of the phenotype
 mt = 'Lambda_Max'
@@ -90,18 +85,20 @@ for meta, seq, ds in zip(meta_data_list, seq_data_list, ds_list):
 
     full_tr = tr.copy()
 
+    #setting the paramaters for our ML pipeline
+    prep_pipeline = make_pipeline(
+        steps=[
+            ('mc', MisCare(missing_threshold=0.05)),
+            ('cc', ConstantCare()),
+            ('ur', URareCare(threshold=0.025)),
+            ('cc2', ConstantCare()),
+            ('one_hot', CustomOneHotEncoder()),
+            ('feature_selection', FeatureSelection(model_type=ana_type, alpha=0.10, keep=False)),
+            ('collinear_care', CollinearCare(dist_method='correlation', threshold=0.01, keep=False))
+        ])
+
     for i in range(n_iterations):
-        #settingthe paramaters for our ML pipeline
-        prep_pipeline = make_pipeline(
-            steps=[
-                ('mc', MisCare(missing_threshold=0.05)),
-                ('cc', ConstantCare()),
-                ('ur', URareCare(threshold=0.025)),
-                ('cc2', ConstantCare()),
-                ('one_hot', CustomOneHotEncoder()),
-                ('feature_selection', FeatureSelection(model_type=ana_type, alpha=0.10, keep=False)),
-                ('collinear_care', CollinearCare(dist_method='correlation', threshold=0.01, keep=False))
-            ])
+
         tr = full_tr
         random_state = rng.integers(0, 2**32 - 1)  # Generate a new random seed for perturbation
         X_res, y_res = resample(tr, y, random_state=random_state)
