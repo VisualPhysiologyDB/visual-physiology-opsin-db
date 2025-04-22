@@ -4,7 +4,7 @@ import random
 from Bio import Phylo
 import seaborn as sns
 import matplotlib.pyplot as plt
-
+import random
 
 def get_dist_matrix_from_tree(tree_file):
     """
@@ -79,20 +79,25 @@ def farthest_points(distance_matrix, k=10):
 
     return point_list, avg_distances, avg_distances_hold
 
-def phylo_weighted_cv(distance_matrix, tip_names, n_folds, distance_threshold, relation_mode='leave_out'):
+def phylo_weighted_cv(distance_matrix, tip_names, n_folds, distance_threshold, relation_mode='leave_out', shuffle_unassigned=False, reverse_sort=True):
     
     """
     Clusters terminal leaves of a phylogenetic tree into bins based on distance,
     prioritizing phylogenetic relationships.
 
     Args:
-        distance_matrix: A square numpy array representing pairwise distances.
-        n_folds: The number of initial bins to create with the most distant points.
-        distance_threshold: The minimum allowable distance for bin assignment.
-        relation_mode: The method used to deal with nodes which fall beneath the distance threshold.
-        
-    Returns:
-        A dataframe of fold assignments (bin numbers) and mean 'one-to-all' distances for each terminal node of a phylogenetic tree.
+        distance_matrix (np.ndarray): Square matrix of pairwise distances between leaves.
+        n_folds (int): The desired number of folds (bins).
+        tip_names (list): List of names corresponding to the rows/columns of the distance_matrix.
+        distance_threshold (float): Minimum distance required for assigning a leaf to a bin.
+        relation_mode (str, optional): Strategy for assigning leaves that don't meet
+                                       the threshold ('random', 'merge', 'max_mean', 'leave_out').
+                                       Defaults to 'leave_out'.
+        reverse_sort (bool, optional): If True and not shuffling, process unassigned leaves
+                                       with larger avg_distances first. Defaults to True.
+        shuffle_unassigned (bool, optional): If True, shuffle the order of processing
+                                             unassigned leaves randomly, ignoring avg_distances sort.
+                                             Defaults to False.
     """
 
     n_leaves = distance_matrix.shape[0]
@@ -109,14 +114,21 @@ def phylo_weighted_cv(distance_matrix, tip_names, n_folds, distance_threshold, r
     # 2. Iteratively Add Points to Bins:
     unassigned_leaves = np.where(class_assignments == -1)[0]
 
-    # Zip the values and labels together
-    zipped_pairs = zip(avg_distances, unassigned_leaves)
+    if shuffle_unassigned == True:
+        random.shuffle(unassigned_leaves)
+        sorted_avg_distances = avg_distances
+    else:  
+        # Zip the values and labels together
+        zipped_pairs = zip(avg_distances, unassigned_leaves)
 
-    # Sort the zipped pairs in descending order based on the values
-    sorted_pairs = sorted(zipped_pairs, reverse=True)  
+        # Sort the zipped pairs in descending order based on the values
+        if reverse_sort == True:
+            sorted_pairs = sorted(zipped_pairs, reverse=True)
+        else:
+            sorted_pairs = sorted(zipped_pairs, reverse=False)  
 
-    # Unzip the sorted pairs back into separate lists
-    sorted_avg_distances, unassigned_leaves = zip(*sorted_pairs)
+        # Unzip the sorted pairs back into separate lists
+        sorted_avg_distances, unassigned_leaves = zip(*sorted_pairs)
     
     #print(f'These are the unassigned leaves: {unassigned_leaves}')
     #print(f'This is the length of unassigned leaves: {len(unassigned_leaves)}')
@@ -266,3 +278,59 @@ def plot_phylo_cv_bar_graphs(report_dir, results_file, atts_of_intrst=['R2', 'MA
 
             # Display the plot
             plt.show()
+            
+def plt_fold_phylo_distributions(tip_to_fold, handeling_method, threshold=5, n_folds=10, model='wt'):
+    tip_to_fold_copy = tip_to_fold.copy()
+    if handeling_method == 'leave_out':
+        rounds = 2
+    else:
+        rounds = 1
+    
+    drop_unused_fold = False
+    for round in range(rounds):
+        if drop_unused_fold == True:
+            tip_to_fold_copy = tip_to_fold_copy[tip_to_fold_copy['Fold']!=-1]
+        # Determine the number of unique labels for subplot layout
+        num_labels = tip_to_fold_copy['Fold'].nunique()
+        num_cols = 1  # You can adjust the number of columns as desired
+        num_rows = int(np.ceil(num_labels / num_cols))  # Calculate rows based on columns
+        # Generate Color Palette
+        colors = sns.color_palette("hls", num_labels)
+        # Plotting with Subplots
+        fig, axes = plt.subplots(num_rows, num_cols, figsize=(8, 12), sharex=True, sharey=True)  # Create subplot grid
+        fig.suptitle('Density Plot of Phylogenetic Distances by Fold')
+
+        # Flatten the axes array for easier iteration
+        axes = axes.flatten()
+        folds = tip_to_fold_copy['Fold'].unique().tolist()
+        folds.sort()
+        # Calculate the mean of the first class
+        mean_class = tip_to_fold_copy['Mean_Distance'].max()
+        # Plot each label's density on a separate subplot
+        for i, label in enumerate(folds):
+            ax = axes[i]  # Get the current subplot axis
+            label_data = tip_to_fold_copy[tip_to_fold_copy['Fold'] == label]['Mean_Distance']
+            sns.kdeplot(label_data, fill=True, alpha=0.5,color=colors[i], ax=ax)
+            # Add label text centered on the x-axis at the mean of Mean_Distance
+            ylim = ax.get_ylim()
+            ax.text(mean_class, ylim[0] + (ylim[1] - ylim[0])/2, f'Fold {label}',
+                    horizontalalignment='right', verticalalignment='center')
+
+
+        # Set shared labels only once (for the first subplot in each column and row)
+        for ax in axes[:]:
+            ax.set_ylabel('Density')
+            
+        # Turn off unused subplots
+        for i in range(num_labels, len(axes)):
+            axes[i].set_axis_off()
+
+        plt.tight_layout()
+        if drop_unused_fold == True:
+            plt.savefig(f'./{model}_percentile{threshold}_{handeling_method}_cv_{n_folds}fold_phylo_distributions_dropneg.svg', format='svg')  # You can change the filename if needed
+        else:
+            plt.savefig(f'./{model}_percentile{threshold}_{handeling_method}_cv_{n_folds}fold_phylo_distributions.svg', format='svg')  # You can change the filename if needed
+        
+        plt.show()
+        
+        drop_unused_fold = True
