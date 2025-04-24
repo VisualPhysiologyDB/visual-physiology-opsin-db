@@ -1,0 +1,194 @@
+digraph {
+    graph [ rankdir=TB ]
+    graph [ fontname="Century Gothic" ]
+    graph [ labelloc="t" ]
+    graph [ ratio="fill" ]
+
+    0 [ label="p283_H2<0.0599999987" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    0 -> 1 [label="yes" color="#14BDEB" fontname="Century Gothic"]
+    0 -> 2 [label="no" color="#F4562A" fontname="Century Gothic"]
+
+    1 [ label="p205_NCI<-0.579999983" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    1 -> 3 [color="#14BDEB"]
+    1 -> 4 [color="#F4562A"]
+
+    3 [ label="p130_H2<-0.5" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    3 -> 7 [color="#14BDEB"]
+    3 -> 8 [color="#F4562A"]
+
+    7 [ label="p178_NCI<-0.680000007" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    7 -> 15 [color="#14BDEB"]
+    7 -> 16 [color="#F4562A"]
+
+    15 [ label="p266_H2<-0.0599999987" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    15 -> 31 [color="#14BDEB"]
+    15 -> 32 [color="#F4562A"]
+
+    31 [ label="leaf=6.38937473" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    32 [ label="leaf=7.96658278" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    16 [ label="p289_MASS<0.469999999" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    16 -> 33 [color="#14BDEB"]
+    16 -> 34 [color="#F4562A"]
+
+    33 [ label="leaf=5.13548565" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    34 [ label="leaf=3.26073813" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    8 [ label="p14_NCI<-0.319999993" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    8 -> 17 [color="#14BDEB"]
+    8 -> 18 [color="#F4562A"]
+
+    17 [ label="p88_H2<-0.0599999987" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    17 -> 35 [color="#14BDEB"]
+    17 -> 36 [color="#F4562A"]
+
+    35 [ label="leaf=5.44752455" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    36 [ label="leaf=3.87970781" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    18 [ label="p2_H2<-0.340000004" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    18 -> 37 [color="#14BDEB"]
+    18 -> 38 [color="#F4562A"]
+
+    37 [ label="leaf=5.62437439" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    38 [ label="leaf=1.33477437" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    4 [ label="p91_H2<-0.0599999987" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    4 -> 9 [color="#14BDEB"]
+    4 -> 10 [color="#F4562A"]
+
+    9 [ label="p202_H2<-0.0900000036" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    9 -> 19 [color="#14BDEB"]
+    9 -> 20 [color="#F4562A"]
+
+    19 [ label="p161_H2<0.159999996" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    19 -> 39 [color="#14BDEB"]
+    19 -> 40 [color="#F4562A"]
+
+    39 [ label="leaf=-1.75340354" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    40 [ label="leaf=1.60215223" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    20 [ label="p149_H2<0.159999996" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    20 -> 41 [color="#14BDEB"]
+    20 -> 42 [color="#F4562A"]
+
+    41 [ label="leaf=-3.82078719" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    42 [ label="leaf=-8.04637527" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    10 [ label="p84_NCI<-0.680000007" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    10 -> 21 [color="#14BDEB"]
+    10 -> 22 [color="#F4562A"]
+
+    21 [ label="p119_NCI<-0.680000007" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    21 -> 43 [color="#14BDEB"]
+    21 -> 44 [color="#F4562A"]
+
+    43 [ label="leaf=4.28366041" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    44 [ label="leaf=2.74312449" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    22 [ label="p276_MASS<0.699999988" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    22 -> 45 [color="#14BDEB"]
+    22 -> 46 [color="#F4562A"]
+
+    45 [ label="leaf=2.18762469" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    46 [ label="leaf=-0.48500061" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    2 [ label="p91_H2<-0.0900000036" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    2 -> 5 [color="#14BDEB"]
+    2 -> 6 [color="#F4562A"]
+
+    5 [ label="p83_H2<-0.660000026" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    5 -> 11 [color="#14BDEB"]
+    5 -> 12 [color="#F4562A"]
+
+    11 [ label="p106_H2<-0.0900000036" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    11 -> 23 [color="#14BDEB"]
+    11 -> 24 [color="#F4562A"]
+
+    23 [ label="p81_NCI<-0.460000008" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    23 -> 47 [color="#14BDEB"]
+    23 -> 48 [color="#F4562A"]
+
+    47 [ label="leaf=-9.75720501" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    48 [ label="leaf=-11.2686644" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    24 [ label="p110_NCI<-0.810000002" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    24 -> 49 [color="#14BDEB"]
+    24 -> 50 [color="#F4562A"]
+
+    49 [ label="leaf=-7.30895948" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    50 [ label="leaf=-11.3756256" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    12 [ label="p87_H2<0.0599999987" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    12 -> 25 [color="#14BDEB"]
+    12 -> 26 [color="#F4562A"]
+
+    25 [ label="p39_NCI<-0.319999993" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    25 -> 51 [color="#14BDEB"]
+    25 -> 52 [color="#F4562A"]
+
+    51 [ label="leaf=-10.6864958" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    52 [ label="leaf=-4.00062561" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    26 [ label="p348_H2<0.119999997" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    26 -> 53 [color="#14BDEB"]
+    26 -> 54 [color="#F4562A"]
+
+    53 [ label="leaf=-6.26070023" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    54 [ label="leaf=-8.17102814" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    6 [ label="p289_MASS<0.469999999" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    6 -> 13 [color="#14BDEB"]
+    6 -> 14 [color="#F4562A"]
+
+    13 [ label="p95_MASS<0.469999999" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    13 -> 27 [color="#14BDEB"]
+    13 -> 28 [color="#F4562A"]
+
+    27 [ label="p119_H2<0.159999996" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    27 -> 55 [color="#14BDEB"]
+    27 -> 56 [color="#F4562A"]
+
+    55 [ label="leaf=1.45770776" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    56 [ label="leaf=3.13206673" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    28 [ label="p97_H2<-0.5" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    28 -> 57 [color="#14BDEB"]
+    28 -> 58 [color="#F4562A"]
+
+    57 [ label="leaf=0.849374413" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    58 [ label="leaf=-0.857978523" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    14 [ label="p130_H2<-0.660000026" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    14 -> 29 [color="#14BDEB"]
+    14 -> 30 [color="#F4562A"]
+
+    29 [ label="p278_NCI<-0.610000014" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    29 -> 59 [color="#14BDEB"]
+    29 -> 60 [color="#F4562A"]
+
+    59 [ label="leaf=-3.28588223" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    60 [ label="leaf=-2.24793315" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    30 [ label="p16_H2<-0.0599999987" arrowsize="2" color="#FBE9B1" fillcolor="#FDF4D9" fontcolor="black" fontname="Century Gothic" fontsize="10" penwidth="2" shape="box" style="filled, rounded" ]
+    30 -> 61 [color="#14BDEB"]
+    30 -> 62 [color="#F4562A"]
+
+    61 [ label="leaf=-5.68254852" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+
+    62 [ label="leaf=-4.73562622" arrowsize="2" color="#B8F6A2" fillcolor="#DDFBD2" fontname="Century Gothic" fontsize="10" penwidth="2" style="filled, rounded" ]
+}

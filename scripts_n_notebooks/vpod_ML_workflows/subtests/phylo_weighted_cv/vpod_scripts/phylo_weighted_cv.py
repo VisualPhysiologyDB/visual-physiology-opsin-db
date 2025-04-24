@@ -298,7 +298,7 @@ def plt_fold_phylo_distributions(tip_to_fold, handeling_method, threshold=5, n_f
         colors = sns.color_palette("hls", num_labels)
         # Plotting with Subplots
         fig, axes = plt.subplots(num_rows, num_cols, figsize=(8, 12), sharex=True, sharey=True)  # Create subplot grid
-        fig.suptitle('Density Plot of Phylogenetic Distances by Fold')
+        fig.suptitle('Density Plot of Phylogenetic Distances by Fold Using Phylo-Weighted CV')
 
         # Flatten the axes array for easier iteration
         axes = axes.flatten()
