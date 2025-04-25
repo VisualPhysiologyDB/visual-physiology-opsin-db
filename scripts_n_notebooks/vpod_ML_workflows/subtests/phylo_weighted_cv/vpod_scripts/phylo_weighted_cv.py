@@ -191,6 +191,7 @@ def plot_phylo_cv_line_graphs(report_dir, results_file, atts_of_intrst=['R2', 'M
             method_df = model_att[model_att['Relation_Handling'] == method].dropna(subset=attr)
             # Create the plot using Seaborn
             plt.figure(figsize=(16, 8))  # Increase width for better clarity
+            plt.rcParams['font.family'] = 'Century Gothic'
             sns.lineplot(data=method_df, x='Threshold', y=attr, hue='Model')
 
             # Add labels and title with larger font size
@@ -262,6 +263,7 @@ def plot_phylo_cv_bar_graphs(report_dir, results_file, atts_of_intrst=['R2', 'MA
 
             # Create the bar plot
             plt.figure(figsize=(10, 6))  # Adjust figure size as needed
+            plt.rcParams['font.family'] = 'Century Gothic'
             sns.barplot(data=method_data, x='Model', y=attr)
 
             # Add labels and title
@@ -298,6 +300,7 @@ def plt_fold_phylo_distributions(tip_to_fold, handeling_method, threshold=5, n_f
         colors = sns.color_palette("hls", num_labels)
         # Plotting with Subplots
         fig, axes = plt.subplots(num_rows, num_cols, figsize=(8, 12), sharex=True, sharey=True)  # Create subplot grid
+        plt.rcParams['font.family'] = 'Century Gothic'
         fig.suptitle('Density Plot of Phylogenetic Distances by Fold Using Phylo-Weighted CV')
 
         # Flatten the axes array for easier iteration
@@ -314,12 +317,14 @@ def plt_fold_phylo_distributions(tip_to_fold, handeling_method, threshold=5, n_f
             # Add label text centered on the x-axis at the mean of Mean_Distance
             ylim = ax.get_ylim()
             ax.text(mean_class, ylim[0] + (ylim[1] - ylim[0])/2, f'Fold {label}',
-                    horizontalalignment='right', verticalalignment='center')
+                    horizontalalignment='right', verticalalignment='center', fontsize=15)
 
 
         # Set shared labels only once (for the first subplot in each column and row)
         for ax in axes[:]:
-            ax.set_ylabel('Density')
+            ax.set_ylabel('Density', fontsize=12)
+        
+        axes[-1].set_xlabel('Mean Distance', fontsize=12)
             
         # Turn off unused subplots
         for i in range(num_labels, len(axes)):
