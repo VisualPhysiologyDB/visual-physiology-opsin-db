@@ -4,7 +4,8 @@
 
 # %%
 # importing deepBreaks libraries 
-from deepBreaks.utils_alt2 import get_models, get_scores, get_empty_params, make_pipeline
+from deepBreaks.utils_alt2 import get_scores, get_empty_params, make_pipeline
+from deepBreaks.utils import get_models
 from deepBreaks.preprocessing import MisCare, ConstantCare, AminoAcidPropertyEncoder
 from deepBreaks.preprocessing import FeatureSelection, CollinearCare
 from deepBreaks.preprocessing import read_data
@@ -29,10 +30,15 @@ warnings.simplefilter('ignore')
 # defining user params, file pathes, analysis type
 
 #assign your path to folder containing all the datasplits
-path = './vpod_1.2_data_splits_2024-08-20_16-14-09'
-meta_data_list = ['wds_meta.tsv','wt_meta.tsv','wt_vert_meta.tsv', 'inv_meta.tsv', 'vert_meta.tsv']
-seq_data_list = ['wds_aligned_VPOD_1.2_het.fasta','wt_aligned_VPOD_1.2_het.fasta','wt_vert_aligned_VPOD_1.2_het.fasta', 'inv_only_aligned_VPOD_1.2_het.fasta', 'vert_aligned_VPOD_1.2_het.fasta']
-ds_list = ['wds', 'wt', 'wt_vert', 'inv', 'vert']
+path = './vpod_1.2_data_splits_2025-02-28_15-51-04'
+#meta_data_list = ['wds_meta.tsv','wt_meta.tsv','wt_vert_meta.tsv', 'inv_meta.tsv', 'vert_meta.tsv','Karyasuyama_T1_ops_meta.tsv']
+#seq_data_list = ['wds_aligned_VPOD_1.2_het.fasta','wt_aligned_VPOD_1.2_het.fasta','wt_vert_aligned_VPOD_1.2_het.fasta', 'inv_only_aligned_VPOD_1.2_het.fasta', 'vert_aligned_VPOD_1.2_het.fasta','Karyasuyama_T1_ops_meta.tsv']
+#ds_list = ['wds', 'wt', 'wt_vert', 'inv', 'vert','t1']
+
+meta_data_list = ['wt_meta.tsv']
+seq_data_list = ['wt_aligned_VPOD_1.2_het.fasta']
+ds_list = ['wt']
+
 
 # name of the phenotype
 mt = 'Lambda_Max'
@@ -123,7 +129,7 @@ for meta, seq, ds in zip(meta_data_list, seq_data_list, ds_list):
 
         #training models
         report, top = model_compare_cv(X=tr, y=y, preprocess_pipe=prep_pipeline,
-                                    models_dict=get_models(ana_type=ana_type, dataset=ds, encoding=encoding),
+                                    models_dict=get_models(ana_type=ana_type),
                                     scoring=get_scores(ana_type=ana_type),
                                     report_dir=report_dir,
                                     cv=10, ana_type=ana_type, cache_dir=report_dir)

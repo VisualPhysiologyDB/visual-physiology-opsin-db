@@ -4,14 +4,17 @@
 
 # %%
 # importing deepBreaks libraries 
-from deepBreaks.utils_alt2 import get_models, get_scores, get_empty_params, get_best_aa_prop_combos, make_pipeline
-from deepBreaks.preprocessing import MisCare, ConstantCare, AminoAcidPropertyEncoder
+from deepBreaks.utils_alt2 import get_models, get_scores, get_empty_params, make_pipeline
+from deepBreaks.preprocessing import MisCare, ConstantCare, URareCare, CustomOneHotEncoder
 from deepBreaks.preprocessing import FeatureSelection, CollinearCare
 from deepBreaks.preprocessing import read_data
 from deepBreaks.models import model_compare_cv, finalize_top, importance_from_pipe, mean_importance, summarize_results
+from deepBreaks.visualization import plot_scatter, dp_plot, plot_imp_model, plot_imp_all
+from deepBreaks.preprocessing import write_fasta
 from sklearn.utils import resample
 from random import random
 import numpy as np
+import csv
 import pandas as pd
 import warnings
 import datetime
@@ -27,19 +30,15 @@ warnings.simplefilter('ignore')
 # defining user params, file pathes, analysis type
 
 #assign your path to folder containing all the datasplits
+#path = './vpod_1.2_data_splits_2024-08-20_16-14-09'
+#meta_data_list = ['wds_meta.tsv','wt_meta.tsv','wt_vert_meta.tsv', 'inv_meta.tsv', 'vert_meta.tsv']
+#seq_data_list = ['wds_aligned_VPOD_1.2_het.fasta','wt_aligned_VPOD_1.2_het.fasta','wt_vert_aligned_VPOD_1.2_het.fasta', 'inv_only_aligned_VPOD_1.2_het.fasta', 'vert_aligned_VPOD_1.2_het.fasta']
+#ds_list = ['wds', 'wt', 'wt_vert', 'inv', 'vert']
+
 path = './vpod_1.2_data_splits_2025-02-28_15-51-04'
-#meta_data_list = ['wds_meta.tsv','wt_meta.tsv','wt_vert_meta.tsv', 'inv_meta.tsv', 'vert_meta.tsv', 'Karyasuyama_T1_ops_meta.tsv']
-#seq_data_list = ['wds_aligned_VPOD_1.2_het.fasta','wt_aligned_VPOD_1.2_het.fasta','wt_vert_aligned_VPOD_1.2_het.fasta', 'inv_aligned_VPOD_1.2_het.fasta', 'vert_aligned_VPOD_1.2_het.fasta', 'Karyasuyama_T1_ops.fasta']
-#ds_list = ['wds', 'wt', 'wt_vert', 'inv', 'vert', 't1']
-
-#path = './vpod_1.2_data_splits_2025-02-28_15-51-04'
-#meta_data_list = ['wds_mnm_meta.csv','wt_mnm_meta.csv','wt_vert_mnm_meta.csv', 'inv_mnm_meta.csv', 'vert_mnm_meta.csv']
-#seq_data_list = ['wds_mnm_aligned_VPOD_1.2_het.fasta','wt_mnm_aligned_VPOD_1.2_het.fasta','wt_vert_mnm_aligned_VPOD_1.2_het.fasta', 'inv_mnm_aligned_VPOD_1.2_het.fasta', 'vert_mnm_aligned_VPOD_1.2_het.fasta']
-#ds_list = ['wds_mnm','wt_mnm', 'wt_vert_mnm', 'inv_mnm', 'vert_mnm']
-
-meta_data_list = ['wt_meta.tsv']
-seq_data_list = ['wt_mut_added_aligned_VPOD_1.2_het.fasta']
-ds_list = ['wt_mut']
+meta_data_list = ['wds_mnm_meta.csv','wt_mnm_meta.csv','wt_vert_mnm_meta.csv', 'inv_mnm_meta.csv', 'vert_mnm_meta.csv']
+seq_data_list = ['wds_mnm_aligned_VPOD_1.2_het.fasta','wt_mnm_aligned_VPOD_1.2_het.fasta','wt_vert_mnm_aligned_VPOD_1.2_het.fasta', 'inv_mnm_aligned_VPOD_1.2_het.fasta', 'vert_mnm_aligned_VPOD_1.2_het.fasta']
+ds_list = ['wds_mnm','wt_mnm', 'wt_vert_mnm', 'inv_mnm', 'vert_mnm']
 
 # name of the phenotype
 mt = 'Lambda_Max'
@@ -52,22 +51,14 @@ ana_type = 'reg'
 
 gap_threshold = 0.5
 
-#Specify which properties you want to keep for the amino-acid property encoding:
-#We keep FIVE by deafult - 'H1, H3, P1, NCI, MASS' 
-#But NINE total are avaliable -'H1, H2, H3, P1, P2, V, NCI, MASS, and SASA' 
-#If you want to keep ALL aa props, just set props_to_keep = 'all'
-# Or specify the properties in list format props_to_keep = ['H1', 'H3', 'P1', 'NCI', 'MASS']
-encoding = 'aa_prop'
-    
+encoding = 'hot'
+
 n_iterations = 100
 rng = np.random.default_rng()  # Initialize NumPy's random number generator
 
+
 # %%
 for meta, seq, ds in zip(meta_data_list, seq_data_list, ds_list):
-    props_to_keep = get_best_aa_prop_combos(ds)
-    props_used = ''
-    for props in props_to_keep:
-        props_used += props + '_'
     # path to sequences of interest
     seqFileName = f'{path}/{seq}' 
     # path to corresponding metadata of interest
@@ -76,7 +67,7 @@ for meta, seq, ds in zip(meta_data_list, seq_data_list, ds_list):
     #print('direcory preparation')
     dt_label = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
-    report_dir = str(f'{ds}_{props_used}bootstrap_100_{dt_label}')
+    report_dir = str(f'{ds}_bootstrap_100_{dt_label}')
     os.makedirs(report_dir)
 
     #print('reading meta-data')
@@ -99,14 +90,15 @@ for meta, seq, ds in zip(meta_data_list, seq_data_list, ds_list):
 
     full_tr = tr.copy()
 
-
     for i in range(n_iterations):
         #settingthe paramaters for our ML pipeline
         prep_pipeline = make_pipeline(
             steps=[
                 ('mc', MisCare(missing_threshold=0.05)),
                 ('cc', ConstantCare()),
-                ('aa_prop', AminoAcidPropertyEncoder(props_to_keep = props_to_keep)),
+                ('ur', URareCare(threshold=0.025)),
+                ('cc2', ConstantCare()),
+                ('one_hot', CustomOneHotEncoder()),
                 ('feature_selection', FeatureSelection(model_type=ana_type, alpha=0.10, keep=False)),
                 ('collinear_care', CollinearCare(dist_method='correlation', threshold=0.01, keep=False))
             ])
@@ -120,13 +112,16 @@ for meta, seq, ds in zip(meta_data_list, seq_data_list, ds_list):
                                     scoring=get_scores(ana_type=ana_type),
                                     report_dir=report_dir,
                                     cv=10, ana_type=ana_type, cache_dir=report_dir)
+
                                     
         #setting parameters for tuning the top performing models
         prep_pipeline = make_pipeline(
             steps=[
                 ('mc', MisCare(missing_threshold=0.05)),
                 ('cc', ConstantCare()),
-                ('aa_prop', AminoAcidPropertyEncoder(props_to_keep = props_to_keep)),
+                ('ur', URareCare(threshold=0.025)),
+                ('cc2', ConstantCare()),
+                ('one_hot', CustomOneHotEncoder()),
                 ('feature_selection', FeatureSelection(model_type=ana_type, alpha=0.10, keep=True)),
                 ('collinear_care', CollinearCare(dist_method='correlation', threshold=0.01, keep=True))
             ])
@@ -151,7 +146,7 @@ for meta, seq, ds in zip(meta_data_list, seq_data_list, ds_list):
             new_file = f'{report_dir}/importance_report_iter_{str(i)}.csv' 
             shutil.copy(original_file, new_file)
             os.remove(original_file)
-        except:    
+        except:
             raise Exception('Cannot copy or delete importance_report file either because it does not exist or the direcotry is incorrect')
         
         try:
@@ -179,4 +174,5 @@ for meta, seq, ds in zip(meta_data_list, seq_data_list, ds_list):
             os.remove(f'{report_dir}/joblib')
         except:
             pass
+
 
