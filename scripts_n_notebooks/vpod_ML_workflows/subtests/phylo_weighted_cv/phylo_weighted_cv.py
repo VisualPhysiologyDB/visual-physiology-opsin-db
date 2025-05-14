@@ -68,7 +68,7 @@ def main():
 
     # Analysis parameters
     parser.add_argument("--ds", default=None, help="Dataset identifier")
-    parser.add_argument("--encoding", choice=['aa_prop','one_hot'], default="aa_prop", help="Encoding scheme for sequences (e.g., 'aa_prop')")
+    parser.add_argument("--encoding", choices=['aa_prop','one_hot'], default="aa_prop", help="Encoding scheme for sequences (e.g., 'aa_prop')")
     parser.add_argument("--mt", default="Lambda_Max", help="Name of the phenotype/target variable")
     parser.add_argument("--seq_type", default="aa", help="Type of the sequences (e.g., 'aa')")
     parser.add_argument("--ana_type", default="reg", help="Type of analysis ('reg' for regression, 'cl' for classification)")
@@ -210,7 +210,13 @@ def main():
                 command_line += f"--{arg} {arg_value} "
             logger.info(command_line)
             # --- End Logging Block ---
-            
+            try:
+                logger.close()
+            except:
+                try:
+                    logging.shutdown()
+                except:
+                    raise Exception('Issues closing logger file.')
             print(f"Arguments logged to: {log_file_path}") # confirm to user the logging worked
 
 

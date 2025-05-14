@@ -29,7 +29,7 @@ def get_best_aa_prop_combos(dataset):
     return aa_props
         
         
-def get_models(ana_type, dataset, encoding='hot'):
+def get_models(ana_type, dataset, encoding='one_hot'):
     if ana_type == 'reg':
         from sklearn.ensemble import RandomForestRegressor
         from sklearn.ensemble import GradientBoostingRegressor
