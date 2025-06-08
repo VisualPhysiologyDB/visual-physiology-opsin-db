@@ -350,7 +350,9 @@ def box_plot(data, group_col, response_var, figsize=(3.2, 3.2), ax=None, p=None)
     if '_' in group_col:
         position = group_col.split('_')[0]
         property = group_col.split('_')[1]
-    position = position[1:]
+        position = position[1:]
+    else:
+        position = group_col[1:]
     
     tmp = data.loc[:, [group_col, response_var]]
     tmp = tmp.sort_values(by=group_col)  # sort by grouping variable
@@ -377,7 +379,7 @@ def box_plot(data, group_col, response_var, figsize=(3.2, 3.2), ax=None, p=None)
         if '_' in group_col:
             ax.set_xlabel(property, fontsize=8)
         else:
-            ax.set_xlabel('', fontsize=8)
+            ax.set_xlabel('Amino Acid', fontsize=8)
         ax.set_ylabel(response_var, fontsize=8)
         ax.xaxis.set_tick_params(labelsize=6, rotation=45)
         ax.yaxis.set_tick_params(labelsize=6)
