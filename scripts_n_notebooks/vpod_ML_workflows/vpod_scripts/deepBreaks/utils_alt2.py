@@ -79,7 +79,7 @@ def get_models(ana_type, dataset, encoding='hot'):
                 }
             else:
                 models = {
-                    'xgb': XGBRegressor(n_jobs=-1, random_state=123, n_estimators=300, gamma=1.0, learning_rate=0.1, max_depth=3, reg_alpha=0.1, reg_lambda=0)
+                    'gbr': GradientBoostingRegressor(learning_rate=0.2, max_depth=3, max_features='sqrt', n_estimators=500, random_state=123),
                 }
         elif dataset == 't1':
             if encoding == 'aa_prop':

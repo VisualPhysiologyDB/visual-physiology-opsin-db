@@ -339,3 +339,78 @@ def plt_fold_phylo_distributions(tip_to_fold, handeling_method, threshold=5, n_f
         plt.show()
         
         drop_unused_fold = True
+        
+import matplotlib.ticker as mticker
+
+def plt_fold_phylo_distributions_normalized(tip_to_fold, handeling_method, threshold=5, n_folds=10, model='wt'):
+    """
+    Plots density distributions of phylogenetic distances with a normalized y-axis.
+
+    Args:
+        tip_to_fold (pd.DataFrame): DataFrame with tip-to-fold mapping.
+        handeling_method (str): The method for handling data ('leave_out' or other).
+        threshold (int, optional): The percentile threshold. Defaults to 5.
+        n_folds (int, optional): The number of folds for cross-validation. Defaults to 10.
+        model (str, optional): The model name. Defaults to 'wt'.
+    """
+    tip_to_fold_copy = tip_to_fold.copy()
+    rounds = 2 if handeling_method == 'leave_out' else 1
+    
+    drop_unused_fold = False
+    for round_num in range(rounds):
+        if drop_unused_fold:
+            tip_to_fold_copy = tip_to_fold_copy[tip_to_fold_copy['Fold'] != -1]
+
+        num_labels = tip_to_fold_copy['Fold'].nunique()
+        num_cols = 1
+        num_rows = int(np.ceil(num_labels / num_cols))
+        
+        colors = sns.color_palette("hls", num_labels)
+        
+        fig, axes = plt.subplots(num_rows, num_cols, figsize=(8, 12), sharex=True, sharey=True)
+        plt.rcParams['font.family'] = 'Century Gothic'
+        fig.suptitle('Density Plot of Phylogenetic Distances by Fold Using Phylo-Weighted CV')
+
+        axes = axes.flatten()
+        folds = sorted(tip_to_fold_copy['Fold'].unique().tolist())
+        
+        max_density = 0
+        # First pass to plot and find the max density across all subplots
+        for i, label in enumerate(folds):
+            ax = axes[i]
+            label_data = tip_to_fold_copy[tip_to_fold_copy['Fold'] == label]['Mean_Distance']
+            sns.kdeplot(label_data, fill=True, alpha=0.5, color=colors[i], ax=ax)
+            
+            # Update the max density if the current plot's max is higher
+            if ax.get_ylim()[1] > max_density:
+                max_density = ax.get_ylim()[1]
+
+        # Second pass to normalize and format the plots
+        for i, label in enumerate(folds):
+            ax = axes[i]
+            ax.set_ylim(0, max_density)  # Set the same y-limit for all subplots
+            
+            # --- Key Change: Normalize the y-axis and set custom ticks ---
+            ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda y, _: f'{y/max_density:.1f}'))
+            ax.set_yticks(np.linspace(0, max_density, 6)[1:]) # 0.2, 0.4, 0.6, 0.8, 1.0 of max_density
+            ax.set_ylabel('Norm. Density', fontsize=12)
+            # --- End of Key Change ---
+
+            mean_class = tip_to_fold_copy['Mean_Distance'].max()
+            ylim = ax.get_ylim()
+            ax.text(mean_class, ylim[0] + (ylim[1] - ylim[0]) / 2, f'Fold {label}',
+                    horizontalalignment='right', verticalalignment='center', fontsize=15)
+
+        axes[-1].set_xlabel('Mean Distance', fontsize=12)
+        
+        for i in range(num_labels, len(axes)):
+            axes[i].set_axis_off()
+
+        plt.tight_layout(rect=[0, 0, 1, 0.96]) # Adjust layout to make space for the suptitle
+        
+        filename = (f'./{model}_percentile{threshold}_{handeling_method}_cv_{n_folds}fold_phylo_distributions'
+                    f'{"_dropneg" if drop_unused_fold else ""}.svg')
+        plt.savefig(filename, format='svg')
+        plt.show()
+        
+        drop_unused_fold = True

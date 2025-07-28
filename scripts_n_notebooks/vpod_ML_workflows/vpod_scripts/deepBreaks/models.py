@@ -1,13 +1,14 @@
 import joblib
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import cross_validate, GridSearchCV, PredefinedSplit
+from sklearn.model_selection import cross_validate, GridSearchCV, PredefinedSplit, cross_val_predict
 from sklearn.model_selection import KFold
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import ShuffleSplit
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 
-def model_cv(X, y, preprocess_pipe, model, name, scoring, cv, cache_dir=None, n_jobs=-1):
+def model_cv(X, y, preprocess_pipe, model, name, scoring, cv, cache_dir=None, n_jobs=-1, return_prediction_errors=False):
     """Train and evaluate a machine learning model using cross-validation.
 
     Args:
@@ -53,7 +54,25 @@ def model_cv(X, y, preprocess_pipe, model, name, scoring, cv, cache_dir=None, n_
     cv_results = cross_validate(estimator=pipeline, X=X, y=y,
                                 cv=cv, return_estimator=True,
                                 scoring=scoring, n_jobs=n_jobs)
+    y_pred = cross_val_predict(estimator=pipeline, X=X, y=y, 
+                               cv=cv, n_jobs=n_jobs)
+    
+    prediction_errors = y - y_pred # These are the residuals
+    abs_prediction_errors = abs(y - y_pred) 
+    r2 = r2_score(y, y_pred)
+    std_dev_error = np.std(prediction_errors)
+    abs_std_dev_error = np.std(abs_prediction_errors)
 
+    mae = mean_absolute_error(y, y_pred)
+    mse = mean_squared_error(y, y_pred)
+    rmse = np.sqrt(mse)
+    
+    #print("--- Best Model Performance on Training Data ---")
+    #print(f"Mean Absolute Error (MAE): {mae:.3f}")
+    #print(f"Root Mean Squared Error (RMSE): {rmse:.3f}")
+    #print(f"R-squared (R2): {r2:.3f}")
+    #print(f"Standard Deviation of Prediction Error: {std_dev_error:.3f}")
+                
     # Compute the mean test scores for each metric
     scores = {}
     for metric in scoring:
@@ -62,14 +81,21 @@ def model_cv(X, y, preprocess_pipe, model, name, scoring, cv, cache_dir=None, n_
         else:
             key = f'test_{metric}'
         scores[metric] = np.mean(cv_results[key])
-
-    # Return the average scores and the trained estimator from the first fold
-    return scores, cv_results['estimator'][0]
+    
+    scores['SD'] = std_dev_error
+    scores['ASD'] = abs_std_dev_error
+    
+    if return_prediction_errors:
+        prediction_errors_df = pd.DataFrame({'prediction_errors':prediction_errors})
+        return scores, cv_results['estimator'][0], prediction_errors_df
+    else:
+        # Return the average scores and the trained estimator from the first fold
+        return scores, cv_results['estimator'][0]
 
 
 def model_compare_cv(X, y, preprocess_pipe, models_dict, scoring, cv,
                      ana_type, select_top=5, random_state=123,
-                     report_dir=None, sort_by=None, cache_dir=None, n_jobs=-1):
+                     report_dir=None, sort_by=None, cache_dir=None, n_jobs=-1, return_prediction_errors=False):
     """Train and evaluate multiple machine learning models using cross-validation, and compare their performance.
 
     Args:
@@ -134,9 +160,15 @@ def model_compare_cv(X, y, preprocess_pipe, models_dict, scoring, cv,
     # Train and evaluate the models using cross-validation
     for name in models_dict:
         print(f"Fitting {name}...")
-        tmp, estimator = model_cv(X=X, y=y, preprocess_pipe=preprocess_pipe,
-                                  model=models_dict[name], name=name, scoring=scoring, cv=cv,
-                                  cache_dir=cache_dir, n_jobs=n_jobs)
+        if return_prediction_errors:
+            tmp, estimator, prediction_errors_df = model_cv(X=X, y=y, preprocess_pipe=preprocess_pipe,
+                                    model=models_dict[name], name=name, scoring=scoring, cv=cv,
+                                    cache_dir=cache_dir, n_jobs=n_jobs, return_prediction_errors=return_prediction_errors)
+            prediction_errors_df.to_csv(f'{report_dir}/{name}_cross_validation_err_report.csv')
+        else:
+            tmp, estimator = model_cv(X=X, y=y, preprocess_pipe=preprocess_pipe,
+                                    model=models_dict[name], name=name, scoring=scoring, cv=cv,
+                                    cache_dir=cache_dir, n_jobs=n_jobs)
         model_performance[name] = tmp
         models[name] = estimator
 
@@ -172,6 +204,7 @@ def finalize_top(X, y, top_models, grid_param, cv, random_state=123, report_dir=
     Returns:
         list: A list of the tuned final models.
     """
+
     final_models = []  # list to store the tuned final models
     best_params_list = []
     best_r_squared_list = []
@@ -218,6 +251,7 @@ def finalize_top(X, y, top_models, grid_param, cv, random_state=123, report_dir=
 
             final_models.append(grid_search.best_estimator_)  # append the tuned final model to the list
             best_params = grid_search.best_params_
+            model = grid_search.best_estimator_
             best_params_list.append(best_params)
             print(f"Best parameters for {name}:", best_params) 
             with open(f'{report_dir}/gridsearch_results.txt', '+a') as f:
@@ -232,6 +266,20 @@ def finalize_top(X, y, top_models, grid_param, cv, random_state=123, report_dir=
 
             final_models.append(model)  # append the tuned final model to the list
 
+        y_pred = model.predict(X)
+        abs_prediction_errors = abs(y - y_pred) # These are the residuals
+        r2 = r2_score(y, y_pred)
+        std_dev_error = np.std(abs_prediction_errors)
+        mae = mean_absolute_error(y, y_pred)
+        mse = mean_squared_error(y, y_pred)
+        rmse = np.sqrt(mse)
+        
+        print("--- Best Model Performance on Training Data ---")
+        print(f"Mean Absolute Error (MAE): {mae:.3f}")
+        print(f"Root Mean Squared Error (RMSE): {rmse:.3f}")
+        print(f"R-squared (R2): {r2:.3f}")
+        print(f"Standard Deviation of Abs. Prediction Error: {std_dev_error:.3f}")
+                
     if return_params == True:
         print(best_params_list)
         return final_models,best_params_list,best_r_squared_list
