@@ -901,7 +901,7 @@ def merge_accessory_dbs(df_list, report_dir):
     cleaned_df.index.name = 'comp_db_id'
 
     #save the final clean, merged df
-    cleaned_df_name = f'{report_dir}/clean_vpod_comp_acc_dbs_{dt_label}.csv'
+    cleaned_df_name = f'{report_dir}/VPOD_in_vivo_1.0_{dt_label}.csv'
     cleaned_df.to_csv(cleaned_df_name, index=True)
     return cleaned_df, cleaned_df_name
 
