@@ -50,6 +50,9 @@ from Bio.Align import substitution_matrices
 # for NCBI Entrez.
 ENTREZ_EMAIL = 'your.email@example.com'
 Entrez.email = ENTREZ_EMAIL
+CACHED_SEQUENCES = {}
+
+
 
 def fetch_protein_sequence(accession, sequence_type='target'):
     """
@@ -173,9 +176,13 @@ def get_mutant_seqs(
     """
     if email != 'your.email@example.com':
         Entrez.email = email
+    CURRENT_WT = ''
     
-    print(f"Fetching reference sequence '{reference_accession}'...")
-    reference_protein = Protein(fetch_protein_sequence(reference_accession, 'reference'))
+    if reference_accession not in CACHED_SEQUENCES.keys():
+        print(f"Fetching reference sequence '{reference_accession}'...")
+        CACHED_SEQUENCES[reference_accession] = Protein(fetch_protein_sequence(reference_accession, 'reference'))
+
+    reference_protein = CACHED_SEQUENCES[reference_accession]
 
     # Prepare output file
     if output_format == 'tsv':
@@ -189,7 +196,9 @@ def get_mutant_seqs(
         if not mutations:
             if allow_wt:
                 print(f"Processing Wild-Type: {wt_acc}")
-                wt_seq = fetch_protein_sequence(wt_acc, 'target')
+                if wt_acc not in CACHED_SEQUENCES.keys():
+                    CACHED_SEQUENCES[wt_acc] = Protein(fetch_protein_sequence(wt_acc, 'target'))
+                wt_seq = CACHED_SEQUENCES[wt_acc]
                 final_seq = wt_seq
                 final_acc = wt_acc
             else:
@@ -197,19 +206,24 @@ def get_mutant_seqs(
                 continue
         else:
             print(f"Processing: {mutant_acc}")
-            wt_protein = Protein(fetch_protein_sequence(wt_acc, 'target'))
+            if wt_acc not in CACHED_SEQUENCES.keys():
+                CACHED_SEQUENCES[wt_acc] = Protein(fetch_protein_sequence(wt_acc, 'target'))
+            
+            wt_protein = CACHED_SEQUENCES[wt_acc]
 
             # Align the WT to the reference to get the correct numbering
-            substitution_matrix = substitution_matrices.load("BLOSUM62")
-            alignment, _, _ = global_pairwise_align_protein(
-                reference_protein, wt_protein,
-                gap_open_penalty=11,
-                gap_extend_penalty=1,
-                substitution_matrix=substitution_matrix
-            )
-            
-            aligned_ref = str(alignment[0])
-            aligned_wt = str(alignment[1])
+            if wt_protein != CURRENT_WT:
+                substitution_matrix = substitution_matrices.load("BLOSUM62")
+                alignment, _, _ = global_pairwise_align_protein(
+                    reference_protein, wt_protein,
+                    gap_open_penalty=11,
+                    gap_extend_penalty=1,
+                    substitution_matrix=substitution_matrix
+                )
+                
+                aligned_ref = str(alignment[0])
+                aligned_wt = str(alignment[1])
+                CURRENT_WT = wt_protein
             
             mutated_seq_list = list(aligned_wt)
 

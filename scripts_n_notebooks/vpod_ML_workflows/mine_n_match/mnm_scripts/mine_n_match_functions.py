@@ -885,8 +885,23 @@ def merge_accessory_dbs(df_list, report_dir):
     #merged_df.drop_duplicates(subset=['Full_Species', 'LambdaMax'], keep='first', inplace=True)
     # Sort the DataFrame by 'Accession' (descending) and then 'obs_id' (ascending)
     processed_df = merged_df.sort_values(by=['Accession'], ascending=[False])
-    processed_df['Accession'] = processed_df['Accession'].str.replace('â€“','-').replace('–','-').replace(',Â','-').replace(' ','').replace('-','-')
-    processed_df.reset_index(drop=True, inplace=True)
+    
+    
+    # Ensure the 'Accession' column is a string type to avoid errors with non-string data
+    # We use .fillna('') to handle NaNs, then replace empty strings back to NA later.
+    accession_col = processed_df['Accession'].fillna('').astype(str)
+
+    # 1. Use regex to normalize various dash formats and encoding errors to a standard hyphen '-'
+    # This pattern looks for 'â€“', '–' (en-dash), or ',Â'
+    accession_col = accession_col.str.replace(r'â€“|–|,Â', '-', regex=True)
+
+    # 2. Use regex to remove specific unwanted text like '(EST)' and all whitespace characters (\s)
+    accession_col = accession_col.str.replace(r'\(EST\)|\s', '', regex=True)
+
+    # Assign the cleaned series back to the DataFrame
+    processed_df['Accession'] = accession_col.replace({'': pd.NA}) # Put NAs back
+    
+    #processed_df.reset_index(drop=True, inplace=True)
     processed_df.index.name = 'comp_db_id'
     #processed_df['LambdaMax'] = processed_df['LambdaMax'].str.replace('–','-').replace(' ','')
     processed_df.to_csv(f'{report_dir}/vpod_comp_acc_dbs_{dt_label}.csv', index=True)
