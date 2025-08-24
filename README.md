@@ -10,22 +10,22 @@
 
 --- 
 ## Summary
-We introduce the Visual Physiology Opsin Database, a newly compiled database for all heterologously expressed, and a partial collection of physiologically inferred, [opsin genes](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2005-6-3-213) with λmax phenotypes (wavelength of maximal absorbance; peak-senstivity). 
+* We introduce the Visual Physiology Opsin Database, a newly compiled database for all heterologously expressed, and a partial collection of physiologically inferred, [opsin genes](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2005-6-3-213) with λmax phenotypes (wavelength of maximal absorbance; peak-senstivity). 
 
-**VPOD_1.3** contains 1714 unique opsin genotypes and corresponding λmax phenotypes collected across all animals from 120+ separate publications. 
+* **VPOD_1.3** contains 1714 unique opsin genotypes and corresponding λmax phenotypes collected across all animals from 120+ separate publications. 
 
-We use VPOD data and _[deepBreaks](https://github.com/omicsEye/deepbreaks)_ (an ML tool designed for exploring genotype-phenotype associations) to show regression-based machine learning (ML) models often reliably predict λmax, account for non-additive effects of mutations on function, and identify functionally critical amino acid sites. 
+* We use VPOD data and _[deepBreaks](https://github.com/omicsEye/deepbreaks)_ (an ML tool designed for exploring genotype-phenotype associations) to show regression-based machine learning (ML) models often reliably predict λmax, account for non-additive effects of mutations on function, and identify functionally critical amino acid sites. 
 
-We provide an approach that lays the groundwork for future robust exploration of molecular-evolutionary patterns governing phenotype, with potential broader applications to any family of genes with quantifiable and comparable phenotypes.
+* We provide an approach that lays the groundwork for future robust exploration of molecular-evolutionary patterns governing phenotype, with potential broader applications to any family of genes with quantifiable and comparable phenotypes.
 
 ---
 
 # VPOD user guide #
-UPDATE!!! - Welcome to VPOD_1.3! The latest release of the Visual Physiology Opsin Database. We have quite a bit of new data, results and tools to check-out.
 
-Want an user-friendly way to predict opsin λmax with our models?
-
-**Visit our GitHub for _[OPTICS](https://github.com/VisualPhysiologyDB/optics)_, an open-source tool, avaiable online or via command line, that predicts opsin phenotypes (λmax)**
+## Developer Notes
+* **UPDATE!!!** - Welcome to VPOD_1.3! The latest release of the Visual Physiology Opsin Database. We have quite a bit of new data, results and tools to check-out.
+* **Want an user-friendly way to predict opsin λmax with our models?**
+  * Visit our GitHub for _[OPTICS](https://github.com/VisualPhysiologyDB/optics)_, an open-source tool, avaiable online or via command line, that predicts opsin phenotypes (λmax)
 
 ## Table of Contents
 
@@ -150,11 +150,11 @@ IF citing this GitHub and its contents use the following DOI provided by Zenodo.
     
 IF elemments of this database connected to _"Discovering genotype-phenotype relationships with machine learning and the Visual Physiology Opsin Database (VPOD)"_ use the following citation...
 
-  Seth A. Frazer, Mahdi Baghbanzadeh, Ali Rahnavard, Keith A. Crandall, & Todd H Oakley. Discovering genotype-phenotype relationships with machine learning and the Visual Physiology Opsin Database (VPOD). GigaScience, 2024.09.01. https://doi.org/10.1093/gigascience/giae073
+    Seth A. Frazer, Mahdi Baghbanzadeh, Ali Rahnavard, Keith A. Crandall, & Todd H Oakley. Discovering genotype-phenotype relationships with machine learning and the Visual Physiology Opsin Database (VPOD). GigaScience, 2024.09.01. https://doi.org/10.1093/gigascience/giae073
 
 IF citing element of this database (or OPTICS) connected to _"Accessible and Robust Machine Learning Approaches to Improve the Opsin Genotype-Phenotype Map"_ use the following citation...
   
-  Seth A. Frazer & Todd H Oakley. Accessible and Robust Machine Learning Approaches to Improve the Opsin Genotype-Phenotype Map. bioRxiv, 2025.xx.xx. https://doi.org/xxx [Pre-Print]
+    Seth A. Frazer & Todd H Oakley. Accessible and Robust Machine Learning Approaches to Improve the Opsin Genotype-Phenotype Map. bioRxiv, 2025.xx.xx. https://doi.org/xxx [Pre-Print]
     
 ## Contact
 Contact information for author questions or feedback.
