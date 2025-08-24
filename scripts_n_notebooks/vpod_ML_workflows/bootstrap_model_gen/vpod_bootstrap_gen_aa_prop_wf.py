@@ -28,18 +28,9 @@ warnings.simplefilter('ignore')
 
 #assign your path to folder containing all the datasplits
 path = './vpod_1.2_data_splits_2025-02-28_15-51-04'
-#meta_data_list = ['wds_meta.tsv','wt_meta.tsv','wt_vert_meta.tsv', 'inv_meta.tsv', 'vert_meta.tsv', 'Karyasuyama_T1_ops_meta.tsv']
-#seq_data_list = ['wds_aligned_VPOD_1.2_het.fasta','wt_aligned_VPOD_1.2_het.fasta','wt_vert_aligned_VPOD_1.2_het.fasta', 'inv_aligned_VPOD_1.2_het.fasta', 'vert_aligned_VPOD_1.2_het.fasta', 'Karyasuyama_T1_ops.fasta']
-#ds_list = ['wds', 'wt', 'wt_vert', 'inv', 'vert', 't1']
-
-#path = './vpod_1.2_data_splits_2025-02-28_15-51-04'
-#meta_data_list = ['wds_mnm_meta.csv','wt_mnm_meta.csv','wt_vert_mnm_meta.csv', 'inv_mnm_meta.csv', 'vert_mnm_meta.csv']
-#seq_data_list = ['wds_mnm_aligned_VPOD_1.2_het.fasta','wt_mnm_aligned_VPOD_1.2_het.fasta','wt_vert_mnm_aligned_VPOD_1.2_het.fasta', 'inv_mnm_aligned_VPOD_1.2_het.fasta', 'vert_mnm_aligned_VPOD_1.2_het.fasta']
-#ds_list = ['wds_mnm','wt_mnm', 'wt_vert_mnm', 'inv_mnm', 'vert_mnm']
-
-meta_data_list = ['wt_meta.tsv']
-seq_data_list = ['wt_mut_added_aligned_VPOD_1.2_het.fasta']
-ds_list = ['wt_mut']
+meta_data_list = ['wds_meta.tsv','wt_meta.tsv','wt_vert_meta.tsv', 'inv_meta.tsv', 'vert_meta.tsv', 'Karyasuyama_T1_ops_meta.tsv', 'wds_mnm_meta.csv','wt_mnm_meta.csv','wt_vert_mnm_meta.csv', 'inv_mnm_meta.csv', 'vert_mnm_meta.csv']
+seq_data_list = ['wds_aligned_VPOD_1.2_het.fasta','wt_aligned_VPOD_1.2_het.fasta','wt_vert_aligned_VPOD_1.2_het.fasta', 'inv_aligned_VPOD_1.2_het.fasta', 'vert_aligned_VPOD_1.2_het.fasta', 'Karyasuyama_T1_ops.fasta', 'wds_mnm_aligned_VPOD_1.2_het.fasta','wt_mnm_aligned_VPOD_1.2_het.fasta','wt_vert_mnm_aligned_VPOD_1.2_het.fasta', 'inv_mnm_aligned_VPOD_1.2_het.fasta', 'vert_mnm_aligned_VPOD_1.2_het.fasta']
+ds_list = ['wds', 'wt', 'wt_vert', 'inv', 'vert', 't1', 'wds_mnm','wt_mnm', 'wt_vert_mnm', 'inv_mnm', 'vert_mnm']
 
 # name of the phenotype
 mt = 'Lambda_Max'
