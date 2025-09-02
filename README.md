@@ -185,4 +185,4 @@ Contact information for author questions or feedback.
 ## Additional_Resources 
   - **[Here](https://tinyurl.com/u7hn9adm)** is a link to a bibliography of the publications used to build the heterologous porition of the genotype-phenotype dataset for VPOD_1.3 (bibliography for the _in-vivo_ phenotype data used for VPOD_1.3 not yet released)
   
-  - If you know of publications for training opsin ML models not included in the VPOD_1.2 database, please send them to us through **[this form](https://tinyurl.com/29afaxyr)**
+  - If you know of publications for training opsin ML models not included in the VPOD_1.3 database, please send them to us through **[this form](https://tinyurl.com/29afaxyr)**
