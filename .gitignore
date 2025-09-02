@@ -1,0 +1,15 @@
+/scripts_n_notebooks/vpod_ML_workflows/subtests/work_in_progress/mine_n_match/data_leads
+data_leads/
+*data_leads/
+*.url
+__pycache__/
+*__pycache__/
+*joblib/
+*joblib
+*.ignore/
+*old/
+/scripts_n_notebooks/vpod_ML_workflows/vpod_scripts/temp
+scripts_n_notebooks/sequence_manipulation/mutagenesis_lws_nb.ipynb
+scripts_n_notebooks/sequence_manipulation/mutagenesis_results/C_ornata_lws2_mut_seq_combos.fasta
+/vpod_data/VPOD_1.3/raw_database_files/not_for_public
+*.pyc

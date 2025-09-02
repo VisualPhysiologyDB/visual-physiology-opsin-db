@@ -1,0 +1,185 @@
+Accessions DQ490124 and DQ490124.1 encode the same sequence and have the same lmax values (483).Because the two sequences are from the same species (Sebastolobus_altivelis) we will skip this entry and only keep the value from the first entry.
+
+Accessions NM_001014890.2 and P02699.1 encode the same sequence and have the same lmax values (500).Because the two sequences are from the same species (Bos_taurus) we will skip this entry and only keep the value from the first entry.
+
+Accessions DQ490124_S292A and DQ490124.1_S292A encode the same sequence and have the same lmax values (494).Because the two sequences are from the same species (Sebastolobus_altivelis) we will skip this entry and only keep the value from the first entry.
+
+Accessions AJ430489.1_P215G and AJ430489_P215G encode the same sequence and have the same lmax values (465).Because the two sequences are from the same species (Cottus_gobio) we will skip this entry and only keep the value from the first entry.
+
+Accessions AJ430489.1_T269A and AJ430489_T269A encode the same sequence and have the same lmax values (453).Because the two sequences are from the same species (Cottus_gobio) we will skip this entry and only keep the value from the first entry.
+
+Accessions AJ430489.1_T118G and AJ430489_T118G encode the same sequence and have the same lmax values (452).Because the two sequences are from the same species (Cottus_gobio) we will skip this entry and only keep the value from the first entry.
+
+Accessions AJ430489.1_T118A and AJ430489_T118A encode the same sequence and have the same lmax values (458).Because the two sequences are from the same species (Cottus_gobio) we will skip this entry and only keep the value from the first entry.
+
+Accessions AB007423.1_1_58-AB007425.1_59_83-AB007423.1_84_91-AB007425.1_92_114-AB007423.1_115_129-AB007425.1_130_152-AB007423.1_153_173-AB007425.1_174_190-AB007423.1_191_217-AB007425.1_218_241-AB007423.1_242_379 and AB007423.1_1_58-AB007425.1_59_83-AB007423.1_84_91-AB007425.1_92_114-AB007423.1_115_129-AB007425.1_130_152-AB007423.1_153_173-AB007425.1_174_190-AB007423.1_191_217-AB007425.1_218_241-AB007423.1_242_280-AB007425.1_281_303-AB007423.1_304_379 encode the same sequence but have conflicting lmax values (565 and 569 respectively).
+The two sequences are from the same species (Papilio_xuthus).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are IV-Rh1,IV-Rh3 and IV-Rh1,IV-Rh3 - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions AJ430489.1 and AJ430489 encode the same sequence and have the same lmax values (463).Because the two sequences are from the same species (Cottus_gobio) we will skip this entry and only keep the value from the first entry.
+
+Accessions NM_001291394.1 and AH007735.2 encode the same sequence and have the same lmax values (496).Because the two sequences are from the same species (Anolis_carolinensis) we will skip this entry and only keep the value from the first entry.
+
+Accessions M92035 and M92035.1 encode the same sequence and have the same lmax values (467).Because the two sequences are from the same species (Gekko_gecko) we will skip this entry and only keep the value from the first entry.
+
+Accessions D85863.1 and D85863 encode the same sequence and have the same lmax values (359).Because the two sequences are from the same species (Carassius_auratus) we will skip this entry and only keep the value from the first entry.
+
+Accessions M92039.1 and M92039 encode the same sequence but have conflicting lmax values (419 and 415 respectively).
+The two sequences are from the same species (Gallus_gallus).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are SWS1 and SWS1 - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions L11867.1 and L11867 encode the same sequence but have conflicting lmax values (562.8 and 559 respectively).
+The two sequences are from the same species (Carassius_auratus).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are LWS and LWS - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions XM_019933644.2 and AF055457 encode the same sequence and have the same lmax values (524).Because the two sequences are from the same species (Tursiops_truncatus) we will skip this entry and only keep the value from the first entry.
+
+Accessions AF222331.1 and AF222331 encode the same sequence and have the same lmax values (359).Because the two sequences are from the same species (Taeniopygia_guttata) we will skip this entry and only keep the value from the first entry.
+
+Accessions AY552608.1 and AY552608 encode the same sequence and have the same lmax values (420).Because the two sequences are from the same species (Cavia_porcellus) we will skip this entry and only keep the value from the first entry.
+
+Accessions AH007798.2 and AJ238856 encode the same sequence and have the same lmax values (393).Because the two sequences are from the same species (Columba_livia) we will skip this entry and only keep the value from the first entry.
+
+Accessions M92039.1 and NM_205438.1 encode the same sequence and have the same lmax values (419).Because the two sequences are from the same species (Gallus_gallus) we will skip this entry and only keep the value from the first entry.
+
+Accessions Y11787.1 and NM_001311081 encode the same sequence and have the same lmax values (360).Because the two sequences are from the same species (Melopsittacus_undulatus) we will skip this entry and only keep the value from the first entry.
+
+Accessions AH007736.2 and AH007736 encode the same sequence and have the same lmax values (358).Because the two sequences are from the same species (Anolis_carolinensis) we will skip this entry and only keep the value from the first entry.
+
+Accessions AH003620.2 and DQ822478.1 encode the same sequence and have the same lmax values (414).Because the two sequences are from the same species (Homo_sapiens) we will skip this entry and only keep the value from the first entry.
+
+Accessions AB223053.1 and AB223053 encode the same sequence and have the same lmax values (452).Because the two sequences are from the same species (Oryzias_latipes) we will skip this entry and only keep the value from the first entry.
+
+Accessions AB223054 and CP020669.1_(390932-392688) encode the same sequence and have the same lmax values (516).Because the two sequences are from the same species (Oryzias_latipes) we will skip this entry and only keep the value from the first entry.
+
+Accessions LC127188 and A0A140JTJ4 encode the same sequence and have the same lmax values (438).Because the two sequences are from the same species (Poecilia_reticulata) we will skip this entry and only keep the value from the first entry.
+
+Accessions LC127189 and A0A140JTJ5 encode the same sequence and have the same lmax values (408).Because the two sequences are from the same species (Poecilia_reticulata) we will skip this entry and only keep the value from the first entry.
+
+Accessions L11864 and L11864.1 encode the same sequence and have the same lmax values (443).Because the two sequences are from the same species (Carassius_auratus) we will skip this entry and only keep the value from the first entry.
+
+Accessions Q9W6A8 and AB087809.1 encode the same sequence and have the same lmax values (416).Because the two sequences are from the same species (Danio_rerio) we will skip this entry and only keep the value from the first entry.
+
+Accessions AB087805.2 and NM_131253.2 encode the same sequence and have the same lmax values (467).Because the two sequences are from the same species (Danio_rerio) we will skip this entry and only keep the value from the first entry.
+
+Accessions AB087806.2 and NM_182891.2 encode the same sequence and have the same lmax values (476).Because the two sequences are from the same species (Danio_rerio) we will skip this entry and only keep the value from the first entry.
+
+Accessions AB087807.1 and NM_182892.2 encode the same sequence and have the same lmax values (488).Because the two sequences are from the same species (Danio_rerio) we will skip this entry and only keep the value from the first entry.
+
+Accessions L11865 and L11865.1 encode the same sequence and have the same lmax values (511).Because the two sequences are from the same species (Carassius_auratus) we will skip this entry and only keep the value from the first entry.
+
+Accessions L11866 and L11866.1 encode the same sequence and have the same lmax values (506).Because the two sequences are from the same species (Carassius_auratus) we will skip this entry and only keep the value from the first entry.
+
+Accessions M92038 and NM_205490.1 encode the same sequence and have the same lmax values (511).Because the two sequences are from the same species (Gallus_gallus) we will skip this entry and only keep the value from the first entry.
+
+Accessions NM_001014890_D83N and NM_001014890.2_D83N encode the same sequence but have conflicting lmax values (491.5 and 495 respectively).
+The two sequences are from the same species (Bos_taurus).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are Rh1 and Rh1 - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions AH003620.2_T46F,L49F,F52T,L93F,P100T,G114A,T118S and NP_031564.1_E114Q encode the same sequence and have the same lmax values (353).
+Despite that the two sequences are from different species (Homo_sapiens and Mus_musculus) we will skip this entry but take the value from the first entry.
+Note - the gene families of the two sequences are SWS and SWS1 -  if this raises concern, please double check the entries to resolve this issue.
+
+Accessions NM_079687.3 and AF184224 encode the same sequence but have conflicting lmax values (347 and 345 respectively).
+The two sequences are from the same species (Drosophila_melanogaster).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are IV-RH and IV-RH - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions D85863.1_F86Y and D85863_F86Y encode the same sequence but have conflicting lmax values (420 and 419 respectively).
+The two sequences are from the same species (Carassius_auratus).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are SWS1 and SWS1 - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions AF222331_C84S and AF222331.1_C90S encode the same sequence and have the same lmax values (397).Because the two sequences are from the same species (Taeniopygia_guttata) we will skip this entry and only keep the value from the first entry.
+
+Accessions NM_001311081_C90S and Y11787.1_C90S encode the same sequence and have the same lmax values (420).Because the two sequences are from the same species (Melopsittacus_undulatus) we will skip this entry and only keep the value from the first entry.
+
+Accessions NP_031564.1_F86Y and NP_031564.1_F86Y encode the same sequence and have the same lmax values (424).Because the two sequences are from the same species (Mus_musculus) we will skip this entry and only keep the value from the first entry.
+
+Accessions NP_031564.1_A114G and NP_031564.1_A114G encode the same sequence and have the same lmax values (359).Because the two sequences are from the same species (Mus_musculus) we will skip this entry and only keep the value from the first entry.
+
+Accessions D85863.1 and D85863 encode the same sequence and have the same lmax values (359).Because the two sequences are from the same species (Carassius_auratus) we will skip this entry and only keep the value from the first entry.
+
+Accessions AH005296.2 and AH005298.2_T65I,I111V,S116Y,L153M,S180A,I230T,A233S,M236V,I274V,F275L,Y277F,V279F,T285A,A298P,Y309F encode the same sequence and have the same lmax values (532).Because the two sequences are from the same species (Homo_sapiens) we will skip this entry and only keep the value from the first entry.
+
+Accessions AH005296.2_F309Y and AH005298.2_T65I,I111V,S116Y,L153M,S180A,I230T,A233S,M236V,I274V,F275L,Y277F,V279F,T285A,A298P encode the same sequence and have the same lmax values (532).Because the two sequences are from the same species (Homo_sapiens) we will skip this entry and only keep the value from the first entry.
+
+Accessions AH005296.2_I65T and AH005298.2_I111V,S116Y,L153M,S180A,I230T,A233S,M236V,I274V,F275L,Y277F,V279F,T285A,A298P,Y309F encode the same sequence and have the same lmax values (532).Because the two sequences are from the same species (Homo_sapiens) we will skip this entry and only keep the value from the first entry.
+
+Accessions NM_001014890.2_E122D and NM_001014890_E122D encode the same sequence but have conflicting lmax values (477 and 476 respectively).
+The two sequences are from the same species (Bos_taurus).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are Rh1 and Rh1 - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions NM_079683.3 and NP_524407.1 encode the same sequence and have the same lmax values (480).Because the two sequences are from the same species (Drosophila_melanogaster) we will skip this entry and only keep the value from the first entry.
+
+Accessions NM_001014890_E113Q and NM_001014890.2_E113Q encode the same sequence but have conflicting lmax values (499 and 380 respectively).
+The two sequences are from the same species (Bos_taurus).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are Rh1 and Rh1 - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions NM_001085652.1 and NM_001085652.1 encode the same sequence but have conflicting lmax values (423 and 427 respectively).
+The two sequences are from the same species (Xenopus_laevis).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are SWS1 and SWS2 - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions NM_001014890.2_G90D,E113Q and NM_001014890.2_G90D,E113Q encode the same sequence but have conflicting lmax values (472 and 473 respectively).
+The two sequences are from the same species (Bos_taurus).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are Rh1 and Rh1 - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions NM_001014890.2_T94D,E113Q and NM_001014890.2_T94D,E113Q encode the same sequence but have conflicting lmax values (490 and 505 respectively).
+The two sequences are from the same species (Bos_taurus).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are Rh1 and Rh1 - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions NM_001014890_R135L and NM_001014890.2_R135L encode the same sequence but have conflicting lmax values (501 and 500 respectively).
+The two sequences are from the same species (Bos_taurus).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are Rh1 and Rh1 - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions NM_001014890_E122I and NM_001014890.2_E122I encode the same sequence but have conflicting lmax values (498 and 495.4 respectively).
+The two sequences are from the same species (Bos_taurus).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are Rh1 and Rh1 - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions NM_001014890.2 and NM_001014890.2 encode the same sequence but have conflicting lmax values (500 and 498.2 respectively).
+The two sequences are from the same species (Bos_taurus).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are Rh1 and Rh1 - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions NM_001014890_D83N and NM_001014890.2_D83N encode the same sequence but have conflicting lmax values (491.5 and 495 respectively).
+The two sequences are from the same species (Bos_taurus).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are Rh1 and Rh1 - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions NM_001014890_A292S and NM_001014890.2_A292S encode the same sequence and have the same lmax values (489).Because the two sequences are from the same species (Bos_taurus) we will skip this entry and only keep the value from the first entry.
+
+Accessions NM_001014890_D83N_A292S and NM_001014890.2_D83N,A292S encode the same sequence and have the same lmax values (485).Because the two sequences are from the same species (Bos_taurus) we will skip this entry and only keep the value from the first entry.
+
+Accessions AF038948.1 and AF038948 encode the same sequence and have the same lmax values (356).Because the two sequences are from the same species (Ambystoma_tigrinum) we will skip this entry and only keep the value from the first entry.
+
+Accessions AF055318 and AF055318 encode the same sequence but have conflicting lmax values (498 and 495 respectively).
+The two sequences are from the same species (Phoca_groenlandicus).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are Rh1 and Rh1 - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions AF055316 and AF055316.1 encode the same sequence but have conflicting lmax values (484 and 483 respectively).
+The two sequences are from the same species (Mesoplodon_bidens).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are Rh1 and Rh1 - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions AF055316 and AF055316.1 encode the same sequence but have conflicting lmax values (484 and 479 respectively).
+The two sequences are from the same species (Mesoplodon_bidens).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are Rh1 and Rh1 - if this raises concern, please double check the entries to resolve this issue.
+
+Accessions JQ730751 and XM_061195604.1 encode the same sequence but have conflicting lmax values (496 and 493 respectively).
+The two sequences are from the same species (Eubalaena_glacialis).
+We will be taking the average of all conflicting values, and dropping this entry from the final datasplits.
+Note - the gene families of the two sequences are Rh1 and Rh1 - if this raises concern, please double check the entries to resolve this issue.
+

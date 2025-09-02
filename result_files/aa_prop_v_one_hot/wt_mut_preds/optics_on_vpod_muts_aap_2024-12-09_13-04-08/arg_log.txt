@@ -1,0 +1,3 @@
+Command executed:	optics_predictions.py -in E:\safra\Documents\GitHub\visual-physiology-opsin-db\scripts_n_notebooks\vpod_ML_workflows\vpod_1.2_data_splits_2024-10-19_10-30-09\mut_only.txt -rd vpod_muts_aap -out vpod_mut_predictions.tsv -m wildtype -e aa_prop -b False -s True -viz True -bsv vpod_muts_bs_viz
+Model Used:	wildtype
+Encoding Method:	aa_prop

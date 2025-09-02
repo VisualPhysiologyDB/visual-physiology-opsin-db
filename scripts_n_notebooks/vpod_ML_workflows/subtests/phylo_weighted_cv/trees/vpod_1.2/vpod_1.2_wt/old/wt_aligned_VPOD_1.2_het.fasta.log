@@ -1,0 +1,427 @@
+IQ-TREE multicore version 2.2.2.7 COVID-edition for Windows 64-bit built Aug 21 2023
+Developed by Bui Quang Minh, James Barbetti, Nguyen Lam Tung,
+Olga Chernomor, Heiko Schmidt, Dominik Schrempf, Michael Woodhams, Ly Trong Nhan.
+
+Host:    LAPTOP-Q6IEK2A2 (AVX2, FMA3, 15 GB RAM)
+Command: iqtree2.exe -s C:\Users\safra\Documents\GitHub\visual-physiology-opsin-db\scripts_n_notebooks\vpod_ML_workflows\subtests\work_in_progress\phylo_weighted_cv\opsin_wt_tree\vpod_1.2_wt\wt_aligned_VPOD_1.2_het.fasta -m MFP+LM -nt AUTO -bb 1000
+Seed:    627403 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Mon Aug 19 16:54:35 2024
+Kernel:  AVX+FMA - auto-detect threads (16 CPU cores detected)
+
+Reading alignment file C:\Users\safra\Documents\GitHub\visual-physiology-opsin-db\scripts_n_notebooks\vpod_ML_workflows\subtests\work_in_progress\phylo_weighted_cv\opsin_wt_tree\vpod_1.2_wt\wt_aligned_VPOD_1.2_het.fasta ... Fasta format detected
+Reading fasta file: done in 0.0066214 secs
+Alignment most likely contains protein sequences
+Constructing alignment: done in 0.0042922 secs
+Alignment has 369 sequences with 877 columns, 659 distinct patterns
+435 parsimony-informative, 135 singleton sites, 307 constant sites
+        Gap/Ambiguity  Composition  p-value
+Analyzing sequences: done in 0.0005565 secs
+   1  Bovine   60.32%    passed     94.50%
+   2  S1       59.98%    passed     93.96%
+   3  S2       60.32%    passed     94.34%
+   4  S3       60.43%    passed     97.63%
+   5  S4       60.32%    passed     93.42%
+   6  S5       60.32%    passed     83.92%
+   7  S6       59.98%    passed     84.10%
+   8  S7       60.32%    passed     89.72%
+   9  S8       60.43%    passed     99.73%
+  10  S9       60.43%    passed     99.63%
+  11  S10      60.21%    passed     97.19%
+  12  S11      60.21%    passed     96.10%
+  13  S12      59.64%    passed     87.37%
+  14  S13      64.88%    passed     72.49%
+  15  S14      64.88%    passed     66.97%
+  16  S15      64.88%    passed     69.47%
+  17  S16      64.88%    passed     86.26%
+  18  S17      64.88%    passed     70.08%
+  19  S18      64.88%    passed     77.30%
+  20  S19      64.88%    passed     69.35%
+  21  S20      64.88%    passed     86.91%
+  22  S21      64.99%    passed     77.32%
+  23  S22      64.88%    passed     75.18%
+  24  S23      64.88%    passed     81.20%
+  25  S24      64.88%    passed     65.49%
+  26  S25      59.64%    passed     92.42%
+  27  S26      64.88%    passed     82.78%
+  28  S27      64.88%    passed     82.03%
+  29  S28      64.88%    passed     81.71%
+  30  S29      64.88%    passed     83.39%
+  31  S30      64.88%    passed     79.29%
+  32  S31      64.88%    passed     81.46%
+  33  S32      59.64%    passed     93.13%
+  34  S33      64.88%    passed     89.88%
+  35  S34      64.88%    passed     87.38%
+  36  S35      64.88%    passed     91.77%
+  37  S36      64.88%    passed     82.55%
+  38  S37      59.64%    passed     83.84%
+  39  S38      59.64%    passed     87.15%
+  40  S39      64.88%    passed     84.00%
+  41  S40      59.75%    passed     94.03%
+  42  S41      59.64%    passed     85.83%
+  43  S42      59.64%    passed     94.26%
+  44  S43      64.88%    passed     70.56%
+  45  S44      59.64%    passed     97.35%
+  46  S45      59.64%    passed     87.94%
+  47  S46      59.64%    passed     86.84%
+  48  S47      59.64%    passed     90.91%
+  49  S48      59.64%    passed     99.82%
+  50  S49      59.64%    passed     91.27%
+  51  S50      59.64%    passed     91.71%
+  52  S51      59.64%    passed     84.20%
+  53  S52      59.86%    passed     82.17%
+  54  S53      59.64%    passed     88.00%
+  55  S54      59.64%    passed     90.49%
+  56  S55      59.64%    passed     90.77%
+  57  S56      60.09%    passed     96.89%
+  58  S57      59.86%    passed     83.53%
+  59  S58      59.86%    passed     89.19%
+  60  S59      59.64%    passed     97.21%
+  61  S60      59.52%    passed     99.56%
+  62  S61      60.32%    passed     88.32%
+  63  S62      59.86%    passed     85.64%
+  64  S63      60.55%    passed     75.62%
+  65  S64      59.86%    passed     90.33%
+  66  S65      60.66%    passed     99.28%
+  67  S66      60.09%    passed     98.47%
+  68  S67      60.09%    passed     89.89%
+  69  S68      59.86%    passed     97.21%
+  70  S69      59.86%    passed     83.55%
+  71  S70      59.86%    passed     90.44%
+  72  S71      60.32%    passed     99.67%
+  73  S72      58.49%    passed     77.78%
+  74  S73      59.52%    passed    100.00%
+  75  S74      60.66%    passed     99.67%
+  76  S75      59.52%    passed     99.97%
+  77  S76      60.21%    passed     99.59%
+  78  S77      60.21%    passed     99.13%
+  79  S78      60.21%    passed     99.94%
+  80  S79      60.21%    passed     98.99%
+  81  S80      58.38%    passed     54.08%
+  82  S81      59.75%    passed     96.88%
+  83  S82      59.29%    passed     46.57%
+  84  S83      59.98%    passed     76.21%
+  85  S84      61.69%    passed     71.84%
+  86  S85      61.69%    passed     74.56%
+  87  S86      60.43%    passed     70.35%
+  88  S87      60.43%    passed     96.69%
+  89  S88      60.43%    passed     78.07%
+  90  S89      60.43%    passed     77.23%
+  91  S90      60.43%    passed     71.48%
+  92  S91      60.55%    passed     95.74%
+  93  S92      60.43%    passed     28.52%
+  94  S93      60.43%    passed     91.76%
+  95  S94      60.32%    passed     97.36%
+  96  S95      60.55%    passed     75.47%
+  97  S96      60.66%    passed     78.45%
+  98  S97      60.55%    passed     86.17%
+  99  S98      60.09%    passed     81.18%
+ 100  S99      60.55%    passed     88.18%
+ 101  S100     60.32%    passed     99.62%
+ 102  S101     60.32%    passed     99.62%
+ 103  S102     60.32%    passed     97.55%
+ 104  S103     60.32%    passed     97.95%
+ 105  S104     60.32%    passed     95.77%
+ 106  S105     60.32%    passed     84.51%
+ 107  S106     56.78%    passed     13.50%
+ 108  S107     56.78%    passed     14.75%
+ 109  S108     59.64%    passed     87.76%
+ 110  S109     59.64%    passed     90.54%
+ 111  S110     59.64%    passed     99.85%
+ 112  S111     59.64%    passed     99.67%
+ 113  S112     59.64%    passed     99.07%
+ 114  S113     59.64%    passed     99.50%
+ 115  S114     59.98%    passed     98.81%
+ 116  S115     59.98%    passed     99.13%
+ 117  S116     59.98%    passed     98.38%
+ 118  S117     60.21%    passed     99.92%
+ 119  S118     60.21%    passed     99.43%
+ 120  S119     59.52%    passed    100.00%
+ 121  S120     59.52%    passed    100.00%
+ 122  S121     59.52%    passed    100.00%
+ 123  S122     59.98%    passed     96.32%
+ 124  S123     58.61%    passed     54.37%
+ 125  S124     58.38%    passed     15.19%
+ 126  S125     58.72%    passed     46.15%
+ 127  S126     58.84%    passed     24.69%
+ 128  S127     57.92%    passed     21.36%
+ 129  S128     59.06%    passed     42.47%
+ 130  S129     58.38%    passed     47.12%
+ 131  S130     58.72%    passed     51.82%
+ 132  S131     58.49%    passed     69.15%
+ 133  S132     58.49%    passed     68.32%
+ 134  S133     58.49%    passed     85.54%
+ 135  S134     58.49%    passed     79.16%
+ 136  S135     59.06%    passed     67.38%
+ 137  S136     59.06%    passed     79.73%
+ 138  S137     58.49%    passed     65.20%
+ 139  S138     58.49%    passed     70.42%
+ 140  S139     58.49%    passed     81.52%
+ 141  S140     58.49%    passed     60.81%
+ 142  S141     58.49%    passed     71.72%
+ 143  S142     59.86%    passed     26.87%
+ 144  S143     60.21%    passed     10.66%
+ 145  S144     56.67%    passed     53.31%
+ 146  S145     56.67%    passed     87.87%
+ 147  S146     56.56%    passed      7.09%
+ 148  S147     53.71%    failed      3.33%
+ 149  S148     56.56%    failed      2.70%
+ 150  S149     59.41%    passed     46.89%
+ 151  S150     59.41%    passed     42.94%
+ 152  S151     59.29%    passed     15.18%
+ 153  S152     59.41%    passed     52.33%
+ 154  S153     59.86%    passed     75.20%
+ 155  S154     60.66%    passed     99.05%
+ 156  S155     59.98%    passed     84.25%
+ 157  S156     59.86%    passed     90.29%
+ 158  S157     61.80%    passed     65.08%
+ 159  S158     59.64%    passed     92.24%
+ 160  S159     60.66%    passed     97.46%
+ 161  S160     58.84%    passed     93.06%
+ 162  S161     59.75%    passed     98.96%
+ 163  S162     59.64%    passed     98.14%
+ 164  S163     59.52%    passed     82.20%
+ 165  S164     59.64%    passed     99.24%
+ 166  S165     59.64%    passed     92.78%
+ 167  S166     59.64%    passed     98.31%
+ 168  S167     59.64%    failed      2.48%
+ 169  S168     57.47%    failed      2.20%
+ 170  S169     56.67%    passed      5.22%
+ 171  S170     57.24%    passed     15.38%
+ 172  S171     58.49%    passed     36.17%
+ 173  S172     59.98%    passed     99.13%
+ 174  S173     59.52%    passed     99.98%
+ 175  S174     60.43%    passed     76.08%
+ 176  S175     61.00%    passed     77.57%
+ 177  S176     59.64%    passed     96.85%
+ 178  S177     60.43%    passed     74.38%
+ 179  S178     58.49%    passed     62.88%
+ 180  S179     60.32%    passed     91.44%
+ 181  S180     64.88%    passed     46.52%
+ 182  S181     64.88%    passed     23.86%
+ 183  S182     60.21%    passed     96.37%
+ 184  S183     56.90%    passed     40.40%
+ 185  S184     56.78%    passed     35.41%
+ 186  S185     56.78%    passed     58.37%
+ 187  S186     60.32%    passed     94.68%
+ 188  S187     59.98%    passed     90.17%
+ 189  S188     60.66%    passed     99.64%
+ 190  S189     59.98%    passed     87.24%
+ 191  S190     60.66%    passed     99.27%
+ 192  S191     60.32%    passed     93.25%
+ 193  S192     59.98%    passed     89.62%
+ 194  S193     60.66%    passed     93.55%
+ 195  S194     60.32%    passed     91.27%
+ 196  S195     59.98%    passed     97.70%
+ 197  S196     60.66%    passed     92.28%
+ 198  S197     60.32%    passed     95.99%
+ 199  S198     59.98%    passed     97.82%
+ 200  S199     60.66%    passed     99.38%
+ 201  S200     60.32%    passed     94.28%
+ 202  S201     59.98%    passed     96.74%
+ 203  S202     59.75%    passed     98.85%
+ 204  S203     59.86%    passed     84.86%
+ 205  S204     59.75%    passed     80.82%
+ 206  S205     59.75%    passed     96.27%
+ 207  S206     60.21%    passed     65.18%
+ 208  S207     59.86%    passed     63.78%
+ 209  S208     59.98%    passed     85.85%
+ 210  S209     59.64%    passed     96.37%
+ 211  S210     59.64%    passed     95.59%
+ 212  S211     60.21%    passed     98.43%
+ 213  S212     58.15%    passed     89.84%
+ 214  S213     58.15%    passed     86.62%
+ 215  S214     58.15%    passed     98.38%
+ 216  S215     58.27%    passed     96.39%
+ 217  S216     60.09%    passed     96.37%
+ 218  S217     59.98%    passed     98.62%
+ 219  S218     60.32%    passed     98.63%
+ 220  S219     59.52%    passed     99.93%
+ 221  S220     59.52%    passed    100.00%
+ 222  S221     59.52%    passed     99.33%
+ 223  S222     59.52%    passed     99.36%
+ 224  S223     59.52%    passed     98.73%
+ 225  S224     59.52%    passed     99.81%
+ 226  S225     59.52%    passed     96.46%
+ 227  S226     59.52%    passed     94.22%
+ 228  S227     59.52%    passed     94.70%
+ 229  S228     59.52%    passed     97.66%
+ 230  S229     59.52%    passed    100.00%
+ 231  S230     59.52%    passed     99.99%
+ 232  S231     59.52%    passed     99.98%
+ 233  S232     59.75%    passed     98.69%
+ 234  S233     59.52%    passed     99.94%
+ 235  S234     60.09%    passed     66.84%
+ 236  S235     60.09%    passed     50.66%
+ 237  S236     60.09%    passed     48.65%
+ 238  S237     60.09%    passed     74.15%
+ 239  S238     60.09%    passed     76.51%
+ 240  S239     60.09%    passed     71.91%
+ 241  S240     60.09%    passed     91.56%
+ 242  S241     60.09%    passed     76.32%
+ 243  S242     58.49%    passed     56.99%
+ 244  S243     57.58%    passed     92.33%
+ 245  S244     57.24%    passed     54.93%
+ 246  S245     57.01%    passed     22.48%
+ 247  S246     57.81%    passed     48.21%
+ 248  S247     57.81%    passed     38.04%
+ 249  S248     57.01%    passed     22.78%
+ 250  S249     56.56%    passed     62.99%
+ 251  S250     56.78%    passed     19.72%
+ 252  S251     56.67%    passed     48.96%
+ 253  S252     56.78%    passed     49.33%
+ 254  S253     58.38%    passed     29.96%
+ 255  S254     58.38%    passed     33.48%
+ 256  S255     58.38%    passed     28.28%
+ 257  S256     58.49%    passed     49.37%
+ 258  S257     58.49%    passed     62.14%
+ 259  S258     58.49%    passed     68.57%
+ 260  S259     58.38%    passed     30.69%
+ 261  S260     58.61%    passed     27.87%
+ 262  S261     58.49%    passed     67.67%
+ 263  S262     58.49%    passed     62.60%
+ 264  S263     58.49%    passed     61.37%
+ 265  S264     58.49%    passed     80.56%
+ 266  S265     60.55%    passed     78.52%
+ 267  S266     56.78%    passed     10.04%
+ 268  S267     57.70%    failed      0.56%
+ 269  S268     58.27%    passed     41.90%
+ 270  S269     56.67%    passed     10.18%
+ 271  S270     56.33%    passed     33.42%
+ 272  S271     56.56%    passed     32.04%
+ 273  S272     56.56%    passed     32.16%
+ 274  S273     56.56%    passed     16.27%
+ 275  S274     56.56%    failed      1.36%
+ 276  S275     60.32%    passed     98.13%
+ 277  S276     60.55%    passed     83.76%
+ 278  S277     59.86%    passed     97.73%
+ 279  S278     59.86%    passed     97.03%
+ 280  S279     59.86%    passed     98.55%
+ 281  S280     59.86%    passed     98.32%
+ 282  S281     58.38%    passed     66.03%
+ 283  S282     58.49%    passed     58.04%
+ 284  S283     58.49%    passed     68.76%
+ 285  S284     58.49%    passed     69.99%
+ 286  S285     58.49%    passed     74.41%
+ 287  S286     56.21%    passed     11.82%
+ 288  S287     57.01%    failed      2.75%
+ 289  S288     57.70%    passed      9.77%
+ 290  S289     51.08%    failed      0.81%
+ 291  S290     56.33%    passed     83.54%
+ 292  S291     56.44%    passed     13.36%
+ 293  S292     44.93%    failed      1.37%
+ 294  S293     58.72%    passed     38.39%
+ 295  S294     60.43%    passed     59.10%
+ 296  S295     60.43%    passed     73.41%
+ 297  S296     60.43%    passed     69.79%
+ 298  S297     60.43%    passed     54.85%
+ 299  S298     61.46%    passed     91.75%
+ 300  S299     61.80%    passed     80.83%
+ 301  S300     61.69%    passed     99.51%
+ 302  S301     60.09%    passed     95.63%
+ 303  S302     58.27%    passed     74.88%
+ 304  S303     58.27%    passed     93.87%
+ 305  S304     58.15%    passed     95.12%
+ 306  S305     58.15%    passed     92.29%
+ 307  S306     58.15%    passed     91.93%
+ 308  S307     57.58%    passed     55.62%
+ 309  S308     61.80%    passed     45.22%
+ 310  S309     59.29%    passed     42.71%
+ 311  S310     59.29%    passed     55.28%
+ 312  S311     59.64%    passed     91.53%
+ 313  S312     61.69%    passed     96.62%
+ 314  S313     60.55%    passed     95.66%
+ 315  S314     57.13%    passed     46.19%
+ 316  S315     59.86%    passed     99.49%
+ 317  S316     59.18%    passed     83.35%
+ 318  S317     60.55%    passed     73.29%
+ 319  S318     60.55%    passed     96.96%
+ 320  S319     58.61%    passed     81.20%
+ 321  S320     57.58%    failed      0.37%
+ 322  S321     60.32%    passed     98.87%
+ 323  S322     60.32%    passed     99.33%
+ 324  S323     59.64%    passed     95.79%
+ 325  S324     59.64%    passed     95.16%
+ 326  S325     55.53%    passed     53.27%
+ 327  S326     58.49%    failed      0.11%
+ 328  S327     57.92%    passed     26.76%
+ 329  S328     59.86%    passed     98.21%
+ 330  S329     60.78%    passed     53.76%
+ 331  S330     61.46%    passed     76.40%
+ 332  S331     61.23%    passed     94.72%
+ 333  S332     61.35%    passed     98.03%
+ 334  S333     61.35%    passed     94.92%
+ 335  S334     19.50%    failed      0.00%
+ 336  S335     59.98%    passed     99.10%
+ 337  S336     60.32%    passed     96.15%
+ 338  S337     60.32%    passed     98.40%
+ 339  S338     60.32%    passed     99.62%
+ 340  S339     59.86%    passed     98.12%
+ 341  S340     58.61%    passed     96.00%
+ 342  S341     58.72%    passed     94.32%
+ 343  S342     59.75%    passed     97.52%
+ 344  S343     59.98%    passed     97.86%
+ 345  S344     59.98%    passed     99.21%
+ 346  S345     59.98%    passed     99.13%
+ 347  S346     52.11%    passed     95.33%
+ 348  S347     52.11%    passed     94.32%
+ 349  S348     52.11%    passed     87.77%
+ 350  S349     59.86%    passed     99.93%
+ 351  S350     60.66%    passed     99.37%
+ 352  S351     60.32%    passed     98.89%
+ 353  S352     60.32%    passed     97.11%
+ 354  S353     60.32%    passed     98.86%
+ 355  S354     60.32%    passed     99.67%
+ 356  S355     60.32%    passed     99.84%
+ 357  S356     59.86%    passed     99.63%
+ 358  S357     59.86%    passed     99.54%
+ 359  S358     59.98%    passed     98.53%
+ 360  S359     59.75%    passed     99.75%
+ 361  S360     59.75%    passed     96.88%
+ 362  S361     60.32%    passed     98.72%
+ 363  S362     60.32%    passed     98.46%
+ 364  S363     59.75%    passed     99.83%
+ 365  S364     59.64%    passed     99.47%
+ 366  S365     59.64%    passed     98.95%
+ 367  S366     59.52%    passed     99.38%
+ 368  S367     59.64%    passed     99.73%
+ 369  S368     60.55%    passed     98.45%
+WARNING: 367 sequences contain more than 50% gaps/ambiguity
+****  TOTAL    59.57%  12 sequences failed composition chi2 test (p-value<5%; df=19)
+Checking for duplicate sequences: done in 0.0010533 secs
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.336 seconds
+Measuring multi-threading efficiency up to 16 CPU cores
+Increase to 10 rounds for branch lengths
+4 trees examined
+Threads: 1 / Time: 20.713 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -168297
+Threads: 2 / Time: 13.724 sec / Speedup: 1.509 / Efficiency: 75% / LogL: -168297
+Threads: 3 / Time: 10.218 sec / Speedup: 2.027 / Efficiency: 68% / LogL: -168297
+Threads: 4 / Time: 10.783 sec / Speedup: 1.921 / Efficiency: 48% / LogL: -168297
+Determining AUTO threadcount: done in 55.5567 secs using 197.7% CPU
+BEST NUMBER OF THREADS: 3
+
+Perform fast likelihood tree search using LG+I+G model...
+Estimate model parameters (epsilon = 5.000)
+Perform nearest neighbor interchange...
+Optimizing NNI: done in 4.01717 secs using 287.4% CPU
+Estimate model parameters (epsilon = 1.000)
+1. Initial log-likelihood: -58140.648
+Optimal log-likelihood: -58140.216
+Proportion of invariable sites: 0.012
+Gamma shape alpha: 1.214
+Parameters optimization took 1 rounds (0.817 sec)
+Time for fast ML tree search: 9.327 seconds
+
+NOTE: ModelFinder requires 390 MB RAM!
+ModelFinder will test up to 1232 protein models (sample size: 877) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+  1  LG            60667.069    735 122804.139   130477.330   126314.872
+  2  LG+I          60550.094    736 122572.189   130321.217   126087.698
+  3  LG+G4         58151.824    736 117775.647   125524.676   121291.156
+  4  LG+I+G4       58140.073    737 117754.147   125580.132   121274.432
+  5  LG+R2         58659.484    737 118792.969   126618.954   122313.254
+  6  LG+R3         58278.722    739 118035.444   126018.801   121565.282
+  7  LG+R4         58132.540    741 117747.081   125892.592   121286.472
+  8  LG+R5         58080.120    743 117646.240   125958.902   121195.185
+  9  LG+R6         58058.675    745 117607.349   126092.387   121165.847

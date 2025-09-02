@@ -1,0 +1,8 @@
+Best BayesianRidge R-squared:	0.9585736946903747
+Best BayesianRidge parameters:	{'BayesianRidge__alpha_1': 0.01, 'BayesianRidge__alpha_2': 1e-06, 'BayesianRidge__compute_score': True, 'BayesianRidge__fit_intercept': True, 'BayesianRidge__lambda_1': 1e-06, 'BayesianRidge__lambda_2': 0.01}
+Best gbr R-squared:	0.9607554762686068
+Best gbr parameters:	{'gbr__learning_rate': 0.2, 'gbr__max_depth': 3, 'gbr__max_features': 'sqrt', 'gbr__n_estimators': 500}
+Best rf R-squared:	0.9549162027567082
+Best rf parameters:	{'rf__bootstrap': True, 'rf__max_depth': None, 'rf__max_features': None, 'rf__min_samples_leaf': 2, 'rf__min_samples_split': 5, 'rf__n_estimators': 500}
+Best xgb R-squared:	0.9591206064508115
+Best xgb parameters:	{'xgb__gamma': 1.0, 'xgb__learning_rate': 0.1, 'xgb__max_depth': 3, 'xgb__n_estimators': 300, 'xgb__reg_alpha': 0.1, 'xgb__reg_lambda': 0}

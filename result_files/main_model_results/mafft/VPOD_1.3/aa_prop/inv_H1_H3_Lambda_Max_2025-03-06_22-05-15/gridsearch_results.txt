@@ -1,0 +1,12 @@
+Best gbr Model R-squared:	0.8390230316215483
+Best parameters for gbr:
+{'gbr__learning_rate': 0.01, 'gbr__max_depth': 3, 'gbr__max_features': None, 'gbr__n_estimators': 500}
+
+Best rf Model R-squared:	0.8172866823777409
+Best parameters for rf:
+{'rf__bootstrap': True, 'rf__max_depth': 20, 'rf__max_features': 'sqrt', 'rf__min_samples_leaf': 1, 'rf__min_samples_split': 10, 'rf__n_estimators': 500}
+
+Best xgb Model R-squared:	0.8337454201718527
+Best parameters for xgb:
+{'xgb__colsample_bytree': 1.0, 'xgb__gamma': 1.0, 'xgb__learning_rate': 0.1, 'xgb__max_depth': 3, 'xgb__n_estimators': 100, 'xgb__reg_alpha': 0.1, 'xgb__reg_lambda': 0.1, 'xgb__subsample': 1.0}
+

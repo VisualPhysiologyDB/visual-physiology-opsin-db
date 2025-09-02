@@ -1,0 +1,16 @@
+Selected Options...
+input_fasta: mut_only.txt
+report_dir: ./prediction_outputs/optics_on_aa_prop_wt_mut_test_2025-03-24_20-23-29
+output_file: mut_predictions
+model: wildtype
+encoding_method: aa_prop
+blastp: False
+blastp_report: None
+refseq: bovine
+custom_ref_file: None
+bootstrap: True
+visualize_bootstrap: False
+bootstrap_viz_file: None
+
+Command executed (reconstructed): python optics_predictions.py -i mut_only.txt -o aa_prop_wt_mut_test -p mut_predictions -m wildtype -e aa_prop --bootstrap 
+

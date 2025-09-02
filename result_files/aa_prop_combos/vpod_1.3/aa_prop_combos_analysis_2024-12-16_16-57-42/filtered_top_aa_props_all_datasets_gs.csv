@@ -1,0 +1,7 @@
+,Dataset,Props_Used,best_gs_model,best_gs_r2,best_gs_params
+0,wds,H1_H2_H3_P2_V_SCT_PKA_,xgb,0.969375737,"{'xgb__colsample_bytree': 0.8, 'xgb__gamma': 0, 'xgb__learning_rate': 0.2, 'xgb__max_depth': 5, 'xgb__n_estimators': 100, 'xgb__reg_alpha': 0.1, 'xgb__reg_lambda': 0.1, 'xgb__subsample': 1.0}"
+1,wt,H2_H3_P1_NCI_PKA_,gbr,0.939417488,"{'gbr__learning_rate': 0.1, 'gbr__max_depth': 3, 'gbr__max_features': 'log2', 'gbr__n_estimators': 500}"
+2,vert,H2_H3_NCI_SCT_PKB_,xgb,0.981047405,"{'xgb__colsample_bytree': 1.0, 'xgb__gamma': 0, 'xgb__learning_rate': 0.1, 'xgb__max_depth': 5, 'xgb__n_estimators': 200, 'xgb__reg_alpha': 0.1, 'xgb__reg_lambda': 0.1, 'xgb__subsample': 1.0}"
+3,wt_vert,H2_P2_V_MASS_,gbr,0.979910866,"{'gbr__learning_rate': 0.1, 'gbr__max_depth': 3, 'gbr__max_features': None, 'gbr__n_estimators': 300}"
+4,inv,H1_H3_,gbr,0.839023032,"{'gbr__learning_rate': 0.01, 'gbr__max_depth': 3, 'gbr__max_features': None, 'gbr__n_estimators': 500}"
+5,t1,H3_P1_PKB_,xgb,0.869347501,"{'xgb__colsample_bytree': 0.8, 'xgb__gamma': 0.1, 'xgb__learning_rate': 0.1, 'xgb__max_depth': 5, 'xgb__n_estimators': 300, 'xgb__reg_alpha': 1.0, 'xgb__reg_lambda': 1.0, 'xgb__subsample': 0.8}"

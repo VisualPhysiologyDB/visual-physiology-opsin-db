@@ -1,0 +1,17 @@
+Command-line arguments used for this run:
+
+--path ./vpod_1.2_data_splits_2025-02-28_15-51-04
+--seqFileName wt_aligned_VPOD_1.2_het.fasta
+--metaDataFileName wt_meta.tsv
+--tree_folder /home/seth_frazer/vpod/phylo_cv/trees/vpod_1.2/vpod_1.2_wt
+--ds wt
+--encoding aa_prop
+--mt Lambda_Max
+--seq_type aa
+--ana_type reg
+--gap_threshold 0.5
+--props_to_keep H1 H3 NCI
+--use_optimized_params True
+
+To re-run the script with the same arguments, use the following command:
+python phylo_weighted_cv.py --path ./vpod_1.2_data_splits_2025-02-28_15-51-04 --seqFileName wt_aligned_VPOD_1.2_het.fasta --metaDataFileName wt_meta.tsv --tree_folder /home/seth_frazer/vpod/phylo_cv/trees/vpod_1.2/vpod_1.2_wt --ds wt --encoding aa_prop --mt Lambda_Max --seq_type aa --ana_type reg --gap_threshold 0.5 --props_to_keep H1 H3 NCI --use_optimized_params True 
