@@ -4,7 +4,7 @@
 # Visual Physiology Opsin Database (VPOD) - [Version 1.3]
 **_VPOD_: A database of opsins and machine-learning models to predict λmax phenotypes.**
 
-![](https://github.com/VisualPhysiologyDB/visual-physiology-opsin-db/blob/development/scripts_n_notebooks/figure_making/figures/VPOD_1.3/supplementary_figures/potenital_supp_figx/vpod_1.3_lmax_histogram_complete.png?raw=True) <!-- Alt text: Histogram distributions of Vertebrate and Invertebrate Opsin Light Sensitivity Data - λmax - from VPOD_het_1.1 with a scaled Kernel Density Estimate (KDE) curves overlaid to better visualize the general shape and characteristics of our λmax distributions. -->
+![](https://github.com/VisualPhysiologyDB/visual-physiology-opsin-db/blob/development/scripts_n_notebooks/figure_making/figures/VPOD_1.3/supplementary_figures/potenital_supp_figx/vpod_1.3_lmax_histogram_complete.png?raw=True) <!-- Alt text: Histogram distributions of Vertebrate and Invertebrate Opsin Light Sensitivity Data - λmax - from VPOD_het_1.3 with a scaled Kernel Density Estimate (KDE) curves overlaid to better visualize the general shape and characteristics of our λmax distributions. -->
 
   _Histogram distributions of Vertebrate and Invertebrate Opsin Light Sensitivity Data - λmax - from VPOD_1.3 with a scaled Kernel Density Estimate (KDE) curves overlaid to better visualize the general shape and characteristics of our λmax distributions_
 
@@ -186,6 +186,6 @@ Contact information for author questions or feedback.
 ---
 
 ## Additional_Resources 
-  **[Here](https://tinyurl.com/u7hn9adm)** is a link to a bibliography of the publications used to build VPOD_1.1 (Full version not yet released)
+  **[Here](https://tinyurl.com/u7hn9adm)** is a link to a bibliography of the publications used to build VPOD_1.2 (Full version not yet released)
   
   If you know of publications for training opsin ML models not included in the VPOD_1.2 database, please send them to us through **[this form](https://tinyurl.com/29afaxyr)**
