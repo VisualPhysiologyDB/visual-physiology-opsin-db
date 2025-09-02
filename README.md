@@ -21,9 +21,6 @@
 ---
 
 # VPOD user guide #
-**UPDATE!!! - Want to predict opsin λmax with our models?** 
-
-**If so, visit our GitHub for _[OPTICS](https://github.com/VisualPhysiologyDB/optics)_, an open-source tool that predicts the Opsin Phenotype (λmax)**
 
 ## Developer Notes
 * **UPDATE!!!- Welcome to VPOD_1.3!** The latest release of the Visual Physiology Opsin Database. We have quite a bit of new data, results and tools to check-out.
