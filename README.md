@@ -102,7 +102,7 @@ Instructions for navigating VPOD data files, including raw and curated data used
             - ```vpod_bootstrap_gen_aa_prop_wf.py``` - Generates 100 bootstraped models for each VPOD dataset using amino-acid property encoding.
             - ```vpod_bootstrap_gen_one_hot_wf.py``` - Generates 100 bootstraped models for each VPOD dataset using one-hot encoding.
           - **_mine_n_match_** folder - Contains scripts and data necessary for utilizing the _Mine-n-Match_ (MNM) workflow (as detailed in _Frazer & Oakley 2025_).
-            - ```mine_n_match_workflow.ipynb``` - Primary notebook for running the MNM workflow. Note, to run this full workflow you should READ the notebook first and THEN follow directions to download [OPTICS](https://github.com/VisualPhysiologyDB/optics) from its corresponding _GitHub_ repository to make it available as a tool in the notebook. 
+            - ```mine_n_match_workflow.ipynb``` - Primary notebook for running the MNM workflow. Note, to run this full workflow you should READ the notebook first and THEN follow directions to download [OPTICS](https://github.com/VisualPhysiologyDB/optics) from its corresponding _GitHub_ repository to make it available as a tool in the notebook (a totally seperate/dedicated Conda environment is recommended for using downloading OPTICS/using MNM). 
             - **_data_sources_** folder - Contains raw and formatted data sources used to compile sequence and _in_vivo_ λmax compendiums neccessary for running the main MNM workflow. For more information on these sources see _Frazer & Oakley 2025_ or read the markdown text in the main MNM workflow.
             - **_mnm_data_** folder - Contains the all the outputs from a single run of the MNM workflow.
               - Folder generated from running MNM are named and automatically timestamped by the user of the notebook in the format of 'mnm_on_XXX_date_time'.
@@ -144,7 +144,7 @@ Instructions for navigating VPOD data files, including raw and curated data used
 Instructions for using VPOD and training ML models with _deepBreaks_.
 
 1. Follow the directions and install _[deepBreaks](https://github.com/omicsEye/deepbreaks)_ using the guide provided _deepBreaks_ on the GitHub.
-2. Refer to the _requirements.txt_ provided in the _deepBreaks_ repostiory and ensure all necessary packages are installed in a dedicated environment (using Conda is recommended).
+2. Refer to the _requirements.txt_ provided in the base of this repostiory and ensure all necessary packages are installed in a dedicated environment (using Conda is recommended).
 3. Navigate to _scripts_n_notebooks/vpod_ml_workflows_ and open _vpod_main_wf.ipynb_.
    - To train models using _raw_database_files_, start from the top of the document and follow the instructions provided in the notebook.
    - To train models using _formatted_data_subsets_, scroll down to **Step 3: deepBreaks** and follow the instructions provided in the notebook.
