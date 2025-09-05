@@ -98,7 +98,7 @@ Instructions for navigating VPOD data files, including raw and curated data used
    ### Machine Learning Tests and Workflows
    * Navigate to the folder **_scripts_n_notebooks_**
       - Select the folder **_vpod_ML_workflows_** to access notebooks used for training ML models.
-          - ```vpod_main_wf.ipynb``` - Primary notebook for users, with a full pipeline for everything from creating a local instance of VPOD using SQLite to formatting datasets and training ML models for λmax predictions.
+          - ```main_vpod_wf.ipynb``` - Primary notebook for users, with a full pipeline for everything from creating a local instance of VPOD using SQLite to formatting datasets and training ML models for λmax predictions.
           - **_boot_strap_model_gen_** folder - Contains scripts for generating ensembles of 100 bootstraped models for all VPOD dataset using one-hot or amino-acid property encoding methods [VPOD_1.3 only]
             - ```vpod_bootstrap_gen_aa_prop_wf.py``` - Generates 100 bootstraped models for each VPOD dataset using amino-acid property encoding.
             - ```vpod_bootstrap_gen_one_hot_wf.py``` - Generates 100 bootstraped models for each VPOD dataset using one-hot encoding.
