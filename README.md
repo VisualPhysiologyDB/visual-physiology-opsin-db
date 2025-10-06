@@ -35,10 +35,10 @@
    * [Results](#results)
    * [Scripts & Notebooks](#scripts--notebooks)
    * [Training New ML Models With _deepBreaks_](#training-new-ml-models-with-deepbreaks)
-3. [License](#license)
-4. [Citation](#citation)
-5. [Contact](#contact)
-6. [Additional Resources](#additional_resources)
+2. [License](#license)
+3. [Citation](#citation)
+4. [Contact](#contact)
+5. [Additional Resources](#additional_resources)
 
 ## Instructions
 
