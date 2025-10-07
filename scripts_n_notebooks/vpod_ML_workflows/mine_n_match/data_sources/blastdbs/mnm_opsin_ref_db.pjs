@@ -1,0 +1,22 @@
+{
+  "version": "1.2",
+  "dbname": "mnm_opsin_ref_db",
+  "dbtype": "Protein",
+  "db-version": 5,
+  "description": "mnm_opsin_ref_db",
+  "number-of-letters": 711126,
+  "number-of-sequences": 2111,
+  "last-updated": "2025-09-24T12:47:00",
+  "number-of-volumes": 1,
+  "bytes-total": 1970978,
+  "bytes-to-cache": 730234,
+  "files": [
+    "mnm_opsin_ref_db.pdb",
+    "mnm_opsin_ref_db.phr",
+    "mnm_opsin_ref_db.pin",
+    "mnm_opsin_ref_db.pot",
+    "mnm_opsin_ref_db.psq",
+    "mnm_opsin_ref_db.ptf",
+    "mnm_opsin_ref_db.pto"
+  ]
+}

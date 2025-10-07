@@ -9,14 +9,16 @@ from typing import List, Tuple
 
 def get_best_aa_prop_combos(dataset):
     aa_props_dict = {
-        'wds': ['H1','H2','H3','P2','V','SCT','PKA'],
+        #'wds': ['H1','H2','H3','P2','V','SCT','PKA'],
+        'wds': ['H1','P2','SCT'],
         'wt': ['H2','H3','P1','NCI','PKA'],
         'vert': ['H2','H3','NCI','SCT','PKB'],
-        'wt_vert': ['H2','P2','V','MASS'],
+        'wt_vert': ['H2','P2','V'],
         'inv': ['H1','H3'],
         't1': ['H3','P1','PKB'],
         'wds_mnm': ['H2','H3','NCI','MASS'],
-        'wt_mnm': ['H1','H2','H3','NCI','MASS','PKA'],
+        #'wt_mnm': ['H1','H2','H3','NCI','MASS','PKA'],
+        'wt_mnm': ['H2','P1','NCI','MASS','SASA','PKB'],
         'vert_mnm': ['H3','P2','SCT','PKA','PKB'],
         'wt_vert_mnm': ['H2','H3','PKB'],
         'inv_mnm': ['H1','P1','SCT']
@@ -102,7 +104,7 @@ def get_models(ana_type, dataset, encoding='hot'):
         elif dataset == 'wt_mnm':
             if encoding == 'aa_prop':
                 models = {
-                    'gbr': GradientBoostingRegressor(learning_rate=0.1, max_depth=3, max_features='sqrt', n_estimators=800, random_state=123),
+                    'gbr': GradientBoostingRegressor(learning_rate=0.1, max_depth=5, max_features='sqrt', n_estimators=800, random_state=123),
                 }  
             else:
                 models = {

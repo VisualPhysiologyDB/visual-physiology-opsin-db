@@ -29,7 +29,10 @@ def process_sequence(mafft, sequence, selected_model, alignment_data, gap_thresh
             temp_file.write(sequence) # Write your data to the file object
         
 
-    new_ali = './vpod_scripts/temp/temp_ali.fasta'  
+    temp_dir = './vpod_scripts/temp'
+    os.makedirs(temp_dir, exist_ok=True)
+
+    new_ali = f'{temp_dir}/temp_ali.fasta'  
     # ... (Perform alignment using MAFFT with alignment_data)
     mafft_exe = mafft #change to your own directory for mafft.bat or mafft execution file
     seq_type = 'aa'

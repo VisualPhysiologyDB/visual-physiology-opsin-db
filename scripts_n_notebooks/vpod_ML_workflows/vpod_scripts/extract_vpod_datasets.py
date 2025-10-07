@@ -494,17 +494,39 @@ def get_mnm_datasets(seq_report_dir, mnm_data, mnm_meta_list, mnm_meta_shorthand
         combined_acc = meta_df['Accession'].to_list()
         for acc in mnm_data_copy['Accession']:
             combined_acc.append(acc)
+            
+        combined_description = meta_df['Opsin_Family'].to_list()
+        for desc in mnm_data_copy['Gene_Description']:
+            combined_description.append(desc)
 
         combined_sp = meta_df['Species'].to_list()
         mnm_sp_list = mnm_data_copy['Genus'] + '_' + mnm_data_copy['Species']
         for sp in mnm_sp_list:
             combined_sp.append(sp)
             
-        merged_df = pd.DataFrame(columns=['Accession','Species','Lambda_Max', 'Protein'], index=combined_ids)
+        combined_class = meta_df['Class'].to_list()
+        for cl in mnm_data_copy['Class']:
+            combined_class.append(cl)
+        
+        combined_phylum = meta_df['Phylum'].to_list()
+        for phy in mnm_data_copy['Phylum']:
+            combined_phylum.append(phy)
+        
+        combined_refs = meta_df['RefId'].to_list()
+        for ref in mnm_data_copy['comp_db_id']:
+            combined_refs.append(f'compdb-{ref}')
+        
+            
+        merged_df = pd.DataFrame(columns=['Accession'], index=combined_ids)
         merged_df['Accession'] = combined_acc
-        merged_df['Species'] = combined_sp
         merged_df['Lambda_Max']= combined_lmax
+        merged_df['Gene_Description'] = combined_description
+        merged_df['Species'] = combined_sp
+        merged_df['Class'] = combined_class
+        merged_df['Phylum'] = combined_phylum  
         merged_df['Protein']= combined_prot
+        merged_df['RefId'] = combined_refs
+        
         merged_df_file = f'{seq_report_dir}/{short_hand}_mnm_meta.csv'
         merged_df.to_csv(path_or_buf=f'./{merged_df_file}', index=True)
         
@@ -527,7 +549,7 @@ from Bio.Align.Applications import MafftCommandline
 from Bio import AlignIO
 import os  # Import os module if not already imported
 
-def perform_mafft_alignment(data_split_list, mafft_exe_path):
+def perform_mafft_alignment(data_split_list, mafft_exe_path, vpod_version='1.3'):
     """
     Performs multiple sequence alignment using MAFFT on a list of input files.
 
@@ -554,7 +576,7 @@ def perform_mafft_alignment(data_split_list, mafft_exe_path):
     deep_breaks_input_data = []
     for input_file in mafft_output_list:
         #print(item)
-        output_file = f'.{input_file.split(".")[1]}.{input_file.split(".")[2]}_VPOD_1.2_het.fasta'
+        output_file = f'.{input_file.split(".")[1]}.{input_file.split(".")[2]}_VPOD_{vpod_version}_het.fasta'
         deep_breaks_input_data.append(output_file)
         with open(output_file, 'w') as file:
                 with open(input_file, 'r') as infile: # Use with open for file handling

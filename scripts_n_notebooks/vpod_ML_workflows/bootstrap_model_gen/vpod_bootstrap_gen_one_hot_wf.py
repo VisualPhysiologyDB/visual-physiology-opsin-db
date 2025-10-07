@@ -30,10 +30,15 @@ warnings.simplefilter('ignore')
 # defining user params, file pathes, analysis type
 
 #assign your path to folder containing all the datasplits
-path = './vpod_1.2_data_splits_2025-02-28_15-51-04'
-meta_data_list = ['wds_meta.tsv','wt_meta.tsv','wt_vert_meta.tsv', 'inv_meta.tsv', 'vert_meta.tsv', 'Karyasuyama_T1_ops_meta.tsv', 'wds_mnm_meta.csv','wt_mnm_meta.csv','wt_vert_mnm_meta.csv', 'inv_mnm_meta.csv', 'vert_mnm_meta.csv']
-seq_data_list = ['wds_aligned_VPOD_1.2_het.fasta','wt_aligned_VPOD_1.2_het.fasta','wt_vert_aligned_VPOD_1.2_het.fasta', 'inv_aligned_VPOD_1.2_het.fasta', 'vert_aligned_VPOD_1.2_het.fasta', 'Karyasuyama_T1_ops.fasta', 'wds_mnm_aligned_VPOD_1.2_het.fasta','wt_mnm_aligned_VPOD_1.2_het.fasta','wt_vert_mnm_aligned_VPOD_1.2_het.fasta', 'inv_mnm_aligned_VPOD_1.2_het.fasta', 'vert_mnm_aligned_VPOD_1.2_het.fasta']
-ds_list = ['wds', 'wt', 'wt_vert', 'inv', 'vert', 't1', 'wds_mnm','wt_mnm', 'wt_vert_mnm', 'inv_mnm', 'vert_mnm']
+#path = './VPOD_1.3_data_splits_2024-08-20_16-14-09'
+#meta_data_list = ['wds_meta.tsv','wt_meta.tsv','wt_vert_meta.tsv', 'inv_meta.tsv', 'vert_meta.tsv']
+#seq_data_list = ['wds_aligned_VPOD_1.3_het.fasta','wt_aligned_VPOD_1.3_het.fasta','wt_vert_aligned_VPOD_1.3_het.fasta', 'inv_only_aligned_VPOD_1.3_het.fasta', 'vert_aligned_VPOD_1.3_het.fasta']
+#ds_list = ['wds', 'wt', 'wt_vert', 'inv', 'vert']
+
+path = './vpod_1.3_data_splits_2025-10-06_16-50-06'
+meta_data_list = ['wds_mnm_meta.csv','wt_mnm_meta.csv','wt_vert_mnm_meta.csv', 'inv_mnm_meta.csv', 'vert_mnm_meta.csv']
+seq_data_list = ['wds_mnm_aligned_VPOD_1.3_het.fasta','wt_mnm_aligned_VPOD_1.3_het.fasta','wt_vert_mnm_aligned_VPOD_1.3_het.fasta', 'inv_mnm_aligned_VPOD_1.3_het.fasta', 'vert_mnm_aligned_VPOD_1.3_het.fasta']
+ds_list = ['wds_mnm','wt_mnm', 'wt_vert_mnm', 'inv_mnm', 'vert_mnm']
 
 # name of the phenotype
 mt = 'Lambda_Max'
@@ -62,7 +67,7 @@ for meta, seq, ds in zip(meta_data_list, seq_data_list, ds_list):
     #print('direcory preparation')
     dt_label = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
-    report_dir = str(f'{ds}_bootstrap_100_{dt_label}')
+    report_dir = str(f'./vpod_1.3_bs/{ds}_bootstrap_{dt_label}')
     os.makedirs(report_dir)
 
     #print('reading meta-data')
@@ -74,11 +79,6 @@ for meta, seq, ds in zip(meta_data_list, seq_data_list, ds_list):
     tr = read_data(seqFileName, seq_type = seq_type, is_main=True, gap_threshold=gap_threshold)
     #merging in lambda max values, simultaneously dropping all sequences without entries in metadata file
     tr = tr.merge(meta_data.loc[:, mt],  left_index=True, right_index=True)
-    #tr.shape
-    seqFile = seqFileName.split('/')[2]
-    #print(seqFile)
-    seqFile = seqFile.split('.')[0]+'.'+seqFile.split('.')[1]
-    #write_fasta(dat = tr, fasta_file = f'{seqFile}_gap_dropped.fasta' , report_dir = report_dir)
 
     y = tr.loc[:, mt].values
     tr.drop(mt, axis=1, inplace=True)
