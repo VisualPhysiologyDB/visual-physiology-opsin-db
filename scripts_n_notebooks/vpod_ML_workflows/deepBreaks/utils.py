@@ -317,7 +317,7 @@ def chi2_test(cross_table=None, data=None, group_col=None, response_var=None):
 
 
 
-def box_plot(data, group_col, response_var, figsize=(3.2, 3.2), ax=None, p=None):
+def box_plot(data, group_col, response_var, figsize=(3.2, 3.2), ax=None, p=None, trans_imp_report=None, color_for_plot=None):
     """
     Create a box plot of response variable stratified by group_col,
     optionally with an associated Kruskal-Wallis test p-value.
@@ -334,25 +334,37 @@ def box_plot(data, group_col, response_var, figsize=(3.2, 3.2), ax=None, p=None)
     """
     aa_prop_name_dict = {
         'H1': "Hydrophobicity (H1)",
-        'H2': "Hydrophilicity (H2)",  # Safety Orange
-        'H3': "Hydrogen Bonding (H3)",  # Cooked Green
-        'V': "Volume of Side-Chain (V)",   # Brick Red
-        'P1': "Polarity (P1)",  # Medium Purple
-        'P2': "Polarizability (P2)",  # Chestnut Brown
-        'SASA': "Solvent-Accessible Surface Area (SASA)", # Raspberry Pink
-        'NCI': "Net Charge Index of Side-Chain (NCI)",  # Middle Gray
-        'MASS': "Average Mass (MASS)", # Curry Yellow-Green
-        'SCT': "Side-Chain Type (SCT)",  # Teal
-        'PKA': "Acidity Constant (PkA)",  # Light Lime Green
-        'PKB': "Basicity Constant (PkB)"   # Light Apricot
+        'H2': "Hydrophilicity (H2)", 
+        'H3': "Hydrogen Bonding (H3)", 
+        'V': "Volume of Side-Chain (V)", 
+        'P1': "Polarity (P1)", 
+        'P2': "Polarizability (P2)", 
+        'SASA': "Solvent-Accessible Surface Area (SASA)",
+        'NCI': "Net Charge Index of Side-Chain (NCI)",
+        'MASS': "Average Mass (MASS)",
+        'SCT': "Side-Chain Type (SCT)",
+        'PKA': "Acidity Constant (PkA)",
+        'PKB': "Basicity Constant (PkB)"
     }
     
     if '_' in group_col:
-        position = group_col.split('_')[0]
+        if isinstance(trans_imp_report, pd.DataFrame):
+            feat_name=group_col[1:]
+            target_row = trans_imp_report[trans_imp_report['feature']==feat_name]
+            position = target_row['true_position'].values[0]
+        else:
+            position = group_col.split('_')[0]
+            position = position[1:]
         property = group_col.split('_')[1]
-        position = position[1:]
     else:
-        position = group_col[1:]
+        if isinstance(trans_imp_report, pd.DataFrame):
+            feat_name=group_col[1:]
+            target_row = trans_imp_report[trans_imp_report['feature']==feat_name]
+            position = target_row['true_position'].values[0]
+        else:
+            position = group_col[1:]
+    if position == 'NA':
+        position = 'NA\n(No Positional Equivalent on Reference Sequence)'
     
     tmp = data.loc[:, [group_col, response_var]]
     tmp = tmp.sort_values(by=group_col)  # sort by grouping variable
@@ -390,12 +402,14 @@ def box_plot(data, group_col, response_var, figsize=(3.2, 3.2), ax=None, p=None)
         except:
             pass 
     except:
+        if color_for_plot==None:
+            color_for_plot="#67c7f4" #setting the default to blue
         sns.boxplot(ax=ax, x=group_col, y=response_var, data=tmp,
                 showfliers=False, dodge=False,
-                width=.6, linewidth=.4,)
+                width=.6, linewidth=.4,color=color_for_plot)
         sns.despine(ax=ax)
         sns.stripplot(ax=ax, x=group_col, y=response_var, data=tmp,
-                    size=5-np.log(n_groups-1), alpha=0.3, linewidth=.2, hue=group_col)
+                    size=5-np.log(n_groups-1), alpha=0.3, linewidth=.2, color=color_for_plot)
         if '_' in group_col:
             ax.set_xlabel(aa_prop_name_dict[property], fontsize=8)
         else:

@@ -1,5 +1,8 @@
 import pandas as pd
+import numpy as np
 import os
+
+
 
 def translate_candidate_sts(report_dir, ref_seq_name, reference_seq):
     """
@@ -17,7 +20,7 @@ def translate_candidate_sts(report_dir, ref_seq_name, reference_seq):
     """
     if ref_seq_name not in ['bovine', 'squid']:
         raise ValueError("ref_seq_name must be either 'bovine' or 'squid'")
-
+    
     try:
         df = pd.read_csv(os.path.join(report_dir, 'importance_report.csv'))
     except FileNotFoundError:
@@ -29,7 +32,23 @@ def translate_candidate_sts(report_dir, ref_seq_name, reference_seq):
     true_positions = []
     amino_acids = []
     transmembrane_domains = []
+    
+    # Need to compare the raw reference seq with the gap-dropped reference seq to properly translate sites
+    if ref_seq_name == 'bovine':
+        raw_ref_seq = "MNGTEGPNFYVPFSNKTGVVRSPFEAPQYYLAEPWQFSMLAAYMFLLIMLGFPINFLTLYVTVQHKKLRTPLNYILLNLAVADLFMVFGGFTTTLYTSLHGYFVFGPTGCNLEGFFATLGGEIALWSLVVLAIERYVVVCKPMSNFRFGENHAIMGVAFTWVMALACAAPPLVGWSRYIPEGMQCSCGIDYYTPHEETNNESFVIYMFVVHFIIPLIVIFFCYGQLVFTVKEAAAQQQESATTQKAEKEVTRMVIIMVIAFLICWLPYAGVAFYIFTHQGSDFGPIFMTIPAFFAKTSAVYNPVIYIMMNKQFRNCMVTTLCCGKNPLGDDEASTTVSKTETSQVAPA"
+    elif ref_seq_name == 'squid':    
+        raw_ref_seq = "MGRDLRDNETWWYNPSIVVHPHWREFDQVPDAVYYSLGIFIGICGIIGCGGNGIVIYLFTKTKSLQTPANMFIINLAFSDFTFSLVNGFPLMTISCFLKKWIFGFAACKVYGFIGGIFGFMSIMTMAMISIDRYNVIGRPMAASKKMSHRRAFIMIIFVWLWSVLWAIGPIFGWGAYTLEGVLCNCSFDYISRDSTTRSNILCMFILGFFGPILIIFFCYFNIVMSVSNHEKEMAAMAKRLNAKELRKAQAGANAEMRLAKISIVIVSQFLLSWSPYAVVALLAQFGPLEWVTPYAAQLPVMFAKASAIHNPMIYSVSHPKFREAISQTFPWVLTCCQFDDKETEDDKDAETEIPAGESSDAAPSADAAQMKEMMAMMQKMQQQQAAYPPQGYAPPPQGYPPQGYPPQGYPPQGYPPQGYPPPPQGAPPQGAPPAAPPQGVDNQAYQA"
 
+    gap_dropped_ref_seq = ''.join([item for item in reference_seq.values.tolist() if not (item is np.nan)])
+    site_count = 0
+    mismatch_list = []
+    for gd_site in gap_dropped_ref_seq:
+        if gd_site != raw_ref_seq[site_count]:
+            while gd_site != raw_ref_seq[site_count]:
+                mismatch_list.append(site_count+1)
+                site_count+=1
+        site_count+=1
+        
     tmd_ranges = {
         'bovine': {
             'N-Termina': range(3, 37),
@@ -69,6 +88,12 @@ def translate_candidate_sts(report_dir, ref_seq_name, reference_seq):
             site_counter += 1
             translated_site = site_counter - gap_count # Calculate translated site by subtracting gap count from current site count.
                                                         # This aligns the site number to the reference sequence without gaps.
+            if (translated_site in mismatch_list):
+                site_counter+=1
+                translated_site+=1
+            else:
+                pass
+                
             transmembrane_domain = 'CT/EC' # Default TMD value if no range matches.
             for tmd_name, site_range in reference_tmd_ranges.items():
                 if tmd_name == 'CT/EC':
@@ -91,8 +116,6 @@ def translate_candidate_sts(report_dir, ref_seq_name, reference_seq):
 
     return df
 
-import pandas as pd
-import os
 
 def translate_candidate_sts_aa_props(report_dir, reference_seq, ref_seq_name):
     """Translates candidate STS positions to their equivalent positions in a reference sequence (bovine or squid).
@@ -121,6 +144,22 @@ def translate_candidate_sts_aa_props(report_dir, reference_seq, ref_seq_name):
     # Input Validation and Setup
     if (ref_seq_name != 'bovine' and ref_seq_name != 'squid'):
         raise ValueError("ref_seq_name must be either 'bovine' or 'squid'")
+
+    # Need to compare the raw reference seq with the gap-dropped reference seq to properly translate sites
+    if ref_seq_name == 'bovine':
+        raw_ref_seq = "MNGTEGPNFYVPFSNKTGVVRSPFEAPQYYLAEPWQFSMLAAYMFLLIMLGFPINFLTLYVTVQHKKLRTPLNYILLNLAVADLFMVFGGFTTTLYTSLHGYFVFGPTGCNLEGFFATLGGEIALWSLVVLAIERYVVVCKPMSNFRFGENHAIMGVAFTWVMALACAAPPLVGWSRYIPEGMQCSCGIDYYTPHEETNNESFVIYMFVVHFIIPLIVIFFCYGQLVFTVKEAAAQQQESATTQKAEKEVTRMVIIMVIAFLICWLPYAGVAFYIFTHQGSDFGPIFMTIPAFFAKTSAVYNPVIYIMMNKQFRNCMVTTLCCGKNPLGDDEASTTVSKTETSQVAPA"
+    elif ref_seq_name == 'squid':    
+        raw_ref_seq = "MGRDLRDNETWWYNPSIVVHPHWREFDQVPDAVYYSLGIFIGICGIIGCGGNGIVIYLFTKTKSLQTPANMFIINLAFSDFTFSLVNGFPLMTISCFLKKWIFGFAACKVYGFIGGIFGFMSIMTMAMISIDRYNVIGRPMAASKKMSHRRAFIMIIFVWLWSVLWAIGPIFGWGAYTLEGVLCNCSFDYISRDSTTRSNILCMFILGFFGPILIIFFCYFNIVMSVSNHEKEMAAMAKRLNAKELRKAQAGANAEMRLAKISIVIVSQFLLSWSPYAVVALLAQFGPLEWVTPYAAQLPVMFAKASAIHNPMIYSVSHPKFREAISQTFPWVLTCCQFDDKETEDDKDAETEIPAGESSDAAPSADAAQMKEMMAMMQKMQQQQAAYPPQGYAPPPQGYPPQGYPPQGYPPQGYPPQGYPPPPQGAPPQGAPPAAPPQGVDNQAYQA"
+
+    gap_dropped_ref_seq = ''.join([item for item in reference_seq.values.tolist() if not (item is np.nan)])
+    site_count = 0
+    mismatch_list = []
+    for gd_site in gap_dropped_ref_seq:
+        if gd_site != raw_ref_seq[site_count]:
+            while gd_site != raw_ref_seq[site_count]:
+                mismatch_list.append(site_count+1)
+                site_count+=1
+        site_count+=1
 
     if ref_seq_name == 'bovine':
         tmd_ranges = {
@@ -176,7 +215,11 @@ def translate_candidate_sts_aa_props(report_dir, reference_seq, ref_seq_name):
         else:
             trans_site = k - gaps  # Calculate translated site
             # Determine TMD based on ref_seq_name
-
+            if (trans_site in mismatch_list):
+                k+=1
+                trans_site+=1
+            else:
+                pass
             tm = 'CT/EC' # Default value
             for region, (start, end) in tmd_ranges.items():
                 if start is not None and end is not None and trans_site in range(start, end):

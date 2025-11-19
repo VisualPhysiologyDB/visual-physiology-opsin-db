@@ -241,16 +241,16 @@ def dp_aa_prop_plot(importance, imp_col, model_name,
         legend_name_list = [aa_prop_name_dict[prop] for prop in props_to_keep if prop in aa_prop_name_dict]
         
     color_list = [
-        "#1f77b4",  # Muted Blue
-        "#ff7f0e",  # Safety Orange
-        "#9467bd",  # Medium Purple
-        "#2ca02c",  # Cooked Green
+        "#67c7f4",  # Muted Blue
+        "#ffad66e4",  # Safety Orange
+        "#b681e8",  # Medium Purple
+        "#31d96c",  # Cooked Green
         "#d62728",  # Brick Red
         "#8c564b",  # Chestnut Brown
         "#e377c2",  # Raspberry Pink
         "#7f7f7f",  # Middle Gray
         "#bcbd22",  # Curry Yellow-Green
-        "#17becf",  # Teal
+        "#17cfbd",  # Teal
         "#aaffc3",  # Light Lime Green
         "#ffbb78"   # Light Apricot
     ]
@@ -335,7 +335,7 @@ def dp_aa_prop_plot(importance, imp_col, model_name,
 
 # plot top 4 positions in a model
 def plot_imp_model(importance, X_train, y_train, model_name,
-                   meta_var, model_type, report_dir):
+                   meta_var, model_type, report_dir, trans_imp_report):
     """
     Plots the top 4 positions of a model. For regression (`model_type='reg'`), it plots box-plot and for classification
     (`model_type='cl'`) it plots stacked bar plot.
@@ -360,6 +360,21 @@ def plot_imp_model(importance, X_train, y_train, model_name,
     str
         It saves the plot as `pdf` in `report_dir`
     """
+    color_list = [
+        "#67c7f4",  # Muted Blue
+        "#ffad66e4",  # Safety Orange
+        "#b681e8",  # Medium Purple
+        "#31d96c",  # Cooked Green
+        "#d62728",  # Brick Red
+        "#8c564b",  # Chestnut Brown
+        "#e377c2",  # Raspberry Pink
+        "#7f7f7f",  # Middle Gray
+        "#bcbd22",  # Curry Yellow-Green
+        "#17cfbd",  # Teal
+        "#aaffc3",  # Light Lime Green
+        "#ffbb78"   # Light Apricot
+    ]
+    
     dat = X_train.copy()
     dat.loc[:, meta_var] = y_train
 
@@ -373,13 +388,20 @@ def plot_imp_model(importance, X_train, y_train, model_name,
     features = ['p' + str(f) for f in features]
 
     if model_type == 'reg':
-
         fig, axes = plt.subplots(figsize=(7.5, 7.5), dpi=350, constrained_layout=True, nrows=2, ncols=2)
         axes = axes.ravel()
         fig.suptitle(meta_var + ' VS important positions', fontsize=10)
+        color_dict = {}
         for nm, cl in enumerate(features):
+            color_for_plot=None
+            if '_' in cl:
+                property = cl.split('_')[1]
+                if property not in color_dict.keys():
+                    color_dict.update({property:color_list[len(color_dict.keys())]})
+                color_for_plot = color_dict[property]
+                
             ax = axes[nm]
-            box_plot(data=dat, group_col=cl, response_var=meta_var, ax=ax)
+            box_plot(data=dat, group_col=cl, response_var=meta_var, ax=ax, trans_imp_report=trans_imp_report, color_for_plot=color_for_plot)
 
         plt.savefig(str(report_dir + '/' + model_name + '_positions_box_' + str(350) + '.pdf'), bbox_inches='tight')
 
@@ -399,7 +421,7 @@ def plot_imp_model(importance, X_train, y_train, model_name,
 def plot_imp_all(final_models, X_train, y_train,
                  model_type, report_dir,
                  meta_var = 'meta_var', n_positions=None, grouped_features=None,
-                 max_plots=100,
+                 max_plots=100, trans_imp_report=None,
                  figsize=(3, 3)):
     """
     plots all the important position across all the top selected models (up to `max_plots`).
@@ -430,6 +452,20 @@ def plot_imp_all(final_models, X_train, y_train,
     dict
         a dictionary of all plots. Keys are position names and values are the plots.
     """
+    color_list = [
+        "#67c7f4",  # Muted Blue
+        "#ffad66e4",  # Safety Orange
+        "#b681e8",  # Medium Purple
+        "#31d96c",  # Cooked Green
+        "#d62728",  # Brick Red
+        "#8c564b",  # Chestnut Brown
+        "#e377c2",  # Raspberry Pink
+        "#7f7f7f",  # Middle Gray
+        "#bcbd22",  # Curry Yellow-Green
+        "#17cfbd",  # Teal
+        "#aaffc3",  # Light Lime Green
+        "#ffd84c"   # Sunshine Yellow 
+    ]
     plot_dir = str(report_dir + '/significant_positions_plots')
 
     if os.path.exists(plot_dir):
@@ -465,7 +501,7 @@ def plot_imp_all(final_models, X_train, y_train,
         p = 0
         cn_f = 0  # feature counter
         check = 0
-
+        color_dict = {}
         while (p < 0.05 or check < 10) and (cn_f < len(features)) and (cn_p < max_plots):
 
             cl = features[cn_f]
@@ -476,9 +512,15 @@ def plot_imp_all(final_models, X_train, y_train,
                     try:
                         k, p = stats.kruskal(*[group[meta_var].values for name, group in dat.groupby(cl)])
                         if p < 0.05:
+                            color_for_plot=None
+                            if '_' in cl:
+                                property = cl.split('_')[1]
+                                if property not in color_dict.keys():
+                                    color_dict.update({property:color_list[len(color_dict.keys())]})
+                                color_for_plot = color_dict[property]                            
                             feature_list.append(cl)
                             fig, ax = plt.subplots(figsize=figsize, dpi=350)
-                            box_plot(data=dat, group_col=cl, response_var=meta_var, ax=ax, p=p)
+                            box_plot(data=dat, group_col=cl, response_var=meta_var, ax=ax, p=p, trans_imp_report=trans_imp_report, color_for_plot=color_for_plot)
                             plt.savefig(str(plot_dir + '/' + cl + '_boxplot_' + str(350) + '.pdf'),
                                         bbox_inches='tight')
                             plots[cl] = fig, ax
