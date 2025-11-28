@@ -358,8 +358,10 @@ def box_plot(data, group_col, response_var, figsize=(3.2, 3.2), ax=None, p=None,
         property = group_col.split('_')[1]
     else:
         if isinstance(trans_imp_report, pd.DataFrame):
+            #print(group_col)
             feat_name=group_col[1:]
-            target_row = trans_imp_report[trans_imp_report['feature']==feat_name]
+            target_row = trans_imp_report[trans_imp_report['feature']==int(feat_name)]
+            #print(target_row)
             position = target_row['true_position'].values[0]
         else:
             position = group_col[1:]
@@ -379,50 +381,54 @@ def box_plot(data, group_col, response_var, figsize=(3.2, 3.2), ax=None, p=None,
     ax.grid(color='gray', linestyle='-', linewidth=0.2, axis='y')
     ax.set_axisbelow(True)
 
+    #try:
+    #    sns.boxplot(ax=ax, x=group_col, y=response_var, data=tmp,
+    #                showfliers=False, dodge=False,
+    #                width=.6, linewidth=.4,
+    #                palette=get_color_palette(char_list=tmp.loc[:, group_col]))
+    #    sns.despine(ax=ax)
+    #    sns.stripplot(ax=ax, x=group_col, y=response_var, data=tmp,
+    #                size=5-np.log(n_groups-1), alpha=0.3, linewidth=.2, hue=group_col,
+    #                palette=get_color_palette(char_list=tmp.loc[:, group_col]))
+    #    if '_' in group_col:
+    #        ax.set_xlabel(property, fontsize=8)
+    #    else:
+    #        ax.set_xlabel('Amino Acid', fontsize=8)
+    #    ax.set_ylabel(response_var, fontsize=8)
+    #    ax.xaxis.set_tick_params(labelsize=8, rotation=45)
+    #    ax.yaxis.set_tick_params(labelsize=8)
+
+    #    ax.set_title(f'Position {position}', fontsize=10)
+    #    try:
+    #        ax.get_legend().remove()
+    #    except:
+    #        pass 
+    #except:
+    if color_for_plot==None:
+        color_for_plot="#4ee1cff8" #setting the default to light blue/green
+    sns.boxplot(ax=ax, x=group_col, y=response_var, data=tmp,
+            showfliers=False, dodge=False,
+            width=.6, linewidth=.4,color=color_for_plot)
+    sns.despine(ax=ax)
+    sns.stripplot(ax=ax, x=group_col, y=response_var, data=tmp,
+                size=5-np.log(n_groups-1), alpha=0.3, linewidth=.2, color=color_for_plot)
+    if '_' in group_col:
+        ax.set_xlabel(aa_prop_name_dict[property], fontsize=8)
+        ax.xaxis.set_tick_params(labelsize=6, rotation=45)
+        ax.yaxis.set_tick_params(labelsize=6)
+    else:
+        ax.set_xlabel('Amino Acid', fontsize=8)
+        ax.xaxis.set_tick_params(labelsize=8)
+        ax.yaxis.set_tick_params(labelsize=8)
+        
+    ax.set_ylabel(response_var, fontsize=10)
+
+
+    ax.set_title(f'Position {position}', fontsize=10)
     try:
-        sns.boxplot(ax=ax, x=group_col, y=response_var, data=tmp,
-                    showfliers=False, dodge=False,
-                    width=.6, linewidth=.4,
-                    palette=get_color_palette(char_list=tmp.loc[:, group_col]))
-        sns.despine(ax=ax)
-        sns.stripplot(ax=ax, x=group_col, y=response_var, data=tmp,
-                    size=5-np.log(n_groups-1), alpha=0.3, linewidth=.2, hue=group_col,
-                    palette=get_color_palette(char_list=tmp.loc[:, group_col]))
-        if '_' in group_col:
-            ax.set_xlabel(property, fontsize=8)
-        else:
-            ax.set_xlabel('Amino Acid', fontsize=8)
-        ax.set_ylabel(response_var, fontsize=8)
-        ax.xaxis.set_tick_params(labelsize=6, rotation=45)
-        ax.yaxis.set_tick_params(labelsize=6)
-
-        ax.set_title(f'Position {position}', fontsize=10)
-        try:
-            ax.get_legend().remove()
-        except:
-            pass 
+        ax.get_legend().remove()
     except:
-        if color_for_plot==None:
-            color_for_plot="#67c7f4" #setting the default to blue
-        sns.boxplot(ax=ax, x=group_col, y=response_var, data=tmp,
-                showfliers=False, dodge=False,
-                width=.6, linewidth=.4,color=color_for_plot)
-        sns.despine(ax=ax)
-        sns.stripplot(ax=ax, x=group_col, y=response_var, data=tmp,
-                    size=5-np.log(n_groups-1), alpha=0.3, linewidth=.2, color=color_for_plot)
-        if '_' in group_col:
-            ax.set_xlabel(aa_prop_name_dict[property], fontsize=8)
-        else:
-            ax.set_xlabel('', fontsize=8)
-        ax.set_ylabel(response_var, fontsize=8)
-        ax.xaxis.set_tick_params(labelsize=6, rotation=45)
-        ax.yaxis.set_tick_params(labelsize=6)
-
-        ax.set_title(f'Position {position}', fontsize=8)
-        try:
-            ax.get_legend().remove()
-        except:
-            pass 
+        pass 
 
     return ax
 
