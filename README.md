@@ -3,6 +3,7 @@
 
 # Visual Physiology Opsin Database (VPOD) - [Version 1.3]
 **_VPOD_: A database of opsins and machine-learning models to predict λmax phenotypes.**
+*_Note_* - A simpler version of an intro to VPOD is also available on our organization github.io page -> [here](https://visualphysiologydb.github.io/vpod.html)
 
 ![](https://github.com/VisualPhysiologyDB/visual-physiology-opsin-db/blob/main/scripts_n_notebooks/figure_making/figures/VPOD_1.3/supplementary_figures/potenital_supp_figx/vpod_1.3_lmax_histogram_complete.png?raw=True) <!-- Alt text: Histogram distributions of Vertebrate and Invertebrate Opsin Light Sensitivity Data - λmax - from VPOD_het_1.3 with a scaled Kernel Density Estimate (KDE) curves overlaid to better visualize the general shape and characteristics of our λmax distributions. -->
 
