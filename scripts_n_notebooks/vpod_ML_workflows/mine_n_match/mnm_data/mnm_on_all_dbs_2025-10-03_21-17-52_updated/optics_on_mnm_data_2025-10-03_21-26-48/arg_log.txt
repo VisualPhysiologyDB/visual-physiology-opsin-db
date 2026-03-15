@@ -1,0 +1,15 @@
+Selected Options...
+input_sequence: ./mnm_data/mnm_on_all_dbs_2025-10-03_21-17-52/mined_and_acc_seqs_visual_only.fasta
+report_dir: ./mnm_data/mnm_on_all_dbs_2025-10-03_21-17-52/optics_on_mnm_data_2025-10-03_21-26-48
+output_file: mnm_data
+model: whole-dataset
+encoding_method: aa_prop
+blastp: True
+blastp_report: blastp_report
+refseq: bovine
+custom_ref_file: None
+bootstrap: False
+	visualize_bootstrap: False
+		bootstrap_viz_file: bootstrap_viz
+		save_as: svg
+		full_spectrum_xaxis: False
