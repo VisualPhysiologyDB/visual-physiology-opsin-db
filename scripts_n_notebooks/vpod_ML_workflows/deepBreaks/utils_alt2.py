@@ -131,11 +131,11 @@ def get_models(ana_type, dataset, encoding='hot'):
         elif dataset == 'inv_mnm':
             if encoding == 'aa_prop':
                 models = {
-                    'gbr': GradientBoostingRegressor(learning_rate=0.01, max_depth=5, max_features='sqrt', n_estimators=500, random_state=123),
+                    'gbr': GradientBoostingRegressor(learning_rate=0.01, max_depth=3, max_features=None, n_estimators=500, random_state=123),
                 }
             else:
                 models = {
-                    'gbr': GradientBoostingRegressor(learning_rate=0.01, max_depth=5, max_features='sqrt', n_estimators=500, random_state=123),
+                    'gbr': GradientBoostingRegressor(learning_rate=0.1, max_depth=3, max_features='sqrt', n_estimators=200, random_state=123),
                 }  
         else:
             models = {
@@ -245,10 +245,10 @@ def get_params():
         },
         'Adaboost': {'Adaboost__learning_rate': np.linspace(0.001, 0.1, num=2),
                      'Adaboost__n_estimators': [200, 400]},
-        'gbr': {'gbc__max_depth': range(3, 12), #original is (3, 6)
-                'gbc__max_features': ['sqrt', 'log2', None],
-                'gbc__n_estimators': [200, 300, 500, 800], #200,500,800 original
-                'gbc__learning_rate': [0.001,0.01,0.1]},
+        'gbr': {'gbr__max_depth': range(3, 12), #original is (3, 6)
+                'gbr__max_features': ['sqrt', 'log2', None],
+                'gbr__n_estimators': [200, 300, 500, 800], #200,500,800 original
+                'gbr__learning_rate': [0.001,0.01,0.1]},
         'et': {'et__max_depth': [4, 6, 8, 10, 12, 20],
                'et__n_estimators': [500, 1000]},
         'dt': {'dt__max_depth': [4, 6, 8]},
@@ -289,11 +289,11 @@ def get_exp_params():
             'Adaboost__n_estimators': [50, 100, 200],  # More granular
         },
         'gbr': {
-            'gbc__max_depth': [3, 5, 7, 9, 10, 20, None],  # Try unlimited depth
-            'gbc__max_features': ["sqrt", "log2", "Auto", None],  # More flexibility
-            'gbc__n_estimators': [200, 300, 500, 800],  # Reasonable range
-            'gbc__learning_rate': [0.001, 0.01, 0.1, 0.2],  # Common values
-            #'gbc__subsample': [0.8, 1.0],  # Consider subsampling 
+            'gbr__max_depth': [3, 5, 7, 9, 10, 20, None],  # Try unlimited depth
+            'gbr__max_features': ["sqrt", "log2", "Auto", None],  # More flexibility
+            'gbr__n_estimators': [200, 300, 500, 800],  # Reasonable range
+            'gbr__learning_rate': [0.001, 0.01, 0.1, 0.2],  # Common values
+            #'gbr__subsample': [0.8, 1.0],  # Consider subsampling 
         },
         'et': {
             'et__max_depth': [None, 10, 20, 30],  # More flexibility

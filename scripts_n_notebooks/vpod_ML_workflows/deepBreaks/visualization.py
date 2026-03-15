@@ -335,7 +335,7 @@ def dp_aa_prop_plot(importance, imp_col, model_name,
 
 # plot top 4 positions in a model
 def plot_imp_model(importance, X_train, y_train, model_name,
-                   meta_var, model_type, report_dir, trans_imp_report):
+                   meta_var, model_type, report_dir, trans_imp_report, prop_list):
     """
     Plots the top 4 positions of a model. For regression (`model_type='reg'`), it plots box-plot and for classification
     (`model_type='cl'`) it plots stacked bar plot.
@@ -375,6 +375,11 @@ def plot_imp_model(importance, X_train, y_train, model_name,
         "#ffbb78"   # Light Apricot
     ]
     
+    color_dict = {}
+    for prop in prop_list:
+        if prop not in color_dict.keys():
+            color_dict.update({prop:color_list[len(color_dict.keys())]})
+    
     dat = X_train.copy()
     dat.loc[:, meta_var] = y_train
 
@@ -391,13 +396,10 @@ def plot_imp_model(importance, X_train, y_train, model_name,
         fig, axes = plt.subplots(figsize=(7.5, 7.5), dpi=350, constrained_layout=True, nrows=2, ncols=2)
         axes = axes.ravel()
         fig.suptitle(meta_var + ' VS important positions', fontsize=10)
-        color_dict = {}
         for nm, cl in enumerate(features):
             color_for_plot=None
             if '_' in cl:
                 property = cl.split('_')[1]
-                if property not in color_dict.keys():
-                    color_dict.update({property:color_list[len(color_dict.keys())]})
                 color_for_plot = color_dict[property]
                 
             ax = axes[nm]

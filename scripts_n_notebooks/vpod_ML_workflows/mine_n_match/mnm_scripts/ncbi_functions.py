@@ -74,9 +74,17 @@ def ncbi_fetch_alt(term, ncbi_db="protein", rettype="gb", format="genbank", cach
         list: A list of Biopython SeqRecord objects.
     """
     # Step 1: Get the list of IDs for the search term
-    handle = Entrez.esearch(db=ncbi_db, term=term, retmax='100000') # Get a large number of IDs
-    search_results = Entrez.read(handle)
-    handle.close()
+    time.sleep(0.1)
+    handle = Entrez.esearch(db=ncbi_db, term=term, retmax='10000') # Get a large number of IDs
+    
+    try:
+        search_results = Entrez.read(handle)
+        handle.close()
+    except Exception as e:
+        print(f"Exception occured during NCBI Fetch:\n{e}\n")
+        print(f"This is the handle:\n{handle}\n")
+        
+        return ([])
     
     id_list = search_results["IdList"]
     count = int(search_results["Count"])
@@ -125,6 +133,7 @@ def ncbi_fetch_alt(term, ncbi_db="protein", rettype="gb", format="genbank", cach
                     cache[cache_id] = string_handle.getvalue()
             fetch_handle.close()
         except Exception as e:
+            
             print(f"Error fetching or parsing batch: {e}")
             continue
 
@@ -228,6 +237,7 @@ def _fetch_for_species(species, species_taxon_dict, ncbi_cache):
     try:
         sp_for_query = build_species_query(species_taxon_dict, species)
         complete_ncbi_query = build_visual_opsin_query(sp_for_query)
+        
         return ncbi_fetch_alt(term=complete_ncbi_query, cache=ncbi_cache)
     except Exception as e:
         # Print an error message and return an empty list if a query fails
@@ -514,7 +524,7 @@ def build_visual_opsin_query(sp_for_query: str) -> str:
     final_query = ' '.join(query_parts)
     # for now we are keeping this hard-coded since the way shown above would produce bugs occasionally
     #final_query = f'''({sp_for_query} AND ("opsin"[All Fields] OR "rhodopsin"[All Fields] OR “rhabdomeric opsin"[All Fields] OR “c-opsin”[All Fields] OR “r-opsin”[All Fields]) AND ("RH1"[Title] OR "rh1"[Title] OR "rho"[Title] OR “rh”[Title] OR "RH"[Title] OR "Rho"[Title] OR "RHO"[Title] OR "rod"[Title] OR "RH2"[Title] OR "rh2"[Title] OR "OPN1SW"[Title] OR "opn1sw"[Title] OR "SWS1"[Title] OR "sws1"[Title] OR "blue-sensitive"[Title] OR "blue sensitive"[Title] OR "green-sensitive"[Title] OR "green sensitive"[Title] OR "ultra-violet-sensitive"[Title] "ultra-violet sensitive"[Title] OR "OPN1S2"[Title] OR "opn1s2"[Title] OR "SWS2"[Title] OR "sws2"[Title] OR "short-wave-sensitive"[Title] OR "short-wave-sensitive"[Title] OR "OPN1LW"[Title] OR "opn1lw"[Title] OR "LWS"[Title] OR "lws"[Title] OR "long-wave-sensitive"[Title] OR "long-wave sensitive"[Title] OR "long-wavelength sensitive"[Title] OR "red-sensitive"[Title] OR "red sensitive"[Title] OR "red-wavelength"[Title] OR "OPN1MW"[Title] OR "opn1mw"[Title] OR "MWS"[Title] OR "mws"[Title] OR "medium-wave sensitive"[Title] OR "cone opsin"[Title] OR "visual pigment"[Title] OR "photoreceptor opsin"[Title] OR "opsin"[Title] or "rhodopsin"[Title]))) NOT "melanopsin"[Title] NOT "OPN4"[Title] NOT "opn4"[Title] NOT "non-visual"[Title] NOT "nonvisual"[Title] NOT "encephalopsin"[Title] NOT "TMT opsin"[Title] NOT "OPN3"[Title] NOT "opn3"[Title] NOT "neuropsin"[Title] NOT "OPN5"[Title] NOT "opn5"[Title] NOT "pinopsin"[Title] NOT "pinopsin-like"[All-Fields] NOT "parietopsin"[Title] NOT "parapinopsin"[Title] NOT "peropsin"[Title] NOT "peropsin-like"[All-Fields] NOT "RGR opsin"[Title] NOT "VA opsin"[Title] NOT "vertebrate ancient"[Title] NOT "partial"[Title] NOT "fragment"[Title] NOT "exon"[Title] NOT "intron"[Title] NOT "segment"[Title] NOT "kinase"[Title] NOT "GTPase"[Title] NOT "transducin"[Title] NOT "arrestin"[Title] NOT "enhancer"[Title] NOT "promoter"[Title] NOT "regulatory"[Title] NOT "similar"[Title] NOT "homolog"[Title] NOT "putative"[Title] NOT “incomplete”[Title] NOT "transcript variant"[Title] NOT "extra-ocular rhodopsin"[Title] NOT "exorh"[Title] NOT "psuedogene"[Title] NOT "Opsin 4"[Title] NOT "Opsin 5"[Title] NOT "Opsin 6"[Title] NOT "Opsin 7"[Title] NOT "Opsin 8"[Title] NOT "Opsin 9"[Title] NOT "extra-ocular"[Title] NOT "opsin 4"[Title] NOT "opsin 5"[Title] NOT "opsin 6"[Title] NOT "opsin 7"[Title] NOT "opsin 8"[Title] NOT "opsin 9"[Title]'''
-    
+    #print(final_query)
     #print(f'This is the query being used:\n{final_query}')
 
     return final_query

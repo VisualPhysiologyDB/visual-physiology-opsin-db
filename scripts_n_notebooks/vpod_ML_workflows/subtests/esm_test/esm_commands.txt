@@ -1,0 +1,1 @@
+python scripts/extract.py esm2_t48_15B_UR50D /home/seth_frazer/vpod/vpod_1.3_data_splits_2025-10-06_16-50-06/wds.txt /home/seth_frazer/vpod/esm_embed_vpod_1.3/wds_embeds --repr_layers 33 --include mean

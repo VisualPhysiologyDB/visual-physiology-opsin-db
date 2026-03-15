@@ -1,0 +1,4 @@
+Best gbr Model R-squared:	0.8881525997346573
+Best parameters for gbr:
+{'gbr__learning_rate': 0.1, 'gbr__max_depth': 3, 'gbr__max_features': 'sqrt', 'gbr__n_estimators': 200}
+
