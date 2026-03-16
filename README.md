@@ -69,6 +69,7 @@ Instructions for navigating VPOD data files, including raw and curated data used
       - **_aa_prop_vs_one_hot_** - Contains comparisons of predictive power between ML models trained using either one-hot or amino-acid property encoding [VPOD_1.3 only].
       - **_epistasis_pred_test_** - Contains predictions by and comparisons between our WT and WDS models on 111 'epistatic mutations' (non-additive) to more generally the capabilities of our ML models to predict epistatic interactions between mutations.
         - _epistasis_analysis.ipynb_ - Contains code for running and results of _Wilcoxn Signed-Rank Tests_ - testing for statistically significant differences in the distributions of squared error between the WDS-epi model to WT model, WDS-epi model to the expected additive mutation λmax values (EAV), and WT model to EAV, respectively.
+      - **_esm2_embedding_models_** - Contains model results for our ESM test (VPOD_1.3 only)
       - **_full_iter_sample_results_** - Contains results of our 'sample iterate test' on each dataset - where x number of datapoints are removed from the training data prior to training and used as test data. This is repeated until all points have been sampled once.
       - **_imputation_tests_** - Contains results comparing the predictions of phylogentic imputation and our ML models for the same data points (varies by dataset).
       - **_main_model_results_** - Contains model training results for each dataset, seperated by alignment method used (MAFFT, MUSCLE, and GBLOCKS following MUSCLE alignment) and then by database version (i.e. VPOD_1.0, VPOD_1.1, and VPOD_1.3).
@@ -113,7 +114,9 @@ Instructions for navigating VPOD data files, including raw and curated data used
               - The final output of the MNM workflow follow the format of 'mnm_on_xxx_results_fully_filtered.csv'
               - For more information on the other outputs, kindly refer to the markdown text within the notebook first, then see _Frazer & Oakley 2025_ or contact us directly.
             - **_mnm_scripts_** folder - Contains the script necessary for running the main functions called in the main MNM workflow notebook (```mine_n_match_functions.py```).  This script is generally well commented for the sake of reproducability/reusability (although this script is more of a module holder, and not meant to be run via command-line). 
-          - _substests_ folder - Contains notebooks used for subtests outlined in _Frazer et al. 2024_.
+          - **_substests_** folder - Contains notebooks used for subtests outlined in _Frazer et al. 2024_.
+            - **esm_test** folder - Contains scripts and ESM2 embeddings for VPOD datasets needed to train models trained on ESM2 embeddings (see _Frazer & Oakley 2025_ for more detail; VPOD_1.3 only)
+              - ```vpod_esm2_wf.ipynb``` - Notebook containing full workflow for training models on ESM2 embeddings (WARNING - refer to the [ESM repository](https://github.com/facebookresearch/esm) for information on environment setup) 
             - **_grid_search_opt_** folder - Contains scripts for running grid-search optimization ML models trained on all VPOD datasets (VPOD_1.3 only).
               - ```vpod_aa_prop_grid_search_iter.py``` - Iteratively trains models on all VPOD datasets utilizing amino-acid property encoding.
               - ```vpod_one_hot_grid_search_iter.py``` - Iteratively trains models on all VPOD datasets utilizing one-hot encoding.
