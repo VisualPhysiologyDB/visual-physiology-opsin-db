@@ -1,4 +1,4 @@
-**Data & Code**: [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) // **VPOD_1.3**: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19051998.svg)](https://doi.org/10.5281/zenodo.19051998)
+**Data & Code**: [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) // **VPOD_v1.3**: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19051998.svg)](https://doi.org/10.5281/zenodo.19051998)
 
 
 # Visual Physiology Opsin Database (VPOD) - [Version 1.3]
