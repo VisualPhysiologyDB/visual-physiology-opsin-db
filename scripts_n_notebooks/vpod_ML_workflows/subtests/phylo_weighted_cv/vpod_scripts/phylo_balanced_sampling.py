@@ -208,6 +208,9 @@ def _phenotype_edges(
         )
 
     in_range = values[(values >= min_edge) & (values <= max_edge)]
+    
+    # equal_width = equal lambda_max intervals; better range coverage; may discard more data
+    # quantile    = roughly equal data density per bin; keeps more data; less strict phenotype-range balance
     if bin_mode == "equal_width":
         edges = np.linspace(min_edge, max_edge, n_bins + 1)
     elif bin_mode == "quantile":
@@ -339,7 +342,12 @@ def make_phylo_phenotype_balanced_subset(
         if n_per_group < cfg.min_per_group_per_bin:
             skipped_bins.append(str(bin_label))
             continue
-
+        
+        # The sampling step happens here: 
+        # So if a bin has 40 vertebrates and 6 invertebrates, 
+        # the balanced bin keeps 6 vertebrates + 6 invertebrates.
+        # This uses rng to uniformly random sample from the bins if no phylo tree is given,
+        # otherwise the sampling would be weighted by the tree distance matrix to prevent heavy sampling of one clade within a bin
         selected.extend(_weighted_sample_ids(group_frames["vertebrate"], n_per_group, rng))
         selected.extend(_weighted_sample_ids(group_frames["invertebrate"], n_per_group, rng))
 
